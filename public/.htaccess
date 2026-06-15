@@ -1,0 +1,92 @@
+RewriteEngine On
+
+# Forçar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# 1. Redirecionar a raiz vazia para o idioma padrão (/pt/)
+RewriteRule ^$ /pt/ [R=301,L]
+
+# Se o arquivo ou diretório existe fisicamente, servir diretamente
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 2. Adicionar trailing slash se não tiver extensão de arquivo
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9_-]+$
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+# 3. Suporte ao "as-needed" do next-intl:
+# Se acessarem /sobre/, o Apache checa se existe /pt/sobre/index.html e serve silenciosamente.
+RewriteCond %{REQUEST_URI} ^/(?!pt/|en/|_next/)(.*)$
+RewriteCond %{DOCUMENT_ROOT}/pt/%1index.html -f
+RewriteRule ^(.*)$ /pt/$1 [L]
+
+# 4. Roteamento de RSC (React Server Components) para Hostinger/Apache
+# Evitar que o Next.js exiba "um monte de códigos" (HTML bruto) ao clicar em links/imagens
+RewriteCond %{HTTP:Rsc} 1 [OR]
+RewriteCond %{QUERY_STRING} _rsc=
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}index.txt -f
+RewriteRule ^ %{REQUEST_URI}index.txt [L]
+
+RewriteCond %{HTTP:Rsc} 1 [OR]
+RewriteCond %{QUERY_STRING} _rsc=
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.txt -f
+RewriteRule ^ %{REQUEST_URI}.txt [L]
+
+# 5. Servir index.html de qualquer diretório que tenha trailing slash
+RewriteCond %{REQUEST_URI} /$
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}index.html -f
+RewriteRule ^ %{REQUEST_URI}index.html [L]
+
+# Fallback para 404 (O Next.js gera o 404.html na compilação estática)
+ErrorDocument 404 /404.html
+
+# Configuração de MIME Types (Garante que imagens e vídeos modernos não abram como texto)
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType image/webp .webp
+  AddType video/webm .webm
+</IfModule>
+
+# Cache de assets estáticos
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType video/webm "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+</IfModule>
+
+# Cache-Control headers explícitos
+<IfModule mod_headers.c>
+  <FilesMatch "\.(avif|webp|jpg|jpeg|png|gif|svg|woff2|woff|ttf|webm|mp4)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+# Compressão GZIP
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Headers de segurança
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

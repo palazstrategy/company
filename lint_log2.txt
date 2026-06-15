@@ -1,0 +1,28 @@
+
+> palaz-portfolio@0.1.0 lint
+> next lint
+
+
+./src/components/editor/LocalInputs.tsx
+21:8  Warning: React Hook useEffect has a missing dependency: 'localValue'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/page-specific/CaseGallery.tsx
+1:1  Warning: Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any').
+1:1  Warning: Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-unused-vars').
+1:1  Warning: Unused eslint-disable directive (no problems were reported from 'react/no-unescaped-entities').
+1:1  Warning: Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps').
+1:1  Warning: Unused eslint-disable directive (no problems were reported from '@next/next/no-img-element').
+1:1  Warning: Unused eslint-disable directive (no problems were reported from 'jsx-a11y/alt-text').
+
+./src/components/sections/CTA.tsx
+1:1  Warning: Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any', '@typescript-eslint/no-unused-vars', 'prefer-const', 'react/no-unescaped-entities', 'react-hooks/exhaustive-deps', '@next/next/no-img-element', or 'jsx-a11y/alt-text').
+
+./src/lib/translator.ts
+6:5  Warning: Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any').
+
+./src/store/editorStore.ts
+1:1  Warning: Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any').
+7:5  Warning: Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any').
+157:9  Warning: Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any').
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules

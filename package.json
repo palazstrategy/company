@@ -1,0 +1,37 @@
+{
+  "name": "palaz-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbo -p 3000",
+    "build": "next build",
+    "deploy": "powershell -ExecutionPolicy Bypass -File scripts/deploy.ps1",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/third-parties": "^16.2.1",
+    "@tailwindcss/postcss": "^4.2.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.35.2",
+    "lenis": "^1.3.21",
+    "lucide-react": "^0.577.0",
+    "next": "15.1.7",
+    "next-intl": "^4.8.3",
+    "postcss": "^8.5.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.2",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.7",
+    "typescript": "^5"
+  }
+}

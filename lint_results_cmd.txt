@@ -1,0 +1,12 @@
+
+> palaz-portfolio@0.1.0 lint
+> next lint
+
+
+./src/components/editor/LocalInputs.tsx
+21:8  Warning: React Hook useEffect has a missing dependency: 'localValue'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/sections/HeroVideo.tsx
+50:7  Error: Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free.  @typescript-eslint/ban-ts-comment
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules

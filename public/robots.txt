@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /editor/
+
+Sitemap: https://palaz.com.br/sitemap.xml

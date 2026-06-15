@@ -1,0 +1,345 @@
+{
+    "Navigation": {
+        "inicio": "Início",
+        "cases": "Cases",
+        "sobre": "Sobre",
+        "projetos": "Projetos",
+        "contato": "Contato",
+        "produtos": "Produtos",
+        "agendar": "Agendar uma conversa"
+    },
+    "Footer": {
+        "servicos": "Serviços",
+        "design_estrategico": "Design Estratégico",
+        "ui_ux": "UI/UX Design",
+        "branding": "Branding",
+        "desenvolvimento": "Desenvolvimento",
+        "institucional": "Institucional",
+        "sobre": "Sobre a Palaz",
+        "casos_sucesso": "Casos de Sucesso",
+        "carreiras": "Carreiras",
+        "contato": "Contato",
+        "fale_conosco": "Fale Conosco",
+        "suporte": "Suporte",
+        "faqs": "FAQs",
+        "menu": "Menu",
+        "connect_label": "Conectar",
+        "availability_label": "Disponibilidade",
+        "email_label": "Envie um e-mail para",
+        "availability": "Disponível para novos projetos",
+        "location": "Localizado no Brasil",
+        "city": "Belo Horizonte, MG",
+        "local_time": "Horário Local",
+        "technical_status": "Status: Online",
+        "version": "EDIÇÃO 2026 — REV 4.0",
+        "privacy": "Política de Privacidade",
+        "cnpj": "CNPJ: 62.808.025/0001-73",
+        "rights": "© 2026 Todos os direitos reservados."
+    },
+    "Error": {
+        "title": "Algo deu errado!",
+        "description": "Ocorreu um erro inesperado ao tentar carregar esta página.",
+        "retry": "Tentar Novamente",
+        "home": "Ir para Início"
+    },
+    "Home": {
+        "hero": {
+            "title1_p1": "A estratégia",
+            "title1_p2": "dá a direção.",
+            "title2": "O design dá a forma.",
+            "description": "Propósito, estratégia e presença\nem todos os pontos de contato."
+        },
+        "cases": {
+            "subtitle": "Nossos Cases",
+            "title": "Projetos que forjamos",
+            "ver_todos": "Ver todos os cases →"
+        },
+        "cta": {
+            "title_pt1": "Pronto para transformar",
+            "title_pt2": "sua marca em algo",
+            "estrategico": "estratégico",
+            "solido": "sólido",
+            "e": "e",
+            "memoravel": "memorável",
+            "description": "Preencha o formulário para entendermos melhor os objetivos do seu projeto e agendarmos uma conversa estratégica.",
+            "button": "Agendar conversa"
+        }
+    },
+    "Sobre": {
+        "hero": {
+            "title": "Sobre a",
+            "subtitle1": "Estratégia, visão",
+            "subtitle2": "e ",
+            "subtitle3": "propósito",
+            "description_main": "Na Palaz, acreditamos que uma marca forte vai muito além de um bom design. Ela nasce de estratégia, visão e propósito.",
+            "description": "Somos um estúdio de design estratégico focado em transformar empresas em marcas sólidas e memoráveis. Atuamos lado a lado com empreendedores e negócios que querem mais do que estética, querem posicionamento, identidade e direção clara."
+        },
+        "manifesto": {
+            "subtitle": "NOSSO MANIFESTO",
+            "title": "Combinamos pensamento estratégico e criatividade visual para construir marcas que conectam, se destacam e crescem de forma consistente.",
+            "text1": "Se você busca presença de marca, clareza no posicionamento e uma identidade que realmente represente o valor do seu negócio, a Palaz é o seu lugar.",
+            "text2": "",
+            "text3": ""
+        },
+        "metodologia": {
+            "title_label": "Metodologia",
+            "title": "Como <highlight>forjamos</highlight>\nmarcas",
+            "step1": {
+                "tag": "IMERSÃO",
+                "title": "Imersão e Diagnóstico",
+                "description": "Antes de criar qualquer coisa, nós escutamos. A imersão é o ponto de partida de todos os nossos projetos. Nessa etapa, mergulhamos na história, nos desafios e nos objetivos do cliente. Investigamos o mercado, analisamos concorrentes, entendemos o público e identificamos oportunidades. Essa fase nos permite construir uma base sólida, com clareza sobre o que a marca precisa comunicar e por que ela existe."
+            },
+            "step2": {
+                "tag": "ESTRATÉGIA",
+                "title": "Posicionamento Estratégico",
+                "description": "Com as informações certas em mãos, damos início à construção da base conceitual da marca. É nesse momento que definimos seu propósito, seus valores, sua personalidade e o tom de voz. Também identificamos os diferenciais que tornam a marca única e traçamos o território que ela deve ocupar no mercado. O posicionamento é o coração estratégico da identidade: é ele que direciona todas as decisões de criação e comunicação a partir daqui."
+            },
+            "step3": {
+                "tag": "DESIGN",
+                "title": "Criação da Identidade Visual",
+                "description": "Agora, a estratégia ganha forma. Com o posicionamento bem definido, damos início ao processo de criação da identidade visual. Desenvolvemos o logotipo, a paleta de cores, as tipografias, os elementos gráficos e o sistema visual como um todo. Mais do que estética, buscamos coerência, funcionalidade e expressão. Cada escolha visual carrega uma intenção. Criamos marcas com personalidade, marcas que se destacam e se sustentam ao longo do tempo."
+            },
+            "step4": {
+                "tag": "ENTREGA",
+                "title": "Entrega e Direcionamento",
+                "description": "Com a identidade pronta, é hora de colocar tudo em movimento. Organizamos os arquivos finais, entregamos materiais prontos para uso e orientamos o cliente sobre como aplicar sua nova marca com consistência. Se necessário, também criamos um guia de aplicação que garante autonomia e clareza no uso do sistema visual. Nosso objetivo é que a marca exista com força, da apresentação ao feed, da embalagem ao site. E que ela se mantenha firme no propósito para o qual foi criada."
+            }
+        }
+    },
+    "Projetos": {
+        "hero": {
+            "title1": "Projetos que",
+            "title2": "forjamos",
+            "title": "Nossos Trabalhos.",
+            "description_main": "Marcas que foram pensadas com estratégia, criadas com intenção e construídas para ir além do visual.",
+            "description": "Cada case mostra um pouco do nosso processo, da nossa forma de pensar e de como ajudamos empresas a se posicionarem com força e clareza."
+        }
+    },
+    "Contato": {
+        "hero": {
+            "subtitle": "Briefing de Projeto",
+            "title_pt1": "Dê o próximo passo ",
+            "title_pt2": "estratégico",
+            "title_pt3": "",
+            "description": "Preencha o formulário abaixo para que possamos analisar seu cenário e desenhar uma proposta sob medida para sua marca."
+        },
+        "section1": {
+            "title": "Dados Pessoais",
+            "description": "",
+            "name_label": "Nome Completo *",
+            "name_placeholder": "Seu nome completo",
+            "email_label": "E-mail Corporativo *",
+            "email_placeholder": "email@empresa.com.br",
+            "phone_label": "WhatsApp (com DDD) *",
+            "phone_placeholder": "(00) 00000-0000",
+            "state_label": "Estado",
+            "state_placeholder": "Seu estado",
+            "city_label": "Cidade",
+            "city_placeholder": "Sua cidade"
+        },
+        "section2": {
+            "title": "A Empresa",
+            "description": "",
+            "company_label": "Nome da Empresa",
+            "company_placeholder": "Nome da sua marca",
+            "site_label": "Site ou Portfolio",
+            "site_placeholder": "www.suaempresa.com.br",
+            "instagram_label": "Instagram",
+            "instagram_placeholder": "@sua_marca",
+            "segment_label": "Ramo / Segmento",
+            "segment_placeholder": "Qual o seu segmento?",
+            "employees_label": "Quantos funcionários sua empresa possui atualmente?",
+            "employees_options": {
+                "opt1": "Profissional liberal",
+                "opt2": "Micro (2-10 funcionários)",
+                "opt3": "Média (50-100 funcionários)",
+                "opt4": "Grande (mais de 100 funcionários)"
+            }
+        },
+        "section3": {
+            "title": "Investimento",
+            "description": "",
+            "products_label": "Quais produtos ou serviços sua empresa oferece?",
+            "products_placeholder": "Ex: Consultoria, Software, Vendas Online...",
+            "extras_label": "Itens Extras Desejados",
+            "extras_placeholder": "Quais soluções você busca? (Identidade, Web, Embalagem...)",
+            "origin_label": "Como você nos encontrou?",
+            "origin_options": {
+                "opt1": "Instagram",
+                "opt2": "Google",
+                "opt3": "Behance",
+                "opt4": "Facebook",
+                "opt5": "Pinterest",
+                "opt6": "Indicação"
+            },
+            "investment_label": "Quanto você pretende investir no projeto?",
+            "investment_options": {
+                "opt1": "De 1 a 5 Mil reais",
+                "opt2": "De 5 a 10 Mil reais",
+                "opt3": "De 10 a 15 Mil reais",
+                "opt4": "Outros"
+            },
+            "message_label": "Para finalizar, me fale um pouco mais sobre a sua empresa e os principais desafios que enfrenta hoje.",
+            "message_placeholder": "Escreva aqui os principais objetivos e as dores do seu negócio...",
+            "submit": "Enviar"
+        },
+        "sending": "Enviando...",
+        "sent_success": "Enviado com sucesso!",
+        "error_send": "Erro ao enviar. Tente novamente.",
+        "choose_option": "Escolha uma opção..."
+    },
+    "NotFound": {
+        "title": "Página Não Encontrada",
+        "description": "A página que você está procurando não existe ou foi movida.",
+        "button": "Voltar para o Início"
+    },
+    "ProjectDetails": {
+        "client": "Cliente",
+        "year": "Ano",
+        "category": "Categoria",
+        "role": "Serviços",
+        "back_button": "Voltar para todos os trabalhos",
+        "next_project": "Próximo Projeto"
+    },
+    "Cursor": {
+        "ver": "VER"
+    },
+    "ProjectsData": {
+        "aira-essence": {
+            "title": "Aira Essence",
+            "description": "A Aira Essence é uma marca dedicada a proporcionar bem-estar através de produtos cuidadosamente desenvolvidos com ingredientes naturais e aromas envolventes. Inspirada pela conexão com a natureza, Aira busca transformar pequenos momentos em experiências sensoriais únicas, trazendo leveza e equilíbrio para o dia a dia.\n \nCom uma linha completa que inclui hidratantes corporais, sabonetes em barra e sprays aromatizadores, a Aira valoriza a simplicidade, o conforto e a sofisticação. Cada produto é pensado para criar uma atmosfera de cuidado e tranquilidade, unindo qualidade e autenticidade.",
+            "client": "Aira Essence",
+            "category": "Cuidado Pessoal - Essencias Naturais",
+            "role": "Branding / Identidade Visual / Embalagem / Naming",
+            "keywords": "cosméticos naturais, identidade visual cosméticos, branding cuidado pessoal, design de embalagem, naming marca, essências naturais, aromaterapia, hidratante corporal, sabonete artesanal, marca de bem-estar, logo cosméticos, paleta de cores marca, design minimalista, branding estratégico, embalagem premium, produtos naturais, marca de beleza, identidade visual premium, logo, marca"
+        },
+        "sland-inteligencia-produtiva": {
+            "title": "Sland Inteligência Produtiva",
+            "description": "A identidade visual da SLAND, empresa de tecnologia aplicada ao agronegócio, foi desenvolvida para comunicar com clareza e sofisticação os pilares centrais da marca: inovação, sustentabilidade e eficiência no campo. A paleta de cores equilibra elementos naturais e tecnológicos, combinando o verde floresta e o verde limão digital, que remetem à vitalidade da terra e ao compromisso sustentável, com o azul profundo e o azul ciano claro, que representam a inteligência dos dados, conectividade e confiança nos sistemas de monitoramento.\n \nPara a construção do logotipo, foi utilizada a fonte Nasalization, uma tipografia futurista com formas arredondadas que reforçam o posicionamento tecnológico da marca de maneira marcante e contemporânea. Já a tipografia institucional e de apoio é a TT Interphases Pro Trl, que combina geometria e fluidez, garantindo alta legibilidade e um visual moderno e acessível para as aplicações digitais e impressas da marca.",
+            "client": "Sland Inteligência Produtiva",
+            "category": "Tecnologia & Agronegócio",
+            "role": "Branding / Identidade Visual / Embalagem / Naming",
+            "keywords": "agronegócio tecnológico, branding agronegócio, identidade visual agtech, design estratégico agro, inteligência produtiva, inovação no campo, sustentabilidade rural, automação agrícola, smart land, posicionamento de marca agro, consultoria estratégica agro, gestão de marca agronegócio, tecnologia agrícola brasileira, branding para startups agro, design de logotipo agronegócio"
+        },
+        "acougue-almeida": {
+            "title": "Açougue Almeida",
+            "description": "O Açougue Almeida buscava uma identidade visual que transmitisse tradição, confiança e qualidade, mas de forma moderna e marcante. O desafio foi equilibrar a força e a rusticidade do segmento com uma estética acessível e profissional. Como solução, desenvolvemos um símbolo inspirado na figura do boi, representando robustez e movimento, aliado a uma tipografia sólida e impactante. A paleta de cores reforça tradição, confiança e proximidade, criando uma marca memorável e versátil.",
+            "client": "Açougue Almeida",
+            "category": "Varejo Alimentar",
+            "role": "Branding / Identidade Visual / Embalagem",
+            "keywords": "açougue premium, identidade visual açougue, branding varejo alimentar, design de logotipo açougue, tradição e qualidade, carnes nobres, posicionamento de marca, design estratégico, identidade visual rústica, logo boi, casa de carnes, branding para açougues, marketing alimentar, design de embalagem carnes, marca de confiança, varejo de luxo, paleta de cores tradicional"
+        },
+        "fatuz": {
+            "title": "Fatuz",
+            "description": "Para muitos freelancers e autônomos, cobranças informais via Word ou WhatsApp transmitem amadorismo e atrasam pagamentos. A Fatuz resolve essa dor sendo a ponte para o posicionamento premium: uma plataforma ágil que une faturas com Pix e gestão financeira em uma interface elegante, elevando a credibilidade do profissional do digital ao PDF.\n\nO projeto carrega o DNA da sua fundadora em seu naming, fundindo a essência do negócio (Fatura) com a assinatura estratégica da Palaz através do sufixo \"Z\", validando a robustez da plataforma. Essa identidade é materializada em um monograma \"F\" que simboliza o fluxo financeiro contínuo e uma tipografia sans-serif que transmite segurança. Complementando o ecossistema, a paleta combina a autoridade do Dark Mode com o alto contraste do branco e a energia do Neo Green, estimulando o foco técnico e a percepção de lucro constante.",
+            "client": "Fatuz",
+            "category": "SaaS Financeiro",
+            "role": "Branding / Identidade Visual /  Naming / UI/UX Design / Web Design",
+            "keywords": "SaaS Financeiro, Freelancer, Gerador de Faturas,Gestão de Cobrança, Prestador de Serviços, Pix Automático, Product Design, Autônomos, Orçamentos Rápidos, FinTech UI,Nômade Digital, Dashboard Financeiro, Branding Pessoal, Home Office, Relatórios de Lucro, branding, logo, app, brand, marca, logotipo, site"
+        },
+        "ncglass-vidracaria": {
+            "title": "NcGlass Vidraçaria",
+            "description": "A NcGlass buscava uma identidade visual que transmitisse sofisticação, segurança e alta precisão técnica com uma postura moderna e refinada. O grande desafio foi equilibrar a robustez exigida no segmento de instalações de vidros arquitetônicos com uma estética elegante e minimalista. Como solução, desenvolvemos um símbolo inspirado em lâminas de vidro em perspectiva, traduzindo simultaneamente solidez e transparência, aliado a uma tipografia contemporânea. A paleta de cores reforça confiança e modernidade, resultando em uma marca memorável para o setor de arquitetura e design.",
+            "client": "NcGlass",
+            "category": "Vidraçaria",
+            "role": "Branding / Identidade Visual",
+            "keywords": "identidade visual, branding, vidraçaria, design de marca, logótipo, visual identity, brand design, envidraçamento de sacada, vidros temperados, espelhos sob medida, graphic design, rebranding, fachadas de vidro, guarda-corpo de vidro, glass design, glass company, vidro laminado, coberturas de vidro, esquadrias de alumínio, arquitetura em vidro, projetos em vidro, design de interiores, papelaria corporativa, corporative identity, box elegance, vidro habitat, brand guidelines, manual da marca, typography, minimalismo, premium brand, luxury brand, instalação de vidros, vidro de controle solar, divisórias de vidro, vidros de alto padrão, soluções em vidro, case study, behance, portfolio"
+        }
+    },
+    "Fatuz": {
+        "hero": {
+            "title1": "Profissionalismo",
+            "title2": "também se mostra",
+            "title3": "na hora de",
+            "title_highlight": "cobrar.",
+            "description": "Gere faturas, envie orçamentos e organize seu financeiro em segundos.",
+            "cta": "Começar Agora"
+        },
+        "showcase": {
+            "title1": "Gere faturas, envie orçamentos e",
+            "title2": "organize seu",
+            "title_highlight": "financeiro",
+            "title3": "em segundos"
+        },
+        "about": {
+            "tag": "SOBRE A FATUZ",
+            "title1": "A Fatuz combina a agilidade que sua rotina exige com a",
+            "title2": "apresentação profissional que seus clientes valorizam.",
+            "description": "A Fatuz foi criada pela Palaz para resolver um problema real: a falta de profissionalismo na hora de cobrar. Um sistema completo para freelancers, agências e prestadores de serviço que querem organizar suas finanças sem complicação."
+        },
+        "features": {
+            "tag": "FUNCIONALIDADES",
+            "title1": "Tudo o que",
+            "title2": "você precisa",
+            "title3": "para",
+            "title_highlight": "escalar.",
+            "faturas": {
+                "title": "Faturas Profissionais",
+                "description": "Crie faturas personalizadas com sua marca e envie faturas em PDF direto para seus clientes.",
+                "bullets": [
+                    "Personalização completa",
+                    "PDF Profissional",
+                    "Histórico organizado"
+                ]
+            },
+            "pix": {
+                "title": "PIX Integrado",
+                "description": "QR Code e Copia e Cola gerados automaticamente em cada fatura, sem taxas adicionais.",
+                "bullets": [
+                    "QR Code dinâmico",
+                    "Copia e Cola",
+                    "Sem taxas extras"
+                ]
+            },
+            "lucro": {
+                "title": "Lucro Real",
+                "description": "Registre custos fixos e variáveis. O sistema organiza seu financeiro e ajuda a entender para onde seu dinheiro está indo.",
+                "bullets": [
+                    "Custos fixos e variáveis",
+                    "Controle de despesas",
+                    "Relatórios automáticos"
+                ]
+            },
+            "orcamentos": {
+                "title": "Catálogo de Serviços",
+                "description": "Padronize seu trabalho e agilize seus orçamentos. Cadastre serviços recorrentes com preços definidos.",
+                "bullets": [
+                    "Itens Recorrentes",
+                    "Busca Rápida",
+                    "Precificação Padrão"
+                ]
+            }
+        },
+        "cta": {
+            "title1": "Simplifique",
+            "title2": "suas",
+            "highlight": "cobranças.",
+            "description": "Teste grátis por 7 dias. Cancele quando quiser.",
+            "button": "Começar Agora"
+        }
+    },
+    "Metadata": {
+        "title": "Palaz | Strategy Company",
+        "description": "Somos um estúdio de design estratégico focado em transformar empresas em marcas sólidas e memoráveis. Atuamos lado a lado com empreendedores e negócios que querem mais do que estética, querem posicionamento, identidade e direção clara.",
+        "og_title": "Palaz | Design Estratégico & Branding",
+        "og_description": "Somos um estúdio de design estratégico focado em transformar empresas em marcas sólidas e memoráveis. Atuamos com posicionamento, identidade e direção clara.",
+        "keywords": "design estratégico, branding, identidade visual, ui/ux design, estratégia de marca, palaz, palaz strategy company, palaz strategy & design, design studio brasil, agência de branding, agência de branding belo horizonte, agência de design bh, estúdio de design bh, estúdio de branding brasil, design de logotipo, criação de logotipo, criação de marca, posicionamento de marca, consultoria de branding, consultoria de marca, design para marcas premium, branding estratégico, marketing digital, web design, criação de sites, branding studio, naming, criação de nome de marca, design de embalagem, packaging design, identidade visual completa, manual de marca, brand book, brand guidelines, rebranding, redesign de marca, direção de arte, design gráfico, design de produto, design thinking, estratégia visual, comunicação visual, tipografia, paleta de cores, design system, design de interface, design responsivo, experiência do usuário, user experience, prototipagem, wireframe, design de aplicativo, design de app, motion design, motion graphics, animação de marca, brand animation, social media design, design para redes sociais, design para instagram, design de apresentação, pitch deck design, design corporativo, identidade corporativa, papelaria corporativa, cartão de visita, design minimalista, design moderno, design contemporâneo, design premium, design de luxo, luxury branding, high-end design, brand strategy, visual strategy, creative direction, creative agency brazil, design agency brazil, branding agency brazil, belo horizonte design, minas gerais design, agência criativa, agência de design minas gerais, agência de comunicação visual, estúdio criativo, forjar marcas, marcas com propósito, construção de marca, arquitetura de marca, brand architecture, tom de voz, brand voice, storytelling de marca, brand storytelling, design de marca para startups, branding para empresas, branding para pequenas empresas, branding para negócios, design estratégico para negócios, identidade visual para restaurantes, identidade visual para clínicas, identidade visual para e-commerce, identidade visual para tech, branding agronegócio, branding para food service, design de cardápio, sinalização, environmental design, design de interiores comercial, fachada de loja, design de ponto de venda, PDV design, portfólio de design, cases de branding, cases de design, projetos de identidade visual, criação de identidade, desenvolvimento de marca"
+    },
+    "PrivacyPolicy": {
+        "title": "Política de Privacidade",
+        "last_updated": "Última atualização: Março 2026",
+        "section1_title": "1. Coleta de Informações",
+        "section1_content": "Coletamos informações que você nos fornece diretamente ao preencher nosso formulário de contato, como nome, e-mail e detalhes do projeto. Além disso, coletamos dados técnicos de navegação (como endereço IP e tipo de navegador) de forma anônima através do Google Analytics para melhorar sua experiência no site.",
+        "section2_title": "2. Finalidade e Uso",
+        "section2_content": "Seus dados são utilizados exclusivamente para as finalidades para as quais foram coletados: responder a solicitações de orçamento, prestar os serviços contratados e, caso autorizado, enviar comunicações sobre nossos projetos e novidades. Não comercializamos seus dados com terceiros em nenhuma hipótese.",
+        "section3_title": "3. Cookies e Rastreamento",
+        "section3_content": "Utilizamos cookies essenciais para o funcionamento do site e cookies de terceiros (Google Analytics) para análise de tráfego. Você pode configurar seu navegador para recusar todos os cookies, porém algumas funcionalidades do site podem ser afetadas.",
+        "section4_title": "4. Segurança e Proteção",
+        "section4_content": "Implementamos medidas técnicas e administrativas para proteger seus dados contra acessos não autorizados ou perda. Toda a comunicação entre seu navegador e nosso servidor é criptografada via protocolo HTTPS (SSL).",
+        "section5_title": "5. Seus Direitos (LGPD)",
+        "section5_content": "Você possui o direito de solicitar o acesso, a correção ou a exclusão de seus dados pessoais a qualquer momento. Também pode revogar seu consentimento para o processamento de dados, conforme previsto na Lei Geral de Proteção de Dados (LGPD).",
+        "section6_title": "6. Retenção de Dados",
+        "section6_content": "Mantemos seus dados pessoais apenas pelo tempo necessário para cumprir as finalidades descritas nesta política, ou conforme exigido por lei para obrigações fiscais e jurídicas.",
+        "contact_info": "Para exercer seus direitos ou tirar dúvidas sobre esta política, entre em contato via: ola@palaz.com.br"
+    }
+}

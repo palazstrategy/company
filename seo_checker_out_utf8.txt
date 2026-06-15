@@ -1,0 +1,30 @@
+
+============================================================
+  SEO CHECKER - Search Engine Optimization Audit
+============================================================
+Project: D:\palaz\site novo
+Time: 2026-04-04 21:16:25
+------------------------------------------------------------
+Found 22 page files to analyze
+
+============================================================
+SEO ANALYSIS RESULTS
+============================================================
+
+Issue Summary:
+  [1] Missing meta description
+  [1] Missing Open Graph tags
+  [1] Image has empty alt attribute
+
+Affected files (2):
+  - index.html
+  - page.tsx
+
+{
+  "script": "seo_checker",
+  "project": "D:\\palaz\\site novo",
+  "files_checked": 22,
+  "files_with_issues": 2,
+  "issues_found": 3,
+  "passed": false
+}

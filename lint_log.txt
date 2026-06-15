@@ -1,0 +1,9 @@
+
+> palaz-portfolio@0.1.0 lint
+> next lint
+
+
+./src/components/editor/LocalInputs.tsx
+21:8  Warning: React Hook useEffect has a missing dependency: 'localValue'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules

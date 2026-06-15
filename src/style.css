@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-tt-norms), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-tt-norms), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-tt-ramillas), ui-serif, Georgia, serif;
+
+  --color-heading: var(--heading-color);
+  --color-muted: var(--muted-color);
+  --color-accent: var(--accent-color);
+  --color-border-c: var(--border-color);
+
+  --letter-spacing-arpeggio: -0.04em;
+  --letter-spacing-caps: -0.02em;
+
+}
+
+@keyframes orbit {
+  0% { transform: rotate(calc(var(--angle, 0) * 1deg)) translateY(calc(var(--radius, 0) * 1px)) rotate(calc(var(--angle, 0) * -1deg)); }
+  100% { transform: rotate(calc(var(--angle, 0) * 1deg + 360deg)) translateY(calc(var(--radius, 0) * 1px)) rotate(calc((var(--angle, 0) * -1deg) - 360deg)); }
+}
+
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-text-animate {
+  animation: heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+  will-change: transform, opacity;
+}
+
+.hero-p-animate {
+  animation: heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  will-change: transform, opacity;
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --heading-color: #ffffff;
+  --muted-color: #666666;
+  --accent-color: #f24b0f;
+  --border-color: #1a1a1a;
+}
+
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+::selection {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
