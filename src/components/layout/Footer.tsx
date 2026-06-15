@@ -84,8 +84,8 @@ export function Footer() {
                         <div className="flex flex-col">
                             <div className="py-5 border-b border-white/5 flex flex-col gap-1">
                                 <p className="text-sm text-white/60">{tFooter("email_label")}</p>
-                                <Link href="mailto:ola@palaz.com.br" className="flex items-center justify-between group pt-1" target="_blank" rel="noopener noreferrer">
-                                    <span className="text-lg font-bold tracking-tight text-white group-hover:text-[#F24B0F] transition-colors">ola@palaz.com.br</span>
+                                <Link href="mailto:estudiopalaz@gmail.com" className="flex items-center justify-between group pt-1" target="_blank" rel="noopener noreferrer">
+                                    <span className="text-lg font-bold tracking-tight text-white group-hover:text-[#F24B0F] transition-colors">estudiopalaz@gmail.com</span>
                                     <ArrowUpRight className="w-4 h-4 text-white/20 group-hover:text-[#F24B0F] transition-all duration-500" />
                                 </Link>
                             </div>

@@ -21,7 +21,7 @@ export function JsonLd() {
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "ola@palaz.com.br",
+      "email": "estudiopalaz@gmail.com",
       "contactType": "customer service"
     }
   }

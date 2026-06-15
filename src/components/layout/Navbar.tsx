@@ -372,7 +372,7 @@ export function Navbar() {
                                             { label: 'Instagram', href: 'https://www.instagram.com/palazstrategy/' },
                                             { label: 'Behance', href: 'https://www.behance.net/palazstrategycompany' },
                                             { label: 'WhatsApp', href: 'https://wa.me/553196117847' },
-                                            { label: 'E-mail', href: 'mailto:ola@palaz.com.br' }
+                                            { label: 'E-mail', href: 'mailto:estudiopalaz@gmail.com' }
                                         ].map((social) => (
                                             <a 
                                                 key={social.label}
