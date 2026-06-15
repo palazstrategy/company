@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         openGraph: {
             title,
             description,
-            url: `https://palaz.com.br/${locale}/produtos/fatuz`,
+            url: `https://palazstrategy.vercel.app/${locale}/produtos/fatuz`,
             type: 'website',
         },
         alternates: {

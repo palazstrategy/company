@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
                 title: `${translatedTitle} | Palaz Strategy & Design`,
                 description: translatedDesc.substring(0, 160),
                 type: 'article',
-                url: `https://palaz.com.br/${locale}/cases/${slug}`,
+                url: `https://palazstrategy.vercel.app/${locale}/cases/${slug}`,
                 images: [
                     {
                         url: project.imageSrc,
@@ -99,9 +99,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <>
             <BreadcrumbJsonLd 
                 items={[
-                    { name: 'Palaz', item: 'https://palaz.com.br' },
-                    { name: 'Cases', item: 'https://palaz.com.br/cases' },
-                    { name: tData.has(`${slug}.title`) ? tData(`${slug}.title`) : project.title, item: `https://palaz.com.br/${locale}/cases/${slug}` }
+                    { name: 'Palaz', item: 'https://palazstrategy.vercel.app' },
+                    { name: 'Cases', item: 'https://palazstrategy.vercel.app/cases' },
+                    { name: tData.has(`${slug}.title`) ? tData(`${slug}.title`) : project.title, item: `https://palazstrategy.vercel.app/${locale}/cases/${slug}` }
                 ]}
             />
             <div className="w-full min-h-screen bg-black">

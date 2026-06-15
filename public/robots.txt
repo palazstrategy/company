@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /editor/
 
-Sitemap: https://palaz.com.br/sitemap.xml
+Sitemap: https://palazstrategy.vercel.app/sitemap.xml

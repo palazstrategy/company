@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/editor/'],
     },
-    sitemap: 'https://palaz.com.br/sitemap.xml',
+    sitemap: 'https://palazstrategy.vercel.app/sitemap.xml',
   };
 }

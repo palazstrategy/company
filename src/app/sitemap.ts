@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getProjects } from '@/data/projects';
 
-const BASE_URL = 'https://palaz.com.br';
+const BASE_URL = 'https://palazstrategy.vercel.app';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projects = await getProjects();

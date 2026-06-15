@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         'max-snippet': -1,
       },
     },
-    metadataBase: new URL('https://palaz.com.br'),
+    metadataBase: new URL('https://palazstrategy.vercel.app'),
   };
 }
 

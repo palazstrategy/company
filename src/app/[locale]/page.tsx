@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: t('og_title'),
       description: t('og_description'),
-      url: 'https://palaz.com.br',
+      url: 'https://palazstrategy.vercel.app',
       siteName: 'Palaz',
       locale: locale === 'pt' ? 'pt_BR' : 'en_US',
       type: 'website',

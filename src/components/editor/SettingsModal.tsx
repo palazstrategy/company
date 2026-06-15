@@ -186,7 +186,7 @@ export const SettingsModal = memo(({
                             <div>
                                 <label className="block text-[15px] font-medium text-white/50 mb-3 lowercase">slug da url</label>
                                 <div className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 text-white/40 font-mono text-[14px] flex items-center gap-2 focus-within:border-[#F24B0F]/50 transition-all group">
-                                    <span className="opacity-40 shrink-0 select-none">palaz.com.br/cases/</span>
+                                    <span className="opacity-40 shrink-0 select-none">palazstrategy.vercel.app/cases/</span>
                                     <input 
                                         type="text"
                                         value={projectData.slug || ""}

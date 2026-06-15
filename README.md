@@ -1,6 +1,6 @@
 # Palaz Portfólio
 
-Este é o repositório do site [palaz.com.br](https://palaz.com.br), um portfólio desenvolvido com [Next.js 15](https://nextjs.org), [Tailwind CSS v4](https://tailwindcss.com) e [Framer Motion](https://www.framer.com/motion/).
+Este é o repositório do site [palazstrategy.vercel.app](https://palazstrategy.vercel.app), um portfólio desenvolvido com [Next.js 15](https://nextjs.org), [Tailwind CSS v4](https://tailwindcss.com) e [Framer Motion](https://www.framer.com/motion/).
 
 ## 🚀 Como rodar o projeto localmente
 
@@ -34,7 +34,7 @@ Siga os passos abaixo para gerar a build e publicar:
 2. **Fazer o upload para a Hostinger:**
    - Acesse o painel da sua conta na Hostinger.
    - Vá em **Gerenciador de Arquivos**.
-   - Navegue até a pasta `public_html` associada ao domínio `palaz.com.br`.
+   - Navegue até a pasta `public_html` associada ao domínio `palazstrategy.vercel.app`.
    - Limpe o conteúdo antigo (se houver e não for mais necessário).
    - Faça o upload de **todo o conteúdo** que foi gerado *dentro* da pasta `dist` do seu computador.
 
