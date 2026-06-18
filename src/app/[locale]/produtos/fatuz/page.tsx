@@ -6,7 +6,7 @@ import { ArrowRight, FileText, Zap, PieChart, LayoutGrid } from "lucide-react"
 import Image from "next/image"
 import { OrbitingFeatures } from "@/components/fatuz/OrbitingFeatures"
 
-const FATUZ_URL = "https://fatuz.palaz.com.br/"
+const FATUZ_URL = "https://fatuz.vercel.app/"
 
 export default function FatuzPage() {
   const t = useTranslations("Fatuz")
