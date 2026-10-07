@@ -5,8 +5,11 @@ import { EditorClientStyles } from "./EditorClientStyles";
 export const metadata = { 
     title: "Editor Local - Palaz",
     icons: {
-        icon: '/favicon.svg',
-        apple: '/favicon.svg',
+        icon: [
+            { url: '/favicon.svg', type: 'image/svg+xml' },
+            { url: '/favicon.png', type: 'image/png' },
+        ],
+        apple: '/favicon.png',
     },
 };
 
