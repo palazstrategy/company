@@ -16,10 +16,10 @@ export function Navbar() {
     const [scrolled, setScrolled] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
     const [windowHeight, setWindowHeight] = useState(1000)
-    const [targetScaleDesk, setTargetScaleDesk] = useState(0.125)
-    const [targetScaleMob, setTargetScaleMob] = useState(0.48)
-    const [targetXDesk, setTargetXDesk] = useState(-530)
-    const [targetXMob, setTargetXMob] = useState(-45)
+    const [targetScaleDesk, setTargetScaleDesk] = useState(0.113)
+    const [targetScaleMob, setTargetScaleMob] = useState(0.435)
+    const [targetXDesk, setTargetXDesk] = useState(-538)
+    const [targetXMob, setTargetXMob] = useState(-49)
     const [isHoveredMenu, setIsHoveredMenu] = useState(false)
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export function Navbar() {
 
             // Constantes da nova marca PALAZ (3753 x 479)
             const logoAspect = 3753 / 479
-            const targetH = 21
+            const targetH = 19
             const finalLogoWidth = targetH * logoAspect
 
             // Desktop
@@ -82,13 +82,13 @@ export function Navbar() {
 
     // --- LÓGICA DE ANIMAÇÃO NO SCROLL ---
     // Valores de referência (Base Scroll) calculados silenciosamente a partir do scrollY
-    const logoYDeskBase = useTransform(scrollY, [0, 400], [windowHeight * 0.75, 24.5])
+    const logoYDeskBase = useTransform(scrollY, [0, 400], [windowHeight * 0.75, 25.5])
     const logoScaleDeskBase = useTransform(scrollY, (y) => {
         const p = Math.min(Math.max(y / 400, 0), 1)
         return 1 - (1 - targetScaleDesk) * p
     })
 
-    const logoYMobBase = useTransform(scrollY, [0, 300], [windowHeight * 0.84, 24.5])
+    const logoYMobBase = useTransform(scrollY, [0, 300], [windowHeight * 0.84, 25.5])
     const logoScaleMobBase = useTransform(scrollY, [0, 300], [1, targetScaleMob])
 
     const logoXDeskBase = useTransform(scrollY, [0, 400], [0, targetXDesk])
@@ -130,10 +130,10 @@ export function Navbar() {
         }
 
         if (menuOpen) {
-            animate(logoYDesk, 24.5, { duration: 0.6, ease: ARPEGGIO_EASE as [number, number, number, number] })
+            animate(logoYDesk, 25.5, { duration: 0.6, ease: ARPEGGIO_EASE as [number, number, number, number] })
             animate(logoXDesk, targetXDesk, { duration: 0.6, ease: ARPEGGIO_EASE as [number, number, number, number] })
             animate(logoScaleDesk, targetScaleDesk, { duration: 0.6, ease: ARPEGGIO_EASE as [number, number, number, number] })
-            animate(logoYMob, 24.5, { duration: 0.6, ease: ARPEGGIO_EASE as [number, number, number, number] })
+            animate(logoYMob, 25.5, { duration: 0.6, ease: ARPEGGIO_EASE as [number, number, number, number] })
             animate(logoXMob, targetXMob, { duration: 0.6, ease: ARPEGGIO_EASE as [number, number, number, number] })
             animate(logoScaleMob, targetScaleMob, { duration: 0.6, ease: ARPEGGIO_EASE as [number, number, number, number] })
         } else {
@@ -201,10 +201,10 @@ export function Navbar() {
                                     <Image 
                                         src="/logo-palaz.png" 
                                         alt="Palaz Strategy & Design" 
-                                        width={165} 
-                                        height={21} 
+                                        width={149} 
+                                        height={19} 
                                         priority 
-                                        className="h-[21px] w-auto drop-shadow-md" 
+                                        className="h-[19px] w-auto drop-shadow-md" 
                                         unoptimized
                                     />
                                 </Link>
