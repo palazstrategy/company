@@ -154,7 +154,6 @@ export function Navbar() {
         { href: "/", label: t("inicio") },
         { href: "/cases", label: t("cases") },
         { href: "/sobre", label: t("sobre") },
-        { href: "/produtos/fatuz", label: t("produtos") },
         { href: "/contato", label: t("contato") },
     ]
 

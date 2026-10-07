@@ -74,7 +74,6 @@ export function Footer() {
                             <ArpeggioLink href="/">{tNav("inicio")}</ArpeggioLink>
                             <ArpeggioLink href="/cases">{tNav("cases")}</ArpeggioLink>
                             <ArpeggioLink href="/sobre">{tNav("sobre")}</ArpeggioLink>
-                            <ArpeggioLink href="/produtos/fatuz">{tNav("produtos")}</ArpeggioLink>
                             <ArpeggioLink href="/contato" noBorder>{tNav("contato")}</ArpeggioLink>
                         </nav>
                     </div>
