@@ -16,22 +16,42 @@ export function Navbar() {
     const [scrolled, setScrolled] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
     const [windowHeight, setWindowHeight] = useState(1000)
-    const [targetScaleDesk, setTargetScaleDesk] = useState(0.058)
-    const [targetScaleMob, setTargetScaleMob] = useState(0.058)
-    const [targetXDesk, setTargetXDesk] = useState(0)
-    const [targetXMob, setTargetXMob] = useState(0)
+    const [targetScaleDesk, setTargetScaleDesk] = useState(0.125)
+    const [targetScaleMob, setTargetScaleMob] = useState(0.48)
+    const [targetXDesk, setTargetXDesk] = useState(-530)
+    const [targetXMob, setTargetXMob] = useState(-45)
     const [isHoveredMenu, setIsHoveredMenu] = useState(false)
 
     useEffect(() => {
         const handleResize = () => {
             setWindowHeight(window.innerHeight)
-            const deskWidth = Math.min(window.innerWidth, 1440) - 120 // 60px padding em cada lado
-            setTargetScaleDesk(21 / (deskWidth / 3.2)) // 1920/600 = 3.2
-            setTargetXDesk(108 + (21 * 3.2) / 2 - (Math.min(window.innerWidth, 1440) / 2))
-            
-            const mobWidth = window.innerWidth - 48 // 24px padding em cada lado (px-6)
-            setTargetScaleMob(21 / (mobWidth / 3.2))
-            setTargetXMob(24 + 35 + 13 + (21 * 3.2) / 2 - (window.innerWidth / 2))
+
+            // Constantes da nova marca PALAZ (3753 x 479)
+            const logoAspect = 3753 / 479
+            const targetH = 21
+            const finalLogoWidth = targetH * logoAspect
+
+            // Desktop
+            const isLg = window.innerWidth >= 1024
+            const deskPad = isLg ? 60 : 24
+            const maxDeskContainer = Math.min(window.innerWidth, 1440)
+            const deskWidth = maxDeskContainer - (deskPad * 2)
+            const initialHeightDesk = deskWidth / logoAspect
+            setTargetScaleDesk(targetH / initialHeightDesk)
+
+            const logoStartXDesk = deskPad + 35 + 13
+            const logoCenterDesk = logoStartXDesk + (finalLogoWidth / 2)
+            setTargetXDesk(logoCenterDesk - (maxDeskContainer / 2))
+
+            // Mobile
+            const mobPad = 24
+            const mobWidth = window.innerWidth - (mobPad * 2)
+            const initialHeightMob = mobWidth / logoAspect
+            setTargetScaleMob(targetH / initialHeightMob)
+
+            const logoStartXMob = mobPad + 35 + 13
+            const logoCenterMob = logoStartXMob + (finalLogoWidth / 2)
+            setTargetXMob(logoCenterMob - (window.innerWidth / 2))
         }
         handleResize()
         window.addEventListener("resize", handleResize)
@@ -181,10 +201,10 @@ export function Navbar() {
                                     <Image 
                                         src="/logo-palaz.png" 
                                         alt="Palaz Strategy & Design" 
-                                        width={112} 
+                                        width={165} 
                                         height={21} 
                                         priority 
-                                        className="h-[21px] w-auto drop-shadow-md translate-y-[1px]" 
+                                        className="h-[21px] w-auto drop-shadow-md" 
                                         unoptimized
                                     />
                                 </Link>
