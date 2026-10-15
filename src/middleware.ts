@@ -8,10 +8,11 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Static machine-readable files bypass intl middleware
+  // Static machine-readable files and developer endpoints bypass intl middleware
   if (
     pathname === '/llms.txt' ||
-    pathname === '/.well-known/llms.txt' ||
+    pathname.startsWith('/.well-known/') ||
+    pathname === '/openapi.json' ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml'
   ) {
@@ -72,6 +73,6 @@ export const config = {
      * - static files (_next/static, _next/image, favicon.ico)
      * - media, text and document files (.svg, .png, .jpg, .webp, .avif, .ico, .mp4, .webm, .txt, .xml)
      */
-    '/((?!api|editor|_next/static|_next/image|favicon\\.ico|llms\\.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|mp4|webm|txt|xml)$).*)',
+    '/((?!api|editor|_next/static|_next/image|favicon\\.ico|llms\\.txt|openapi\\.json|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|mp4|webm|txt|xml|json)$).*)',
   ],
 };

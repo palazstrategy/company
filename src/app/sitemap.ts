@@ -7,7 +7,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projects = await getProjects();
   
   // Rotas estáticas
-  const staticPaths = ['', '/cases', '/sobre', '/contato', '/politica-de-privacidade', '/llms.txt'];
+  const staticPaths = [
+    '',
+    '/cases',
+    '/sobre',
+    '/about',
+    '/contato',
+    '/contact',
+    '/politica-de-privacidade',
+    '/privacy',
+    '/llms.txt',
+    '/openapi.json'
+  ];
   
   const staticRoutes: MetadataRoute.Sitemap = staticPaths.map(route => ({
     url: `${BASE_URL}${route}`,

@@ -1,0 +1,98 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Palaz Strategy Company & Palaz Design Studio API",
+    "version": "1.0.0",
+    "description": "Public Developer API & Model Context Protocol (MCP) interface for Palaz Strategy Company (Palaz Design Studio). Allows AI agents, developers, and integrations to explore portfolio projects, studio metadata, and submit project inquiries.",
+    "contact": {
+      "name": "Palaz Strategy Company",
+      "email": "estudiopalaz@gmail.com",
+      "url": "https://palazstrategy.vercel.app"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://palazstrategy.vercel.app",
+      "description": "Production Vercel Deployment"
+    }
+  ],
+  "paths": {
+    "/.well-known/mcp": {
+      "get": {
+        "summary": "Model Context Protocol (MCP) Discovery Manifest",
+        "description": "Returns the live MCP server manifest declaring tools and HTTP transport endpoints for Claude, ChatGPT, and AI agents.",
+        "responses": {
+          "200": {
+            "description": "MCP Manifest JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/mcp": {
+      "get": {
+        "summary": "MCP Server Info & SSE Handshake",
+        "description": "Returns MCP server metadata, tools catalogue, or establishes an SSE stream if requested via Accept: text/event-stream.",
+        "responses": {
+          "200": {
+            "description": "Server status or SSE stream"
+          }
+        }
+      },
+      "post": {
+        "summary": "MCP JSON-RPC 2.0 Protocol Handler",
+        "description": "Handles live MCP protocol operations: initialize, ping, tools/list, and tools/call.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "jsonrpc": { "type": "string", "example": "2.0" },
+                  "id": { "oneOf": [{ "type": "string" }, { "type": "number" }] },
+                  "method": { "type": "string", "example": "initialize" },
+                  "params": { "type": "object" }
+                },
+                "required": ["jsonrpc", "method"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JSON-RPC 2.0 Response"
+          }
+        }
+      }
+    },
+    "/api/editor/projects": {
+      "get": {
+        "summary": "List all portfolio projects",
+        "description": "Returns JSON array of all projects and cases forged by Palaz Strategy Company.",
+        "responses": {
+          "200": {
+            "description": "Projects List"
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "summary": "LLMs Agent Instructions",
+        "description": "Standard agent guide containing studio capabilities, when-to-use scenarios, and endpoints.",
+        "responses": {
+          "200": {
+            "description": "Markdown text"
+          }
+        }
+      }
+    }
+  }
+}

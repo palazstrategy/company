@@ -5,6 +5,7 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Palaz Strategy Company",
+    "alternateName": ["Palaz Design Studio", "Palaz", "Palaz Strategy & Design"],
     "url": "https://palazstrategy.vercel.app",
     "logo": "https://palazstrategy.vercel.app/icone-palaz.png",
     "image": "https://palazstrategy.vercel.app/imagem-compartilhamento.png",

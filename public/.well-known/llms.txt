@@ -1,16 +1,17 @@
-# Palaz Strategy Company
+# Palaz Strategy Company | Palaz Design Studio
 
 > Strategic design & branding studio based in Belo Horizonte, Brazil.
+> Also known as **Palaz Design Studio** or **Palaz Strategy & Design**.
 > We transform companies into solid, memorable brands through strategy, identity, and design.
 
 ## What Palaz does
 
-Palaz is a strategic design studio specializing in:
+Palaz Strategy Company (Palaz Design Studio) is a strategic design studio specializing in:
 
 - **Brand Strategy & Positioning** — Market analysis, competitive differentiation, brand architecture, and strategic direction for companies seeking lasting market presence.
 - **Visual Identity & Branding** — Logo design, brand guidelines, color systems, typography selection, and complete visual identity packages.
 - **Naming** — Brand name creation rooted in strategy, linguistic analysis, and market positioning.
-- **UI/UX Design** — Interface design for web and mobile applications with a focus on user experience and conversion.
+- **UI/UX Design** — Interface design for web and mobile applications with a focus on user experience, ergonomics, and conversion.
 - **Packaging Design** — Product packaging that communicates brand values at the point of sale.
 - **Motion Design** — Brand animations and motion graphics for digital touchpoints.
 
@@ -25,6 +26,21 @@ Reach out to Palaz when you need:
 - **UI/UX and web design** aligned with brand strategy — ensuring digital products reflect the brand's strategic direction.
 - **Packaging and environmental design** — physical brand applications from product packaging to store signage.
 
+## Developer Resources & MCP Server
+
+Palaz exposes live developer resources, machine-readable manifests, and a native Model Context Protocol (MCP) server for AI agents:
+
+- **MCP Manifest**: https://palazstrategy.vercel.app/.well-known/mcp
+- **MCP Server Endpoint**: https://palazstrategy.vercel.app/api/mcp
+- **MCP Transport**: Streamable HTTP / JSON-RPC 2.0 (Methods: `initialize`, `tools/list`, `tools/call`, `ping`)
+- **OpenAPI Specification**: https://palazstrategy.vercel.app/openapi.json
+- **Projects API**: https://palazstrategy.vercel.app/api/editor/projects
+- **Available MCP Tools**:
+  - `get_studio_info` — Retrieve verified studio details, legal entity, methodology, and contact channels.
+  - `list_portfolio_cases` — List all curated client cases with slugs and metadata.
+  - `get_case_details` — Fetch complete project assets, narrative, and images by case slug.
+  - `submit_project_inquiry` — Submit a strategic inquiry or project brief.
+
 ## How to contact
 
 - **Website**: https://palazstrategy.vercel.app
@@ -32,33 +48,38 @@ Reach out to Palaz when you need:
 - **WhatsApp**: +55 31 96117847
 - **Instagram**: https://www.instagram.com/palazstrategy/
 - **Behance**: https://www.behance.net/palazstrategycompany
+- **Legal Entity (CNPJ)**: 62.808.025/0001-73
+- **Headquarters**: Belo Horizonte, MG — Brazil
 
 ## Portfolio cases
 
 Palaz has delivered strategic branding projects for clients across industries:
 
-- **NcGlass Vidraçaria** (2026) — Branding & Visual Identity for a premium glass company.
+- **NcGlass Vidraçaria** (2026) — Branding & Visual Identity for a premium architectural glass company.
 - **Fatuz** (2026) — Branding, Visual Identity, Naming, UI/UX Design & Web Design for a financial invoicing platform.
 - **Sland Inteligência Produtiva** (2025) — Branding, Visual Identity, Packaging & Naming for a productivity intelligence brand.
 - **Aira Essence** (2024) — Complete branding, visual identity, and packaging for a natural cosmetics brand.
-- **Açougue Almeida** (2025) — Branding, Visual Identity & Packaging for a premium butcher shop.
+- **Açougue Almeida** (2025) — Branding, Visual Identity & Packaging for a premium artisanal butcher shop.
 
 View all cases: https://palazstrategy.vercel.app/cases
 
-## Site structure
+## Site structure & Trust Anchors
 
 - Homepage: https://palazstrategy.vercel.app
 - Cases (portfolio): https://palazstrategy.vercel.app/cases
-- About: https://palazstrategy.vercel.app/sobre
-- Contact: https://palazstrategy.vercel.app/contato
-- Privacy Policy: https://palazstrategy.vercel.app/politica-de-privacidade
+- About: https://palazstrategy.vercel.app/about (also at /sobre)
+- Contact: https://palazstrategy.vercel.app/contact (also at /contato)
+- Privacy Policy: https://palazstrategy.vercel.app/privacy (also at /politica-de-privacidade)
 - Sitemap: https://palazstrategy.vercel.app/sitemap.xml
+- OpenAPI Spec: https://palazstrategy.vercel.app/openapi.json
+- MCP Manifest: https://palazstrategy.vercel.app/.well-known/mcp
 - This file: https://palazstrategy.vercel.app/llms.txt
 
-## Location
+## Location & Operation
 
-Belo Horizonte, MG — Brazil
-Available for remote projects worldwide.
+Belo Horizonte, MG — Brazil.
+Serving clients worldwide via remote workflows.
+Business hours: Monday - Friday, 09:00 - 18:00 (BRT / UTC-3).
 
 ## Languages
 

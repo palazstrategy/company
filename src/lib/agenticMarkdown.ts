@@ -30,11 +30,15 @@ export function isKnownPath(pathname: string): boolean {
     '/',
     '/cases',
     '/sobre',
+    '/about',
     '/contato',
+    '/contact',
     '/politica-de-privacidade',
+    '/privacy',
     '/llms.txt',
     '/robots.txt',
-    '/sitemap.xml'
+    '/sitemap.xml',
+    '/openapi.json'
   ];
 
   if (staticRoutes.includes(route)) {
@@ -94,15 +98,15 @@ export function getPageMarkdown(pathname: string): string {
     return getCaseDetailMarkdown(slug, isEn);
   }
 
-  if (route === '/sobre') {
+  if (route === '/sobre' || route === '/about') {
     return isEn ? getAboutMarkdownEn() : getAboutMarkdownPt();
   }
 
-  if (route === '/contato') {
+  if (route === '/contato' || route === '/contact') {
     return isEn ? getContactMarkdownEn() : getContactMarkdownPt();
   }
 
-  if (route === '/politica-de-privacidade') {
+  if (route === '/politica-de-privacidade' || route === '/privacy') {
     return isEn ? getPrivacyMarkdownEn() : getPrivacyMarkdownPt();
   }
 
@@ -110,21 +114,21 @@ export function getPageMarkdown(pathname: string): string {
 }
 
 function getHomeMarkdownPt(): string {
-  return `# Palaz Strategy Company — Estúdio de Design Estratégico & Branding
+  return `# Palaz Strategy Company | Palaz Design Studio — Estúdio de Design Estratégico & Branding
 
 > A estratégia dá a direção. O design dá a forma.
 > Propósito, estratégia e presença em todos os pontos de contato.
 
-Palaz é um estúdio de design estratégico com sede em Belo Horizonte - MG, focado em transformar empresas em marcas sólidas e memoráveis.
+Palaz Strategy Company (também conhecida no mercado como Palaz Design Studio) é um estúdio independente de design estratégico e branding com sede em Belo Horizonte, Minas Gerais, Brasil, atuando em projetos nacionais e internacionais.
 
 ## O que a Palaz faz
 
-- **Estratégia & Posicionamento de Marca**: Arquitetura de marca, direcionamento estratégico e análise de posicionamento.
-- **Identidade Visual & Branding**: Criação de logotipos, manuais de marca, sistemas visuais, tipografia e paletas de cores.
-- **Naming**: Criação estratégica de nomes comerciais para marcas e produtos.
-- **UI/UX Design**: Design de interfaces digitais elegantes e focadas em conversão.
-- **Embalagens & Design de Produto**: Soluções visuais táteis para prateleiras e ponto de venda.
-- **Motion Design**: Animações de marca para touchpoints digitais.
+- **Estratégia & Posicionamento de Marca**: Arquitetura de marca, direcionamento estratégico e análise de posicionamento competitivo.
+- **Identidade Visual & Branding**: Criação de logotipos, manuais de marca, design systems, tipografia exclusiva e paletas de cores.
+- **Naming**: Criação estratégica de nomes comerciais para marcas, empresas e produtos digitais.
+- **UI/UX Design**: Design de interfaces digitais sofisticadas, centradas no usuário e otimizadas para conversão.
+- **Embalagens & Design de Produto**: Soluções visuais táteis para prateleiras, e-commerce e ponto de venda.
+- **Motion Design**: Animações de marca para campanhas e touchpoints digitais.
 
 ## Cases de Sucesso Selecionados
 
@@ -151,23 +155,23 @@ Acione a Palaz quando você precisar:
 - **WhatsApp**: [+55 31 96117847](https://wa.me/553196117847)
 - **Localização**: Belo Horizonte, MG — Brasil (atendimento global remoto)
 - **Sitemap**: https://palazstrategy.vercel.app/sitemap.xml
-- **Instruções para Agentes**: https://palazstrategy.vercel.app/llms.txt
+- **Instruções para Agentes & MCP**: https://palazstrategy.vercel.app/llms.txt
 `;
 }
 
 function getHomeMarkdownEn(): string {
-  return `# Palaz Strategy Company — Strategic Design & Branding Studio
+  return `# Palaz Strategy Company | Palaz Design Studio — Strategic Design & Branding Studio
 
 > Strategy gives direction. Design creates the form.
 > Purpose, strategy, and presence across all touchpoints.
 
-Palaz is a strategic design studio based in Belo Horizonte, Brazil, focused on transforming companies into solid and memorable brands.
+Palaz Strategy Company (also known internationally as Palaz Design Studio) is an independent strategic design and branding studio based in Belo Horizonte, Brazil, serving ambitious clients globally.
 
 ## What Palaz Does
 
 - **Brand Strategy & Positioning**: Brand architecture, strategic direction, and market differentiation.
 - **Visual Identity & Branding**: Logo creation, brand books, design systems, typography, and color theory.
-- **Naming**: Strategic name development for companies, services, and products.
+- **Naming**: Strategic name development for companies, services, and digital products.
 - **UI/UX Design**: Premium digital interfaces built for clarity, engagement, and conversion.
 - **Packaging Design**: Distinctive physical brand touchpoints and product packaging.
 - **Motion Design**: Expressive brand animations across digital channels.
@@ -197,14 +201,14 @@ Reach out to Palaz when you need:
 - **WhatsApp**: [+55 31 96117847](https://wa.me/553196117847)
 - **Location**: Belo Horizonte, MG — Brazil (remote services worldwide)
 - **Sitemap**: https://palazstrategy.vercel.app/sitemap.xml
-- **Agent Instructions**: https://palazstrategy.vercel.app/llms.txt
+- **Agent Instructions & MCP**: https://palazstrategy.vercel.app/llms.txt
 `;
 }
 
 function getCasesMarkdownPt(): string {
-  return `# Cases de Sucesso — Palaz Strategy Company
+  return `# Cases de Sucesso — Palaz Strategy Company | Palaz Design Studio
 
-Projetos que forjamos unindo pensamento estratégico e criatividade visual.
+Projetos que forjamos unindo pensamento estratégico e criatividade visual para marcas que desejam liderar seus segmentos.
 
 ## Portfólio de Cases
 
@@ -233,9 +237,9 @@ Voltar para a [Página Inicial](https://palazstrategy.vercel.app/) | [Fale Conos
 }
 
 function getCasesMarkdownEn(): string {
-  return `# Success Cases — Palaz Strategy Company
+  return `# Success Cases — Palaz Strategy Company | Palaz Design Studio
 
-Projects forged combining strategic clarity with visual distinction.
+Projects forged combining strategic clarity with visual distinction for forward-thinking enterprises.
 
 ## Portfolio Cases
 
@@ -264,100 +268,180 @@ Back to [Homepage](https://palazstrategy.vercel.app/en) | [Contact Us](https://p
 }
 
 function getCaseDetailMarkdown(slug: string, isEn: boolean): string {
-  return `# Case Study: ${slug} — Palaz Strategy Company
+  return `# Case Study: ${slug} — Palaz Strategy Company (Palaz Design Studio)
 
-This case is part of the curated portfolio of Palaz Strategy Company.
+This project is part of the curated portfolio of Palaz Strategy Company.
 
 - **Explore full case online**: https://palazstrategy.vercel.app/${isEn ? 'en/' : ''}cases/${slug}
 - **All projects**: https://palazstrategy.vercel.app/${isEn ? 'en/' : ''}cases
-- **Studio documentation**: https://palazstrategy.vercel.app/llms.txt
+- **Studio documentation & MCP tools**: https://palazstrategy.vercel.app/llms.txt
 `;
 }
 
 function getAboutMarkdownPt(): string {
-  return `# Sobre a Palaz Strategy Company
+  return `# Sobre a Palaz Strategy Company | Palaz Design Studio
 
 > Estratégia, visão e propósito.
 
-Acreditamos que uma marca forte vai muito além de um bom design. Ela nasce da estratégia, da visão e do propósito.
+Acreditamos que uma marca forte vai muito além de um bom design. Ela nasce da estratégia, da visão e do propósito. Somos um estúdio de design estratégico focado em transformar empresas em marcas sólidas e memoráveis. Atuamos lado a lado com empreendedores e negócios que querem mais do que estética: querem posicionamento, identidade e direção clara.
 
 ## Nosso Manifesto
 
-Combinamos pensamento estratégico e criatividade visual para construir marcas que conectam, se destacam e crescem com consistência.
+Combinamos pensamento estratégico e criatividade visual para construir marcas que conectam, se destacam e crescem com consistência. Se você procura presença de marca, clareza no posicionamento e uma identidade que represente verdadeiramente o valor do seu negócio, a Palaz é o seu lugar.
 
 ## Nossa Metodologia
 
-1. **Imersão & Diagnóstico**: Entendimento profundo do mercado, concorrentes e diferenciais.
-2. **Estratégia & Posicionamento**: Definição da essência, proposta de valor e tom de voz.
-3. **Criação & Identidade**: Design do universo visual e sensorial da marca.
-4. **Ativação & Diretrizes**: Entrega de manuais e suporte à implementação em todos os canais.
+1. **Imersão & Diagnóstico**: Entendimento profundo do negócio, do mercado, dos concorrentes e dos diferenciais que sustentam a empresa.
+2. **Estratégia & Posicionamento**: Definição da essência da marca, proposta de valor única, arquitetura de portfólio e tom de voz.
+3. **Criação & Identidade**: Design do universo visual completo, incluindo logotipo, cores, tipografia, grafismos e aplicações reais.
+4. **Ativação & Diretrizes**: Entrega de manuais de identidade da marca (brand guidelines) e suporte na implementação em todos os pontos de contato.
 
-Contato: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com) | [Agendar conversa](https://palazstrategy.vercel.app/contato)
+## Informações Corporativas
+- **Razão Social / Entidade**: Palaz Strategy Company (Palaz Design Studio)
+- **CNPJ**: 62.808.025/0001-73
+- **Localização**: Belo Horizonte, Minas Gerais — Brasil
+- **Contato**: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com) | [Agendar conversa](https://palazstrategy.vercel.app/contato)
 `;
 }
 
 function getAboutMarkdownEn(): string {
-  return `# About Palaz Strategy Company
+  return `# About Palaz Strategy Company | Palaz Design Studio
 
 > Strategy, vision, and purpose.
 
-We believe that a strong brand goes far beyond aesthetics. It is rooted in strategy, vision, and enduring purpose.
+We believe that a strong brand goes far beyond aesthetics. It is rooted in strategy, vision, and enduring purpose. We are a strategic design studio focused on transforming companies into solid and memorable brands. We collaborate side by side with entrepreneurs and enterprises that seek more than superficial design: they want market positioning, authentic identity, and clear strategic direction.
 
 ## Our Manifesto
 
-We combine strategic thinking with creative design to forge brands that connect, command attention, and grow sustainably.
+We combine strategic thinking with creative design to forge brands that connect, command attention, and grow sustainably. If you are looking for brand presence, positioning clarity, and an identity that truly reflects the value of your business, Palaz is your partner.
 
 ## Our Methodology
 
-1. **Immersion & Diagnosis**: Comprehensive research into market dynamics and competitor landscapes.
-2. **Strategy & Positioning**: Establishing core brand pillars, value proposition, and tone of voice.
-3. **Identity & Design**: Engineering the visual, verbal, and sensory design system.
-4. **Activation & Guidelines**: Providing detailed brand books and governance for consistent rollout.
+1. **Immersion & Diagnosis**: Comprehensive research into market dynamics, competitive landscapes, and core differentiators.
+2. **Strategy & Positioning**: Establishing brand pillars, unique value propositions, brand architecture, and voice.
+3. **Identity & Design**: Engineering the visual, verbal, and sensory design system across all touchpoints.
+4. **Activation & Guidelines**: Providing detailed brand books and governance documentation for consistent global rollout.
 
-Contact: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com) | [Schedule a call](https://palazstrategy.vercel.app/en/contato)
+## Corporate Details
+- **Legal Entity**: Palaz Strategy Company (Palaz Design Studio)
+- **Business Tax ID (CNPJ)**: 62.808.025/0001-73
+- **Headquarters**: Belo Horizonte, Minas Gerais — Brazil
+- **Contact**: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com) | [Schedule a discovery call](https://palazstrategy.vercel.app/en/contato)
 `;
 }
 
 function getContactMarkdownPt(): string {
-  return `# Contato — Palaz Strategy Company
+  return `# Contato e Informações Corporativas — Palaz Strategy Company | Palaz Design Studio
 
-Pronto para transformar sua marca em algo estratégico, sólido e memorável?
+Seja bem-vindo aos canais oficiais de comunicação da Palaz Strategy Company. Se você deseja iniciar um novo projeto de branding, solicitar um diagnóstico estratégico ou agendar uma conversa com nossos diretores criativos, utilize as informações abaixo:
 
-- **E-mail**: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com)
-- **WhatsApp**: [+55 31 96117847](https://wa.me/553196117847)
+## Canais de Atendimento Direto
+- **E-mail Institucional**: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com)
+- **WhatsApp Oficial**: [+55 31 96117847](https://wa.me/553196117847)
+- **Website Oficial**: https://palazstrategy.vercel.app
 - **Instagram**: https://www.instagram.com/palazstrategy/
 - **Behance**: https://www.behance.net/palazstrategycompany
-- **Localização**: Belo Horizonte, MG — Brasil
+
+## Dados Cadastrais e Localização
+- **Nome Comercial**: Palaz Strategy Company / Palaz Design Studio
+- **CNPJ**: 62.808.025/0001-73
+- **Endereço**: Belo Horizonte, Minas Gerais — Brasil
+- **Horário de Funcionamento**: Segunda a Sexta-feira, das 09:00 às 18:00 (Horário de Brasília)
+- **Tempo Médio de Retorno**: Até 24 horas úteis para novas solicitações de projeto.
+
+## Como Trabalhamos
+1. **Briefing Inicial**: Você nos envia os detalhes do seu projeto através do formulário em https://palazstrategy.vercel.app/contato ou por e-mail.
+2. **Alinhamento Estratégico**: Realizamos uma reunião online de 30 minutos para compreender metas de negócio, orçamento e prazos.
+3. **Proposta Sob Medida**: Apresentamos um cronograma detalhado de etapas, entregáveis e investimento.
 `;
 }
 
 function getContactMarkdownEn(): string {
-  return `# Contact — Palaz Strategy Company
+  return `# Contact & Corporate Verification — Palaz Strategy Company | Palaz Design Studio
 
-Ready to transform your brand into something strategic, solid, and memorable?
+Welcome to the official communication and business inquiry portal of Palaz Strategy Company. If you are looking to start a new branding engagement, request a strategic brand diagnosis, or schedule a discovery meeting with our team, please use the verified channels below:
 
-- **Email**: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com)
-- **WhatsApp**: [+55 31 96117847](https://wa.me/553196117847)
+## Direct Communication Channels
+- **Official Inquiries Email**: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com)
+- **Official WhatsApp**: [+55 31 96117847](https://wa.me/553196117847)
+- **Primary Website**: https://palazstrategy.vercel.app/en
 - **Instagram**: https://www.instagram.com/palazstrategy/
 - **Behance**: https://www.behance.net/palazstrategycompany
-- **Location**: Belo Horizonte, MG — Brazil
+
+## Business Identity & Legal Verification
+- **Trading Names**: Palaz Strategy Company / Palaz Design Studio
+- **Tax Registration (CNPJ)**: 62.808.025/0001-73
+- **Headquarters**: Belo Horizonte, Minas Gerais — Brazil
+- **Operating Hours**: Monday through Friday, 09:00 to 18:00 (UTC-3 / BRT)
+- **Response SLA**: Within 24 business hours for all project requests.
+
+## How to Engage Palaz
+1. **Initial Brief**: Submit your goals and scope via https://palazstrategy.vercel.app/en/contato or email.
+2. **Strategic Discovery Call**: A 30-minute video session to assess business objectives, timelines, and deliverables.
+3. **Tailored Proposal**: Transparent roadmap specifying project milestones, brand architecture, and deliverables.
 `;
 }
 
 function getPrivacyMarkdownPt(): string {
-  return `# Política de Privacidade — Palaz Strategy Company
+  return `# Política de Privacidade — Palaz Strategy Company | Palaz Design Studio
 
-Respeitamos sua privacidade e protegemos seus dados pessoais de acordo com a LGPD.
+Última atualização: Março de 2026
 
-Para dúvidas ou solicitações sobre seus dados: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com)
+A Palaz Strategy Company valoriza a transparência e a privacidade de seus visitantes, parceiros e clientes. Esta Política de Privacidade descreve como coletamos, tratamos, armazenamos e protegemos suas informações de acordo com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).
+
+## 1. Coleta de Informações
+Coletamos dados fornecidos voluntariamente por você através de formulários de contato ou canais diretos, incluindo:
+- Nome completo e nome da empresa;
+- Endereço de e-mail e telefone de contato;
+- Detalhes contextuais sobre o projeto de branding ou design solicitado.
+Adicionalmente, dados de navegação técnica (endereço IP anonimizado, páginas visualizadas e tipo de navegador) podem ser coletados via ferramentas de análise de tráfego para aprimoramento contínuo da experiência.
+
+## 2. Finalidade do Tratamento de Dados
+Os dados coletados são utilizados exclusivamente para:
+- Responder a solicitações de propostas comerciais e agendamento de reuniões;
+- Prestar os serviços de consultoria de marca, design estratégico e desenvolvimento contratados;
+- Cumprimento de obrigações legais, contratuais e fiscais cabíveis.
+Não comercializamos nem compartilhamos dados com terceiros para fins publicitários sob nenhuma hipótese.
+
+## 3. Segurança e Armazenamento
+Adotamos medidas rigorosas de segurança técnica e organizacional, incluindo criptografia HTTPS/TLS em todo o tráfego do site, controle estrito de acesso e servidores com certificação de segurança de ponta.
+
+## 4. Seus Direitos (LGPD)
+Conforme assegurado pela legislação brasileira, você possui o direito de solicitar a qualquer momento a confirmação da existência de tratamento, o acesso aos seus dados pessoais, a correção de dados incompletos ou a revogação de consentimento com a exclusão definitiva dos seus dados.
+
+## 5. Contato do Encarregado de Dados
+Para exercer seus direitos de privacidade ou esclarecer dúvidas, entre em contato através do e-mail oficial: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com).
 `;
 }
 
 function getPrivacyMarkdownEn(): string {
-  return `# Privacy Policy — Palaz Strategy Company
+  return `# Privacy Policy — Palaz Strategy Company | Palaz Design Studio
 
-We respect your privacy and protect your personal data in accordance with applicable data protection laws.
+Last updated: March 2026
 
-For questions: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com)
+Palaz Strategy Company is committed to protecting the privacy, confidentiality, and personal data of our website visitors and clients, adhering strictly to global data protection standards including the GDPR and Brazilian LGPD.
+
+## 1. Data Collection
+We collect personal information that you provide voluntarily when submitting contact inquiries or project briefs, including:
+- Full Name and Company Information;
+- Email Address and WhatsApp/Phone Number;
+- Project specifications and business requirements.
+We also collect anonymized technical telemetry (browser type, operating system, and pages visited) via secure analytics tools to optimize site performance.
+
+## 2. Lawful Basis and Purpose of Processing
+Your information is processed strictly for legitimate business purposes:
+- Communicating with you regarding branding quotes and project proposals;
+- Delivering contracted design, branding, and strategic consulting services;
+- Complying with applicable legal, accounting, and regulatory obligations.
+We do not sell, rent, or trade your personal information to third parties under any circumstances.
+
+## 3. Data Protection and Security
+We implement robust technical and organizational safeguards, including SSL/TLS encryption across all site traffic, restricted data access protocols, and ISO-compliant cloud infrastructure providers.
+
+## 4. Data Subject Rights
+You have the right to request access to, rectification of, portability, or deletion of your personal data at any time. You may also withdraw your consent for future communications.
+
+## 5. Privacy Contact & DPO
+To exercise any of your privacy rights or discuss data governance, please contact our team at: [estudiopalaz@gmail.com](mailto:estudiopalaz@gmail.com).
 `;
 }

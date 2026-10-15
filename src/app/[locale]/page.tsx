@@ -20,9 +20,23 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       title: t('og_title'),
       description: t('og_description'),
       url: 'https://palazstrategy.vercel.app',
-      siteName: 'Palaz',
+      siteName: 'Palaz Strategy Company',
       locale: locale === 'pt' ? 'pt_BR' : 'en_US',
       type: 'website',
+      images: [
+        {
+          url: 'https://palazstrategy.vercel.app/imagem-compartilhamento.png',
+          width: 1200,
+          height: 630,
+          alt: 'Palaz Strategy Company | Palaz Design Studio',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('og_title'),
+      description: t('og_description'),
+      images: ['https://palazstrategy.vercel.app/imagem-compartilhamento.png'],
     },
   };
 }
@@ -70,6 +84,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="flex flex-col items-start xl:flex-row xl:items-center justify-between gap-6 xl:gap-24 w-full">
             <div className="flex-1 w-full xl:max-w-none flex flex-col items-start translate-y-[-5%] md:translate-y-0 hero-text-animate">
               <h1 className="text-white leading-[1.05] text-left flex flex-col">
+                <span className="text-xs md:text-sm uppercase tracking-[0.25em] text-[#F24B0F] font-semibold mb-4">
+                  Palaz Design Studio & Strategy Company
+                </span>
                 <span className="block text-[clamp(42px,6vw,92px)] font-bold tracking-[-0.04em] uppercase">
                   {tHome("hero.title1_p1")}
                 </span>
