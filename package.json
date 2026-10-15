@@ -7,6 +7,7 @@
     "build": "next build",
     "deploy": "powershell -ExecutionPolicy Bypass -File scripts/deploy.ps1",
     "start": "next start",
+    "test": "node --experimental-strip-types --test tests/agentic.test.mjs",
     "lint": "next lint"
   },
   "dependencies": {

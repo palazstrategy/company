@@ -1,0 +1,66 @@
+# Palaz Strategy Company
+
+> Strategic design & branding studio based in Belo Horizonte, Brazil.
+> We transform companies into solid, memorable brands through strategy, identity, and design.
+
+## What Palaz does
+
+Palaz is a strategic design studio specializing in:
+
+- **Brand Strategy & Positioning** — Market analysis, competitive differentiation, brand architecture, and strategic direction for companies seeking lasting market presence.
+- **Visual Identity & Branding** — Logo design, brand guidelines, color systems, typography selection, and complete visual identity packages.
+- **Naming** — Brand name creation rooted in strategy, linguistic analysis, and market positioning.
+- **UI/UX Design** — Interface design for web and mobile applications with a focus on user experience and conversion.
+- **Packaging Design** — Product packaging that communicates brand values at the point of sale.
+- **Motion Design** — Brand animations and motion graphics for digital touchpoints.
+
+## When to use Palaz
+
+Reach out to Palaz when you need:
+
+- A **new brand identity** from scratch — strategy, naming, visual identity, and brand guidelines for a startup or new business venture.
+- A **rebrand or brand refresh** — repositioning an existing brand with updated strategy, messaging, and visual design.
+- **Brand strategy consulting** — defining positioning, target audience, tone of voice, and competitive differentiation.
+- **Visual identity for a specific industry** — including restaurants, clinics, e-commerce, tech companies, agribusiness, glass/construction, and food service.
+- **UI/UX and web design** aligned with brand strategy — ensuring digital products reflect the brand's strategic direction.
+- **Packaging and environmental design** — physical brand applications from product packaging to store signage.
+
+## How to contact
+
+- **Website**: https://palazstrategy.vercel.app
+- **Email**: estudiopalaz@gmail.com
+- **WhatsApp**: +55 31 96117847
+- **Instagram**: https://www.instagram.com/palazstrategy/
+- **Behance**: https://www.behance.net/palazstrategycompany
+
+## Portfolio cases
+
+Palaz has delivered strategic branding projects for clients across industries:
+
+- **NcGlass Vidraçaria** (2026) — Branding & Visual Identity for a premium glass company.
+- **Fatuz** (2026) — Branding, Visual Identity, Naming, UI/UX Design & Web Design for a financial invoicing platform.
+- **Sland Inteligência Produtiva** (2025) — Branding, Visual Identity, Packaging & Naming for a productivity intelligence brand.
+- **Aira Essence** (2024) — Complete branding, visual identity, and packaging for a natural cosmetics brand.
+- **Açougue Almeida** (2025) — Branding, Visual Identity & Packaging for a premium butcher shop.
+
+View all cases: https://palazstrategy.vercel.app/cases
+
+## Site structure
+
+- Homepage: https://palazstrategy.vercel.app
+- Cases (portfolio): https://palazstrategy.vercel.app/cases
+- About: https://palazstrategy.vercel.app/sobre
+- Contact: https://palazstrategy.vercel.app/contato
+- Privacy Policy: https://palazstrategy.vercel.app/politica-de-privacidade
+- Sitemap: https://palazstrategy.vercel.app/sitemap.xml
+- This file: https://palazstrategy.vercel.app/llms.txt
+
+## Location
+
+Belo Horizonte, MG — Brazil
+Available for remote projects worldwide.
+
+## Languages
+
+This website is available in Portuguese (default) and English.
+English version: https://palazstrategy.vercel.app/en

@@ -5,10 +5,10 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Palaz Strategy Company",
-    "url": "https://palaz.com.br",
-    "logo": "https://palaz.com.br/icon-palaz.svg",
-    "image": "https://palaz.com.br/imagem-compartilhamento.png",
-    "description": "Design Estratégico & Branding. Forjamos marcas sólidas e memoráveis.",
+    "url": "https://palazstrategy.vercel.app",
+    "logo": "https://palazstrategy.vercel.app/icone-palaz.png",
+    "image": "https://palazstrategy.vercel.app/imagem-compartilhamento.png",
+    "description": "Estúdio de Design Estratégico & Branding. Forjamos marcas sólidas e memoráveis.",
     "sameAs": [
       "https://www.instagram.com/palazstrategy/",
       "https://www.behance.net/palazstrategycompany"
@@ -29,17 +29,17 @@ export function JsonLd() {
   const websiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Palaz",
-    "url": "https://palaz.com.br"
+    "name": "Palaz Strategy Company",
+    "url": "https://palazstrategy.vercel.app"
   }
 
   const serviceData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Palaz Strategy Company",
-    "url": "https://palaz.com.br",
-    "logo": "https://palaz.com.br/icon-palaz.svg",
-    "image": "https://palaz.com.br/imagem-compartilhamento.png",
+    "url": "https://palazstrategy.vercel.app",
+    "logo": "https://palazstrategy.vercel.app/icone-palaz.png",
+    "image": "https://palazstrategy.vercel.app/imagem-compartilhamento.png",
     "description": "Estúdio de Design Estratégico & Branding em Belo Horizonte. Transformamos empresas em marcas sólidas e memoráveis.",
     "address": {
       "@type": "PostalAddress",
