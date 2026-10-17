@@ -6,7 +6,7 @@ export const metadata = {
     title: "Editor Local - Palaz",
     icons: {
         icon: [
-            { url: '/favicon.svg', type: 'image/svg+xml' },
+            { url: '/favicon.ico' },
             { url: '/favicon.png', type: 'image/png' },
         ],
         apple: '/favicon.png',
