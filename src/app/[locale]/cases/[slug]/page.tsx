@@ -6,6 +6,7 @@ import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { CaseGallery } from "@/components/page-specific/CaseGallery"
 import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd"
+import { CaseJsonLd } from "@/components/seo/CaseJsonLd"
 import { CTA } from "@/components/sections/CTA"
 
 export async function generateStaticParams() {
@@ -104,6 +105,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     { name: tData.has(`${slug}.title`) ? tData(`${slug}.title`) : project.title, item: `https://palazstrategy.vercel.app/${locale}/cases/${slug}` }
                 ]}
             />
+            <CaseJsonLd
+                project={project}
+                title={tData.has(`${slug}.title`) ? tData(`${slug}.title`) : project.title}
+                description={tData.has(`${slug}.description`) ? tData(`${slug}.description`) : (project.description || "")}
+                category={tData.has(`${slug}.category`) ? tData(`${slug}.category`) : (project.category || "")}
+                url={`https://palazstrategy.vercel.app/${locale}/cases/${slug}`}
+                baseUrl="https://palazstrategy.vercel.app"
+            />
             <div className="w-full min-h-screen bg-black">
                 {/* Hero image */}
                 <div className="relative w-full h-[70vh] overflow-hidden">
@@ -165,6 +174,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 <CaseGallery 
                     project={project} 
                     slug={slug} 
+                    projectTitle={tData.has(slug + '.title') ? tData(slug + '.title') : project.title}
+                    projectCategory={tData.has(slug + '.category') ? tData(slug + '.category') : project.category}
                 />
 
                 {/* CTA Section */}

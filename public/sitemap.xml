@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://palazstrategy.vercel.app</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app" />
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagem-compartilhamento.png</image:loc>
+      <image:title>Palaz Strategy Company | Estúdio de Design &amp; Branding</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/logo-palaz.png</image:loc>
+      <image:title>Logo Palaz Strategy &amp; Design</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/cases</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/cases" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/cases" />
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/sobre</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/sobre" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/sobre" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/sobre" />
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/contato</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/contato" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/contato" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/contato" />
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/politica-de-privacidade</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/politica-de-privacidade" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/politica-de-privacidade" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/politica-de-privacidade" />
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/llms.txt</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/llms.txt" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/llms.txt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/llms.txt" />
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/openapi.json</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/openapi.json" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/openapi.json" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/openapi.json" />
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/cases/ncglass-vidracaria</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases/ncglass-vidracaria" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/cases/ncglass-vidracaria" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/cases/ncglass-vidracaria" />
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-capa.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 1)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-14.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 2)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-4.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 3)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-15.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 4)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-3.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 5)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-8.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 6)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-10.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 7)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-1.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 8)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-16.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 9)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-13.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 10)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-17.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 11)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-12.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 12)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-9.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 13)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-5.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 14)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-2.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 15)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-7.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 16)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-6.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 17)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-11.avif</image:loc>
+      <image:title>NcGlass Vidraçaria</image:title>
+      <image:caption>NcGlass Vidraçaria - Vidraçaria | Palaz Strategy &amp; Design (Foto 18)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/cases/fatuz</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases/fatuz" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/cases/fatuz" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/cases/fatuz" />
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-capa.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 1)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-13.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 2)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-14.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 3)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-15.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 4)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-16.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 5)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-1.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 6)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-7.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 7)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-11.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 8)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-12.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 9)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-17.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 10)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-9.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 11)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-8.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 12)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-5.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 13)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-6.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 14)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-10.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 15)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-2.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 16)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-3.avif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 17)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-18.gif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 18)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-19.gif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 19)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-20.gif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 20)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-21.gif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 21)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-22.gif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 22)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/fatuz/fatuz-palaz-strategy-company-23.gif</image:loc>
+      <image:title>Fatuz</image:title>
+      <image:caption>Fatuz - SaaS Financeiro | Palaz Strategy &amp; Design (Foto 23)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/cases/sland-inteligencia-produtiva</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases/sland-inteligencia-produtiva" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/cases/sland-inteligencia-produtiva" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/cases/sland-inteligencia-produtiva" />
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-0-capa.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 1)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-2.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 2)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-3.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 3)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-4.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 4)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-5.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 5)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-6.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 6)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-7.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 7)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-8.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 8)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-9.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 9)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-10.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 10)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-11.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 11)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-12.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 12)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-13.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 13)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-14.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 14)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-15.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 15)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-16.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 16)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-17.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 17)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-18.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 18)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-19.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 19)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-20.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 20)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-21.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 21)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-1.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 22)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-22.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 23)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-23.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 24)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-24.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 25)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-25.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 26)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-26.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 27)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-27.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 28)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-28.avif</image:loc>
+      <image:title>Sland Inteligência Produtiva</image:title>
+      <image:caption>Sland Inteligência Produtiva - Tecnologia &amp; Agronegócio | Palaz Strategy &amp; Design (Foto 29)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/cases/aira-essence</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases/aira-essence" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/cases/aira-essence" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/cases/aira-essence" />
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-1-capa.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 1)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-2.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 2)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-3-logo-animada.webp</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 3)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-4-logo-traado.webp</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 4)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-5-fontes-animada.webp</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 5)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-6-cores-animada.webp</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 6)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-7.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 7)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-10-frase-animada.webp</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 8)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-11.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 9)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-12.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 10)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-13.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 11)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-14.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 12)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-15.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 13)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-16.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 14)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-17.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 15)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-18.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 16)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-19.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 17)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-20.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 18)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-21-1.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 19)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-21-2.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 20)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-22-1.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 21)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-22-2.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 22)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-23.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 23)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-24-1.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 24)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-24-2.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 25)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-25.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 26)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-26.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 27)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/aira-essence/aira-essence-palaz-strategy-company-27.avif</image:loc>
+      <image:title>Aira Essence</image:title>
+      <image:caption>Aira Essence - Cuidado Pessoal - Essencias Naturais | Palaz Strategy &amp; Design (Foto 28)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://palazstrategy.vercel.app/cases/acougue-almeida</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases/acougue-almeida" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/cases/acougue-almeida" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/cases/acougue-almeida" />
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-0-capa.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 1)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-28.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 2)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-25.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 3)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-26.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 4)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-24.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 5)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-13.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 6)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-14.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 7)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-15.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 8)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-16.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 9)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-18.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 10)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-22.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 11)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-20.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 12)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-29.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 13)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-1.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 14)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-2.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 15)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-17.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 16)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-3.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 17)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-4.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 18)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-5.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 19)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-6.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 20)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-7.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 21)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-8.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 22)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-9.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 23)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-10.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 24)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-11.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 25)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-12.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 26)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://palazstrategy.vercel.app/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-27.avif</image:loc>
+      <image:title>Açougue Almeida</image:title>
+      <image:caption>Açougue Almeida - Varejo Alimentar | Palaz Strategy &amp; Design (Foto 27)</image:caption>
+    </image:image>
+  </url>
+</urlset>

@@ -29,12 +29,17 @@ function ParallaxBlock({ children, className = "" }: { children: React.ReactNode
 interface CaseGalleryProps {
     project: Project;
     slug: string;
+    projectTitle?: string;
+    projectCategory?: string;
 }
 
-export function CaseGallery({ project, slug }: CaseGalleryProps) {
+export function CaseGallery({ project, slug, projectTitle, projectCategory }: CaseGalleryProps) {
     const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
     const locale = useLocale() as "pt" | "en";
     const tData = useTranslations("ProjectsData");
+
+    const effectiveTitle = projectTitle || (tData.has(`${slug}.title`) ? tData(`${slug}.title`) : project.title) || "Projeto";
+    const effectiveCategory = projectCategory || (tData.has(`${slug}.category`) ? tData(`${slug}.category`) : project.category) || "";
 
     const getBlockValue = (block: any, field: 'title' | 'content') => {
         // 1. Try new translation structure: block.translations[locale][field]
@@ -69,11 +74,13 @@ export function CaseGallery({ project, slug }: CaseGalleryProps) {
             {blocks.map((block: any, index: number) => {
 
                 if (block.type === 'image') {
+                    const blockAlt = `${effectiveTitle}${effectiveCategory ? ` - ${effectiveCategory}` : ''} | Palaz Strategy & Design (Imagem ${index + 1})`;
                     return (
                         <GalleryParallax
                             key={block.id || index}
                             images={[block.content]}
-                            title={project.title}
+                            title={effectiveTitle}
+                            altText={blockAlt}
                             onMediaClick={handleMediaClick}
                             mode={block.mode || "contain"}
                         />
@@ -213,7 +220,7 @@ export function CaseGallery({ project, slug }: CaseGalleryProps) {
                                                     src={img}
                                                     loading="lazy"
                                                     className="w-full h-full object-cover bg-black"
-                                                    alt={`${project.title} - ${tData(`${slug}.category`) || ""} por Palaz Strategy Company - Imagem ${iIdx + 1}`}
+                                                    alt={`${effectiveTitle}${effectiveCategory ? ` - ${effectiveCategory}` : ''} | Palaz Strategy & Design (Grade ${iIdx + 1})`}
                                                 />
                                             </div>
                                         );

@@ -23,8 +23,13 @@ try {
     # 2. Esconder rotas dinâmicas (que quebram a build estática)
     SafeMove "src/app/api" "$disabledDir/"
     SafeMove "src/app/editor" "$disabledDir/"
+    SafeMove "src/app/.well-known" "$disabledDir/"
     SafeMove "src/app/sitemap.ts" "$disabledDir/"
     SafeMove "src/app/robots.ts" "$disabledDir/"
+
+    # 2.2 Gerar sitemap.xml com imagens na pasta public
+    Write-Host "Gerando sitemap.xml com Google Image Sitemap..." -ForegroundColor Cyan
+    node scripts/generate-sitemap.mjs
 
     # 2.5 Limpar cache do Next.js para evitar erros de renderização fantasma
     if (Test-Path ".next") {
@@ -56,6 +61,7 @@ finally {
     # 4. Restaurar arquivos independente do resultado da build
     SafeMove "$disabledDir/api" "src/app/"
     SafeMove "$disabledDir/editor" "src/app/"
+    SafeMove "$disabledDir/.well-known" "src/app/"
     SafeMove "$disabledDir/sitemap.ts" "src/app/"
     SafeMove "$disabledDir/robots.ts" "src/app/"
     

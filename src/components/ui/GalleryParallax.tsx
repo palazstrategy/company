@@ -7,6 +7,7 @@ import Image from "next/image"
 interface GalleryParallaxProps {
     images: string[]
     title: string;
+    altText?: string;
     mode?: "contain" | "cover";
     onMediaClick?: (src: string) => void;
 }
@@ -58,7 +59,7 @@ function ParallaxImage({ src, alt, mode = "contain", onClick }: { src: string; a
     )
 }
 
-export function GalleryParallax({ images, title, mode = "contain", onMediaClick }: GalleryParallaxProps) {
+export function GalleryParallax({ images, title, altText, mode = "contain", onMediaClick }: GalleryParallaxProps) {
     if (!images || images.length === 0) return null
 
     return (
@@ -67,7 +68,7 @@ export function GalleryParallax({ images, title, mode = "contain", onMediaClick 
                 <ParallaxImage 
                     key={idx} 
                     src={img} 
-                    alt={`${title} gallery ${idx + 1}`} 
+                    alt={altText || `${title} | Palaz Strategy & Design (${idx + 1})`} 
                     mode={mode} 
                     onClick={() => onMediaClick?.(img)}
                 />
