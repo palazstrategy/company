@@ -243,7 +243,7 @@
 
       <!-- Action Button Pill -->
       <div class="flex items-center gap-2">
-        <button onclick="toggleEditDrawer()" class="broud-pill w-10 h-10 rounded-full flex items-center justify-center text-zinc-700 hover:text-brand-orange hover:border-brand-orange transition-all duration-200 shadow-sm" title="Editar Conteúdo e Gerar Link">
+        <button id="headerEditorBtn" onclick="toggleEditDrawer()" class="broud-pill w-10 h-10 rounded-full flex items-center justify-center text-zinc-700 hover:text-brand-orange hover:border-brand-orange transition-all duration-200 shadow-sm" title="Editar Conteúdo e Gerar Link">
           <i data-lucide="sliders" class="w-4 h-4"></i>
         </button>
 
@@ -1021,7 +1021,7 @@
       <div class="flex items-center gap-6">
         <span>Apresentação confidencial</span>
         <span class="text-zinc-700">|</span>
-        <button onclick="toggleEditDrawer()" class="hover:text-white transition-colors underline">Editor de Link</button>
+        <button id="footerEditorBtn" onclick="toggleEditDrawer()" class="hover:text-white transition-colors underline">Editor de Link</button>
       </div>
 
     </div>
@@ -1104,12 +1104,18 @@
         <span>Aplicar Alterações na Tela</span>
       </button>
 
-      <button onclick="generateShareableLink()" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-semibold py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs">
-        <i data-lucide="link" class="w-4 h-4"></i>
-        <span>Copiar Link Personalizado (LZString)</span>
+      <button onclick="generateShareableLink(false)" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white font-bold py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs shadow-lg shadow-brand-orange/20">
+        <i data-lucide="share-2" class="w-4 h-4"></i>
+        <span>Copiar Link Personalizado (com Nome e Marca)</span>
       </button>
-      <div id="copyAlert" class="text-[11px] text-emerald-400 text-center hidden">
-        Link copiado com sucesso para a área de transferência!
+
+      <button onclick="generateShareableLink(true)" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold py-2.5 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs">
+        <i data-lucide="lock" class="w-4 h-4"></i>
+        <span>Copiar Link Modo Cliente (Oculta Botão de Editor)</span>
+      </button>
+
+      <div id="copyAlert" class="text-[12px] text-emerald-400 text-center hidden font-medium py-1">
+        ✓ Link personalizado copiado para a área de transferência!
       </div>
     </div>
 
@@ -1192,22 +1198,64 @@
 
     function loadFromUrl() {
       const urlParams = new URLSearchParams(window.location.search);
+      
+      // Support clean parameters: ?cliente=...&empresa=...&n1=...&n2=...&n3=...
+      const clienteParam = urlParams.get('cliente') || urlParams.get('c') || urlParams.get('nome');
+      const empresaParam = urlParams.get('empresa') || urlParams.get('e') || urlParams.get('marca');
+      const zapParam = urlParams.get('wa') || urlParams.get('whatsapp');
+      const n1Param = urlParams.get('n1') || urlParams.get('nota1');
+      const n2Param = urlParams.get('n2') || urlParams.get('nota2');
+      const n3Param = urlParams.get('n3') || urlParams.get('nota3');
+      const pFortesParam = urlParams.get('fortes') || urlParams.get('pf');
+      const pMelhoriasParam = urlParams.get('melhorias') || urlParams.get('pm');
+
+      if (clienteParam) diagData.client = decodeURIComponent(clienteParam);
+      if (empresaParam) diagData.company = decodeURIComponent(empresaParam);
+      if (zapParam) diagData.whatsapp = zapParam.replace(/\D/g, '');
+      if (n1Param) diagData.scores[0] = parseFloat(n1Param) || diagData.scores[0];
+      if (n2Param) diagData.scores[1] = parseFloat(n2Param) || diagData.scores[1];
+      if (n3Param) diagData.scores[2] = parseFloat(n3Param) || diagData.scores[2];
+      
+      if (pFortesParam) {
+        diagData.strengths = decodeURIComponent(pFortesParam).split('|').filter(s => s.trim().length > 0);
+      }
+      if (pMelhoriasParam) {
+        diagData.improvements = decodeURIComponent(pMelhoriasParam).split('|').filter(s => s.trim().length > 0);
+      }
+
+      // Also support compressed parameter ?d=...
       const compressedData = urlParams.get('d');
-      if (compressedData) {
+      if (compressedData && typeof LZString !== 'undefined') {
         try {
           const jsonStr = LZString.decompressFromEncodedURIComponent(compressedData);
           if (jsonStr) {
-            diagData = JSON.parse(jsonStr);
+            const parsed = JSON.parse(jsonStr);
+            diagData = { ...diagData, ...parsed };
           }
         } catch (e) {
           console.error("Erro ao descomprimir dados da URL", e);
         }
       }
+
+      // Hide editor buttons if requested: ?view=client or ?modo=cliente or ?hideEditor=1
+      const hideEditor = urlParams.get('hide') === '1' || urlParams.get('view') === 'client' || urlParams.get('modo') === 'cliente';
+      if (hideEditor) {
+        const hBtn = document.getElementById('headerEditorBtn');
+        const fBtn = document.getElementById('footerEditorBtn');
+        const drawer = document.getElementById('editDrawer');
+        const backdrop = document.getElementById('drawerBackdrop');
+        if (hBtn) hBtn.style.display = 'none';
+        if (fBtn) fBtn.style.display = 'none';
+        if (drawer) drawer.style.display = 'none';
+        if (backdrop) backdrop.style.display = 'none';
+      }
+
       renderData();
       populateForm();
     }
 
     function renderData() {
+      // Dynamic text replacements
       document.getElementById('navClientName').innerText = diagData.client;
       document.getElementById('navCompanyName').innerText = diagData.company;
       document.getElementById('heroClientBadge').innerText = `${diagData.client} (${diagData.company})`;
@@ -1217,6 +1265,9 @@
       document.getElementById('stratCompanyName').innerText = diagData.company;
       document.getElementById('ctaCompanyName').innerText = diagData.company;
 
+      // Update Page Title with Client & Company name
+      document.title = `Diagnóstico Estratégico | ${diagData.client} (${diagData.company}) - Palaz Strategy Company`;
+
       const avg = ((diagData.scores[0] + diagData.scores[1] + diagData.scores[2]) / 3).toFixed(1);
       document.getElementById('heroAvgScore').innerText = avg;
 
@@ -1224,37 +1275,42 @@
       document.getElementById('scoreNum2').innerText = diagData.scores[1].toFixed(1);
       document.getElementById('scoreNum3').innerText = diagData.scores[2].toFixed(1);
 
-      document.getElementById('scoreBar1').style.width = (diagData.scores[0] * 10) + '%';
-      document.getElementById('scoreBar2').style.width = (diagData.scores[1] * 10) + '%';
-      document.getElementById('scoreBar3').style.width = (diagData.scores[2] * 10) + '%';
+      document.getElementById('scoreBar1').style.width = Math.min(100, (diagData.scores[0] * 10)) + '%';
+      document.getElementById('scoreBar2').style.width = Math.min(100, (diagData.scores[1] * 10)) + '%';
+      document.getElementById('scoreBar3').style.width = Math.min(100, (diagData.scores[2] * 10)) + '%';
 
       // Strengths
       const sList = document.getElementById('visualStrengthsList');
-      sList.innerHTML = '';
-      diagData.strengths.forEach(str => {
-        sList.innerHTML += `
-          <li class="flex items-start gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></span>
-            <span>${str}</span>
-          </li>`;
-      });
+      if (sList) {
+        sList.innerHTML = '';
+        diagData.strengths.forEach(str => {
+          sList.innerHTML += `
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></span>
+              <span>${str}</span>
+            </li>`;
+        });
+      }
 
       // Improvements
       const iList = document.getElementById('visualImprovementsList');
-      iList.innerHTML = '';
-      diagData.improvements.forEach(imp => {
-        iList.innerHTML += `
-          <li class="flex items-start gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-brand-orange mt-2 flex-shrink-0"></span>
-            <span>${imp}</span>
-          </li>`;
-      });
+      if (iList) {
+        iList.innerHTML = '';
+        diagData.improvements.forEach(imp => {
+          iList.innerHTML += `
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-orange mt-2 flex-shrink-0"></span>
+              <span>${imp}</span>
+            </li>`;
+        });
+      }
 
       // Update WhatsApp URL
       const waMsg = encodeURIComponent(`Olá, vi o diagnóstico estratégico da ${diagData.company} e gostaria de alinhar os próximos passos!`);
       const waBtn = document.getElementById('whatsappPrimaryBtn');
       if (waBtn) {
-        waBtn.href = `https://wa.me/${diagData.whatsapp}?text=${waMsg}`;
+        const num = diagData.whatsapp || "5511999999999";
+        waBtn.href = `https://wa.me/${num}?text=${waMsg}`;
       }
     }
 
@@ -1270,9 +1326,9 @@
     }
 
     function applyFormChanges() {
-      diagData.client = document.getElementById('editClientName').value;
-      diagData.company = document.getElementById('editCompanyName').value;
-      diagData.whatsapp = document.getElementById('editWhatsapp').value;
+      diagData.client = document.getElementById('editClientName').value.trim() || "Cliente";
+      diagData.company = document.getElementById('editCompanyName').value.trim() || "Empresa";
+      diagData.whatsapp = document.getElementById('editWhatsapp').value.replace(/\D/g, '') || "5511999999999";
       diagData.scores = [
         parseFloat(document.getElementById('editScore1').value) || 0,
         parseFloat(document.getElementById('editScore2').value) || 0,
@@ -1285,10 +1341,46 @@
       toggleEditDrawer();
     }
 
-    function generateShareableLink() {
-      diagData.client = document.getElementById('editClientName').value;
-      diagData.company = document.getElementById('editCompanyName').value;
-      diagData.whatsapp = document.getElementById('editWhatsapp').value;
+    function generateShareableLink(hideEditor = false) {
+      applyFormChangesSilent();
+
+      const params = new URLSearchParams();
+      params.set('cliente', diagData.client);
+      params.set('empresa', diagData.company);
+      params.set('n1', diagData.scores[0]);
+      params.set('n2', diagData.scores[1]);
+      params.set('n3', diagData.scores[2]);
+      if (diagData.whatsapp && diagData.whatsapp !== '5511999999999') {
+        params.set('wa', diagData.whatsapp);
+      }
+      if (diagData.strengths && diagData.strengths.length > 0) {
+        params.set('pf', diagData.strengths.join('|'));
+      }
+      if (diagData.improvements && diagData.improvements.length > 0) {
+        params.set('pm', diagData.improvements.join('|'));
+      }
+      if (hideEditor) {
+        params.set('hide', '1');
+      }
+
+      const fullUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+
+      // Fallback copy
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullUrl).then(() => {
+          showCopySuccess();
+        }).catch(() => {
+          promptCopyFallback(fullUrl);
+        });
+      } else {
+        promptCopyFallback(fullUrl);
+      }
+    }
+
+    function applyFormChangesSilent() {
+      diagData.client = document.getElementById('editClientName').value.trim() || "Cliente";
+      diagData.company = document.getElementById('editCompanyName').value.trim() || "Empresa";
+      diagData.whatsapp = document.getElementById('editWhatsapp').value.replace(/\D/g, '') || "5511999999999";
       diagData.scores = [
         parseFloat(document.getElementById('editScore1').value) || 0,
         parseFloat(document.getElementById('editScore2').value) || 0,
@@ -1296,16 +1388,19 @@
       ];
       diagData.strengths = document.getElementById('editStrengths').value.split('\n').filter(s => s.trim().length > 0);
       diagData.improvements = document.getElementById('editImprovements').value.split('\n').filter(i => i.trim().length > 0);
+      renderData();
+    }
 
-      const jsonStr = JSON.stringify(diagData);
-      const compressed = LZString.compressToEncodedURIComponent(jsonStr);
-      const fullUrl = `${window.location.origin}${window.location.pathname}?d=${compressed}`;
-
-      navigator.clipboard.writeText(fullUrl).then(() => {
-        const alertBox = document.getElementById('copyAlert');
+    function showCopySuccess() {
+      const alertBox = document.getElementById('copyAlert');
+      if (alertBox) {
         alertBox.classList.remove('hidden');
-        setTimeout(() => alertBox.classList.add('hidden'), 3500);
-      });
+        setTimeout(() => alertBox.classList.add('hidden'), 4000);
+      }
+    }
+
+    function promptCopyFallback(url) {
+      window.prompt("Copie o link personalizado abaixo:", url);
     }
 
     function toggleEditDrawer() {
@@ -1324,6 +1419,7 @@
 
     // Init on load
     window.addEventListener('DOMContentLoaded', loadFromUrl);
-  </script>
+  
+</script>
 </body>
 </html>
