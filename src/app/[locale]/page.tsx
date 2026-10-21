@@ -67,8 +67,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="absolute inset-0 h-full w-full bg-black flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 w-full h-full overflow-hidden [transform:translateZ(0)]">
               <HeroVideo
-                src='/video-hero-palaz.webm'
-                poster='/video-hero-poster.webp'
+                desktopSrc="/hero-desktop.mp4"
+                mobileSrc="/hero-mobile.mp4"
+                desktopPoster="/hero-poster-desktop.webp"
+                mobilePoster="/hero-poster-mobile.webp"
                 className="w-full h-full object-cover"
               />
             </div>
