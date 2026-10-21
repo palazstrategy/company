@@ -216,9 +216,68 @@
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
       animation: shimmer 2.5s infinite;
     }
+  
+    /* Magma Liquid Chrome Effect */
+    .magma-logo-wrapper {
+      position: relative;
+      filter: drop-shadow(0 15px 35px rgba(242, 75, 15, 0.28));
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    }
+    .magma-logo-wrapper:hover {
+      transform: scale(1.025);
+      filter: drop-shadow(0 20px 45px rgba(242, 75, 15, 0.45));
+    }
+    .magma-svg {
+      filter: url(#liquidMagmaFilter);
+    }
+
   </style>
 </head>
 <body class="antialiased selection:bg-brand-orange selection:text-white">
+  <!-- SVG LIQUID MAGMA ORANGE FILTER DEFINITIONS -->
+  <svg class="hidden" width="0" height="0" aria-hidden="true">
+    <defs>
+      <!-- Base Displacement Map Filter for Liquid Fluidity -->
+      <filter id="liquidMagmaFilter" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.015 0.02" numOctaves="3" seed="5" result="noise">
+          <animate attributeName="baseFrequency" dur="12s" values="0.012 0.018; 0.022 0.035; 0.015 0.022; 0.012 0.018" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="14" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+        <feSpecularLighting in="displaced" surfaceScale="4" specularConstant="1.2" specularExponent="35" lighting-color="#fff5eb" result="specular">
+          <fePointLight x="260" y="-80" z="220">
+            <animate attributeName="x" dur="8s" values="100; 450; 260; 100" repeatCount="indefinite"/>
+          </fePointLight>
+        </feSpecularLighting>
+        <feComposite in="specular" in2="displaced" operator="in" result="specularComp"/>
+        <feMerge>
+          <feMergeNode in="displaced"/>
+          <feMergeNode in="specularComp"/>
+        </feMerge>
+      </filter>
+
+      <!-- Liquid Magma Gradient Fill (Orange molten palette) -->
+      <linearGradient id="magmaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FF3B00"/>
+        <stop offset="25%" stop-color="#FF6B00"/>
+        <stop offset="50%" stop-color="#FF2A00"/>
+        <stop offset="75%" stop-color="#FFA000"/>
+        <stop offset="100%" stop-color="#D82600"/>
+        <animateTransform attributeName="gradientTransform" type="rotate" from="0 0.5 0.5" to="360 0.5 0.5" dur="14s" repeatCount="indefinite"/>
+      </linearGradient>
+
+      <!-- Glossy Lava Inner Glow Filter -->
+      <filter id="lavaGlow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="10" result="blur"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.65"/>
+        </feComponentTransfer>
+        <feMerge>
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+  </svg>
 
   <!-- Interactive Custom Cursor -->
   <div class="custom-cursor hidden md:block" id="cursor"></div>
@@ -230,7 +289,7 @@
       
       <!-- Brand Icon Pill (Apenas Ícone Preto) -->
       <a href="#" class="broud-pill w-11 h-11 rounded-full flex items-center justify-center transition-transform hover:scale-105 duration-200 shadow-sm" title="Palaz Strategy Company">
-        <img src="icone-palaz.png" alt="Palaz" class="h-5 w-5 object-contain">
+        <img src="icone-palaz-black.png" alt="Palaz" class="h-5 w-5 object-contain">
       </a>
 
       <!-- Action Button Pill -->
@@ -249,26 +308,26 @@
   </header>
 
 
-  <!-- SECTION 1: HERO (Broud Light Canvas Style - Fiel à Referência) -->
-  <section id="hero-section" class="sticky top-0 z-0 min-h-screen pt-20 pb-28 md:pt-24 md:pb-36 px-5 md:px-12 flex flex-col justify-between hero-grid-pattern overflow-hidden">
+  <!-- SECTION 1: HERO (Broud Light Canvas Style - Centralizado e com Efeito Magma) -->
+  <section id="hero-section" class="sticky top-0 z-0 min-h-screen pt-24 pb-20 md:pt-28 md:pb-28 px-5 md:px-12 flex flex-col justify-between items-center hero-grid-pattern overflow-hidden">
     
-    <!-- Top Big Brand Visual Mark (Palaz Ativo 3.svg Inline) -->
-    <div class="w-full flex justify-center items-center pt-8 pb-4 md:pt-10 md:pb-6 relative z-10">
-      <div class="w-full max-w-4xl px-4 flex justify-center">
-        <svg class="w-full max-w-[840px] h-auto drop-shadow-sm select-none text-zinc-950" viewBox="0 0 538.11 68.6" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <g>
-    <path d="M528.77,1.17c5.16,0,9.34,4.18,9.34,9.34h0c0,5.62-3.1,10.78-8.07,13.42l-66.85,33.53h73.18v11.14h-82.01c-5.14,0-9.3-4.16-9.3-9.3h0c0-5.62,3.1-10.78,8.07-13.42l66.87-33.57h-73.19s0-11.13,0-11.13h81.97Z"/>
-    <path d="M244.81,49.86V1.16h-16.77v52.23c0,8.4,6.81,15.2,15.2,15.2h58.41v-11.14h-49.24c-4.2,0-7.6-3.4-7.6-7.6Z"/>
-    <path d="M2.23,1.16v11.14h68.99c4.2,0,7.6,3.4,7.6,7.6v8.35c0,4.2-3.4,7.6-7.6,7.6H15.2c-8.4,0-15.2,6.81-15.2,15.2v17.53h16.77v-14c0-4.2,3.4-7.6,7.6-7.6h56.02c8.4,0,15.2-6.81,15.2-15.2v-15.43c0-8.4-6.81-15.2-15.2-15.2H2.23Z"/>
-    <path d="M131.64,8.31c1.83-2.76,4.26-4.95,7.22-6.04,3.81-1.41,12.05-2.27,17.48-2.27s13.51.87,17.45,2.27c2.97,1.06,5.41,3.28,7.22,6.04l37.82,60.28h-19.77l-33.11-52.99c-1.37-2.2-3.84-3.34-6.42-3.61-1.6-.15-4.79-.15-6.39,0-2.62.27-5.09,1.41-6.46,3.61l-33.07,52.99h-19.77l37.78-60.28Z"/>
-    <path d="M346.91,8.31c1.83-2.76,4.26-4.95,7.22-6.04,3.81-1.41,12.05-2.27,17.48-2.27s13.51.87,17.45,2.27c2.97,1.06,5.41,3.28,7.22,6.04l37.82,60.28h-19.77l-33.11-52.99c-1.37-2.2-3.84-3.34-6.42-3.61-1.6-.15-4.79-.15-6.39,0-2.62.27-5.09,1.41-6.46,3.61l-33.07,52.99h-19.77l37.78-60.28Z"/>
-  </g>
-</svg>
+    <!-- Top Big Brand Visual Mark (Palaz Magma Líquido Laranja - Maior e Centralizado) -->
+    <div class="w-full flex-1 flex justify-center items-center py-6 md:py-10 relative z-10">
+      <div class="w-full max-w-5xl px-4 flex justify-center magma-logo-wrapper">
+        <svg class="w-full max-w-[960px] h-auto drop-shadow-2xl select-none magma-svg" viewBox="0 0 538.11 68.6" fill="url(#magmaGradient)" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path d="M528.77,1.17c5.16,0,9.34,4.18,9.34,9.34h0c0,5.62-3.1,10.78-8.07,13.42l-66.85,33.53h73.18v11.14h-82.01c-5.14,0-9.3-4.16-9.3-9.3h0c0-5.62,3.1-10.78,8.07-13.42l66.87-33.57h-73.19s0-11.13,0-11.13h81.97Z"/>
+            <path d="M244.81,49.86V1.16h-16.77v52.23c0,8.4,6.81,15.2,15.2,15.2h58.41v-11.14h-49.24c-4.2,0-7.6-3.4-7.6-7.6Z"/>
+            <path d="M2.23,1.16v11.14h68.99c4.2,0,7.6,3.4,7.6,7.6v8.35c0,4.2-3.4,7.6-7.6,7.6H15.2c-8.4,0-15.2,6.81-15.2,15.2v17.53h16.77v-14c0-4.2,3.4-7.6,7.6-7.6h56.02c8.4,0,15.2-6.81,15.2-15.2v-15.43c0-8.4-6.81-15.2-15.2-15.2H2.23Z"/>
+            <path d="M131.64,8.31c1.83-2.76,4.26-4.95,7.22-6.04,3.81-1.41,12.05-2.27,17.48-2.27s13.51.87,17.45,2.27c2.97,1.06,5.41,3.28,7.22,6.04l37.82,60.28h-19.77l-33.11-52.99c-1.37-2.2-3.84-3.34-6.42-3.61-1.6-.15-4.79-.15-6.39,0-2.62.27-5.09,1.41-6.46,3.61l-33.07,52.99h-19.77l37.78-60.28Z"/>
+            <path d="M346.91,8.31c1.83-2.76,4.26-4.95,7.22-6.04,3.81-1.41,12.05-2.27,17.48-2.27s13.51.87,17.45,2.27c2.97,1.06,5.41,3.28,7.22,6.04l37.82,60.28h-19.77l-33.11-52.99c-1.37-2.2-3.84-3.34-6.42-3.61-1.6-.15-4.79-.15-6.39,0-2.62.27-5.09,1.41-6.46,3.61l-33.07,52.99h-19.77l37.78-60.28Z"/>
+          </g>
+        </svg>
       </div>
     </div>
 
-    <!-- Bottom Layout (Divided like Broud reference: Left Headline / Right CTA & Proof - Mais acima) -->
-    <div class="max-w-6xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-end pb-4 md:pb-8">
+    <!-- Bottom Layout (Centralizado e Equilibrado) -->
+    <div class="max-w-5xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pb-2 md:pb-6">
       
       <!-- Left Column: Pill & Giant Title -->
       <div class="lg:col-span-7 flex flex-col items-start text-left">
@@ -291,7 +350,7 @@
         <!-- Headline (Proposta de orçamento / Diagnóstico de Identidade Visual) -->
         <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tight text-zinc-950 leading-[1.08]">
           Diagnóstico de <br>
-          <span class="text-[#1b6b7a] font-medium italic font-serif">identidade visual</span> <br class="hidden sm:inline">
+          <span class="text-brand-orange font-medium italic font-serif">identidade visual</span> <br class="hidden sm:inline">
           e posicionamento
         </h1>
 
@@ -318,7 +377,7 @@
 
         <!-- CTA Button (Pill escuro no formato da referência Broud) -->
         <div class="pt-2">
-          <a href="#objetivo" class="bg-[#1b6b7a] hover:bg-[#155662] text-white font-semibold text-sm px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2.5 group">
+          <a href="#objetivo" class="bg-zinc-950 hover:bg-brand-orange text-white font-semibold text-sm px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-glow-orange flex items-center gap-2.5 group">
             <span>Explorar diagnóstico</span>
             <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
           </a>
