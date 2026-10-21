@@ -249,54 +249,84 @@
   </header>
 
 
-  <!-- SECTION 1: HERO (Broud Light Canvas Style) -->
-  <section id="hero-section" class="sticky top-0 z-0 min-h-screen pt-32 pb-20 md:pt-36 md:pb-28 px-5 md:px-12 flex flex-col justify-center hero-grid-pattern overflow-hidden">
+  <!-- SECTION 1: HERO (Broud Light Canvas Style - Fiel à Referência) -->
+  <section id="hero-section" class="sticky top-0 z-0 min-h-screen pt-28 pb-16 md:pt-32 md:pb-24 px-5 md:px-12 flex flex-col justify-between hero-grid-pattern overflow-hidden">
     
-
-
-    <div class="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
-      
-      <!-- Top Target Badge Pill -->
-      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full broud-pill text-xs font-semibold text-zinc-700 mb-8 transition-transform hover:scale-105 duration-200 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
-        <span class="text-zinc-400 font-normal">Cliente:</span>
-        <span id="heroClientBadge" class="text-zinc-900 font-bold">Nathália (Vittaréa)</span>
-      </div>
-
-      <!-- Main Giant Headline (Exact Broud editorial rhythm) -->
-      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[-0.04em] text-zinc-950 leading-[1.02] max-w-5xl mb-6">
-        Diagnóstico de <br class="hidden sm:inline">
-        <span class="broud-wordmark">Identidade Visual</span> & <br class="hidden sm:inline">
-        <span class="italic font-serif font-normal text-brand-orange">Posicionamento</span>
-      </h1>
-
-      <!-- Subtitle Description -->
-      <p class="text-base sm:text-lg md:text-xl text-zinc-600 max-w-2xl font-normal leading-relaxed mb-10">
-        Da percepção estética à autoridade comercial: uma análise profunda feita para posicionar a <strong class="text-zinc-900 font-semibold" id="heroCompanyName">Vittaréa</strong> com valor percebido inquestionável desde o primeiro contato.
-      </p>
-
-      <!-- Proof Avatar Pill (+50 diagnósticos aprovados atendidas) & Primary CTA Button -->
-      <div class="flex flex-col sm:flex-row items-center gap-5">
+    <!-- Top Big Brand Visual Mark (Palaz Ativo 3.svg) -->
+    <div class="w-full flex justify-center items-center py-6 md:py-12 relative z-10">
+      <div class="relative w-full max-w-4xl px-4 flex justify-center">
+        <!-- Floating Cursor Badge 'Você' (como na imagem de referência) -->
+        <div class="absolute -top-3 md:-top-4 left-1/2 translate-x-12 sm:translate-x-20 z-20 flex items-center gap-1.5 bg-[#1b6b7a] text-white text-[11px] font-bold py-1 px-3 rounded-full shadow-md animate-bounce" style="animation-duration: 3s;">
+          <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M3 3l7 18 3-7 7-3L3 3z"/></svg>
+          <span>Você</span>
+        </div>
         
-        <!-- Social Proof Pill -->
-        <div class="flex items-center gap-3 broud-pill px-4 py-2 rounded-full shadow-sm">
-          <div class="flex -space-x-2 overflow-hidden">
-            <span class="inline-block h-7 w-7 rounded-full ring-2 ring-white bg-zinc-800 text-[10px] font-bold text-white flex items-center justify-center">PL</span>
-            <span class="inline-block h-7 w-7 rounded-full ring-2 ring-white bg-brand-orange text-[10px] font-bold text-white flex items-center justify-center">VT</span>
-            <span class="inline-block h-7 w-7 rounded-full ring-2 ring-white bg-zinc-700 text-[10px] font-bold text-white flex items-center justify-center">PZ</span>
+        <!-- Big SVG Brand -->
+        <img src="marca-palaz-hero.svg" alt="Palaz Strategy Company" class="w-full max-w-[720px] h-auto object-contain drop-shadow-sm select-none">
+      </div>
+    </div>
+
+    <!-- Bottom Layout (Divided like Broud reference: Left Headline / Right CTA & Proof) -->
+    <div class="max-w-6xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-end pb-8">
+      
+      <!-- Left Column: Pill & Giant Title -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left">
+        
+        <!-- Client Pill Tag (igual Broud: [ • Cliente: Nome ] [ < 🌐 > ]) -->
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full broud-pill text-xs font-semibold text-zinc-800 mb-6 shadow-sm">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-zinc-500 font-normal">Cliente:</span>
+            <strong id="heroClientBadge" class="text-zinc-950 font-bold">Nathália (Vittaréa)</strong>
           </div>
-          <span class="text-xs font-semibold text-zinc-800 tracking-tight">+50 diagnósticos aprovados</span>
+          <span class="text-zinc-300">|</span>
+          <div class="flex items-center gap-1 text-zinc-400">
+            <i data-lucide="chevron-left" class="w-3 h-3"></i>
+            <i data-lucide="globe" class="w-3.5 h-3.5 text-zinc-600"></i>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
         </div>
 
-        <!-- Scroll down trigger -->
-        <a href="#objetivo" class="bg-brand-orange hover:bg-brand-orangeHover text-white font-semibold text-sm px-7 py-3 rounded-full transition-all duration-300 shadow-glow-orange hover:shadow-glow-orange-sm flex items-center gap-2 group">
-          <span>Explorar Diagnóstico</span>
-          <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
-        </a>
+        <!-- Headline (Proposta de orçamento / Diagnóstico de Identidade Visual) -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tight text-zinc-950 leading-[1.08]">
+          Diagnóstico de <br>
+          <span class="text-[#1b6b7a] font-medium italic font-serif">identidade visual</span> <br class="hidden sm:inline">
+          e posicionamento
+        </h1>
+
+      </div>
+
+      <!-- Right Column: Avatars, Subtitle & Action Button -->
+      <div class="lg:col-span-5 flex flex-col items-start lg:items-end text-left lg:text-right space-y-5">
+        
+        <!-- Social Proof Avatars -->
+        <div class="flex items-center gap-3">
+          <div class="flex -space-x-2 overflow-hidden">
+            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar">
+            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Avatar">
+            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Avatar">
+            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Avatar">
+          </div>
+          <span class="text-xs font-medium text-zinc-500 tracking-tight">+50 diagnósticos aprovados</span>
+        </div>
+
+        <!-- Description Paragraph -->
+        <p class="text-sm md:text-base text-zinc-600 font-normal leading-relaxed max-w-md">
+          Da estratégia à percepção de valor: uma análise profunda feita para posicionar a <strong class="text-zinc-900 font-semibold" id="heroCompanyName">Vittaréa</strong> com autoridade comercial desde o primeiro contato.
+        </p>
+
+        <!-- CTA Button (Pill escuro no formato da referência Broud) -->
+        <div class="pt-2">
+          <a href="#objetivo" class="bg-[#1b6b7a] hover:bg-[#155662] text-white font-semibold text-sm px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2.5 group">
+            <span>Explorar diagnóstico</span>
+            <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+          </a>
+        </div>
 
       </div>
 
     </div>
+
   </section>
 
 
