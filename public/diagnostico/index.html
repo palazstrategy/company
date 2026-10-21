@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico Estratégico & Identidade | Palaz Strategy Company</title>
+  <meta name="description" content="Diagnóstico exclusivo de Identidade Visual e Posicionamento Estratégico desenvolvido pela Palaz Strategy Company.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="icone-palaz.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#F24B0F',
+              orangeHover: '#d83e08',
+              black: '#000000',
+              dark: '#141414',
+              cardDark: '#1a1a1a',
+              cardBorder: '#27272a',
+              broudDark: '#212121',
+              broudDarker: '#181818',
+              offwhite: '#F7F7F7',
+              grayCard: '#F0F0EE',
+              grayText: '#71717A',
+              muted: '#A1A1AA'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif']
+          },
+          borderRadius: {
+            '3xl': '24px',
+            '4xl': '32px',
+            '5xl': '40px',
+            '6xl': '48px'
+          },
+          boxShadow: {
+            'broud-card': '0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 0 1px 1px rgba(0, 0, 0, 0.04)',
+            'broud-dark-card': '0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+            'glow-orange': '0 0 35px -5px rgba(242, 75, 15, 0.45)',
+            'glow-orange-sm': '0 0 20px -3px rgba(242, 75, 15, 0.35)',
+            'pill-inset': 'inset 0 1px 1px rgba(255,255,255,0.7), 0 2px 8px rgba(0,0,0,0.06)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans, Space Grotesk, Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+
+  <!-- LZString for URL Compression -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
+
+  <style>
+    /* Broud Signature Aesthetics */
+    body {
+      background-color: #F7F7F7;
+      color: #18181B;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background-color: #F24B0F;
+      color: #FFFFFF;
+    }
+
+    /* Custom Cursor */
+    .custom-cursor {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(242, 75, 15, 0.4);
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, background-color 0.2s;
+      z-index: 9999;
+    }
+    .custom-cursor-dot {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #F24B0F;
+      transform: translate(-50%, -50%);
+      z-index: 10000;
+    }
+
+    /* Subtle grid background on white hero */
+    .hero-grid-pattern {
+      background-image: 
+        linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Metallic / Chrome Wordmark effect */
+    .broud-wordmark {
+      background: linear-gradient(180deg, #18181b 0%, #3f3f46 45%, #71717a 80%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.06em;
+    }
+
+    /* Curved Overlap Bottom Mask */
+    .curved-top-container {
+      border-top-left-radius: 44px;
+      border-top-right-radius: 44px;
+      margin-top: -36px;
+      position: relative;
+      z-index: 20;
+    }
+    @media (min-width: 768px) {
+      .curved-top-container {
+        border-top-left-radius: 64px;
+        border-top-right-radius: 64px;
+        margin-top: -52px;
+      }
+    }
+
+    /* Step Timeline Neon Line */
+    .timeline-track {
+      position: absolute;
+      left: 27px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .timeline-progress {
+      position: absolute;
+      left: 27px;
+      top: 0;
+      width: 2px;
+      height: 0%;
+      background: linear-gradient(180deg, #F24B0F 0%, #ff7b47 100%);
+      box-shadow: 0 0 12px #F24B0F;
+      transition: height 0.1s linear;
+    }
+    @media (min-width: 768px) {
+      .timeline-track, .timeline-progress {
+        left: 31px;
+      }
+    }
+
+    /* Accordion transition */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      opacity: 0;
+    }
+    .accordion-content.open {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    /* Inset badge pill */
+    .broud-pill {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.9);
+    }
+    .broud-dark-pill {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Shimmer animation */
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .shimmer-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-effect::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shimmer 2.5s infinite;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-white">
+
+  <!-- Interactive Custom Cursor -->
+  <div class="custom-cursor hidden md:block" id="cursor"></div>
+  <div class="custom-cursor-dot hidden md:block" id="cursorDot"></div>
+
+  <!-- FLOATING TOP NAVBAR (Like Broud Desktop Navigation) -->
+  <header class="fixed top-5 left-0 right-0 z-50 px-4 md:px-8 pointer-events-none">
+    <div class="max-w-6xl mx-auto flex items-center justify-between pointer-events-auto">
+      
+      <!-- Brand Logo Pill -->
+      <a href="#" class="broud-pill py-2.5 px-5 rounded-full flex items-center gap-3 transition-transform hover:scale-105 duration-200">
+        <img src="logo-palaz.png" alt="Palaz Strategy Company" class="h-5 w-auto object-contain">
+        <span class="text-[11px] font-semibold tracking-wider uppercase text-zinc-500 border-l border-zinc-200 pl-3 hidden sm:inline">Diagnostic System</span>
+      </a>
+
+      <!-- Center Status / Client Badge -->
+      <div class="hidden md:flex items-center gap-2 broud-pill py-2 px-4 rounded-full text-xs font-medium text-zinc-700">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Apresentação Exclusiva para:</span>
+        <strong class="text-zinc-900 font-bold" id="navClientName">Nathália</strong>
+        <span class="text-zinc-400">|</span>
+        <span class="text-brand-orange font-semibold" id="navCompanyName">Vittaréa</span>
+      </div>
+
+      <!-- Action Button Pill -->
+      <div class="flex items-center gap-2">
+        <button onclick="toggleEditDrawer()" class="broud-pill w-10 h-10 rounded-full flex items-center justify-center text-zinc-700 hover:text-brand-orange hover:border-brand-orange transition-all duration-200 shadow-sm" title="Editar Conteúdo e Gerar Link">
+          <i data-lucide="sliders" class="w-4 h-4"></i>
+        </button>
+
+        <a href="#action-box" class="bg-zinc-950 text-white hover:bg-brand-orange text-xs font-semibold py-2.5 px-5 rounded-full transition-all duration-300 shadow-lg hover:shadow-glow-orange-sm flex items-center gap-2 group">
+          <span>Ver Próximos Passos</span>
+          <i data-lucide="arrow-down-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- SECTION 1: HERO (Broud Light Canvas Style) -->
+  <section class="min-h-screen pt-32 pb-24 md:pt-40 md:pb-32 px-5 md:px-12 flex flex-col justify-between hero-grid-pattern relative overflow-hidden">
+    
+    <!-- Giant subtle background watermark -->
+    <div class="absolute -top-10 left-1/2 -translate-x-1/2 text-[18vw] font-black text-black/[0.02] tracking-tighter select-none pointer-events-none uppercase">
+      STRATEGY
+    </div>
+
+    <div class="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-center text-center">
+      
+      <!-- Top Target Badge Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full broud-pill text-xs font-semibold text-zinc-700 mb-8 transition-transform hover:scale-105 duration-200 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+        <span class="text-zinc-400 font-normal">Cliente:</span>
+        <span id="heroClientBadge" class="text-zinc-900 font-bold">Nathália (Vittaréa)</span>
+      </div>
+
+      <!-- Main Giant Headline (Exact Broud editorial rhythm) -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[-0.04em] text-zinc-950 leading-[1.02] max-w-5xl mb-6">
+        Diagnóstico de <br class="hidden sm:inline">
+        <span class="broud-wordmark">Identidade Visual</span> & <br class="hidden sm:inline">
+        <span class="italic font-serif font-normal text-brand-orange">Posicionamento</span>
+      </h1>
+
+      <!-- Subtitle Description -->
+      <p class="text-base sm:text-lg md:text-xl text-zinc-600 max-w-2xl font-normal leading-relaxed mb-10">
+        Da percepção estética à autoridade comercial: uma análise profunda feita para posicionar a <strong class="text-zinc-900 font-semibold" id="heroCompanyName">Vittaréa</strong> com valor percebido inquestionável desde o primeiro contato.
+      </p>
+
+      <!-- Proof Avatar Pill (+100 marcas atendidas) & Primary CTA Button -->
+      <div class="flex flex-col sm:flex-row items-center gap-5">
+        
+        <!-- Social Proof Pill -->
+        <div class="flex items-center gap-3 broud-pill px-4 py-2 rounded-full shadow-sm">
+          <div class="flex -space-x-2 overflow-hidden">
+            <span class="inline-block h-7 w-7 rounded-full ring-2 ring-white bg-zinc-800 text-[10px] font-bold text-white flex items-center justify-center">PL</span>
+            <span class="inline-block h-7 w-7 rounded-full ring-2 ring-white bg-brand-orange text-[10px] font-bold text-white flex items-center justify-center">VT</span>
+            <span class="inline-block h-7 w-7 rounded-full ring-2 ring-white bg-zinc-700 text-[10px] font-bold text-white flex items-center justify-center">PZ</span>
+          </div>
+          <span class="text-xs font-semibold text-zinc-800 tracking-tight">+100 marcas e projetos lapidados</span>
+        </div>
+
+        <!-- Scroll down trigger -->
+        <a href="#objetivo" class="bg-brand-orange hover:bg-brand-orangeHover text-white font-semibold text-sm px-7 py-3 rounded-full transition-all duration-300 shadow-glow-orange hover:shadow-glow-orange-sm flex items-center gap-2 group">
+          <span>Explorar Diagnóstico</span>
+          <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- Hero Bottom Stats Bar (Integrated score snapshot) -->
+    <div class="max-w-5xl mx-auto w-full mt-16 pt-8 border-t border-zinc-200/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-left relative z-10">
+      <div>
+        <p class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Maturidade Geral</p>
+        <p class="text-2xl font-black text-zinc-950 font-display flex items-baseline gap-1">
+          <span id="heroAvgScore">5.8</span><span class="text-sm font-normal text-zinc-400">/10</span>
+        </p>
+      </div>
+      <div>
+        <p class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Potencial de Margem</p>
+        <p class="text-2xl font-black text-emerald-600 font-display">+80%</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Nível de Clareza</p>
+        <p class="text-2xl font-black text-zinc-950 font-display">Intermediário</p>
+      </div>
+      <div>
+        <p class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Status da Prospecção</p>
+        <p class="text-2xl font-black text-brand-orange font-display flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-ping"></span>
+          Em Análise
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- SECTION 2: DARK CURVED OVERLAP ("Qual o objetivo do diagnóstico?") -->
+  <section id="objetivo" class="curved-top-container bg-gradient-to-b from-[#242424] to-[#161616] text-white pt-20 pb-28 px-5 md:px-12 relative shadow-2xl">
+    
+    <!-- Ambient orange glow inside dark section -->
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Section Header Tag -->
+      <div class="inline-flex items-center gap-2 broud-dark-pill px-4 py-1.5 rounded-full text-xs font-semibold text-zinc-300 mb-6">
+        <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+        <span>Alinhamento Estratégico</span>
+      </div>
+
+      <!-- Main Headline in 2 Columns -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-16">
+        <div class="lg:col-span-7">
+          <h2 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.08]">
+            Qual o objetivo da Palaz com este diagnóstico para a <span class="text-brand-orange" id="objCompanyName">Vittaréa</span>?
+          </h2>
+        </div>
+        <div class="lg:col-span-5 text-zinc-400 text-base md:text-lg leading-relaxed space-y-4">
+          <p>
+            Não acreditamos em enviar orçamentos genéricos antes de entender onde a sua marca realmente sangra e onde reside o seu maior potencial de lucro.
+          </p>
+          <p class="text-zinc-300 font-medium">
+            O objetivo deste raio-x é apresentar com clareza matemática a distância entre o que o seu serviço entrega e o que a sua identidade visual atual comunica.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 Strategic Cards (Broud Luxury Dark Containers) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-[#1f1f1f]/80 border border-white/[0.08] p-8 rounded-4xl hover:border-brand-orange/40 transition-all duration-300 group shadow-broud-dark-card">
+          <div class="w-12 h-12 rounded-2xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-brand-orange mb-6 group-hover:scale-110 transition-transform">
+            <i data-lucide="eye" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Valor Percebido</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            Se o seu posicionamento não reflete a excelência do que você faz, você é forçada a justificar preço. O design certo inverte essa mesa.
+          </p>
+        </div>
+
+        <div class="bg-[#1f1f1f]/80 border border-white/[0.08] p-8 rounded-4xl hover:border-brand-orange/40 transition-all duration-300 group shadow-broud-dark-card">
+          <div class="w-12 h-12 rounded-2xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-brand-orange mb-6 group-hover:scale-110 transition-transform">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Consistência e Marca</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            Eliminar a sensação de improvisação visual em redes e canais. Criar um padrão inconfundível que clientes reconhecem e desejam de longe.
+          </p>
+        </div>
+
+        <div class="bg-[#1f1f1f]/80 border border-white/[0.08] p-8 rounded-4xl hover:border-brand-orange/40 transition-all duration-300 group shadow-broud-dark-card">
+          <div class="w-12 h-12 rounded-2xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-brand-orange mb-6 group-hover:scale-110 transition-transform">
+            <i data-lucide="trending-up" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Prontidão para Escala</h3>
+          <p class="text-sm text-zinc-400 leading-relaxed">
+            Preparar o terreno para cobrar tickets mais altos e atrair um perfil de público mais seleto, sem medo de ser comparada com concorrentes comuns.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 3: RAIO-X & SCORECARD (Broud Clean Card with Live Bars) -->
+  <section class="py-24 md:py-32 px-5 md:px-12 bg-[#F7F7F7]">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 broud-pill px-4 py-1.5 rounded-full text-xs font-semibold text-zinc-700 mb-4 shadow-sm">
+          <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 text-brand-orange"></i>
+          <span>Métricas do Diagnóstico</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-[-0.03em] text-zinc-950 mb-4">
+          O Raio-X Atual da <span class="text-brand-orange" id="scorecardCompanyName">Vittaréa</span>
+        </h2>
+        <p class="text-zinc-600 text-base sm:text-lg">
+          Avaliamos os 3 pilares vitais de sustentação da sua marca no mercado digital.
+        </p>
+      </div>
+
+      <!-- 3 Pillar Metric Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        
+        <!-- Pillar 1 -->
+        <div class="bg-white p-8 rounded-4xl border border-zinc-200/80 shadow-broud-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">Pilar 01</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">Em Desenvolvimento</span>
+            </div>
+            <h3 class="text-xl font-bold text-zinc-900 mb-2">Identidade Visual & Coerência</h3>
+            <p class="text-xs text-zinc-500 leading-relaxed mb-6">
+              Aplicação de logotipo, paleta de cores, tipografia e consistência visual entre canais.
+            </p>
+          </div>
+          <div>
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="text-xs font-semibold text-zinc-600">Nota técnica</span>
+              <span class="text-3xl font-black font-display text-zinc-900" id="scoreNum1">6.5</span>
+            </div>
+            <div class="w-full h-2.5 bg-zinc-100 rounded-full overflow-hidden">
+              <div class="h-full bg-brand-orange rounded-full transition-all duration-1000" id="scoreBar1" style="width: 65%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-white p-8 rounded-4xl border border-zinc-200/80 shadow-broud-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">Pilar 02</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-rose-50 text-rose-700 border border-rose-200">Urgente</span>
+            </div>
+            <h3 class="text-xl font-bold text-zinc-900 mb-2">Percepção de Valor & Preço</h3>
+            <p class="text-xs text-zinc-500 leading-relaxed mb-6">
+              A capacidade visual do negócio de cobrar mais caro sem encontrar resistência de clientes.
+            </p>
+          </div>
+          <div>
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="text-xs font-semibold text-zinc-600">Nota técnica</span>
+              <span class="text-3xl font-black font-display text-zinc-900" id="scoreNum2">5.0</span>
+            </div>
+            <div class="w-full h-2.5 bg-zinc-100 rounded-full overflow-hidden">
+              <div class="h-full bg-amber-500 rounded-full transition-all duration-1000" id="scoreBar2" style="width: 50%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-white p-8 rounded-4xl border border-zinc-200/80 shadow-broud-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">Pilar 03</span>
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200">Alto Potencial</span>
+            </div>
+            <h3 class="text-xl font-bold text-zinc-900 mb-2">Posicionamento de Mercado</h3>
+            <p class="text-xs text-zinc-500 leading-relaxed mb-6">
+              Diferenciação clara em relação aos concorrentes diretos no nicho de atuação.
+            </p>
+          </div>
+          <div>
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="text-xs font-semibold text-zinc-600">Nota técnica</span>
+              <span class="text-3xl font-black font-display text-zinc-900" id="scoreNum3">6.0</span>
+            </div>
+            <div class="w-full h-2.5 bg-zinc-100 rounded-full overflow-hidden">
+              <div class="h-full bg-zinc-900 rounded-full transition-all duration-1000" id="scoreBar3" style="width: 60%;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Detail Box: Strengths & Improvements List -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Pontos Fortes -->
+        <div class="bg-white p-8 sm:p-10 rounded-4xl border border-zinc-200/80 shadow-broud-card">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+              <i data-lucide="check" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-950">Pontos Fortes Identificados</h3>
+          </div>
+          <ul class="space-y-4 text-sm text-zinc-600" id="visualStrengthsList">
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></span>
+              <span>Nome de marca com excelente sonoridade e grande potencial de reconhecimento no nicho.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></span>
+              <span>A essência do serviço transmite zelo, dedicação e proximidade genuína com as clientes.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></span>
+              <span>Existe um público que já confia na entrega e pode ser a alavanca para produtos mais exclusivos.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pontos de Melhoria -->
+        <div class="bg-white p-8 sm:p-10 rounded-4xl border border-zinc-200/80 shadow-broud-card">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+              <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-950">Oportunidades de Alto Impacto</h3>
+          </div>
+          <ul class="space-y-4 text-sm text-zinc-600" id="visualImprovementsList">
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-orange mt-2 flex-shrink-0"></span>
+              <span>Inconsistência de paleta cromática entre postagens e canais digitais gera ruído na autoridade.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-orange mt-2 flex-shrink-0"></span>
+              <span>Hierarquia tipográfica fraca, com pesos parecidos que reduzem o ar de sofisticação e elegância.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-orange mt-2 flex-shrink-0"></span>
+              <span>Ausência de um Brandbook estruturado, gerando improvisação constante nas criações diárias.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 4: O ESTRATEGISTA / PROFILE (Like Broud Gabriel Juste Dobra) -->
+  <section class="py-24 md:py-32 px-5 md:px-12 bg-white border-y border-zinc-200/80">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        
+        <!-- Founder Card / Avatar -->
+        <div class="md:col-span-5 flex flex-col items-center text-center">
+          <div class="relative mb-6">
+            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-5xl overflow-hidden ring-8 ring-zinc-100 shadow-2xl relative bg-zinc-950 flex items-center justify-center">
+              <img src="icone-palaz.png" alt="Palaz Creative Direction" class="w-28 h-28 object-contain">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            </div>
+            <div class="absolute -bottom-3 right-4 broud-pill px-3.5 py-1 rounded-full text-[11px] font-bold text-zinc-900 shadow-md flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+              <span>Direção Criativa</span>
+            </div>
+          </div>
+
+          <h3 class="text-2xl font-black text-zinc-950">Palaz Strategy Company</h3>
+          <p class="text-xs font-semibold text-brand-orange uppercase tracking-wider mt-1">Design & Strategic Positioning</p>
+          <p class="text-xs text-zinc-400 mt-2">São Paulo — SP | Atendimento Global</p>
+        </div>
+
+        <!-- Bio & Philosophy -->
+        <div class="md:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 broud-pill px-4 py-1.5 rounded-full text-xs font-semibold text-zinc-700">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-orange"></i>
+            <span>A Mente por trás da Palaz</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-zinc-950 leading-tight">
+            "Design não é sobre deixar bonito. É sobre tornar a concorrência irrelevante."
+          </h2>
+
+          <p class="text-base text-zinc-600 leading-relaxed">
+            Ao longo dos últimos anos, desenvolvemos marcas e ecossistemas digitais para dezenas de empresas que buscavam sair da vala comum. Não aplicamos fórmulas prontas nem templates: cada traço, cor e palavra é desenhado para sustentar o seu próximo salto de faturamento.
+          </p>
+
+          <p class="text-base text-zinc-600 leading-relaxed">
+            Nossa missão com a <strong class="text-zinc-900 font-semibold" id="stratCompanyName">Vittaréa</strong> é garantir que você sinta orgulho absoluto de apresentar o seu negócio a qualquer cliente de alto padrão.
+          </p>
+
+          <div class="pt-4 flex items-center gap-6 border-t border-zinc-100">
+            <div>
+              <p class="text-2xl font-black font-display text-zinc-950">+100</p>
+              <p class="text-xs text-zinc-400 font-medium">Marcas Estruturadas</p>
+            </div>
+            <div class="w-px h-8 bg-zinc-200"></div>
+            <div>
+              <p class="text-2xl font-black font-display text-zinc-950">100%</p>
+              <p class="text-xs text-zinc-400 font-medium">Projetos Exclusivos</p>
+            </div>
+            <div class="w-px h-8 bg-zinc-200"></div>
+            <div>
+              <p class="text-2xl font-black font-display text-zinc-950">15-20d</p>
+              <p class="text-xs text-zinc-400 font-medium">Prazo de Execução</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 5: ETAPA POR ETAPA (Broud Dark Steps with Neon Timeline) -->
+  <section class="bg-gradient-to-b from-[#242424] to-[#181818] text-white py-24 md:py-36 px-5 md:px-12 relative overflow-hidden" id="processo">
+    
+    <div class="max-w-4xl mx-auto relative">
+      
+      <!-- Section Title -->
+      <div class="text-center mb-20">
+        <div class="inline-flex items-center gap-2 broud-dark-pill px-4 py-1.5 rounded-full text-xs font-semibold text-zinc-300 mb-4">
+          <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+          <span>Etapa por Etapa</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">
+          Entenda o processo de <br class="hidden sm:inline">
+          <span class="text-brand-orange">desenvolvimento</span> do projeto
+        </h2>
+        <p class="text-zinc-400 text-base sm:text-lg max-w-xl mx-auto mt-4 font-normal">
+          Um método transparente e rigoroso, pensado para manter tudo claro, eficiente e tranquilo do início ao fim.
+        </p>
+      </div>
+
+      <!-- Vertical Timeline Steps Container -->
+      <div class="relative pl-14 md:pl-20 space-y-16">
+        
+        <!-- Animated Background Line -->
+        <div class="timeline-track"></div>
+        <div class="timeline-progress" id="stepProgressLine"></div>
+
+        <!-- Step 01 -->
+        <div class="relative group">
+          <div class="absolute -left-14 md:-left-20 top-0 w-8 h-8 rounded-full bg-[#181818] border-2 border-brand-orange flex items-center justify-center text-xs font-bold font-display text-white shadow-glow-orange-sm z-10">
+            01
+          </div>
+          <div class="bg-[#1e1e1e] border border-white/[0.08] p-8 rounded-4xl hover:border-brand-orange/40 transition-all duration-300 shadow-broud-dark-card">
+            <span class="text-xs font-bold text-brand-orange uppercase tracking-wider block mb-1">Passo Inicial</span>
+            <h3 class="text-2xl font-bold text-white mb-3">Imersão & Briefing Estratégico</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Começamos com uma conversa profunda para mapear seus objetivos comerciais, perfil de cliente ideal e referências estéticas. É aqui que traçamos os fundamentos inegociáveis da nova identidade.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="relative group">
+          <div class="absolute -left-14 md:-left-20 top-0 w-8 h-8 rounded-full bg-[#181818] border-2 border-zinc-600 flex items-center justify-center text-xs font-bold font-display text-zinc-300 z-10 group-hover:border-brand-orange group-hover:text-white transition-colors">
+            02
+          </div>
+          <div class="bg-[#1e1e1e] border border-white/[0.08] p-8 rounded-4xl hover:border-brand-orange/40 transition-all duration-300 shadow-broud-dark-card">
+            <span class="text-xs font-bold text-zinc-400 uppercase tracking-wider block mb-1">Fundamentos</span>
+            <h3 class="text-2xl font-bold text-white mb-3">Conceito, Universo Visual & Cores</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Desenvolvimento da direção de arte: tipografias proprietárias, sistema de cores harmonizado e elementos visuais auxiliares pensados para transmitir sofisticação imediata.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="relative group">
+          <div class="absolute -left-14 md:-left-20 top-0 w-8 h-8 rounded-full bg-[#181818] border-2 border-zinc-600 flex items-center justify-center text-xs font-bold font-display text-zinc-300 z-10 group-hover:border-brand-orange group-hover:text-white transition-colors">
+            03
+          </div>
+          <div class="bg-[#1e1e1e] border border-white/[0.08] p-8 rounded-4xl hover:border-brand-orange/40 transition-all duration-300 shadow-broud-dark-card">
+            <span class="text-xs font-bold text-zinc-400 uppercase tracking-wider block mb-1">Aplicação Real</span>
+            <h3 class="text-2xl font-bold text-white mb-3">Mockups & Pontos de Contato</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Testamos a identidade aplicada no mundo real: redes sociais, materiais digitais, embalagens e apresentações comerciais, garantindo que nada fique apenas na teoria.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="relative group">
+          <div class="absolute -left-14 md:-left-20 top-0 w-8 h-8 rounded-full bg-[#181818] border-2 border-zinc-600 flex items-center justify-center text-xs font-bold font-display text-zinc-300 z-10 group-hover:border-brand-orange group-hover:text-white transition-colors">
+            04
+          </div>
+          <div class="bg-[#1e1e1e] border border-white/[0.08] p-8 rounded-4xl hover:border-brand-orange/40 transition-all duration-300 shadow-broud-dark-card">
+            <span class="text-xs font-bold text-zinc-400 uppercase tracking-wider block mb-1">Apresentação</span>
+            <h3 class="text-2xl font-bold text-white mb-3">Defesa Estratégica & Validação</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Apresentamos o projeto com a justificativa de cada escolha estética. Você avalia a aplicação completa e realizamos qualquer ajuste necessário com total transparência.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 05 -->
+        <div class="relative group">
+          <div class="absolute -left-14 md:-left-20 top-0 w-8 h-8 rounded-full bg-[#181818] border-2 border-brand-orange flex items-center justify-center text-xs font-bold font-display text-white shadow-glow-orange-sm z-10">
+            05
+          </div>
+          <div class="bg-[#1e1e1e] border border-white/[0.08] p-8 rounded-4xl hover:border-brand-orange/40 transition-all duration-300 shadow-broud-dark-card">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-1">Entrega Definitiva</span>
+            <h3 class="text-2xl font-bold text-white mb-3">Brandbook & Arquivos Finais</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">
+              Você recebe o Brandbook oficial completo em PDF navegável e todos os arquivos organizados em nuvem prontos para impressão e uso digital vitalício.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 6: PORTFÓLIO (Broud 2x2 Grid with Real Palaz Projects) -->
+  <section class="py-24 md:py-36 px-5 md:px-12 bg-[#F7F7F7]" id="portfolio">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 broud-pill px-4 py-1.5 rounded-full text-xs font-semibold text-zinc-700 mb-4 shadow-sm">
+          <i data-lucide="folder" class="w-3.5 h-3.5 text-brand-orange"></i>
+          <span>Casos de Sucesso</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-[-0.03em] text-zinc-950 mb-4">
+          Veja na prática alguns <br class="hidden sm:inline">
+          <span class="text-brand-orange">projetos recentes</span> da Palaz
+        </h2>
+        <p class="text-zinc-600 text-base sm:text-lg">
+          Transformações reais de identidade visual que geraram autoridade e resultados comerciais tangíveis.
+        </p>
+      </div>
+
+      <!-- 2x2 Clean Rounded Project Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Case 1: Aira Essence -->
+        <div class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden shadow-broud-card hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between">
+          <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
+            <img src="cases/aira-capa.avif" alt="Case Aira Essence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 broud-pill px-3 py-1 rounded-full text-[11px] font-bold text-zinc-900">
+              Perfumaria & Luxo
+            </span>
+          </div>
+          <div class="p-8">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-black text-zinc-950">Aira Essence</h3>
+              <span class="text-xs font-semibold text-zinc-400">Identidade & Packaging</span>
+            </div>
+            <p class="text-sm text-zinc-600 leading-relaxed mb-6">
+              Construção de marca minimalista e luxuosa para linha de perfumaria fina, elevando o valor percebido de frascos e e-commerce.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Brand Identity</span>
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Packaging</span>
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Direção Criativa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 2: Fatuz -->
+        <div class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden shadow-broud-card hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between">
+          <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
+            <img src="cases/fatuz-capa.avif" alt="Case Fatuz" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 broud-pill px-3 py-1 rounded-full text-[11px] font-bold text-zinc-900">
+              Moda & Vestuário
+            </span>
+          </div>
+          <div class="p-8">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-black text-zinc-950">Fatuz</h3>
+              <span class="text-xs font-semibold text-zinc-400">Rebranding Completo</span>
+            </div>
+            <p class="text-sm text-zinc-600 leading-relaxed mb-6">
+              Repensamos o posicionamento visual para uma presença digital marcante, contemporânea e conectada com o público jovem exigente.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Identidade Visual</span>
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Lookbook</span>
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Estratégia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 3: Açougue Almeida -->
+        <div class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden shadow-broud-card hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between">
+          <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
+            <img src="cases/almeida-capa.avif" alt="Case Açougue Almeida" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 broud-pill px-3 py-1 rounded-full text-[11px] font-bold text-zinc-900">
+              Boutique de Carnes
+            </span>
+          </div>
+          <div class="p-8">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-black text-zinc-950">Açougue Almeida</h3>
+              <span class="text-xs font-semibold text-zinc-400">Boutique & Retail</span>
+            </div>
+            <p class="text-sm text-zinc-600 leading-relaxed mb-6">
+              Modernização de tradição familiar: transformando um açougue de bairro em uma boutique premium desejada por clientes de alta renda.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Rebranding</span>
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Sinalização</span>
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Identidade</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Case 4: NCGlass -->
+        <div class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden shadow-broud-card hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between">
+          <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
+            <img src="cases/ncglass-capa.avif" alt="Case NCGlass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+            <span class="absolute top-4 left-4 broud-pill px-3 py-1 rounded-full text-[11px] font-bold text-zinc-900">
+              Arquitetura & Vidraçaria
+            </span>
+          </div>
+          <div class="p-8">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-2xl font-black text-zinc-950">NCGlass</h3>
+              <span class="text-xs font-semibold text-zinc-400">Posicionamento B2B</span>
+            </div>
+            <p class="text-sm text-zinc-600 leading-relaxed mb-6">
+              Nova identidade corporativa para vidraçaria de alto padrão voltada a arquitetos, construtoras e projetos residenciais nobres.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Posicionamento B2B</span>
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Brandbook</span>
+              <span class="px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-700">Website</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 7: PROPOSTA & CTA BOX (Exact Broud "Bora para o que mais interessa?") -->
+  <section id="action-box" class="py-20 md:py-32 px-5 md:px-12 bg-white border-t border-zinc-200">
+    <div class="max-w-5xl mx-auto">
+      
+      <!-- Luxury Floating Box Container -->
+      <div class="bg-gradient-to-br from-[#1c1c1c] to-[#0f0f0f] text-white p-8 sm:p-12 md:p-16 rounded-5xl border border-white/[0.08] shadow-2xl relative overflow-hidden">
+        
+        <!-- Glowing ambient backdrop -->
+        <div class="absolute -top-32 -right-32 w-80 h-80 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10">
+          
+          <!-- Box Header -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-10 border-b border-white/[0.1] mb-10">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">Plano de Ação Recomendado</span>
+              <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
+                Bora para o que mais interessa?
+              </h2>
+            </div>
+            <div class="broud-dark-pill px-5 py-2.5 rounded-full text-xs font-semibold text-zinc-300 self-start md:self-auto flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span>Proposta Personalizada para <strong class="text-white" id="ctaCompanyName">Vittaréa</strong></span>
+            </div>
+          </div>
+
+          <!-- Identified Needs & Scope -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+            <div>
+              <h4 class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-4">Escopo Estratégico Indicado</h4>
+              <ul class="space-y-3.5 text-sm text-zinc-300">
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange flex-shrink-0"></i>
+                  <span>Redefinição completa de Identidade Visual (Logotipo + Símbolo)</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange flex-shrink-0"></i>
+                  <span>Manual de Marca & Brandbook oficial em PDF navegável</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange flex-shrink-0"></i>
+                  <span>Paleta cromática proprietária & Tipografia comercial refinada</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-brand-orange flex-shrink-0"></i>
+                  <span>Aplicações para redes sociais e apresentações digitais</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white/[0.03] border border-white/[0.06] p-6 rounded-3xl flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold text-zinc-400 uppercase tracking-wider block mb-1">Como Funciona a Parceria</span>
+                <h4 class="text-lg font-bold text-white mb-2">Reunião Rápida de 15 Minutos</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed">
+                  Sem pressão e sem empurrar pacotes. Uma chamada objetiva com a nossa equipe para tirar dúvidas sobre este diagnóstico e, caso faça sentido para você, alinharmos prazos e investimento.
+                </p>
+              </div>
+              <div class="pt-4 mt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-zinc-400">
+                <span>Disponibilidade:</span>
+                <span class="text-emerald-400 font-semibold">2 vagas para este mês</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons (WhatsApp CTA with glowing border) -->
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-white/[0.1]">
+            <div class="text-center sm:text-left">
+              <p class="text-sm text-zinc-400">Ficou com alguma dúvida ou deseja agendar a conversa?</p>
+              <p class="text-xs text-zinc-500 mt-0.5">Resposta direta no WhatsApp em menos de 1 hora.</p>
+            </div>
+
+            <a id="whatsappPrimaryBtn" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20vi%20o%20diagn%C3%B3stico%20da%20Vittar%C3%A9a%20e%20gostaria%20de%20conversar%20sobre%20os%20pr%C3%B3ximos%20passos!" target="_blank" class="w-full sm:w-auto bg-brand-orange hover:bg-brand-orangeHover text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-300 shadow-glow-orange hover:shadow-xl flex items-center justify-center gap-3 group shimmer-effect">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              <span>Quero Conversar no WhatsApp</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 8: FAQ & DÚVIDAS (Broud Dark 2-Column Accordion Layout) -->
+  <section class="py-24 md:py-32 px-5 md:px-12 bg-gradient-to-b from-[#212121] to-[#141414] text-white">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 broud-dark-pill px-4 py-1.5 rounded-full text-xs font-semibold text-zinc-300 mb-4">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5 text-brand-orange"></i>
+          <span>Dúvidas Frequentes</span>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight mb-4">
+          Perguntas Frequentes
+        </h2>
+        <p class="text-zinc-400 text-sm sm:text-base">
+          Tudo o que você precisa saber sobre o processo de trabalho da Palaz.
+        </p>
+      </div>
+
+      <!-- Accordion Grid -->
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="bg-[#262626] border border-white/[0.08] rounded-3xl overflow-hidden transition-all duration-200">
+          <button onclick="toggleFaq(1)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base md:text-lg text-white hover:text-brand-orange transition-colors">
+            <span>Qual é o prazo médio para o desenvolvimento do projeto completo?</span>
+            <i data-lucide="chevron-down" id="faqIcon-1" class="w-5 h-5 text-zinc-400 transition-transform duration-300"></i>
+          </button>
+          <div id="faqContent-1" class="accordion-content px-6 pb-6 text-sm text-zinc-400 leading-relaxed">
+            Nosso ciclo de trabalho para uma identidade visual estratégica e refinada leva de 15 a 20 dias úteis, contados a partir da aprovação do briefing. Mantemos comunicação constante e atualizações em cada fase.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-[#262626] border border-white/[0.08] rounded-3xl overflow-hidden transition-all duration-200">
+          <button onclick="toggleFaq(2)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base md:text-lg text-white hover:text-brand-orange transition-colors">
+            <span>Quantas rodadas de alterações estão inclusas na proposta?</span>
+            <i data-lucide="chevron-down" id="faqIcon-2" class="w-5 h-5 text-zinc-400 transition-transform duration-300"></i>
+          </button>
+          <div id="faqContent-2" class="accordion-content px-6 pb-6 text-sm text-zinc-400 leading-relaxed">
+            Trabalhamos com alinhamento milimétrico no briefing para acertar na primeira apresentação. Ainda assim, você conta com rodadas de refinamento para garantir que cada detalhe fique exatamente de acordo com a sua visão.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-[#262626] border border-white/[0.08] rounded-3xl overflow-hidden transition-all duration-200">
+          <button onclick="toggleFaq(3)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base md:text-lg text-white hover:text-brand-orange transition-colors">
+            <span>Em quais formatos receberei os arquivos finais da marca?</span>
+            <i data-lucide="chevron-down" id="faqIcon-3" class="w-5 h-5 text-zinc-400 transition-transform duration-300"></i>
+          </button>
+          <div id="faqContent-3" class="accordion-content px-6 pb-6 text-sm text-zinc-400 leading-relaxed">
+            Você receberá os arquivos vetorizados (AI, EPS, SVG e PDF editável) além de versões otimizadas para digital (PNG com fundo transparente e JPG em alta resolução), acompanhados do Brandbook de uso.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-[#262626] border border-white/[0.08] rounded-3xl overflow-hidden transition-all duration-200">
+          <button onclick="toggleFaq(4)" class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base md:text-lg text-white hover:text-brand-orange transition-colors">
+            <span>A Palaz também desenvolve o site institucional ou página de vendas?</span>
+            <i data-lucide="chevron-down" id="faqIcon-4" class="w-5 h-5 text-zinc-400 transition-transform duration-300"></i>
+          </button>
+          <div id="faqContent-4" class="accordion-content px-6 pb-6 text-sm text-zinc-400 leading-relaxed">
+            Sim! Além da identidade visual, criamos ecossistemas web completos em Next.js e Framer com copy persuasiva e animações de alto padrão, garantindo total sinergia entre marca e presença digital.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER (Palaz Signature) -->
+  <footer class="bg-black text-zinc-500 py-12 px-5 md:px-12 border-t border-zinc-900 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <img src="logo-palaz.png" alt="Palaz Strategy Company" class="h-4 w-auto brightness-0 invert opacity-70">
+        <span>© 2026 Palaz Strategy Company. Todos os direitos reservados.</span>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <span>Apresentação confidencial</span>
+        <span class="text-zinc-700">|</span>
+        <button onclick="toggleEditDrawer()" class="hover:text-white transition-colors underline">Editor de Link</button>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- DRAWER EDITOR MODAL (For creating custom compressed links for new clients) -->
+  <div id="drawerBackdrop" onclick="toggleEditDrawer()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity duration-300"></div>
+
+  <div id="editDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[480px] bg-[#121212] border-l border-zinc-800 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    
+    <!-- Drawer Header -->
+    <div class="p-6 border-b border-zinc-800 flex items-center justify-between bg-[#161616]">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-brand-orange/20 text-brand-orange flex items-center justify-center font-bold">
+          <i data-lucide="sliders" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white">Editor de Diagnóstico</h3>
+          <p class="text-[11px] text-zinc-400">Personalize os dados e gere um link único</p>
+        </div>
+      </div>
+      <button onclick="toggleEditDrawer()" class="text-zinc-400 hover:text-white p-1 rounded-lg hover:bg-zinc-800 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Drawer Body Form -->
+    <div class="flex-1 overflow-y-auto p-6 space-y-5 text-xs text-zinc-300">
+      
+      <div>
+        <label class="block font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">Nome do Cliente</label>
+        <input type="text" id="editClientName" class="w-full bg-[#1c1c1c] border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-colors">
+      </div>
+
+      <div>
+        <label class="block font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">Nome da Empresa</label>
+        <input type="text" id="editCompanyName" class="w-full bg-[#1c1c1c] border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-colors">
+      </div>
+
+      <div>
+        <label class="block font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">WhatsApp de Destino (apenas números)</label>
+        <input type="text" id="editWhatsapp" placeholder="5511999999999" class="w-full bg-[#1c1c1c] border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-brand-orange transition-colors">
+      </div>
+
+      <div class="pt-4 border-t border-zinc-800">
+        <label class="block font-semibold text-zinc-400 uppercase tracking-wider mb-3">Notas dos Pilares (0 a 10)</label>
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <span class="text-[10px] text-zinc-400 block mb-1">Pilar 1 (Visual)</span>
+            <input type="number" step="0.1" min="0" max="10" id="editScore1" class="w-full bg-[#1c1c1c] border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold text-center focus:outline-none focus:border-brand-orange">
+          </div>
+          <div>
+            <span class="text-[10px] text-zinc-400 block mb-1">Pilar 2 (Preço)</span>
+            <input type="number" step="0.1" min="0" max="10" id="editScore2" class="w-full bg-[#1c1c1c] border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold text-center focus:outline-none focus:border-brand-orange">
+          </div>
+          <div>
+            <span class="text-[10px] text-zinc-400 block mb-1">Pilar 3 (Posição)</span>
+            <input type="number" step="0.1" min="0" max="10" id="editScore3" class="w-full bg-[#1c1c1c] border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold text-center focus:outline-none focus:border-brand-orange">
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-zinc-800">
+        <label class="block font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">Pontos Fortes (1 por linha)</label>
+        <textarea id="editStrengths" rows="3" class="w-full bg-[#1c1c1c] border border-zinc-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-orange text-xs"></textarea>
+      </div>
+
+      <div class="pt-2">
+        <label class="block font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">Oportunidades de Melhoria (1 por linha)</label>
+        <textarea id="editImprovements" rows="3" class="w-full bg-[#1c1c1c] border border-zinc-700 rounded-xl p-3 text-white focus:outline-none focus:border-brand-orange text-xs"></textarea>
+      </div>
+
+    </div>
+
+    <!-- Drawer Footer Actions -->
+    <div class="p-6 border-t border-zinc-800 bg-[#161616] space-y-3">
+      <button onclick="applyFormChanges()" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white font-bold py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs">
+        <i data-lucide="check" class="w-4 h-4"></i>
+        <span>Aplicar Alterações na Tela</span>
+      </button>
+
+      <button onclick="generateShareableLink()" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-semibold py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs">
+        <i data-lucide="link" class="w-4 h-4"></i>
+        <span>Copiar Link Personalizado (LZString)</span>
+      </button>
+      <div id="copyAlert" class="text-[11px] text-emerald-400 text-center hidden">
+        Link copiado com sucesso para a área de transferência!
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- SCRIPT LOGIC (Lenis + GSAP + Data Management) -->
+  <script>
+    // 1. Initialize Lucide Icons
+    lucide.createIcons();
+
+    // 2. Initialize Lenis Smooth Scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // 3. Custom Cursor Motion
+    const cursor = document.getElementById('cursor');
+    const cursorDot = document.getElementById('cursorDot');
+    window.addEventListener('mousemove', (e) => {
+      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      cursorDot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+    });
+
+    // 4. GSAP Scroll Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate Timeline Neon Line on Scroll
+    ScrollTrigger.create({
+      trigger: '#processo',
+      start: 'top 60%',
+      end: 'bottom 80%',
+      onUpdate: (self) => {
+        const line = document.getElementById('stepProgressLine');
+        if (line) {
+          line.style.height = `${self.progress * 100}%`;
+        }
+      }
+    });
+
+    // 5. FAQ Accordion Toggle
+    function toggleFaq(num) {
+      const content = document.getElementById(`faqContent-${num}`);
+      const icon = document.getElementById(`faqIcon-${num}`);
+      const isOpen = content.classList.contains('open');
+
+      document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('[id^="faqIcon-"]').forEach(i => i.style.transform = 'rotate(0deg)');
+
+      if (!isOpen) {
+        content.classList.add('open');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // 6. Data State & URL Loading
+    let diagData = {
+      client: "Nathália",
+      company: "Vittaréa",
+      whatsapp: "5511999999999",
+      scores: [6.5, 5.0, 6.0],
+      strengths: [
+        "Nome de marca com excelente sonoridade e grande potencial de reconhecimento no nicho.",
+        "A essência do serviço transmite zelo, dedicação e proximidade genuína com as clientes.",
+        "Existe um público que já confia na entrega e pode ser a alavanca para produtos mais exclusivos."
+      ],
+      improvements: [
+        "Inconsistência de paleta cromática entre postagens e canais digitais gera ruído na autoridade.",
+        "Hierarquia tipográfica fraca, com pesos parecidos que reduzem o ar de sofisticação e elegância.",
+        "Ausência de um Brandbook estruturado, gerando improvisação constante nas criações diárias."
+      ]
+    };
+
+    function loadFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const compressedData = urlParams.get('d');
+      if (compressedData) {
+        try {
+          const jsonStr = LZString.decompressFromEncodedURIComponent(compressedData);
+          if (jsonStr) {
+            diagData = JSON.parse(jsonStr);
+          }
+        } catch (e) {
+          console.error("Erro ao descomprimir dados da URL", e);
+        }
+      }
+      renderData();
+      populateForm();
+    }
+
+    function renderData() {
+      document.getElementById('navClientName').innerText = diagData.client;
+      document.getElementById('navCompanyName').innerText = diagData.company;
+      document.getElementById('heroClientBadge').innerText = `${diagData.client} (${diagData.company})`;
+      document.getElementById('heroCompanyName').innerText = diagData.company;
+      document.getElementById('objCompanyName').innerText = diagData.company;
+      document.getElementById('scorecardCompanyName').innerText = diagData.company;
+      document.getElementById('stratCompanyName').innerText = diagData.company;
+      document.getElementById('ctaCompanyName').innerText = diagData.company;
+
+      const avg = ((diagData.scores[0] + diagData.scores[1] + diagData.scores[2]) / 3).toFixed(1);
+      document.getElementById('heroAvgScore').innerText = avg;
+
+      document.getElementById('scoreNum1').innerText = diagData.scores[0].toFixed(1);
+      document.getElementById('scoreNum2').innerText = diagData.scores[1].toFixed(1);
+      document.getElementById('scoreNum3').innerText = diagData.scores[2].toFixed(1);
+
+      document.getElementById('scoreBar1').style.width = (diagData.scores[0] * 10) + '%';
+      document.getElementById('scoreBar2').style.width = (diagData.scores[1] * 10) + '%';
+      document.getElementById('scoreBar3').style.width = (diagData.scores[2] * 10) + '%';
+
+      // Strengths
+      const sList = document.getElementById('visualStrengthsList');
+      sList.innerHTML = '';
+      diagData.strengths.forEach(str => {
+        sList.innerHTML += `
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></span>
+            <span>${str}</span>
+          </li>`;
+      });
+
+      // Improvements
+      const iList = document.getElementById('visualImprovementsList');
+      iList.innerHTML = '';
+      diagData.improvements.forEach(imp => {
+        iList.innerHTML += `
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-orange mt-2 flex-shrink-0"></span>
+            <span>${imp}</span>
+          </li>`;
+      });
+
+      // Update WhatsApp URL
+      const waMsg = encodeURIComponent(`Olá, vi o diagnóstico estratégico da ${diagData.company} e gostaria de alinhar os próximos passos!`);
+      const waBtn = document.getElementById('whatsappPrimaryBtn');
+      if (waBtn) {
+        waBtn.href = `https://wa.me/${diagData.whatsapp}?text=${waMsg}`;
+      }
+    }
+
+    function populateForm() {
+      document.getElementById('editClientName').value = diagData.client;
+      document.getElementById('editCompanyName').value = diagData.company;
+      document.getElementById('editWhatsapp').value = diagData.whatsapp;
+      document.getElementById('editScore1').value = diagData.scores[0];
+      document.getElementById('editScore2').value = diagData.scores[1];
+      document.getElementById('editScore3').value = diagData.scores[2];
+      document.getElementById('editStrengths').value = diagData.strengths.join('\n');
+      document.getElementById('editImprovements').value = diagData.improvements.join('\n');
+    }
+
+    function applyFormChanges() {
+      diagData.client = document.getElementById('editClientName').value;
+      diagData.company = document.getElementById('editCompanyName').value;
+      diagData.whatsapp = document.getElementById('editWhatsapp').value;
+      diagData.scores = [
+        parseFloat(document.getElementById('editScore1').value) || 0,
+        parseFloat(document.getElementById('editScore2').value) || 0,
+        parseFloat(document.getElementById('editScore3').value) || 0
+      ];
+      diagData.strengths = document.getElementById('editStrengths').value.split('\n').filter(s => s.trim().length > 0);
+      diagData.improvements = document.getElementById('editImprovements').value.split('\n').filter(i => i.trim().length > 0);
+
+      renderData();
+      toggleEditDrawer();
+    }
+
+    function generateShareableLink() {
+      diagData.client = document.getElementById('editClientName').value;
+      diagData.company = document.getElementById('editCompanyName').value;
+      diagData.whatsapp = document.getElementById('editWhatsapp').value;
+      diagData.scores = [
+        parseFloat(document.getElementById('editScore1').value) || 0,
+        parseFloat(document.getElementById('editScore2').value) || 0,
+        parseFloat(document.getElementById('editScore3').value) || 0
+      ];
+      diagData.strengths = document.getElementById('editStrengths').value.split('\n').filter(s => s.trim().length > 0);
+      diagData.improvements = document.getElementById('editImprovements').value.split('\n').filter(i => i.trim().length > 0);
+
+      const jsonStr = JSON.stringify(diagData);
+      const compressed = LZString.compressToEncodedURIComponent(jsonStr);
+      const fullUrl = `${window.location.origin}${window.location.pathname}?d=${compressed}`;
+
+      navigator.clipboard.writeText(fullUrl).then(() => {
+        const alertBox = document.getElementById('copyAlert');
+        alertBox.classList.remove('hidden');
+        setTimeout(() => alertBox.classList.add('hidden'), 3500);
+      });
+    }
+
+    function toggleEditDrawer() {
+      const drawer = document.getElementById('editDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const isOpen = !drawer.classList.contains('translate-x-full');
+
+      if (isOpen) {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+      } else {
+        drawer.classList.remove('translate-x-full');
+        backdrop.classList.remove('hidden');
+      }
+    }
+
+    // Init on load
+    window.addEventListener('DOMContentLoaded', loadFromUrl);
+  </script>
+</body>
+</html>
