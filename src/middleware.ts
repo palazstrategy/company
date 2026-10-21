@@ -8,10 +8,11 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Static machine-readable files and developer endpoints bypass intl middleware
+  // Static machine-readable files, diagnostics, and developer endpoints bypass intl middleware
   if (
     pathname === '/llms.txt' ||
     pathname.startsWith('/.well-known/') ||
+    pathname.startsWith('/diagnostico') ||
     pathname === '/openapi.json' ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml'
@@ -71,8 +72,9 @@ export const config = {
      * - api routes
      * - editor internal pages
      * - static files (_next/static, _next/image, favicon.ico)
-     * - media, text and document files (.svg, .png, .jpg, .webp, .avif, .ico, .mp4, .webm, .txt, .xml)
+     * - static standalone apps (diagnostico)
+     * - media, text and document files (.svg, .png, .jpg, .jpeg, .gif, .webp, .avif, .ico, .mp4, .webm, .txt, .xml, .html)
      */
-    '/((?!api|editor|_next/static|_next/image|favicon\\.ico|llms\\.txt|openapi\\.json|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|mp4|webm|txt|xml|json)$).*)',
+    '/((?!api|editor|diagnostico|_next/static|_next/image|favicon\\.ico|llms\\.txt|openapi\\.json|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|mp4|webm|txt|xml|json|html)$).*)',
   ],
 };
