@@ -226,20 +226,10 @@
   <header class="fixed top-5 left-0 right-0 z-50 px-4 md:px-8 pointer-events-none">
     <div class="max-w-6xl mx-auto flex items-center justify-between pointer-events-auto">
       
-      <!-- Brand Logo Pill -->
-      <a href="#" class="broud-pill py-2.5 px-5 rounded-full flex items-center gap-3 transition-transform hover:scale-105 duration-200">
+      <!-- Brand Logo Pill (Apenas Logo Preto) -->
+      <a href="#" class="broud-pill py-2.5 px-5 rounded-full flex items-center transition-transform hover:scale-105 duration-200">
         <img src="logo-palaz.png" alt="Palaz Strategy Company" class="h-5 w-auto object-contain">
-        <span class="text-[11px] font-semibold tracking-wider uppercase text-zinc-500 border-l border-zinc-200 pl-3 hidden sm:inline">Diagnostic System</span>
       </a>
-
-      <!-- Center Status / Client Badge -->
-      <div class="hidden md:flex items-center gap-2 broud-pill py-2 px-4 rounded-full text-xs font-medium text-zinc-700">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>Apresentação Exclusiva para:</span>
-        <strong class="text-zinc-900 font-bold" id="navClientName">Nathália</strong>
-        <span class="text-zinc-400">|</span>
-        <span class="text-brand-orange font-semibold" id="navCompanyName">Vittaréa</span>
-      </div>
 
       <!-- Action Button Pill -->
       <div class="flex items-center gap-2">
@@ -258,7 +248,7 @@
 
 
   <!-- SECTION 1: HERO (Broud Light Canvas Style) -->
-  <section class="min-h-screen pt-32 pb-24 md:pt-40 md:pb-32 px-5 md:px-12 flex flex-col justify-between hero-grid-pattern relative overflow-hidden">
+  <section id="hero-section" class="sticky top-0 z-0 min-h-screen pt-32 pb-20 md:pt-36 md:pb-28 px-5 md:px-12 flex flex-col justify-center hero-grid-pattern overflow-hidden">
     
     <!-- Giant subtle background watermark -->
     <div class="absolute -top-10 left-1/2 -translate-x-1/2 text-[18vw] font-black text-black/[0.02] tracking-tighter select-none pointer-events-none uppercase">
@@ -309,36 +299,12 @@
 
     </div>
 
-    <!-- Hero Bottom Stats Bar (Integrated score snapshot) -->
-    <div class="max-w-5xl mx-auto w-full mt-16 pt-8 border-t border-zinc-200/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-left relative z-10">
-      <div>
-        <p class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Maturidade Geral</p>
-        <p class="text-2xl font-black text-zinc-950 font-display flex items-baseline gap-1">
-          <span id="heroAvgScore">5.8</span><span class="text-sm font-normal text-zinc-400">/10</span>
-        </p>
-      </div>
-      <div>
-        <p class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Potencial de Margem</p>
-        <p class="text-2xl font-black text-emerald-600 font-display">+80%</p>
-      </div>
-      <div>
-        <p class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Nível de Clareza</p>
-        <p class="text-2xl font-black text-zinc-950 font-display">Intermediário</p>
-      </div>
-      <div>
-        <p class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1">Status da Prospecção</p>
-        <p class="text-2xl font-black text-brand-orange font-display flex items-center gap-1.5">
-          <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-ping"></span>
-          Em Análise
-        </p>
-      </div>
-    </div>
-
+        </div>
   </section>
 
 
   <!-- SECTION 2: DARK CURVED OVERLAP ("Qual o objetivo do diagnóstico?") -->
-  <section id="objetivo" class="curved-top-container bg-gradient-to-b from-[#242424] to-[#161616] text-white pt-20 pb-28 px-5 md:px-12 relative shadow-2xl">
+  <section id="objetivo" class="curved-top-container bg-gradient-to-b from-[#242424] to-[#161616] text-white pt-20 pb-28 px-5 md:px-12 relative z-20 shadow-[0_-25px_60px_rgba(0,0,0,0.4)]">
     
     <!-- Ambient orange glow inside dark section -->
     <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -408,7 +374,7 @@
 
 
   <!-- SECTION 3: RAIO-X & SCORECARD (Broud Clean Card with Live Bars) -->
-  <section class="py-24 md:py-32 px-5 md:px-12 bg-[#F7F7F7]">
+  <section class="py-24 md:py-32 px-5 md:px-12 bg-[#F7F7F7] relative z-20">
     <div class="max-w-6xl mx-auto">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
@@ -556,7 +522,7 @@
 
 
   <!-- SECTION 4: O ESTRATEGISTA / PROFILE (Like Broud Gabriel Juste Dobra) -->
-  <section class="py-24 md:py-32 px-5 md:px-12 bg-white border-y border-zinc-200/80">
+  <section class="py-24 md:py-32 px-5 md:px-12 bg-white border-y border-zinc-200/80 relative z-20">
     <div class="max-w-5xl mx-auto">
       
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
@@ -623,7 +589,7 @@
 
 
   <!-- SECTION 5: ETAPA POR ETAPA (Broud Dark Steps with Neon Timeline) -->
-  <section class="bg-gradient-to-b from-[#242424] to-[#181818] text-white py-24 md:py-36 px-5 md:px-12 relative overflow-hidden" id="processo">
+  <section class="bg-gradient-to-b from-[#242424] to-[#181818] text-white py-24 md:py-36 px-5 md:px-12 relative z-20 overflow-hidden" id="processo">
     
     <div class="max-w-4xl mx-auto relative">
       
@@ -726,7 +692,7 @@
 
 
   <!-- SECTION 6: PORTFÓLIO (Broud 2x2 Grid with Real Palaz Projects) -->
-  <section class="py-24 md:py-36 px-5 md:px-12 bg-[#F7F7F7]" id="portfolio">
+  <section class="py-24 md:py-36 px-5 md:px-12 bg-[#F7F7F7] relative z-20" id="portfolio">
     <div class="max-w-6xl mx-auto">
       
       <div class="text-center max-w-2xl mx-auto mb-16">
@@ -853,7 +819,7 @@
 
 
   <!-- SECTION 7: PROPOSTA & CTA BOX (Exact Broud "Bora para o que mais interessa?") -->
-  <section id="action-box" class="py-20 md:py-32 px-5 md:px-12 bg-white border-t border-zinc-200">
+  <section id="action-box" class="py-20 md:py-32 px-5 md:px-12 bg-white border-t border-zinc-200 relative z-20">
     <div class="max-w-5xl mx-auto">
       
       <!-- Luxury Floating Box Container -->
@@ -940,7 +906,7 @@
 
 
   <!-- SECTION 8: FAQ & DÚVIDAS (Broud Dark 2-Column Accordion Layout) -->
-  <section class="py-24 md:py-32 px-5 md:px-12 bg-gradient-to-b from-[#212121] to-[#141414] text-white">
+  <section class="py-24 md:py-32 px-5 md:px-12 bg-gradient-to-b from-[#212121] to-[#141414] text-white relative z-20">
     <div class="max-w-5xl mx-auto">
       
       <div class="text-center max-w-xl mx-auto mb-16">
@@ -1256,8 +1222,8 @@
 
     function renderData() {
       // Dynamic text replacements
-      document.getElementById('navClientName').innerText = diagData.client;
-      document.getElementById('navCompanyName').innerText = diagData.company;
+      const nClient = document.getElementById('navClientName'); if (nClient) nClient.innerText = diagData.client;
+      const nCompany = document.getElementById('navCompanyName'); if (nCompany) nCompany.innerText = diagData.company;
       document.getElementById('heroClientBadge').innerText = `${diagData.client} (${diagData.company})`;
       document.getElementById('heroCompanyName').innerText = diagData.company;
       document.getElementById('objCompanyName').innerText = diagData.company;
@@ -1269,7 +1235,7 @@
       document.title = `Diagnóstico Estratégico | ${diagData.client} (${diagData.company}) - Palaz Strategy Company`;
 
       const avg = ((diagData.scores[0] + diagData.scores[1] + diagData.scores[2]) / 3).toFixed(1);
-      document.getElementById('heroAvgScore').innerText = avg;
+      const hAvg = document.getElementById('heroAvgScore'); if (hAvg) hAvg.innerText = avg;
 
       document.getElementById('scoreNum1').innerText = diagData.scores[0].toFixed(1);
       document.getElementById('scoreNum2').innerText = diagData.scores[1].toFixed(1);
