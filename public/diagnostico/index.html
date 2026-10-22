@@ -245,12 +245,17 @@
       transform: translateY(-1px);
     }
 
-    /* Smooth Scroll Reveal Elements */
+    /* Broud/Framer Style Motion Foundation */
+    .broud-animate {
+      will-change: transform, opacity, filter;
+    }
+
+    /* Fallback Reveal Elements with Broud cubic-bezier */
     .reveal-elem {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
+      transform: translateY(32px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
     }
     .reveal-elem.active {
       opacity: 1;
@@ -320,7 +325,7 @@
   <section id="hero-section" class="sticky top-0 z-0 min-h-screen pt-16 pb-12 md:pt-20 md:pb-16 px-5 md:px-12 flex flex-col justify-center items-center hero-grid-pattern overflow-hidden">
     
     <!-- Top Big Brand Visual Mark (Palaz Preto - Grande e Centralizado) -->
-    <div class="w-full flex justify-center items-center py-4 md:py-8 relative z-10">
+    <div class="w-full flex justify-center items-center py-4 md:py-8 relative z-10 broud-hero-logo broud-animate">
       <div class="w-full max-w-5xl px-4 flex justify-center relative">
         <svg class="w-full max-w-[960px] h-auto select-none text-black fill-current transition-transform duration-500 hover:scale-[1.01]" viewBox="0 0 538.11 68.6" xmlns="http://www.w3.org/2000/svg">
           <g>
@@ -341,7 +346,7 @@
       <div class="lg:col-span-7 flex flex-col items-start text-left">
         
         <!-- Client Pill Tag (igual Broud: [ • Cliente: Nome ] [ < 🌐 > ]) -->
-        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full broud-pill text-xs font-semibold text-zinc-800 mb-3 shadow-sm">
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full broud-pill text-xs font-semibold text-zinc-800 mb-3 shadow-sm broud-hero-badge broud-animate">
           <div class="flex items-center gap-1.5">
             <span class="text-zinc-500 font-normal">Cliente:</span>
             <strong id="heroClientBadge" class="text-brand-orange font-bold">Nathália (Vittaréa)</strong>
@@ -355,7 +360,7 @@
         </div>
 
         <!-- Headline (Proposta de orçamento / Diagnóstico de Identidade Visual) -->
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tight text-zinc-950 leading-[1.08]">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold tracking-tight text-zinc-950 leading-[1.08] broud-hero-title broud-animate">
           Diagnóstico de <br>
           identidade visual <br class="hidden sm:inline">
           e <span class="text-brand-orange">posicionamento</span>
@@ -367,7 +372,7 @@
       <div class="lg:col-span-5 flex flex-col items-start lg:items-end text-left lg:text-right space-y-5">
         
         <!-- Social Proof Avatars -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3 broud-hero-avatars broud-animate">
           <div class="flex -space-x-2 overflow-hidden">
             <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar">
             <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Avatar">
@@ -378,12 +383,12 @@
         </div>
 
         <!-- Description Paragraph -->
-        <p class="text-sm md:text-base text-zinc-600 font-normal leading-relaxed max-w-md">
+        <p class="text-sm md:text-base text-zinc-600 font-normal leading-relaxed max-w-md broud-hero-desc broud-animate">
           Da estratégia à percepção de valor: uma análise profunda feita para posicionar a <strong class="text-zinc-900 font-semibold" id="heroCompanyName">Vittaréa</strong> com autoridade comercial desde o primeiro contato.
         </p>
 
         <!-- CTA Button (Pill escuro no formato da referência Broud) -->
-        <div class="pt-2">
+        <div class="pt-2 broud-hero-cta broud-animate">
           <a href="#objetivo" class="bg-zinc-950 hover:bg-brand-orange text-white font-semibold text-sm px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-glow-orange flex items-center gap-2.5 group">
             <span>Explorar diagnóstico</span>
             <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
@@ -467,10 +472,10 @@
 
 
   <!-- SECTION 3: RAIO-X & SCORECARD (Broud Clean Card with Live Bars) -->
-  <section class="py-24 md:py-32 px-5 md:px-12 bg-[#F7F7F7] relative z-20">
+  <section id="scorecard-section" class="py-24 md:py-32 px-5 md:px-12 bg-[#F7F7F7] relative z-20">
     <div class="max-w-6xl mx-auto">
       
-      <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="text-center max-w-3xl mx-auto mb-12 scorecard-header broud-animate">
         <div class="inline-flex items-center gap-2 broud-pill px-4 py-1.5 rounded-full text-xs font-semibold text-zinc-700 mb-4 shadow-sm">
           <i data-lucide="bar-chart-2" class="w-3.5 h-3.5 text-brand-orange"></i>
           <span>Métricas do Diagnóstico</span>
@@ -484,7 +489,7 @@
       </div>
 
       <!-- Veredito Executivo Consolidado (Maturidade de Marca) -->
-      <div class="max-w-4xl mx-auto mb-12 bg-white border border-zinc-200/90 rounded-3xl p-6 sm:p-8 shadow-broud-card flex flex-col md:flex-row items-center justify-between gap-6 reveal-elem">
+      <div class="max-w-4xl mx-auto mb-12 bg-white border border-zinc-200/90 rounded-3xl p-6 sm:p-8 shadow-broud-card flex flex-col md:flex-row items-center justify-between gap-6 broud-verdict-box broud-animate reveal-elem">
         <div class="flex items-center gap-5">
           <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-zinc-950 text-white flex flex-col items-center justify-center flex-shrink-0 shadow-lg">
             <span class="text-xs font-bold uppercase tracking-widest text-zinc-400">Índice</span>
@@ -513,7 +518,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         
         <!-- Pillar 1 -->
-        <div class="bg-white p-8 rounded-4xl border border-zinc-200/80 shadow-broud-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="bg-white p-8 rounded-4xl border border-zinc-200/80 shadow-broud-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between broud-pillar-card broud-animate">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">Pilar 01</span>
@@ -535,7 +540,7 @@
         </div>
 
         <!-- Pillar 2 -->
-        <div class="bg-white p-8 rounded-4xl border border-zinc-200/80 shadow-broud-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="bg-white p-8 rounded-4xl border border-zinc-200/80 shadow-broud-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between broud-pillar-card broud-animate">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">Pilar 02</span>
@@ -557,7 +562,7 @@
         </div>
 
         <!-- Pillar 3 -->
-        <div class="bg-white p-8 rounded-4xl border border-zinc-200/80 shadow-broud-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="bg-white p-8 rounded-4xl border border-zinc-200/80 shadow-broud-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between broud-pillar-card broud-animate">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">Pilar 03</span>
@@ -584,7 +589,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         <!-- Pontos Fortes -->
-        <div class="bg-white p-8 sm:p-10 rounded-4xl border border-zinc-200/80 shadow-broud-card">
+        <div class="bg-white p-8 sm:p-10 rounded-4xl border border-zinc-200/80 shadow-broud-card broud-strengths-box broud-animate">
           <div class="flex items-center gap-3 mb-6">
             <div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
               <i data-lucide="check" class="w-5 h-5"></i>
@@ -608,7 +613,7 @@
         </div>
 
         <!-- Pontos de Melhoria -->
-        <div class="bg-white p-8 sm:p-10 rounded-4xl border border-zinc-200/80 shadow-broud-card">
+        <div class="bg-white p-8 sm:p-10 rounded-4xl border border-zinc-200/80 shadow-broud-card broud-improvements-box broud-animate">
           <div class="flex items-center gap-3 mb-6">
             <div class="w-9 h-9 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
               <i data-lucide="alert-triangle" class="w-5 h-5"></i>
@@ -692,7 +697,7 @@
   <section class="py-24 md:py-36 px-5 md:px-12 bg-[#F7F7F7] relative z-20" id="portfolio">
     <div class="max-w-6xl mx-auto">
       
-      <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="text-center max-w-2xl mx-auto mb-16 portfolio-header broud-animate">
         <div class="inline-flex items-center gap-2 broud-pill px-4 py-1.5 rounded-full text-xs font-semibold text-zinc-700 mb-4 shadow-sm">
           <i data-lucide="folder" class="w-3.5 h-3.5 text-brand-orange"></i>
           <span>Casos de Sucesso</span>
@@ -710,7 +715,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-elem">
         
         <!-- Case 1: NcGlass Vidraçaria -->
-        <a href="/cases/ncglass-vidracaria" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
+        <a href="/cases/ncglass-vidracaria" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
             <img src="/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-capa.avif" alt="Case NcGlass Vidraçaria" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
@@ -739,7 +744,7 @@
         </a>
 
         <!-- Case 2: Fatuz -->
-        <a href="/cases/fatuz" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
+        <a href="/cases/fatuz" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
             <img src="/imagens/cases/fatuz/fatuz-palaz-strategy-company-capa.avif" alt="Case Fatuz" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
@@ -768,7 +773,7 @@
         </a>
 
         <!-- Case 3: Sland Inteligência Produtiva -->
-        <a href="/cases/sland-inteligencia-produtiva" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
+        <a href="/cases/sland-inteligencia-produtiva" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
             <img src="/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-0-capa.avif" alt="Case Sland Inteligência Produtiva" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
@@ -797,7 +802,7 @@
         </a>
 
         <!-- Case 4: Açougue Almeida -->
-        <a href="/cases/acougue-almeida" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
+        <a href="/cases/acougue-almeida" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
             <img src="/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-0-capa.avif" alt="Case Açougue Almeida" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
@@ -844,7 +849,7 @@
     <div class="max-w-5xl mx-auto reveal-elem">
       
       <!-- Luxury Floating Box Container -->
-      <div class="bg-gradient-to-br from-[#1c1c1c] to-[#0f0f0f] text-white p-8 sm:p-12 md:p-16 rounded-5xl border border-white/[0.08] shadow-2xl relative overflow-hidden">
+      <div class="bg-gradient-to-br from-[#1c1c1c] to-[#0f0f0f] text-white p-8 sm:p-12 md:p-16 rounded-5xl border border-white/[0.08] shadow-2xl relative overflow-hidden broud-action-container broud-animate">
         
         <!-- Glowing ambient backdrop -->
         <div class="absolute -top-32 -right-32 w-80 h-80 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -1067,8 +1072,187 @@
       cursorDot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
     });
 
-    // 4. GSAP Scroll Animations
+    // 4. GSAP Scroll & Entrance Animations (Idêntico ao padrão Framer / Broud)
     gsap.registerPlugin(ScrollTrigger);
+
+    function initBroudAnimations() {
+      // Curva cúbica suave inspirada no Framer Motion da Broud: cubic-bezier(0.16, 1, 0.3, 1)
+      const easeBroud = "power3.out";
+
+      // 1. Entrada suave da Top Navbar
+      gsap.from("header", {
+        y: -25,
+        opacity: 0,
+        duration: 0.9,
+        ease: easeBroud,
+        delay: 0.1
+      });
+
+      // 2. Entrada escalonada (Stagger) do Hero
+      const heroTl = gsap.timeline({ defaults: { ease: easeBroud } });
+      heroTl
+        .from(".broud-hero-logo", {
+          opacity: 0,
+          scale: 0.95,
+          y: -18,
+          filter: "blur(6px)",
+          duration: 1.1,
+          delay: 0.15
+        })
+        .from(".broud-hero-badge", {
+          opacity: 0,
+          y: 20,
+          duration: 0.8
+        }, "-=0.7")
+        .from(".broud-hero-title", {
+          opacity: 0,
+          y: 35,
+          filter: "blur(6px)",
+          duration: 1.0
+        }, "-=0.6")
+        .from(".broud-hero-avatars", {
+          opacity: 0,
+          x: 20,
+          duration: 0.8
+        }, "-=0.7")
+        .from(".broud-hero-desc", {
+          opacity: 0,
+          y: 20,
+          duration: 0.8
+        }, "-=0.6")
+        .from(".broud-hero-cta", {
+          opacity: 0,
+          y: 20,
+          scale: 0.95,
+          duration: 0.8
+        }, "-=0.6");
+
+      // 3. Seção 2: "Qual o objetivo do diagnóstico?"
+      gsap.from("#objetivo .broud-dark-pill, #objetivo h2", {
+        scrollTrigger: {
+          trigger: "#objetivo",
+          start: "top 80%"
+        },
+        y: 35,
+        opacity: 0,
+        filter: "blur(4px)",
+        duration: 0.9,
+        stagger: 0.15,
+        ease: easeBroud
+      });
+
+      gsap.from("#objetivo .lg\\:col-span-5 p", {
+        scrollTrigger: {
+          trigger: "#objetivo",
+          start: "top 80%"
+        },
+        y: 25,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: easeBroud,
+        delay: 0.15
+      });
+
+      gsap.from(".broud-dark-card", {
+        scrollTrigger: {
+          trigger: "#objetivo .grid",
+          start: "top 85%"
+        },
+        y: 40,
+        opacity: 0,
+        scale: 0.96,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: easeBroud
+      });
+
+      // 4. Seção 3: Raio-X & Métricas
+      gsap.from(".scorecard-header", {
+        scrollTrigger: {
+          trigger: "#scorecard-section",
+          start: "top 80%"
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: easeBroud
+      });
+
+      gsap.from(".broud-verdict-box", {
+        scrollTrigger: {
+          trigger: ".broud-verdict-box",
+          start: "top 85%"
+        },
+        y: 35,
+        opacity: 0,
+        duration: 0.9,
+        ease: easeBroud
+      });
+
+      gsap.from(".broud-pillar-card", {
+        scrollTrigger: {
+          trigger: ".broud-pillar-card",
+          start: "top 85%"
+        },
+        y: 40,
+        opacity: 0,
+        scale: 0.96,
+        duration: 0.9,
+        stagger: 0.15,
+        ease: easeBroud
+      });
+
+      gsap.from(".broud-strengths-box, .broud-improvements-box", {
+        scrollTrigger: {
+          trigger: ".broud-strengths-box",
+          start: "top 85%"
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.18,
+        ease: easeBroud
+      });
+
+      // 5. Seção de Casos de Sucesso (Portfólio)
+      gsap.from(".portfolio-header", {
+        scrollTrigger: {
+          trigger: "#portfolio",
+          start: "top 80%"
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: easeBroud
+      });
+
+      gsap.from(".broud-portfolio-card", {
+        scrollTrigger: {
+          trigger: "#portfolio .grid",
+          start: "top 85%"
+        },
+        y: 45,
+        opacity: 0,
+        scale: 0.96,
+        duration: 0.95,
+        stagger: 0.16,
+        ease: easeBroud
+      });
+
+      // 6. Action Box Final
+      gsap.from(".broud-action-container", {
+        scrollTrigger: {
+          trigger: "#action-box",
+          start: "top 82%"
+        },
+        y: 40,
+        opacity: 0,
+        scale: 0.97,
+        duration: 1.0,
+        ease: easeBroud
+      });
+    }
 
     // 6. Data State & URL Loading
     let diagData = {
@@ -1430,6 +1614,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       loadFromUrl();
+      initBroudAnimations();
       
       const hBtn = document.getElementById('headerEditorBtn');
       if (hBtn) {
