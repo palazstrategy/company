@@ -1113,22 +1113,26 @@
     }
 
     function renderData() {
-      // Dynamic text replacements
-      const nClient = document.getElementById('navClientName'); if (nClient) nClient.innerText = diagData.client;
-      const nCompany = document.getElementById('navCompanyName'); if (nCompany) nCompany.innerText = diagData.company;
-      document.getElementById('heroClientBadge').innerText = `${diagData.client} (${diagData.company})`;
-      document.getElementById('heroCompanyName').innerText = diagData.company;
-      document.getElementById('objCompanyName').innerText = diagData.company;
-      document.getElementById('scorecardCompanyName').innerText = diagData.company;
-      document.getElementById('stratCompanyName').innerText = diagData.company;
-      document.getElementById('ctaCompanyName').innerText = diagData.company;
+      const setElText = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = val;
+      };
+
+      setElText('navClientName', diagData.client);
+      setElText('navCompanyName', diagData.company);
+      setElText('heroClientBadge', `${diagData.client} (${diagData.company})`);
+      setElText('heroCompanyName', diagData.company);
+      setElText('objCompanyName', diagData.company);
+      setElText('scorecardCompanyName', diagData.company);
+      setElText('stratCompanyName', diagData.company);
+      setElText('ctaCompanyName', diagData.company);
 
       // Update Page Title with Client & Company name
       document.title = `Diagnóstico Estratégico | ${diagData.client} (${diagData.company}) - Palaz Strategy Company`;
 
       const avg = ((diagData.scores[0] + diagData.scores[1] + diagData.scores[2]) / 3).toFixed(1);
-      const hAvg = document.getElementById('heroAvgScore'); if (hAvg) hAvg.innerText = avg;
-      const gScore = document.getElementById('globalIndexScore'); if (gScore) gScore.innerText = avg;
+      setElText('heroAvgScore', avg);
+      setElText('globalIndexScore', avg);
       
       const gStatus = document.getElementById('globalStatusLabel');
       const gVerdict = document.getElementById('globalVerdictText');
@@ -1146,13 +1150,17 @@
         }
       }
 
-      document.getElementById('scoreNum1').innerText = diagData.scores[0].toFixed(1);
-      document.getElementById('scoreNum2').innerText = diagData.scores[1].toFixed(1);
-      document.getElementById('scoreNum3').innerText = diagData.scores[2].toFixed(1);
+      setElText('scoreNum1', diagData.scores[0].toFixed(1));
+      setElText('scoreNum2', diagData.scores[1].toFixed(1));
+      setElText('scoreNum3', diagData.scores[2].toFixed(1));
 
-      document.getElementById('scoreBar1').style.width = Math.min(100, (diagData.scores[0] * 10)) + '%';
-      document.getElementById('scoreBar2').style.width = Math.min(100, (diagData.scores[1] * 10)) + '%';
-      document.getElementById('scoreBar3').style.width = Math.min(100, (diagData.scores[2] * 10)) + '%';
+      const setBarWidth = (id, score) => {
+        const el = document.getElementById(id);
+        if (el) el.style.width = Math.min(100, Math.max(0, score * 10)) + '%';
+      };
+      setBarWidth('scoreBar1', diagData.scores[0]);
+      setBarWidth('scoreBar2', diagData.scores[1]);
+      setBarWidth('scoreBar3', diagData.scores[2]);
 
       // Strengths
       const sList = document.getElementById('visualStrengthsList');
@@ -1188,7 +1196,6 @@
         waBtn.href = `https://wa.me/${num}?text=${waMsg}`;
       }
     }
-
     function populateForm() {
       document.getElementById('editClientName').value = diagData.client;
       document.getElementById('editCompanyName').value = diagData.company;
@@ -1201,18 +1208,31 @@
     }
 
     function applyFormChanges() {
-      diagData.client = document.getElementById('editClientName').value.trim() || "Cliente";
-      diagData.company = document.getElementById('editCompanyName').value.trim() || "Empresa";
-      diagData.whatsapp = document.getElementById('editWhatsapp').value.replace(/\D/g, '') || "553196117847";
-      diagData.scores = [
-        parseFloat(document.getElementById('editScore1').value) || 0,
-        parseFloat(document.getElementById('editScore2').value) || 0,
-        parseFloat(document.getElementById('editScore3').value) || 0
-      ];
-      diagData.strengths = document.getElementById('editStrengths').value.split('\n').filter(s => s.trim().length > 0);
-      diagData.improvements = document.getElementById('editImprovements').value.split('\n').filter(i => i.trim().length > 0);
+      applyFormChangesSilent();
 
-      renderData();
+      // Atualizar a URL atual para persistir alterações ao dar F5
+      const params = new URLSearchParams();
+      params.set('cliente', diagData.client);
+      params.set('empresa', diagData.company);
+      params.set('n1', diagData.scores[0]);
+      params.set('n2', diagData.scores[1]);
+      params.set('n3', diagData.scores[2]);
+      if (diagData.whatsapp && diagData.whatsapp !== '553196117847') {
+        params.set('wa', diagData.whatsapp);
+      }
+      if (diagData.strengths && diagData.strengths.length > 0) {
+        params.set('pf', diagData.strengths.join('|'));
+      }
+      if (diagData.improvements && diagData.improvements.length > 0) {
+        params.set('pm', diagData.improvements.join('|'));
+      }
+      try {
+        const fullUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        window.history.replaceState({}, '', fullUrl);
+      } catch (e) {
+        console.warn("history.replaceState error:", e);
+      }
+
       toggleEditDrawer();
     }
 
@@ -1240,29 +1260,55 @@
 
       const fullUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
 
-      // Fallback copy
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(fullUrl).then(() => {
-          showCopySuccess();
-        }).catch(() => {
-          promptCopyFallback(fullUrl);
-        });
-      } else {
-        promptCopyFallback(fullUrl);
+      // Atualizar no navegador
+      try {
+        window.history.replaceState({}, '', fullUrl);
+      } catch (e) {
+        console.warn("history.replaceState error:", e);
       }
+
+      // Copiar para a área de transferência de forma universal
+      const copyToClipboard = (str) => {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(str);
+        } else {
+          const textArea = document.createElement("textarea");
+          textArea.value = str;
+          textArea.style.position = "fixed";
+          textArea.style.top = "-9999px";
+          textArea.style.left = "-9999px";
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          try {
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            return Promise.resolve();
+          } catch (err) {
+            document.body.removeChild(textArea);
+            return Promise.reject(err);
+          }
+        }
+      };
+
+      copyToClipboard(fullUrl).then(() => {
+        showCopySuccess();
+      }).catch(() => {
+        promptCopyFallback(fullUrl);
+      });
     }
 
     function applyFormChangesSilent() {
-      diagData.client = document.getElementById('editClientName').value.trim() || "Cliente";
-      diagData.company = document.getElementById('editCompanyName').value.trim() || "Empresa";
-      diagData.whatsapp = document.getElementById('editWhatsapp').value.replace(/\D/g, '') || "553196117847";
+      diagData.client = (document.getElementById('editClientName').value || "").trim() || "Cliente";
+      diagData.company = (document.getElementById('editCompanyName').value || "").trim() || "Empresa";
+      diagData.whatsapp = (document.getElementById('editWhatsapp').value || "").replace(/\D/g, '') || "553196117847";
       diagData.scores = [
         parseFloat(document.getElementById('editScore1').value) || 0,
         parseFloat(document.getElementById('editScore2').value) || 0,
         parseFloat(document.getElementById('editScore3').value) || 0
       ];
-      diagData.strengths = document.getElementById('editStrengths').value.split('\n').filter(s => s.trim().length > 0);
-      diagData.improvements = document.getElementById('editImprovements').value.split('\n').filter(i => i.trim().length > 0);
+      diagData.strengths = (document.getElementById('editStrengths').value || "").split('\n').filter(s => s.trim().length > 0);
+      diagData.improvements = (document.getElementById('editImprovements').value || "").split('\n').filter(i => i.trim().length > 0);
       renderData();
     }
 
@@ -1277,7 +1323,6 @@
     function promptCopyFallback(url) {
       window.prompt("Copie o link personalizado abaixo:", url);
     }
-
     function toggleEditDrawer() {
       const drawer = document.getElementById('editDrawer');
       const backdrop = document.getElementById('drawerBackdrop');
