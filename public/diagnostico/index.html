@@ -1281,16 +1281,22 @@
     function toggleEditDrawer() {
       const drawer = document.getElementById('editDrawer');
       const backdrop = document.getElementById('drawerBackdrop');
+      if (!drawer || !backdrop) return;
+      
       const isOpen = !drawer.classList.contains('translate-x-full');
 
       if (isOpen) {
         drawer.classList.add('translate-x-full');
         backdrop.classList.add('hidden');
       } else {
+        populateForm();
         drawer.classList.remove('translate-x-full');
         backdrop.classList.remove('hidden');
       }
     }
+    window.toggleEditDrawer = toggleEditDrawer;
+    window.applyFormChanges = applyFormChanges;
+    window.generateShareableLink = generateShareableLink;
 
     // Init on load
     
@@ -1307,6 +1313,15 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       loadFromUrl();
+      
+      const hBtn = document.getElementById('headerEditorBtn');
+      if (hBtn) {
+        hBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          toggleEditDrawer();
+        });
+      }
+
       document.querySelectorAll('.reveal-elem').forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('active');
       });
