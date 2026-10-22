@@ -267,8 +267,8 @@
       
       <!-- Linha Principal da Barra -->
       <div class="flex items-center justify-between px-4 sm:px-8 py-3.5">
-        <!-- Lado Esquerdo: Botão Cápsula com Logo Vetorial da Palaz (SVG Oficial) -->
-        <a href="#hero-section" class="flex items-center px-4 sm:px-5 py-2 rounded-full bg-gradient-to-b from-[#242424] to-[#000000] shadow-[0_4px_14px_rgba(0,0,0,0.25)] hover:scale-105 transition-all duration-300 flex-shrink-0 group" title="Diagnóstico Palaz">
+        <!-- Lado Esquerdo: Botão Cápsula com Logo Vetorial da Palaz (Permanece no Diagnóstico) -->
+        <a href="#hero-section" onclick="if(window.lenis){event.preventDefault(); window.lenis.scrollTo('#hero-section');} else {window.scrollTo({top:0, behavior:'smooth'});}" class="flex items-center px-4 sm:px-5 py-2 rounded-full bg-gradient-to-b from-[#242424] to-[#000000] shadow-[0_4px_14px_rgba(0,0,0,0.25)] hover:scale-105 transition-all duration-300 flex-shrink-0 group cursor-pointer" title="Diagnóstico Palaz - Início">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 723.45 112.34" class="h-4 sm:h-5 w-auto fill-white text-white">
             <g>
               <path fill="currentColor" d="M714.12,22.46c5.16,0,9.34,4.18,9.34,9.34h0c0,5.62-3.1,10.78-8.07,13.42l-66.85,33.53h73.18v11.14h-82.01c-5.14,0-9.3-4.16-9.3-9.3h0c0-5.62,3.1-10.78,8.07-13.42l66.87-33.57h-73.19s0-11.13,0-11.13h81.97Z"/>
@@ -705,9 +705,9 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Case 1: NcGlass Vidraçaria -->
-        <a href="/cases/ncglass-vidracaria" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
+        <a href="https://palazstrategy.vercel.app/cases/ncglass-vidracaria" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
-            <img src="/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-capa.avif" alt="Case NcGlass Vidraçaria" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <img src="cases/ncglass-capa.avif" alt="Case NcGlass Vidraçaria" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
             <span class="absolute top-4 left-4 broud-pill px-3.5 py-1 rounded-full text-[11px] font-bold text-zinc-900 shadow-sm flex items-center gap-1.5">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
@@ -734,9 +734,9 @@
         </a>
 
         <!-- Case 2: Fatuz -->
-        <a href="/cases/fatuz" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
+        <a href="https://palazstrategy.vercel.app/cases/fatuz" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
-            <img src="/imagens/cases/fatuz/fatuz-palaz-strategy-company-capa.avif" alt="Case Fatuz" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <img src="cases/fatuz-capa.avif" alt="Case Fatuz" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
             <span class="absolute top-4 left-4 broud-pill px-3.5 py-1 rounded-full text-[11px] font-bold text-zinc-900 shadow-sm flex items-center gap-1.5">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
@@ -763,9 +763,9 @@
         </a>
 
         <!-- Case 3: Sland Inteligência Produtiva -->
-        <a href="/cases/sland-inteligencia-produtiva" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
+        <a href="https://palazstrategy.vercel.app/cases/sland-inteligencia-produtiva" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
-            <img src="/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-0-capa.avif" alt="Case Sland Inteligência Produtiva" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <img src="cases/sland-capa.avif" alt="Case Sland Inteligência Produtiva" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
             <span class="absolute top-4 left-4 broud-pill px-3.5 py-1 rounded-full text-[11px] font-bold text-zinc-900 shadow-sm flex items-center gap-1.5">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
@@ -792,9 +792,9 @@
         </a>
 
         <!-- Case 4: Açougue Almeida -->
-        <a href="/cases/acougue-almeida" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
+        <a href="https://palazstrategy.vercel.app/cases/acougue-almeida" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
-            <img src="/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-0-capa.avif" alt="Case Açougue Almeida" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <img src="cases/almeida-capa.avif" alt="Case Açougue Almeida" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
             <span class="absolute top-4 left-4 broud-pill px-3.5 py-1 rounded-full text-[11px] font-bold text-zinc-900 shadow-sm flex items-center gap-1.5">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
@@ -824,7 +824,7 @@
 
       <!-- Botão para ver todos os cases do site oficial -->
       <div class="mt-14 text-center">
-        <a href="/cases" target="_blank" class="inline-flex items-center gap-2 broud-pill px-8 py-3.5 rounded-full text-xs font-bold text-zinc-900 hover:text-brand-orange hover:border-brand-orange transition-all duration-300 shadow-sm group">
+        <a href="https://palazstrategy.vercel.app/cases" target="_blank" class="inline-flex items-center gap-2 broud-pill px-8 py-3.5 rounded-full text-xs font-bold text-zinc-900 hover:text-brand-orange hover:border-brand-orange transition-all duration-300 shadow-sm group">
           <span>Explorar todos os cases da Palaz</span>
           <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
         </a>
@@ -934,21 +934,23 @@
       
       <!-- Brand & Copyright -->
       <div class="flex flex-col sm:flex-row items-center gap-4">
-        <a href="https://palazstrategy.vercel.app/" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 transition-opacity flex items-center gap-2">
+        <a href="https://palazstrategy.vercel.app/" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 transition-opacity flex items-center gap-2" title="Palaz Strategy Company">
           <img src="logo-palaz.png" alt="Palaz Strategy Company" class="h-4.5 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity">
         </a>
         <span class="text-zinc-700 hidden sm:inline">|</span>
         <span class="text-zinc-400">© 2026 Palaz Strategy Company. Todos os direitos reservados.</span>
       </div>
 
-      <!-- Links Institucionais & Selo de Confiança -->
-      <div class="flex items-center gap-4 text-xs font-medium">
-        <a href="https://palazstrategy.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white/[0.06] hover:bg-brand-orange text-white hover:text-white px-4 py-2 rounded-full border border-white/[0.1] hover:border-brand-orange transition-all duration-300 shadow-sm">
-          <span>Acessar Site Oficial</span>
-          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+      <!-- Links Institucionais & Acesso ao Site da Palaz -->
+      <div class="flex flex-wrap items-center justify-center md:justify-end gap-3 sm:gap-4 text-xs font-medium">
+        <a href="https://palazstrategy.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white transition-colors underline-offset-4 hover:underline">
+          palazstrategy.vercel.app
         </a>
         <span class="text-zinc-700 hidden sm:inline">•</span>
-        <span class="text-zinc-500 hidden sm:inline">Design Estratégico & Branding</span>
+        <a href="https://palazstrategy.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white px-4 py-2 rounded-full font-bold transition-all duration-300 shadow-glow-orange-sm hover:scale-105">
+          <span>Acessar Site da Palaz</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
       </div>
 
     </div>
@@ -1120,17 +1122,17 @@
         clearProps: "all"
       });
 
-      // 4. Seção 3: Raio-X & Métricas - Rápido, leve e fluido
-      gsap.from(".broud-pillar-card, .broud-strengths-box, .broud-improvements-box", {
+      // 4. Seção 3: Raio-X & Métricas - Suave e instantâneo
+      gsap.from(".scorecard-header, .broud-verdict-box, .broud-pillar-card, .broud-strengths-box, .broud-improvements-box", {
         scrollTrigger: {
           trigger: "#scorecard-section",
-          start: "top 85%",
+          start: "top 90%",
           once: true
         },
-        y: 20,
+        y: 12,
         opacity: 0,
-        duration: 0.5,
-        stagger: 0.08,
+        duration: 0.35,
+        stagger: 0.05,
         ease: easeBroud,
         clearProps: "all"
       });
@@ -1138,24 +1140,24 @@
       // Animação das Barras de Notas
       ScrollTrigger.create({
         trigger: "#scorecard-section",
-        start: "top 80%",
+        start: "top 90%",
         once: true,
         onEnter: () => {
           if (window.animateScoreBars) window.animateScoreBars();
         }
       });
 
-      // 5. Seção 4: Casos de Sucesso (Portfólio) - Fluido e sem delay
-      gsap.from(".broud-portfolio-card", {
+      // 5. Seção 4: Casos de Sucesso (Portfólio) - Suave e sem travas
+      gsap.from(".portfolio-header, .broud-portfolio-card", {
         scrollTrigger: {
           trigger: "#portfolio",
-          start: "top 85%",
+          start: "top 90%",
           once: true
         },
-        y: 25,
+        y: 12,
         opacity: 0,
-        duration: 0.6,
-        stagger: 0.12,
+        duration: 0.35,
+        stagger: 0.06,
         ease: easeBroud,
         clearProps: "all"
       });
