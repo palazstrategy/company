@@ -254,6 +254,63 @@
       filter: url(#liquidMagmaFilter);
     }
 
+  
+    /* Broud Multi-layered Specular Shadows */
+    .broud-specular-shadow {
+      box-shadow: 
+        0 4px 12px -2px rgba(0, 0, 0, 0.04),
+        0 15px 33px -1px rgba(0, 0, 0, 0.05),
+        0 35px 78px -2px rgba(0, 0, 0, 0.04),
+        0 65px 143px -3px rgba(0, 0, 0, 0.02);
+    }
+
+    .broud-dark-specular {
+      box-shadow: 
+        0 10px 30px -5px rgba(0, 0, 0, 0.8),
+        0 25px 60px -10px rgba(0, 0, 0, 0.9),
+        inset 0 1px 0 rgba(255, 255, 255, 0.09);
+    }
+
+    /* Broud Radial Button Gradient with Hover Light Sweep */
+    .broud-btn-glow {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 0%, #ff6b36 0%, #ba3304 100%);
+      box-shadow: 0 4px 20px rgba(242, 75, 15, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .broud-btn-glow::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.3) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0.75s ease;
+      pointer-events: none;
+    }
+    .broud-btn-glow:hover::after {
+      transform: translateX(100%);
+    }
+    .broud-btn-glow:hover {
+      box-shadow: 0 8px 30px rgba(242, 75, 15, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    /* Smooth Scroll Reveal Elements */
+    .reveal-elem {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-elem.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
   </style>
 </head>
 <body class="antialiased selection:bg-brand-orange selection:text-white">
@@ -590,7 +647,7 @@
 
   <!-- SECTION 4: O ESTRATEGISTA / PROFILE (Palaz Strategy Company Oficial) -->
   <section class="py-24 md:py-32 px-5 md:px-12 bg-white border-y border-zinc-200/80 relative z-20">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto reveal-elem">
       
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
         
@@ -642,7 +699,7 @@
   <!-- SECTION 5: ETAPA POR ETAPA (Broud Dark Steps with Neon Timeline) -->
   <section class="bg-gradient-to-b from-[#242424] to-[#181818] text-white py-24 md:py-36 px-5 md:px-12 relative z-20 overflow-hidden" id="processo">
     
-    <div class="max-w-4xl mx-auto relative">
+    <div class="max-w-4xl mx-auto relative reveal-elem">
       
       <!-- Section Title -->
       <div class="text-center mb-20">
@@ -761,10 +818,10 @@
       </div>
 
       <!-- 2x2 Clean Rounded Project Cards com Links Oficiais -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-elem">
         
         <!-- Case 1: NcGlass Vidraçaria -->
-        <a href="/cases/ncglass-vidracaria" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden shadow-broud-card hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
+        <a href="/cases/ncglass-vidracaria" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
             <img src="/imagens/cases/ncglass-vidracaria/ncglass-vidracaria-palaz-strategy-company-capa.avif" alt="Case NcGlass Vidraçaria" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
@@ -793,7 +850,7 @@
         </a>
 
         <!-- Case 2: Fatuz -->
-        <a href="/cases/fatuz" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden shadow-broud-card hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
+        <a href="/cases/fatuz" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
             <img src="/imagens/cases/fatuz/fatuz-palaz-strategy-company-capa.avif" alt="Case Fatuz" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
@@ -822,7 +879,7 @@
         </a>
 
         <!-- Case 3: Sland Inteligência Produtiva -->
-        <a href="/cases/sland-inteligencia-produtiva" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden shadow-broud-card hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
+        <a href="/cases/sland-inteligencia-produtiva" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
             <img src="/imagens/cases/sland-inteligencia-produtiva/sland-inteligencia-produtiva-palaz-strategy-company-0-capa.avif" alt="Case Sland Inteligência Produtiva" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
@@ -851,7 +908,7 @@
         </a>
 
         <!-- Case 4: Açougue Almeida -->
-        <a href="/cases/acougue-almeida" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden shadow-broud-card hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
+        <a href="/cases/acougue-almeida" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer">
           <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900">
             <img src="/imagens/cases/acougue-almeida/acougue-almeida-palaz-strategy-company-0-capa.avif" alt="Case Açougue Almeida" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
@@ -895,7 +952,7 @@
 
   <!-- SECTION 7: PROPOSTA & CTA BOX (Exact Broud "Bora para o que mais interessa?") -->
   <section id="action-box" class="py-20 md:py-32 px-5 md:px-12 bg-white border-t border-zinc-200 relative z-20">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl mx-auto reveal-elem">
       
       <!-- Luxury Floating Box Container -->
       <div class="bg-gradient-to-br from-[#1c1c1c] to-[#0f0f0f] text-white p-8 sm:p-12 md:p-16 rounded-5xl border border-white/[0.08] shadow-2xl relative overflow-hidden">
@@ -1392,7 +1449,24 @@
     }
 
     // Init on load
-    window.addEventListener('DOMContentLoaded', loadFromUrl);
+    
+    // Reveal animation observer on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal-elem').forEach(el => revealObserver.observe(el));
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadFromUrl();
+      document.querySelectorAll('.reveal-elem').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('active');
+      });
+    });
   
 </script>
 </body>
