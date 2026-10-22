@@ -268,7 +268,7 @@
       <!-- Linha Principal da Barra -->
       <div class="flex items-center justify-between px-4 sm:px-8 py-3.5">
         <!-- Lado Esquerdo: Botão Cápsula com Logo Vetorial da Palaz (SVG Oficial) -->
-        <a href="/" class="flex items-center px-4 sm:px-5 py-2 rounded-full bg-gradient-to-b from-[#242424] to-[#000000] shadow-[0_4px_14px_rgba(0,0,0,0.25)] hover:scale-105 transition-all duration-300 flex-shrink-0 group">
+        <a href="#hero-section" class="flex items-center px-4 sm:px-5 py-2 rounded-full bg-gradient-to-b from-[#242424] to-[#000000] shadow-[0_4px_14px_rgba(0,0,0,0.25)] hover:scale-105 transition-all duration-300 flex-shrink-0 group" title="Diagnóstico Palaz">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 723.45 112.34" class="h-4 sm:h-5 w-auto fill-white text-white">
             <g>
               <path fill="currentColor" d="M714.12,22.46c5.16,0,9.34,4.18,9.34,9.34h0c0,5.62-3.1,10.78-8.07,13.42l-66.85,33.53h73.18v11.14h-82.01c-5.14,0-9.3-4.16-9.3-9.3h0c0-5.62,3.1-10.78,8.07-13.42l66.87-33.57h-73.19s0-11.13,0-11.13h81.97Z"/>
@@ -929,26 +929,26 @@
 
 
   <!-- FOOTER (Palaz Signature & Selo Institucional) -->
-  <footer class="bg-[#0c0c0c] text-zinc-500 py-12 px-5 md:px-12 border-t border-white/[0.08] text-xs">
+  <footer class="bg-[#0a0a0a] text-zinc-400 py-14 px-5 md:px-12 border-t border-white/[0.08] text-xs">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
       
       <!-- Brand & Copyright -->
       <div class="flex flex-col sm:flex-row items-center gap-4">
-        <a href="https://palazstrategy.vercel.app/" target="_blank" class="hover:opacity-100 transition-opacity flex items-center gap-2">
-          <img src="logo-palaz.png" alt="Palaz Strategy Company" class="h-4 w-auto brightness-0 invert opacity-80">
+        <a href="https://palazstrategy.vercel.app/" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 transition-opacity flex items-center gap-2">
+          <img src="logo-palaz.png" alt="Palaz Strategy Company" class="h-4.5 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity">
         </a>
-        <span class="text-zinc-600 hidden sm:inline">|</span>
+        <span class="text-zinc-700 hidden sm:inline">|</span>
         <span class="text-zinc-400">© 2026 Palaz Strategy Company. Todos os direitos reservados.</span>
       </div>
 
       <!-- Links Institucionais & Selo de Confiança -->
       <div class="flex items-center gap-4 text-xs font-medium">
-        <a href="https://palazstrategy.vercel.app/" target="_blank" class="text-zinc-400 hover:text-brand-orange transition-colors flex items-center gap-1.5">
+        <a href="https://palazstrategy.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white/[0.06] hover:bg-brand-orange text-white hover:text-white px-4 py-2 rounded-full border border-white/[0.1] hover:border-brand-orange transition-all duration-300 shadow-sm">
           <span>Acessar Site Oficial</span>
           <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
         </a>
-        <span class="text-zinc-700">•</span>
-        <span class="text-zinc-500">Design Estratégico & Branding</span>
+        <span class="text-zinc-700 hidden sm:inline">•</span>
+        <span class="text-zinc-500 hidden sm:inline">Design Estratégico & Branding</span>
       </div>
 
     </div>
@@ -1083,92 +1083,96 @@
     // 4. GSAP Scroll & Entrance Animations (Idêntico ao padrão Framer / Broud)
     gsap.registerPlugin(ScrollTrigger);
 
-    function initBroudAnimations() {
-      // Conectar Lenis ao ScrollTrigger do GSAP para sincronização perfeita de scroll
-      if (typeof lenis !== 'undefined') {
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => {
-          lenis.raf(time * 1000);
-        });
-        gsap.ticker.lagSmoothing(0);
-      }
-
-      const easeBroud = "power3.out";
+        function initBroudAnimations() {
+      const easeBroud = "power2.out";
 
       // 1. Entrada suave da Top Navbar
       gsap.from("header", {
-        y: -20,
+        y: -15,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.6,
         ease: easeBroud,
         delay: 0.1
       });
 
-      // 2. Entrada escalonada do Hero (sempre visível ao final)
+      // 2. Entrada do Hero sem travamentos
       const heroTl = gsap.timeline({ defaults: { ease: easeBroud } });
       heroTl
-        .from(".broud-hero-logo", { opacity: 0, scale: 0.96, y: -15, duration: 0.9, delay: 0.1 }, 0)
-        .from(".broud-hero-badge", { opacity: 0, y: 15, duration: 0.7 }, 0.2)
-        .from(".broud-hero-title", { opacity: 0, y: 25, duration: 0.8 }, 0.3)
-        .from(".broud-hero-avatars", { opacity: 0, x: 15, duration: 0.7 }, 0.4)
-        .from(".broud-hero-desc", { opacity: 0, y: 15, duration: 0.7 }, 0.45)
-        .from(".broud-hero-cta", { opacity: 0, y: 15, scale: 0.96, duration: 0.7 }, 0.5);
+        .from(".broud-hero-logo", { opacity: 0, y: -12, duration: 0.7, delay: 0.05 }, 0)
+        .from(".broud-hero-badge", { opacity: 0, y: 12, duration: 0.5 }, 0.15)
+        .from(".broud-hero-title", { opacity: 0, y: 18, duration: 0.6 }, 0.25)
+        .from(".broud-hero-avatars", { opacity: 0, x: 12, duration: 0.5 }, 0.35)
+        .from(".broud-hero-desc", { opacity: 0, y: 12, duration: 0.5 }, 0.4)
+        .from(".broud-hero-cta", { opacity: 0, y: 12, duration: 0.5 }, 0.45);
 
-      // Helper para animar elementos ao entrar no viewport com segurança (batch / individual)
-      function animateOnScroll(selector, options = {}) {
-        const els = document.querySelectorAll(selector);
-        if (!els || els.length === 0) return;
-        
-        els.forEach((el, index) => {
-          gsap.from(el, {
-            scrollTrigger: {
-              trigger: el,
-              start: "top 92%",
-              toggleActions: "play none none none",
-              once: true
-            },
-            y: options.y || 30,
-            opacity: 0,
-            scale: options.scale || 1,
-            duration: options.duration || 0.85,
-            delay: (options.stagger ? index * options.stagger : 0) + (options.delay || 0),
-            ease: easeBroud,
-            clearProps: "transform,opacity" // Remove inline styles após animar para não bloquear render
-          });
-        });
-      }
+      // 3. Seção Objetivo (Alinhamento Estratégico)
+      gsap.from("#objetivo .broud-dark-card", {
+        scrollTrigger: {
+          trigger: "#objetivo",
+          start: "top 85%",
+          once: true
+        },
+        y: 25,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: easeBroud,
+        clearProps: "all"
+      });
 
-      // Seção 2: "Qual o objetivo do diagnóstico?"
-      animateOnScroll("#objetivo .broud-dark-pill, #objetivo h2", { y: 25, stagger: 0.1 });
-      animateOnScroll("#objetivo .lg\\:col-span-5 p", { y: 20, stagger: 0.1 });
-      animateOnScroll(".broud-dark-card", { y: 35, scale: 0.97, stagger: 0.12 });
+      // 4. Seção 3: Raio-X & Métricas - Rápido, leve e fluido
+      gsap.from(".broud-pillar-card, .broud-strengths-box, .broud-improvements-box", {
+        scrollTrigger: {
+          trigger: "#scorecard-section",
+          start: "top 85%",
+          once: true
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: easeBroud,
+        clearProps: "all"
+      });
 
-      // Seção 3: Raio-X & Métricas (Veredito, Pilares e Caixas)
-      animateOnScroll(".scorecard-header", { y: 25 });
-      animateOnScroll(".broud-verdict-box", { y: 30, scale: 0.98 });
-      animateOnScroll(".broud-pillar-card", { y: 35, scale: 0.97, stagger: 0.12 });
-      animateOnScroll(".broud-strengths-box", { y: 30 });
-      animateOnScroll(".broud-improvements-box", { y: 30, delay: 0.1 });
-
-      // Animação de preenchimento dinâmico das barras de notas técnicas ao rolar
+      // Animação das Barras de Notas
       ScrollTrigger.create({
         trigger: "#scorecard-section",
-        start: "top 75%",
+        start: "top 80%",
         once: true,
         onEnter: () => {
-          animateScoreBars();
+          if (window.animateScoreBars) window.animateScoreBars();
         }
       });
 
-      // Seção 4: Casos de Sucesso (Portfólio)
-      animateOnScroll(".portfolio-header", { y: 25 });
-      animateOnScroll(".broud-portfolio-card", { y: 40, scale: 0.97, stagger: 0.15 });
+      // 5. Seção 4: Casos de Sucesso (Portfólio) - Fluido e sem delay
+      gsap.from(".broud-portfolio-card", {
+        scrollTrigger: {
+          trigger: "#portfolio",
+          start: "top 85%",
+          once: true
+        },
+        y: 25,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: easeBroud,
+        clearProps: "all"
+      });
 
-      // Seção 5: Action Box Final
-      animateOnScroll(".broud-action-container", { y: 35, scale: 0.98 });
-
-      // Atualiza o ScrollTrigger após carregar todo o DOM
-      ScrollTrigger.refresh();
+      // 6. Action Box Final
+      gsap.from(".broud-action-container", {
+        scrollTrigger: {
+          trigger: "#action-box",
+          start: "top 85%",
+          once: true
+        },
+        y: 25,
+        opacity: 0,
+        duration: 0.6,
+        ease: easeBroud,
+        clearProps: "all"
+      });
     }
 
     // 6. Data State & URL Loading
