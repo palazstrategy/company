@@ -266,36 +266,49 @@
   <div class="custom-cursor hidden md:block" id="cursor"></div>
   <div class="custom-cursor-dot hidden md:block" id="cursorDot"></div>
 
-  <!-- TOP NAVBAR (Idêntico ao Cabeçalho Oficial Broud com Logo SVG e Barra de Progresso) -->
+  <!-- TOP NAVBAR (Idêntico ao Cabeçalho Oficial Broud com Logo SVG e Barra Centralizada) -->
   <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none px-0 sm:px-4 md:px-8">
-    <div class="w-full max-w-6xl mx-auto flex flex-col pointer-events-auto bg-white border-b border-zinc-200/80 shadow-[0_10px_30px_rgba(0,0,0,0.06)] rounded-b-[24px] sm:rounded-b-[30px] overflow-hidden transition-all duration-300">
+    <div class="w-full max-w-6xl mx-auto flex items-center justify-between pointer-events-auto bg-white border-b border-zinc-200/80 shadow-[0_10px_30px_rgba(0,0,0,0.06)] rounded-b-[24px] sm:rounded-b-[30px] px-4 sm:px-8 py-3.5 transition-all duration-300 gap-4 sm:gap-8">
       
-      <!-- Linha Principal da Barra -->
-      <div class="flex items-center justify-between px-4 sm:px-8 py-3.5">
-        <!-- Lado Esquerdo: Botão Cápsula Gradiente com 'logo da palaz.svg' -->
-        <a href="/" class="flex items-center px-4 sm:px-5 py-2 rounded-full bg-gradient-to-b from-[#242424] to-[#000000] shadow-[0_4px_14px_rgba(0,0,0,0.25)] hover:scale-105 transition-all duration-300 group">
-          <img src="logo da palaz.svg" alt="Palaz Strategy Company" class="h-4 sm:h-4.5 w-auto object-contain">
-        </a>
+      <!-- Lado Esquerdo: Botão Cápsula com Logo Vetorial da Palaz (SVG Oficial) -->
+      <a href="/" class="flex items-center px-4 sm:px-5 py-2 rounded-full bg-gradient-to-b from-[#242424] to-[#000000] shadow-[0_4px_14px_rgba(0,0,0,0.25)] hover:scale-105 transition-all duration-300 flex-shrink-0 group">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 723.45 112.34" class="h-4 sm:h-5 w-auto fill-white text-white">
+            <g>
+              <path fill="currentColor" d="M714.12,22.46c5.16,0,9.34,4.18,9.34,9.34h0c0,5.62-3.1,10.78-8.07,13.42l-66.85,33.53h73.18v11.14h-82.01c-5.14,0-9.3-4.16-9.3-9.3h0c0-5.62,3.1-10.78,8.07-13.42l66.87-33.57h-73.19s0-11.13,0-11.13h81.97Z"/>
+              <path fill="currentColor" d="M430.16,71.14V22.45h-16.77v52.23c0,8.4,6.81,15.2,15.2,15.2h58.41v-11.14h-49.24c-4.2,0-7.6-3.4-7.6-7.6Z"/>
+              <path fill="currentColor" d="M187.58,22.45v11.14h68.99c4.2,0,7.6,3.4,7.6,7.6v8.35c0,4.2-3.4,7.6-7.6,7.6h-56.02c-8.4,0-15.2,6.81-15.2,15.2v17.53h16.77v-14c0-4.2,3.4-7.6,7.6-7.6h56.02c8.4,0,15.2-6.81,15.2-15.2v-15.43c0-8.4-6.81-15.2-15.2-15.2h-78.16Z"/>
+              <path fill="currentColor" d="M316.98,29.6c1.83-2.76,4.26-4.95,7.22-6.04,3.81-1.41,12.05-2.27,17.48-2.27s13.51.87,17.45,2.27c2.97,1.06,5.41,3.28,7.22,6.04l37.82,60.28h-19.77l-33.11-52.99c-1.37-2.2-3.84-3.34-6.42-3.61-1.6-.15-4.79-.15-6.39,0-2.62.27-5.09,1.41-6.46,3.61l-33.07,52.99h-19.77l37.78-60.28Z"/>
+              <path fill="currentColor" d="M532.26,29.6c1.83-2.76,4.26-4.95,7.22-6.04,3.81-1.41,12.05-2.27,17.48-2.27s13.51.87,17.45,2.27c2.97,1.06,5.41,3.28,7.22,6.04l37.82,60.28h-19.77l-33.11-52.99c-1.37-2.2-3.84-3.34-6.42-3.61-1.6-.15-4.79-.15-6.39,0-2.62.27-5.09,1.41-6.46,3.61l-33.07,52.99h-19.77l37.78-60.28Z"/>
+            </g>
+            <g>
+              <polygon fill="currentColor" points="83.45 50.9 50.34 50.9 18.53 0 51.64 0 83.45 50.9"/>
+              <polygon fill="currentColor" points="121.84 112.34 88.72 112.34 56.92 61.43 90.03 61.43 121.84 112.34"/>
+              <path fill="currentColor" d="M140.37,42.12c0,13.96-11.32,26.33-28.74,34l-2.65-4.25c5.05-4.48,8-9.89,8-15.71,0-13.02-14.76-23.97-34.78-27.15L64.16.16l-.1-.16h6.13c38.76,0,70.18,18.86,70.18,42.12Z"/>
+              <path fill="currentColor" d="M0,70.22c0-13.96,11.32-26.33,28.74-34l2.65,4.25c-5.05,4.48-8,9.89-8,15.71,0,13.02,14.76,23.97,34.78,27.15l18.04,28.86.1.16h-6.13C31.42,112.34,0,93.47,0,70.22Z"/>
+            </g>
+          </svg>
+      </a>
 
-        <!-- Lado Direito: Tag Cliente + Botão de Configuração do Editor -->
-        <div class="flex items-center gap-3">
-          <!-- Badge Cliente -->
-          <div class="flex items-center gap-2 bg-zinc-50 border border-zinc-200/90 px-3.5 py-1.5 rounded-full text-xs font-semibold text-zinc-700 shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
-            <span class="text-zinc-400 font-normal">Cliente:</span>
-            <strong class="text-zinc-950 font-bold" id="navClientBadge">Vittaréa</strong>
-          </div>
-
-          <!-- Botão de Ajustes (Drawer) -->
-          <button id="headerEditorBtn" type="button" onclick="toggleEditDrawer(event)" class="w-9 h-9 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-700 hover:text-brand-orange flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm group" title="Personalizar Diagnóstico">
-            <i data-lucide="sliders" class="w-4 h-4 pointer-events-none group-hover:rotate-45 transition-transform duration-300"></i>
-          </button>
+      <!-- Centro: Barra Fina de Progresso de Rolagem Centralizada -->
+      <div class="flex-1 max-w-md mx-2 sm:mx-6 flex items-center gap-2">
+        <div class="w-full h-1.5 bg-zinc-100 rounded-full overflow-hidden p-0.5 border border-zinc-200/60 shadow-inner">
+          <div id="scrollProgressBar" class="h-full bg-brand-orange rounded-full transition-all duration-100 ease-out shadow-[0_0_8px_rgba(242,75,15,0.7)]" style="width: 0%;"></div>
         </div>
       </div>
 
-      <!-- Barra de Progresso Fina em Laranja no Rodapé do Cabeçalho -->
-      <div class="w-full h-[2.5px] bg-zinc-100 relative overflow-hidden">
-        <div id="scrollProgressBar" class="h-full bg-brand-orange rounded-full transition-all duration-100 ease-out shadow-[0_0_8px_rgba(242,75,15,0.6)]" style="width: 0%;"></div>
+      <!-- Lado Direito: Tag Cliente + Botão de Configuração do Editor -->
+      <div class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+        <!-- Badge Cliente -->
+        <div class="flex items-center gap-2 bg-zinc-50 border border-zinc-200/90 px-3.5 py-1.5 rounded-full text-xs font-semibold text-zinc-700 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+          <span class="text-zinc-400 font-normal hidden sm:inline">Cliente:</span>
+          <strong class="text-zinc-950 font-bold" id="navClientBadge">Vittaréa</strong>
+        </div>
+
+        <!-- Botão de Ajustes (Drawer) -->
+        <button id="headerEditorBtn" type="button" onclick="toggleEditDrawer(event)" class="w-9 h-9 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-700 hover:text-brand-orange flex items-center justify-center transition-all duration-200 cursor-pointer shadow-sm group" title="Personalizar Diagnóstico">
+          <i data-lucide="sliders" class="w-4 h-4 pointer-events-none group-hover:rotate-45 transition-transform duration-300"></i>
+        </button>
       </div>
 
     </div>
