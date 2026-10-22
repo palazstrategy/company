@@ -247,20 +247,10 @@
 
     /* Broud/Framer Style Motion Foundation */
     .broud-animate {
-      will-change: transform, opacity, filter;
+      will-change: transform, opacity;
     }
 
-    /* Fallback Reveal Elements with Broud cubic-bezier */
-    .reveal-elem {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform, filter;
-    }
-    .reveal-elem.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
 
   </style>
 </head>
@@ -489,7 +479,7 @@
       </div>
 
       <!-- Veredito Executivo Consolidado (Maturidade de Marca) -->
-      <div class="max-w-4xl mx-auto mb-12 bg-white border border-zinc-200/90 rounded-3xl p-6 sm:p-8 shadow-broud-card flex flex-col md:flex-row items-center justify-between gap-6 broud-verdict-box broud-animate reveal-elem">
+      <div class="max-w-4xl mx-auto mb-12 bg-white border border-zinc-200/90 rounded-3xl p-6 sm:p-8 shadow-broud-card flex flex-col md:flex-row items-center justify-between gap-6 broud-verdict-box broud-animate">
         <div class="flex items-center gap-5">
           <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-zinc-950 text-white flex flex-col items-center justify-center flex-shrink-0 shadow-lg">
             <span class="text-xs font-bold uppercase tracking-widest text-zinc-400">Índice</span>
@@ -644,7 +634,7 @@
 
   <!-- SECTION 4: O ESTRATEGISTA / PROFILE (Palaz Strategy Company Oficial) -->
   <section class="py-24 md:py-32 px-5 md:px-12 bg-white border-y border-zinc-200/80 relative z-20">
-    <div class="max-w-5xl mx-auto reveal-elem">
+    <div class="max-w-5xl mx-auto">
       
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
         
@@ -712,7 +702,7 @@
       </div>
 
       <!-- 2x2 Clean Rounded Project Cards com Links Oficiais -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-elem">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Case 1: NcGlass Vidraçaria -->
         <a href="/cases/ncglass-vidracaria" target="_blank" class="bg-white rounded-5xl border border-zinc-200/80 overflow-hidden broud-specular-shadow hover:-translate-y-1.5 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer broud-portfolio-card broud-animate">
@@ -846,7 +836,7 @@
 
     <!-- SECTION 7: PROPOSTA & CTA BOX (Alinhamento Estratégico Consultivo) -->
   <section id="action-box" class="py-20 md:py-32 px-5 md:px-12 bg-white border-t border-zinc-200 relative z-20">
-    <div class="max-w-5xl mx-auto reveal-elem">
+    <div class="max-w-5xl mx-auto">
       
       <!-- Luxury Floating Box Container -->
       <div class="bg-gradient-to-br from-[#1c1c1c] to-[#0f0f0f] text-white p-8 sm:p-12 md:p-16 rounded-5xl border border-white/[0.08] shadow-2xl relative overflow-hidden broud-action-container broud-animate">
@@ -1076,182 +1066,81 @@
     gsap.registerPlugin(ScrollTrigger);
 
     function initBroudAnimations() {
-      // Curva cúbica suave inspirada no Framer Motion da Broud: cubic-bezier(0.16, 1, 0.3, 1)
+      // Conectar Lenis ao ScrollTrigger do GSAP para sincronização perfeita de scroll
+      if (typeof lenis !== 'undefined') {
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+      }
+
       const easeBroud = "power3.out";
 
       // 1. Entrada suave da Top Navbar
       gsap.from("header", {
-        y: -25,
+        y: -20,
         opacity: 0,
-        duration: 0.9,
+        duration: 0.8,
         ease: easeBroud,
         delay: 0.1
       });
 
-      // 2. Entrada escalonada (Stagger) do Hero
+      // 2. Entrada escalonada do Hero (sempre visível ao final)
       const heroTl = gsap.timeline({ defaults: { ease: easeBroud } });
       heroTl
-        .from(".broud-hero-logo", {
-          opacity: 0,
-          scale: 0.95,
-          y: -18,
-          filter: "blur(6px)",
-          duration: 1.1,
-          delay: 0.15
-        })
-        .from(".broud-hero-badge", {
-          opacity: 0,
-          y: 20,
-          duration: 0.8
-        }, "-=0.7")
-        .from(".broud-hero-title", {
-          opacity: 0,
-          y: 35,
-          filter: "blur(6px)",
-          duration: 1.0
-        }, "-=0.6")
-        .from(".broud-hero-avatars", {
-          opacity: 0,
-          x: 20,
-          duration: 0.8
-        }, "-=0.7")
-        .from(".broud-hero-desc", {
-          opacity: 0,
-          y: 20,
-          duration: 0.8
-        }, "-=0.6")
-        .from(".broud-hero-cta", {
-          opacity: 0,
-          y: 20,
-          scale: 0.95,
-          duration: 0.8
-        }, "-=0.6");
+        .from(".broud-hero-logo", { opacity: 0, scale: 0.96, y: -15, duration: 0.9, delay: 0.1 }, 0)
+        .from(".broud-hero-badge", { opacity: 0, y: 15, duration: 0.7 }, 0.2)
+        .from(".broud-hero-title", { opacity: 0, y: 25, duration: 0.8 }, 0.3)
+        .from(".broud-hero-avatars", { opacity: 0, x: 15, duration: 0.7 }, 0.4)
+        .from(".broud-hero-desc", { opacity: 0, y: 15, duration: 0.7 }, 0.45)
+        .from(".broud-hero-cta", { opacity: 0, y: 15, scale: 0.96, duration: 0.7 }, 0.5);
 
-      // 3. Seção 2: "Qual o objetivo do diagnóstico?"
-      gsap.from("#objetivo .broud-dark-pill, #objetivo h2", {
-        scrollTrigger: {
-          trigger: "#objetivo",
-          start: "top 80%"
-        },
-        y: 35,
-        opacity: 0,
-        filter: "blur(4px)",
-        duration: 0.9,
-        stagger: 0.15,
-        ease: easeBroud
-      });
+      // Helper para animar elementos ao entrar no viewport com segurança (batch / individual)
+      function animateOnScroll(selector, options = {}) {
+        const els = document.querySelectorAll(selector);
+        if (!els || els.length === 0) return;
+        
+        els.forEach((el, index) => {
+          gsap.from(el, {
+            scrollTrigger: {
+              trigger: el,
+              start: "top 92%",
+              toggleActions: "play none none none",
+              once: true
+            },
+            y: options.y || 30,
+            opacity: 0,
+            scale: options.scale || 1,
+            duration: options.duration || 0.85,
+            delay: (options.stagger ? index * options.stagger : 0) + (options.delay || 0),
+            ease: easeBroud,
+            clearProps: "transform,opacity" // Remove inline styles após animar para não bloquear render
+          });
+        });
+      }
 
-      gsap.from("#objetivo .lg\\:col-span-5 p", {
-        scrollTrigger: {
-          trigger: "#objetivo",
-          start: "top 80%"
-        },
-        y: 25,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: easeBroud,
-        delay: 0.15
-      });
+      // Seção 2: "Qual o objetivo do diagnóstico?"
+      animateOnScroll("#objetivo .broud-dark-pill, #objetivo h2", { y: 25, stagger: 0.1 });
+      animateOnScroll("#objetivo .lg\\:col-span-5 p", { y: 20, stagger: 0.1 });
+      animateOnScroll(".broud-dark-card", { y: 35, scale: 0.97, stagger: 0.12 });
 
-      gsap.from(".broud-dark-card", {
-        scrollTrigger: {
-          trigger: "#objetivo .grid",
-          start: "top 85%"
-        },
-        y: 40,
-        opacity: 0,
-        scale: 0.96,
-        duration: 0.9,
-        stagger: 0.15,
-        ease: easeBroud
-      });
+      // Seção 3: Raio-X & Métricas (Veredito, Pilares e Caixas)
+      animateOnScroll(".scorecard-header", { y: 25 });
+      animateOnScroll(".broud-verdict-box", { y: 30, scale: 0.98 });
+      animateOnScroll(".broud-pillar-card", { y: 35, scale: 0.97, stagger: 0.12 });
+      animateOnScroll(".broud-strengths-box", { y: 30 });
+      animateOnScroll(".broud-improvements-box", { y: 30, delay: 0.1 });
 
-      // 4. Seção 3: Raio-X & Métricas
-      gsap.from(".scorecard-header", {
-        scrollTrigger: {
-          trigger: "#scorecard-section",
-          start: "top 80%"
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: easeBroud
-      });
+      // Seção 4: Casos de Sucesso (Portfólio)
+      animateOnScroll(".portfolio-header", { y: 25 });
+      animateOnScroll(".broud-portfolio-card", { y: 40, scale: 0.97, stagger: 0.15 });
 
-      gsap.from(".broud-verdict-box", {
-        scrollTrigger: {
-          trigger: ".broud-verdict-box",
-          start: "top 85%"
-        },
-        y: 35,
-        opacity: 0,
-        duration: 0.9,
-        ease: easeBroud
-      });
+      // Seção 5: Action Box Final
+      animateOnScroll(".broud-action-container", { y: 35, scale: 0.98 });
 
-      gsap.from(".broud-pillar-card", {
-        scrollTrigger: {
-          trigger: ".broud-pillar-card",
-          start: "top 85%"
-        },
-        y: 40,
-        opacity: 0,
-        scale: 0.96,
-        duration: 0.9,
-        stagger: 0.15,
-        ease: easeBroud
-      });
-
-      gsap.from(".broud-strengths-box, .broud-improvements-box", {
-        scrollTrigger: {
-          trigger: ".broud-strengths-box",
-          start: "top 85%"
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.18,
-        ease: easeBroud
-      });
-
-      // 5. Seção de Casos de Sucesso (Portfólio)
-      gsap.from(".portfolio-header", {
-        scrollTrigger: {
-          trigger: "#portfolio",
-          start: "top 80%"
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: easeBroud
-      });
-
-      gsap.from(".broud-portfolio-card", {
-        scrollTrigger: {
-          trigger: "#portfolio .grid",
-          start: "top 85%"
-        },
-        y: 45,
-        opacity: 0,
-        scale: 0.96,
-        duration: 0.95,
-        stagger: 0.16,
-        ease: easeBroud
-      });
-
-      // 6. Action Box Final
-      gsap.from(".broud-action-container", {
-        scrollTrigger: {
-          trigger: "#action-box",
-          start: "top 82%"
-        },
-        y: 40,
-        opacity: 0,
-        scale: 0.97,
-        duration: 1.0,
-        ease: easeBroud
-      });
+      // Atualiza o ScrollTrigger após carregar todo o DOM
+      ScrollTrigger.refresh();
     }
 
     // 6. Data State & URL Loading
@@ -1601,16 +1490,12 @@
 
     // Init on load
     
-    // Reveal animation observer on scroll
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.reveal-elem').forEach(el => revealObserver.observe(el));
+    // Fallback animation refresh
+    window.addEventListener('load', () => {
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+      }
+    });
 
     window.addEventListener('DOMContentLoaded', () => {
       loadFromUrl();
@@ -1623,9 +1508,7 @@
         };
       }
 
-      document.querySelectorAll('.reveal-elem').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('active');
-      });
+
     });
   
 </script>
