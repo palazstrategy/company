@@ -276,12 +276,10 @@
       </a>
 
       <!-- Action Button Pill -->
-      <div class="flex items-center gap-2">
-        <button id="headerEditorBtn" onclick="toggleEditDrawer()" class="broud-pill w-10 h-10 rounded-full flex items-center justify-center text-zinc-700 hover:text-brand-orange hover:border-brand-orange transition-all duration-200 shadow-sm" title="Editar Conteúdo e Gerar Link">
-          <i data-lucide="sliders" class="w-4 h-4"></i>
+      <div class="flex items-center gap-2 pointer-events-auto">
+        <button id="headerEditorBtn" type="button" onclick="toggleEditDrawer(event)" class="broud-pill w-10 h-10 rounded-full flex items-center justify-center text-zinc-700 hover:text-brand-orange hover:border-brand-orange transition-all duration-200 shadow-sm cursor-pointer z-50 pointer-events-auto" title="Editar Conteúdo e Gerar Link">
+          <i data-lucide="sliders" class="w-4 h-4 pointer-events-none"></i>
         </button>
-
-
       </div>
 
     </div>
@@ -1099,13 +1097,8 @@
       const hideEditor = urlParams.get('hide') === '1' || urlParams.get('view') === 'client' || urlParams.get('modo') === 'cliente';
       if (hideEditor) {
         const hBtn = document.getElementById('headerEditorBtn');
-        const fBtn = document.getElementById('footerEditorBtn');
-        const drawer = document.getElementById('editDrawer');
-        const backdrop = document.getElementById('drawerBackdrop');
         if (hBtn) hBtn.style.display = 'none';
-        if (fBtn) fBtn.style.display = 'none';
-        if (drawer) drawer.style.display = 'none';
-        if (backdrop) backdrop.style.display = 'none';
+        // Nunca destruir o drawer e backdrop do DOM para não quebrar a lógica de abertura
       }
 
       renderData();
@@ -1323,20 +1316,31 @@
     function promptCopyFallback(url) {
       window.prompt("Copie o link personalizado abaixo:", url);
     }
-    function toggleEditDrawer() {
+    function toggleEditDrawer(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      if (e && e.stopPropagation) e.stopPropagation();
+
       const drawer = document.getElementById('editDrawer');
       const backdrop = document.getElementById('drawerBackdrop');
-      if (!drawer || !backdrop) return;
+      if (!drawer || !backdrop) {
+        console.error("Drawer elements missing!");
+        return;
+      }
       
-      const isOpen = !drawer.classList.contains('translate-x-full');
+      // Remover display:none caso tenha sido aplicado
+      drawer.style.display = 'flex';
+      
+      const isClosed = drawer.classList.contains('translate-x-full');
 
-      if (isOpen) {
-        drawer.classList.add('translate-x-full');
-        backdrop.classList.add('hidden');
-      } else {
+      if (isClosed) {
         populateForm();
         drawer.classList.remove('translate-x-full');
         backdrop.classList.remove('hidden');
+        backdrop.style.display = 'block';
+      } else {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+        backdrop.style.display = 'none';
       }
     }
     window.toggleEditDrawer = toggleEditDrawer;
@@ -1361,10 +1365,9 @@
       
       const hBtn = document.getElementById('headerEditorBtn');
       if (hBtn) {
-        hBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          toggleEditDrawer();
-        });
+        hBtn.onclick = function(e) {
+          toggleEditDrawer(e);
+        };
       }
 
       document.querySelectorAll('.reveal-elem').forEach(el => {
