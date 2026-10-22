@@ -152,51 +152,85 @@
     }
 
     /* Step Timeline Neon Line (Perfeitamente Centralizado nos Círculos) */
+    /* Step Timeline Track & Animated Progress (Idêntico ao Broud: barra contínua de 2px, Highlight Laranja com Dot Neon) */
     .timeline-track {
       position: absolute;
       left: 17px;
-      top: 20px;
-      bottom: 20px;
+      top: 18px;
+      bottom: 24px;
       width: 2px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 9999px;
+      background-color: #2b2b2b;
+      border-radius: 100px;
       z-index: 1;
+      overflow: visible;
+    }
+    @media (min-width: 768px) {
+      .timeline-track {
+        left: 21px;
+      }
     }
     .timeline-progress {
       position: absolute;
       left: 17px;
-      top: 20px;
+      top: 18px;
       width: 2px;
-      height: 0%;
-      background: linear-gradient(180deg, #F24B0F 0%, #FF6B00 70%, #FFA000 100%);
-      box-shadow: 0 0 12px rgba(242, 75, 15, 0.8), 0 0 4px rgba(255, 255, 255, 0.5);
-      border-radius: 9999px;
+      height: 0px;
+      background-color: #F24B0F;
+      border-radius: 100px;
       z-index: 2;
-      transition: height 0.05s ease-out;
+      overflow: visible;
+      box-shadow: 0 0 10px rgba(242, 75, 15, 0.8);
+      will-change: height;
+    }
+    @media (min-width: 768px) {
+      .timeline-progress {
+        left: 21px;
+      }
+    }
+    .timeline-progress-dot {
+      position: absolute;
+      bottom: -5px;
+      left: -4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 100px;
+      background-color: #F24B0F;
+      box-shadow: 0 0 12px #F24B0F, 0 0 4px #ffffff;
+      z-index: 4;
+      pointer-events: none;
     }
     .step-circle {
       position: absolute;
-      left: 0;
+      left: -56px;
       top: 0;
       width: 36px;
       height: 36px;
       border-radius: 50%;
       background: #181818;
-      border: 2px solid #3f3f46;
+      border: 2px solid #2e2e2e;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 11px;
       font-weight: 800;
-      color: #a1a1aa;
+      color: #71717a;
       z-index: 10;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    @media (min-width: 768px) {
+      .step-circle {
+        left: -80px;
+        width: 44px;
+        height: 44px;
+        font-size: 13px;
+      }
+    }
     .step-circle.active {
       border-color: #F24B0F;
+      background: #181818;
       color: #ffffff;
       box-shadow: 0 0 20px rgba(242, 75, 15, 0.5), inset 0 0 10px rgba(242, 75, 15, 0.2);
-      transform: scale(1.08);
+      transform: scale(1.06);
     }
 
     /* Accordion transition */
@@ -720,8 +754,10 @@
       <div id="timelineContainer" class="relative pl-14 md:pl-20 space-y-14 md:space-y-16">
         
         <!-- Animated Background Line (Centralizada perfeitamente no eixo dos círculos) -->
-        <div class="timeline-track"></div>
-        <div class="timeline-progress" id="stepProgressLine"></div>
+        <div class="timeline-track" id="timelineTrack"></div>
+        <div class="timeline-progress" id="stepProgressLine">
+          <div class="timeline-progress-dot" id="stepProgressDot"></div>
+        </div>
 
         <!-- Step 01 -->
         <div class="relative group step-item" data-step="1">
@@ -1181,15 +1217,55 @@
     // 4. GSAP Scroll Animations
     gsap.registerPlugin(ScrollTrigger);
 
-    // Animate Timeline Neon Line on Scroll with Dynamic Circle Activation
+    // Animate Timeline Neon Line on Scroll with Dynamic Circle Activation (Broud Style)
+    function updateTimelineHeights() {
+      const track = document.getElementById('timelineTrack');
+      const container = document.getElementById('timelineContainer');
+      const firstCircle = document.getElementById('stepCircle-1');
+      const lastCircle = document.getElementById('stepCircle-5');
+      
+      if (track && container && firstCircle && lastCircle) {
+        const firstRect = firstCircle.getBoundingClientRect();
+        const lastRect = lastCircle.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        
+        // Centralizar a linha vertical exatamente de centro a centro dos círculos
+        const startTop = (firstRect.top - containerRect.top) + (firstRect.height / 2);
+        const endTop = (lastRect.top - containerRect.top) + (lastRect.height / 2);
+        const totalHeight = Math.max(0, endTop - startTop);
+        
+        track.style.top = `${startTop}px`;
+        track.style.height = `${totalHeight}px`;
+        track.style.bottom = 'auto';
+        
+        const progressLine = document.getElementById('stepProgressLine');
+        if (progressLine) {
+          progressLine.style.top = `${startTop}px`;
+          progressLine.dataset.maxHeight = totalHeight;
+        }
+      }
+    }
+    
+    // Atualizar no load e no resize
+    window.addEventListener('load', updateTimelineHeights);
+    window.addEventListener('resize', updateTimelineHeights);
+    setTimeout(updateTimelineHeights, 200);
+
     ScrollTrigger.create({
       trigger: '#timelineContainer',
-      start: 'top 70%',
-      end: 'bottom 60%',
+      start: 'top 75%',
+      end: 'bottom 65%',
       onUpdate: (self) => {
         const line = document.getElementById('stepProgressLine');
         if (line) {
-          line.style.height = `${Math.min(100, self.progress * 100)}%`;
+          const maxH = parseFloat(line.dataset.maxHeight) || 600;
+          const currentH = Math.min(maxH, self.progress * maxH);
+          line.style.height = `${currentH}px`;
+          
+          const dot = document.getElementById('stepProgressDot');
+          if (dot) {
+            dot.style.opacity = currentH > 2 ? '1' : '0';
+          }
         }
         
         // Dynamically activate circles based on progress
