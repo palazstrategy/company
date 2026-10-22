@@ -983,23 +983,18 @@
 
     <!-- Drawer Footer Actions -->
     <div class="p-6 border-t border-zinc-800 bg-[#161616] space-y-3">
-      <button onclick="applyFormChanges()" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white font-bold py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs">
+      <button type="button" onclick="applyFormChanges()" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs cursor-pointer">
         <i data-lucide="check" class="w-4 h-4"></i>
         <span>Aplicar Alterações na Tela</span>
       </button>
 
-      <button onclick="generateShareableLink(false)" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white font-bold py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs shadow-lg shadow-brand-orange/20">
-        <i data-lucide="share-2" class="w-4 h-4"></i>
-        <span>Copiar Link Personalizado (com Nome e Marca)</span>
+      <button type="button" onclick="generateShareableLink(true)" class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white font-bold py-3.5 px-4 rounded-xl transition-all duration-200 shadow-glow-orange-sm hover:shadow-glow-orange flex items-center justify-center gap-2 text-xs cursor-pointer">
+        <i data-lucide="copy" class="w-4 h-4"></i>
+        <span>Copiar Link do Cliente (Curto)</span>
       </button>
 
-      <button onclick="generateShareableLink(true)" class="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold py-2.5 px-4 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs">
-        <i data-lucide="lock" class="w-4 h-4"></i>
-        <span>Copiar Link Modo Cliente (Oculta Botão de Editor)</span>
-      </button>
-
-      <div id="copyAlert" class="text-[12px] text-emerald-400 text-center hidden font-medium py-1">
-        ✓ Link personalizado copiado para a área de transferência!
+      <div id="copyAlert" class="text-[12px] text-emerald-400 text-center hidden font-medium py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
+        ✓ Link curto copiado para a área de transferência!
       </div>
     </div>
 
@@ -1203,22 +1198,17 @@
     function applyFormChanges() {
       applyFormChangesSilent();
 
-      // Atualizar a URL atual para persistir alterações ao dar F5
+      // Atualizar a URL com parâmetros limpos e curtos
       const params = new URLSearchParams();
-      params.set('cliente', diagData.client);
-      params.set('empresa', diagData.company);
-      params.set('n1', diagData.scores[0]);
-      params.set('n2', diagData.scores[1]);
-      params.set('n3', diagData.scores[2]);
+      if (diagData.client) params.set('cliente', diagData.client);
+      if (diagData.company) params.set('empresa', diagData.company);
+      if (diagData.scores[0] !== 6.5) params.set('n1', diagData.scores[0]);
+      if (diagData.scores[1] !== 5.0) params.set('n2', diagData.scores[1]);
+      if (diagData.scores[2] !== 6.0) params.set('n3', diagData.scores[2]);
       if (diagData.whatsapp && diagData.whatsapp !== '553196117847') {
         params.set('wa', diagData.whatsapp);
       }
-      if (diagData.strengths && diagData.strengths.length > 0) {
-        params.set('pf', diagData.strengths.join('|'));
-      }
-      if (diagData.improvements && diagData.improvements.length > 0) {
-        params.set('pm', diagData.improvements.join('|'));
-      }
+
       try {
         const fullUrl = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
         window.history.replaceState({}, '', fullUrl);
@@ -1229,24 +1219,23 @@
       toggleEditDrawer();
     }
 
-    function generateShareableLink(hideEditor = false) {
+    function generateShareableLink(hideEditor = true) {
       applyFormChangesSilent();
 
       const params = new URLSearchParams();
-      params.set('cliente', diagData.client);
-      params.set('empresa', diagData.company);
-      params.set('n1', diagData.scores[0]);
-      params.set('n2', diagData.scores[1]);
-      params.set('n3', diagData.scores[2]);
+      // Sempre incluir apenas o essencial para a URL ficar enxuta e elegante
+      if (diagData.client) params.set('cliente', diagData.client);
+      if (diagData.company) params.set('empresa', diagData.company);
+      
+      // Adicionar notas apenas se forem diferentes do padrão [6.5, 5.0, 6.0]
+      if (diagData.scores[0] !== 6.5) params.set('n1', diagData.scores[0]);
+      if (diagData.scores[1] !== 5.0) params.set('n2', diagData.scores[1]);
+      if (diagData.scores[2] !== 6.0) params.set('n3', diagData.scores[2]);
+      
       if (diagData.whatsapp && diagData.whatsapp !== '553196117847') {
         params.set('wa', diagData.whatsapp);
       }
-      if (diagData.strengths && diagData.strengths.length > 0) {
-        params.set('pf', diagData.strengths.join('|'));
-      }
-      if (diagData.improvements && diagData.improvements.length > 0) {
-        params.set('pm', diagData.improvements.join('|'));
-      }
+      
       if (hideEditor) {
         params.set('hide', '1');
       }
