@@ -13,6 +13,7 @@ export default function middleware(request: NextRequest) {
     pathname === '/llms.txt' ||
     pathname.startsWith('/.well-known/') ||
     pathname.startsWith('/diagnostico') ||
+    pathname.startsWith('/proposta') ||
     pathname === '/openapi.json' ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml'
@@ -75,6 +76,6 @@ export const config = {
      * - static standalone apps (diagnostico)
      * - media, text and document files (.svg, .png, .jpg, .jpeg, .gif, .webp, .avif, .ico, .mp4, .webm, .txt, .xml, .html)
      */
-    '/((?!api|editor|diagnostico|_next/static|_next/image|favicon\\.ico|llms\\.txt|openapi\\.json|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|mp4|webm|txt|xml|json|html)$).*)',
+    '/((?!api|editor|diagnostico|proposta|_next/static|_next/image|favicon\\.ico|llms\\.txt|openapi\\.json|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|mp4|webm|txt|xml|json|html)$).*)',
   ],
 };
