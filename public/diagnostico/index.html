@@ -1249,12 +1249,22 @@
         }
       }
 
-      // Hide editor buttons if requested: ?view=client or ?modo=cliente or ?hideEditor=1
-      const hideEditor = urlParams.get('hide') === '1' || urlParams.get('view') === 'client' || urlParams.get('modo') === 'cliente';
-      if (hideEditor) {
+      // Se for link compartilhado para o cliente, trava permanentemente e remove o botão e o painel do DOM
+      const isClientView = urlParams.get('hide') === '1' || 
+                           urlParams.get('view') === 'client' || 
+                           urlParams.get('modo') === 'cliente' || 
+                           urlParams.has('cliente') || 
+                           urlParams.has('c') || 
+                           urlParams.has('empresa') || 
+                           urlParams.has('e');
+      if (isClientView) {
+        window.__IS_CLIENT_VIEW__ = true;
         const hBtn = document.getElementById('headerEditorBtn');
-        if (hBtn) hBtn.style.display = 'none';
-        // Nunca destruir o drawer e backdrop do DOM para não quebrar a lógica de abertura
+        if (hBtn) hBtn.remove();
+        const drawer = document.getElementById('editDrawer');
+        if (drawer) drawer.remove();
+        const backdrop = document.getElementById('drawerBackdrop');
+        if (backdrop) backdrop.remove();
       }
 
       renderData();
@@ -1585,6 +1595,20 @@
       }
     });
 
+    
+    // Navegação interna suave preservando parâmetros da URL
+    document.addEventListener('click', (e) => {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      const targetId = anchor.getAttribute('href');
+      if (targetId === '#' || !targetId) return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  
     window.addEventListener('DOMContentLoaded', () => {
       loadFromUrl();
       initBroudAnimations();
