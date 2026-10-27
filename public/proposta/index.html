@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta de Investimento | Palaz Strategy Company</title>
+  <meta name="description" content="Proposta de Investimento Estratégico — Palaz Strategy Company.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="icone-palaz.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#F24B0F',
+              orangeLight: '#FF6B35',
+              orangeHover: '#D83E08',
+              obsidian: '#070708',
+              carbon: '#0D0D10',
+              surface: '#121216',
+              alabaster: '#F5F4F0',
+              paper: '#FFFFFF'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          letterSpacing: {
+            tightest: '-0.04em',
+            tighter: '-0.03em'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts (Sem fontes cursivas/serifadas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+
+  <style>
+    :root {
+      --brand-orange: #F24B0F;
+      --bg-obsidian: #070708;
+      --bg-alabaster: #F5F4F0;
+    }
+
+    body {
+      background-color: var(--bg-obsidian);
+      color: #F4F4F5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background-color: #F24B0F;
+      color: #FFFFFF;
+    }
+
+    /* Subtle Analog Studio Grain */
+    .noise-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9990;
+      opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%26noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Smooth Interpolated Studio Cursor */
+    .studio-cursor {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      transform: translate3d(-50%, -50%, 0);
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.35s ease,
+                  background-color 0.35s ease;
+      z-index: 9999;
+      mix-blend-mode: difference;
+    }
+    .studio-cursor.is-hovering {
+      width: 56px;
+      height: 56px;
+      border-color: rgba(242, 75, 15, 0.9);
+      background-color: rgba(242, 75, 15, 0.14);
+      mix-blend-mode: normal;
+    }
+    .studio-cursor-dot {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #F24B0F;
+      transform: translate3d(-50%, -50%, 0);
+      z-index: 10000;
+    }
+
+    /* Hero Architectural Grid & Noise Texture */
+    .hero-grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 54px 54px;
+      -webkit-mask-image: radial-gradient(circle at 50% 38%, black 15%, rgba(0, 0, 0, 0.75) 55%, transparent 88%);
+      mask-image: radial-gradient(circle at 50% 38%, black 15%, rgba(0, 0, 0, 0.75) 55%, transparent 88%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-noise-texture {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Minimal Top Reading Progress */
+    #scrollProgress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: #F24B0F;
+      width: 0%;
+      z-index: 100;
+      transition: width 0.08s linear;
+    }
+
+    /* Interactive Studio Surface Hover */
+    .studio-panel {
+      position: relative;
+      background: rgba(15, 15, 19, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .studio-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(242, 75, 15, 0.08), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
+    }
+    .studio-panel:hover::before {
+      opacity: 1;
+    }
+    .studio-panel:hover {
+      border-color: rgba(242, 75, 15, 0.35);
+      background: rgba(20, 20, 26, 0.8);
+    }
+
+    /* Minimalist Scope Editorial Rows */
+    .scope-row {
+      position: relative;
+      padding: 2.25rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .scope-row:first-child {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .scope-row:hover {
+      padding-left: 0.75rem;
+    }
+    .scope-row:hover .scope-row-num {
+      color: #F24B0F;
+    }
+    .scope-row:hover .scope-row-title {
+      color: #FFFFFF;
+    }
+    .scope-row:hover .scope-row-icon {
+      color: #F24B0F;
+      transform: scale(1.15) rotate(5deg);
+    }
+    .scope-row-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #52525B;
+      transition: color 0.3s ease;
+    }
+    .scope-row-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #E4E4E7;
+      letter-spacing: -0.02em;
+      transition: color 0.3s ease;
+    }
+    .scope-row-icon {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    /* Minimalist Architectural Deliverables Ledger */
+    .deliv-grid-item {
+      position: relative;
+      padding: 1.5rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: transparent;
+      transition: background-color 0.35s ease, border-color 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    @media (min-width: 640px) {
+      .deliv-grid-item {
+        padding: 2.25rem;
+      }
+    }
+    .deliv-grid-item:hover {
+      background: rgba(255, 255, 255, 0.015);
+    }
+    .deliv-grid-item:hover .deliv-card-num {
+      color: #F24B0F;
+    }
+    .deliv-grid-item:hover .deliv-card-title {
+      color: #FFFFFF;
+    }
+    .deliv-card-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #71717A;
+      transition: color 0.3s ease;
+    }
+    .deliv-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #E4E4E7;
+      letter-spacing: -0.01em;
+      transition: color 0.3s ease;
+    }
+
+    /* Governance Editorial Accordion & Directives */
+    .gov-rule-row {
+      position: relative;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gov-rule-row:first-child {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .gov-rule-row:hover {
+      padding-left: 0.5rem;
+    }
+    .gov-rule-row:hover .gov-rule-title {
+      color: #FFFFFF;
+    }
+    .gov-rule-row:hover .gov-rule-num {
+      color: #F24B0F;
+    }
+
+    /* Minimalist Onboarding Checklist Pill */
+    .contract-data-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 0.375rem;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    .contract-data-pill:hover {
+      border-color: rgba(242, 75, 15, 0.35);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    /* Studio Primary CTA Button */
+    .btn-studio {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #F24B0F;
+      color: #FFFFFF;
+      overflow: hidden;
+      transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-studio:hover {
+      background-color: #FF591E;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px -10px rgba(242, 75, 15, 0.45);
+    }
+    .btn-studio:active {
+      transform: translateY(0);
+    }
+
+    /* Smooth Accordion using CSS Grid */
+    .faq-grid-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.35s ease;
+      opacity: 0;
+    }
+    .faq-grid-wrapper.open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+    .faq-grid-inner {
+      overflow: hidden;
+    }
+
+    /* Studio Editorial Process Rows & Clean Progress Rail */
+    .process-rail-track {
+      position: relative;
+      padding-left: 2rem;
+    }
+    @media (min-width: 640px) {
+      .process-rail-track {
+        padding-left: 2.75rem;
+      }
+    }
+    .process-rail-line-bg {
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 9999px;
+    }
+    .process-rail-line-fill {
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 2px;
+      height: 0%;
+      background: #F24B0F;
+      border-radius: 9999px;
+      box-shadow: 0 0 10px rgba(242, 75, 15, 0.7);
+      transition: height 0.25s linear;
+      will-change: height;
+    }
+    .process-nav-item {
+      position: relative;
+      display: flex;
+      align-items: baseline;
+      gap: 0.85rem;
+      padding: 0.6rem 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      transition: opacity 0.3s ease;
+    }
+    @media (min-width: 640px) {
+      .process-nav-item {
+        gap: 1.15rem;
+        padding: 0.7rem 0;
+      }
+    }
+    .process-nav-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #52525B;
+      transition: color 0.3s ease;
+    }
+    @media (min-width: 640px) {
+      .process-nav-num {
+        font-size: 0.8125rem;
+      }
+    }
+    .process-nav-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #71717A;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (min-width: 640px) {
+      .process-nav-title {
+        font-size: 0.9375rem;
+      }
+    }
+    .process-nav-item.is-active .process-nav-num {
+      color: #F24B0F;
+      font-weight: 700;
+    }
+    .process-nav-item.is-active .process-nav-title {
+      color: #FFFFFF;
+      transform: translateX(4px);
+      font-weight: 600;
+    }
+    .process-step-row {
+      position: relative;
+      padding-top: 2rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      transition: opacity 0.4s ease;
+      opacity: 0.3;
+    }
+    @media (min-width: 768px) {
+      .process-step-row {
+        padding-top: 3rem;
+        padding-bottom: 3.5rem;
+      }
+    }
+    .process-step-row:first-child {
+      padding-top: 0;
+    }
+    .process-step-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .process-step-row.is-active {
+      opacity: 1;
+    }
+
+    /* Continuous Portfolio Carousel - Cylindrical Curved 3D & Depth Blur */
+    .cases-cylinder-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      perspective: 1200px;
+      perspective-origin: center center;
+    }
+    .cases-marquee-viewport {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      user-select: none;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    @media (min-width: 768px) {
+      .cases-marquee-viewport {
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%);
+      }
+    }
+    .cases-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: casesContinuousScroll 75s linear infinite;
+      will-change: transform;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+      .cases-marquee-track {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+    }
+    .cases-marquee-group {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding-right: 0.65rem;
+      flex-shrink: 0;
+    }
+    .cases-marquee-item {
+      flex-shrink: 0;
+      width: 82vw;
+      max-width: 380px;
+      aspect-ratio: 16 / 9;
+      background-color: #0D0D10;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 40px -15px rgba(0, 0, 0, 0.85);
+      will-change: transform, opacity, filter;
+    }
+    @media (min-width: 768px) {
+      .cases-cylinder-container {
+        perspective: 1600px;
+      }
+      .cases-marquee-group {
+        gap: 1rem;
+        padding-right: 1rem;
+      }
+      .cases-marquee-item {
+        width: 48vw;
+        max-width: 600px;
+      }
+    }
+    @media (min-width: 1280px) {
+      .cases-cylinder-container {
+        perspective: 2000px;
+      }
+      .cases-marquee-group {
+        gap: 1.15rem;
+        padding-right: 1.15rem;
+      }
+      .cases-marquee-item {
+        width: 620px;
+        max-width: 620px;
+      }
+    }
+    .cases-marquee-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @keyframes casesContinuousScroll {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    /* Lateral Cylindrical Fog & Frosted Edge Blurs */
+    .cylinder-fog-edge {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 10%;
+      max-width: 280px;
+      pointer-events: none;
+      z-index: 10;
+    }
+    @media (min-width: 768px) {
+      .cylinder-fog-edge {
+        width: 18%;
+      }
+    }
+    .cylinder-fog-edge.left {
+      left: 0;
+      background: linear-gradient(to right, rgba(10, 10, 13, 0.98) 0%, rgba(10, 10, 13, 0.8) 35%, rgba(10, 10, 13, 0) 100%);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      -webkit-mask-image: linear-gradient(to right, black 25%, transparent 100%);
+      mask-image: linear-gradient(to right, black 25%, transparent 100%);
+    }
+    .cylinder-fog-edge.right {
+      right: 0;
+      background: linear-gradient(to left, rgba(10, 10, 13, 0.98) 0%, rgba(10, 10, 13, 0.8) 35%, rgba(10, 10, 13, 0) 100%);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      -webkit-mask-image: linear-gradient(to left, black 25%, transparent 100%);
+      mask-image: linear-gradient(to left, black 25%, transparent 100%);
+    }
+
+    /* Touch screen & Mobile enhancements */
+    @media (hover: none) and (pointer: coarse) {
+      .magnetic-btn {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-white">
+
+  <!-- Subtle Studio Film Grain -->
+  <div class="noise-overlay"></div>
+
+  <!-- Smooth Studio Cursor -->
+  <div class="studio-cursor hidden lg:block" id="cursor"></div>
+  <div class="studio-cursor-dot hidden lg:block" id="cursorDot"></div>
+
+  <!-- Top Reading Progress Line -->
+  <div id="scrollProgress"></div>
+
+  <!-- ========================================== -->
+  <!-- MINIMALIST STUDIO NAVBAR                   -->
+  <!-- ========================================== -->
+  <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-[#070708]/85 backdrop-blur-xl border-b border-white/[0.07]">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Brand Identity -->
+      <a href="#hero" class="flex items-center gap-2 sm:gap-3 group shrink-0" title="Palaz Strategy Company">
+        <img src="logo da palaz cabeçalho.svg" alt="Palaz Strategy Company" width="160" height="28" loading="eager" class="h-5 sm:h-7 w-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity">
+      </a>
+
+      <!-- Studio Numbered Anchors -->
+      <div class="hidden lg:flex items-center gap-8 text-xs font-medium text-zinc-400">
+        <a href="#apresentacao" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-[10px] text-brand-orange">01</span>
+          <span>Contexto</span>
+        </a>
+        <a href="#processo" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-[10px] text-brand-orange">02</span>
+          <span>Método</span>
+        </a>
+        <a href="#cases" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-[10px] text-brand-orange">03</span>
+          <span>Cases</span>
+        </a>
+        <a href="#materiais" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-[10px] text-brand-orange">04</span>
+          <span>Escopo</span>
+        </a>
+        <a href="#investimento" class="hover:text-white transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-[10px] text-brand-orange">05</span>
+          <span>Investimento</span>
+        </a>
+      </div>
+
+      <!-- Executive Actions -->
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <button id="btnPersonalizarNav" type="button" onclick="toggleEditDrawer()" class="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.09] border border-white/[0.09] text-zinc-300 hover:text-white transition-all flex items-center gap-1.5 sm:gap-2 text-xs" title="Personalizar Proposta" aria-label="Personalizar Proposta">
+          <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-brand-orange"></i>
+          <span class="hidden sm:inline font-medium">Personalizar</span>
+        </button>
+        <a href="#investimento" class="btn-studio magnetic-btn text-[11px] sm:text-xs font-semibold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full flex items-center gap-1.5 sm:gap-2 group">
+          <span>Aprovar</span>
+          <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+        </a>
+      </div>
+
+    </nav>
+  </header>
+
+
+  <!-- ========================================== -->
+  <!-- HERO SECTION                               -->
+  <!-- ========================================== -->
+  <section id="hero" class="relative min-h-screen pt-24 pb-14 sm:pt-28 sm:pb-16 md:pt-36 md:pb-24 px-4 sm:px-6 md:px-12 lg:px-16 flex flex-col justify-between overflow-hidden">
+    
+    <!-- Hero Atmospheric Grid & Noise Layers (Exclusivos da Hero) -->
+    <div class="hero-grid-pattern" aria-hidden="true"></div>
+    <div class="hero-noise-texture" aria-hidden="true"></div>
+
+    <!-- Subtle Atmospheric Radial Glow -->
+    <div id="heroAmbient" class="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-brand-orange/[0.10] rounded-full blur-[160px] pointer-events-none z-[2]"></div>
+
+    <div class="max-w-[1340px] w-full mx-auto flex-1 flex flex-col justify-between relative z-10">
+      
+      <!-- Top Center Wordmark: PALAZ SVG -->
+      <div class="pt-4 sm:pt-10 pb-6 sm:pb-8 flex justify-center items-center select-none gs-hero-reveal">
+        <svg class="w-full max-w-[340px] sm:max-w-[620px] md:max-w-[860px] lg:max-w-[940px] h-auto text-white fill-current opacity-95" viewBox="0 0 538.11 68.6" xmlns="http://www.w3.org/2000/svg" aria-label="Palaz">
+          <g>
+            <path d="M528.77,1.17c5.16,0,9.34,4.18,9.34,9.34h0c0,5.62-3.1,10.78-8.07,13.42l-66.85,33.53h73.18v11.14h-82.01c-5.14,0-9.3-4.16-9.3-9.3h0c0-5.62,3.1-10.78,8.07-13.42l66.87-33.57h-73.19s0-11.13,0-11.13h81.97Z"/>
+            <path d="M244.81,49.86V1.16h-16.77v52.23c0,8.4,6.81,15.2,15.2,15.2h58.41v-11.14h-49.24c-4.2,0-7.6-3.4-7.6-7.6Z"/>
+            <path d="M2.23,1.16v11.14h68.99c4.2,0,7.6,3.4,7.6,7.6v8.35c0,4.2-3.4,7.6-7.6,7.6H15.2c-8.4,0-15.2,6.81-15.2,15.2v17.53h16.77v-14c0-4.2,3.4-7.6,7.6-7.6h56.02c8.4,0,15.2-6.81,15.2-15.2v-15.43c0-8.4-6.81-15.2-15.2-15.2H2.23Z"/>
+            <path d="M131.64,8.31c1.83-2.76,4.26-4.95,7.22-6.04,3.81-1.41,12.05-2.27,17.48-2.27s13.51.87,17.45,2.27c2.97,1.06,5.41,3.28,7.22,6.04l37.82,60.28h-19.77l-33.11-52.99c-1.37-2.2-3.84-3.34-6.42-3.61-1.6-.15-4.79-.15-6.39,0-2.62.27-5.09,1.41-6.46,3.61l-33.07,52.99h-19.77l37.78-60.28Z"/>
+            <path d="M346.91,8.31c1.83-2.76,4.26-4.95,7.22-6.04,3.81-1.41,12.05-2.27,17.48-2.27s13.51.87,17.45,2.27c2.97,1.06,5.41,3.28,7.22,6.04l37.82,60.28h-19.77l-33.11-52.99c-1.37-2.2-3.84-3.34-6.42-3.61-1.6-.15-4.79-.15-6.39,0-2.62.27-5.09,1.41-6.46,3.61l-33.07,52.99h-19.77l37.78-60.28Z"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Main Composition: Left Title & Right Description + CTA -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-end my-auto py-6 sm:py-10">
+        
+        <!-- Left: Monumental Main Headline -->
+        <div class="lg:col-span-7 gs-hero-reveal">
+          <h1 class="text-3xl sm:text-5xl md:text-7xl xl:text-[76px] font-display font-bold tracking-tight text-white leading-[1.05] sm:leading-[1.02]">
+            Proposta de<br>
+            investimento para<br>
+            <span id="heroServiceHighlight" class="text-brand-orange lowercase">identidade visual</span>
+          </h1>
+        </div>
+
+        <!-- Right: Studio Pitch & CTA Pill -->
+        <div class="lg:col-span-5 flex flex-col items-start lg:items-end justify-end gs-hero-reveal pb-2">
+          <p id="heroDescription" class="text-zinc-400 text-xs sm:text-sm leading-relaxed max-w-sm lg:text-right mb-5 sm:mb-6">
+            Construção de marca orientada por estratégia, precisão estética e direção criativa para posicionar negócios de alto valor.
+          </p>
+          <div>
+            <a href="#investimento" class="btn-studio magnetic-btn text-xs font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded-full flex items-center gap-2 group">
+              <span>Acessar Investimento</span>
+              <i data-lucide="arrow-down-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Architectural Client Spec Bar -->
+      <div class="pt-6 sm:pt-8 border-t border-white/[0.08] grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 gs-hero-reveal">
+        <div>
+          <span class="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400 block mb-1">CLIENTE</span>
+          <span id="coverClient" class="text-lg sm:text-xl md:text-2xl font-display font-bold text-white tracking-tight block truncate">Humberto</span>
+        </div>
+
+        <div>
+          <span class="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400 block mb-1">EMPRESA</span>
+          <span id="coverCompany" class="text-lg sm:text-xl md:text-2xl font-display font-bold text-brand-orange tracking-tight block truncate">Vittaréa</span>
+        </div>
+
+        <div>
+          <span class="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400 block mb-1">EMISSÃO</span>
+          <span id="coverDate" class="text-sm sm:text-base md:text-lg font-mono text-zinc-300 block">26.10.2026</span>
+        </div>
+
+        <div class="flex flex-col justify-between md:items-end">
+          <span class="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400 block mb-1">VALIDADE</span>
+          <span class="text-xs sm:text-sm font-mono text-zinc-300 flex items-center gap-1.5 sm:gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-orange shrink-0"></span>
+            5 dias úteis
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 01. APRESENTAÇÃO & IMPORTÂNCIA             -->
+  <!-- ========================================== -->
+  <section id="apresentacao" class="py-24 md:py-32 px-5 md:px-10 bg-[#0A0A0D] border-t border-white/[0.07] relative z-20">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Index Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-white/[0.08] mb-16 gs-reveal">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1.5 sm:gap-4">
+          <span class="font-mono text-xs text-brand-orange tracking-widest">01 / 06</span>
+          <h2 class="text-xs font-mono uppercase tracking-[0.22em] text-zinc-400">Apresentação Executiva & Posicionamento</h2>
+        </div>
+        <span class="text-xs font-mono text-zinc-400">Palaz Strategy Company</span>
+      </div>
+
+      <!-- Executive Letter Split Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
+        
+        <!-- Left Greeting & Pull Quote -->
+        <div class="lg:col-span-5 gs-reveal">
+          <h3 class="text-4xl sm:text-5xl font-display font-bold tracking-tight text-white mb-8 leading-[1.08]">
+            Olá, <span id="introClientName" class="text-brand-orange">Humberto</span>!
+          </h3>
+
+          <blockquote class="pt-8 border-t border-white/[0.08]">
+            <p class="font-display font-medium text-xl sm:text-2xl text-zinc-100 leading-relaxed mb-6 tracking-tight">
+              “Acreditamos que marcas fortes não surgem por acaso: elas são construídas com intenção, propósito e design estratégico.”
+            </p>
+
+          </blockquote>
+        </div>
+
+        <!-- Right Narrative Body -->
+        <div class="lg:col-span-7 space-y-6 text-zinc-300 text-base sm:text-lg leading-relaxed gs-reveal lg:pl-10 lg:border-l lg:border-white/[0.08]">
+          <p class="text-2xl sm:text-3xl font-display font-semibold text-white tracking-tight leading-snug">
+            Me chamo John Victor, sou designer, CEO e fundador da Palaz.
+          </p>
+          <p id="introParagraph1">
+            Nosso propósito é transformar negócios por meio da identidade. Criamos marcas autênticas, que unem estratégia e estética para gerar posicionamento claro e memorável.
+          </p>
+          <p id="introParagraph2">
+            Somos especialistas em Identidade Visual, Posicionamento de Marca e Direção Criativa. Trabalhamos lado a lado com nossos clientes para construir marcas que comunicam com precisão o valor que entregam.
+          </p>
+
+          <!-- Studio Disciplines Bar (Oculto no Mobile) -->
+          <div class="hidden sm:grid pt-6 sm:grid-cols-3 gap-4 border-t border-white/[0.08] text-xs font-mono text-zinc-400">
+            <div>
+              <span class="text-brand-orange block mb-1">01</span>
+              <span id="discipline1" class="text-zinc-200 font-medium">Identidade Visual</span>
+            </div>
+            <div>
+              <span class="text-brand-orange block mb-1">02</span>
+              <span id="discipline2" class="text-zinc-200 font-medium">Posicionamento</span>
+            </div>
+            <div>
+              <span class="text-brand-orange block mb-1">03</span>
+              <span id="discipline3" class="text-zinc-200 font-medium">Direção Criativa</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SUB-SECTION: A IMPORTÂNCIA DO INVESTIMENTO -->
+      <div id="importancia" class="pt-20 border-t border-white/[0.08]">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 gs-reveal">
+          <div class="lg:col-span-8">
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-brand-orange block mb-3">Fundamento Estratégico</span>
+            <h3 id="importanceTitle" class="text-3xl sm:text-5xl font-display font-bold tracking-tight text-white leading-[1.08]">
+              A importância de investir em uma <span class="text-brand-orange">marca profissional.</span>
+            </h3>
+          </div>
+          <div class="lg:col-span-4 lg:text-right">
+            <p id="importanceLead" class="text-zinc-400 text-sm sm:text-base">
+              Investir em uma estrutura profissional é crucial por quatro pilares:
+            </p>
+          </div>
+        </div>
+
+        <!-- 4 Architectural Columns (Dynamic Container) -->
+        <div id="importancePillarsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-white/[0.08]">
+          <!-- Preenchido dinamicamente pelo JS de acordo com o projeto -->
+        </div>
+
+        <!-- Executive Synthesis Bar -->
+        <div class="gs-reveal mt-8 p-6 sm:p-8 bg-white/[0.02] border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <p id="importanceSummary" class="text-zinc-300 text-sm sm:text-base leading-relaxed max-w-4xl">
+            <strong class="text-brand-orange font-semibold">Em resumo:</strong> investir em uma marca profissional não é apenas uma despesa, mas sim um investimento estratégico que impulsiona o sucesso e o crescimento da empresa a longo prazo.
+          </p>
+          <span class="font-mono text-[11px] uppercase tracking-widest text-zinc-400 shrink-0">Retorno Estratégico</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 02. PROCESSO CRIATIVO & CRONOGRAMA         -->
+  <!-- ========================================== -->
+  <section id="processo" class="py-24 md:py-32 px-5 md:px-10 bg-[#070708] border-t border-white/[0.08] relative z-20">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-white/[0.08] mb-16 gs-reveal">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1.5 sm:gap-4">
+          <span class="font-mono text-xs text-brand-orange tracking-widest">02 / 06</span>
+          <h2 class="text-xs font-mono uppercase tracking-[0.22em] text-zinc-400">Metodologia & Cronograma de Execução</h2>
+        </div>
+        <span id="processDurationBadge" class="text-xs font-mono text-zinc-300">5 Semanas • 25 Dias Úteis</span>
+      </div>
+
+      <!-- Minimalist Editorial Split Container -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        
+        <!-- Left Sticky Indicator (1 a 5 discreto, oculto no mobile) -->
+        <div class="hidden lg:block lg:col-span-4 lg:sticky lg:top-28 space-y-10">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-brand-orange block mb-3">Cronograma</span>
+            <h3 class="text-3xl sm:text-4xl font-display font-bold tracking-tight text-white leading-[1.08] mb-4">
+              Execução passo a passo.
+            </h3>
+            <p id="processSideDesc" class="text-zinc-400 text-sm leading-relaxed">
+              Estrutura linear de trabalho para garantir precisão e entregas pontuais.
+            </p>
+          </div>
+
+          <!-- Minimal Vertical Stepper (Apenas linha fina e números de 01 a 05) -->
+          <div class="process-rail-track">
+            <div class="process-rail-line-bg" aria-hidden="true"></div>
+            <div id="processTimelineFill" class="process-rail-line-fill" aria-hidden="true"></div>
+
+            <div id="processNavList" class="space-y-4 relative z-10">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Clean Editorial Stream (Informações diretas, sem boxes pesadas) -->
+        <div id="processStepsContainer" class="w-full lg:col-span-8">
+          <!-- Preenchido dinamicamente pelo JS -->
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 03. CASES FORJADOS (CARROSSEL AUTOMÁTICO)  -->
+  <!-- ========================================== -->
+  <section id="cases" class="py-24 md:py-32 bg-[#0A0A0D] border-t border-white/[0.08] relative z-20 overflow-hidden">
+    
+    <div class="max-w-7xl mx-auto px-5 md:px-10">
+      <!-- Section Index -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-white/[0.08] mb-12 gs-reveal">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1.5 sm:gap-4">
+          <span class="font-mono text-xs text-brand-orange tracking-widest">03 / 06</span>
+          <h2 class="text-xs font-mono uppercase tracking-[0.22em] text-zinc-400">Portfólio Selecionado & Direção de Arte</h2>
+        </div>
+        <span class="text-xs font-mono text-zinc-400">Palaz Archive</span>
+      </div>
+
+      <!-- Header -->
+      <div class="mb-12 gs-reveal">
+        <h3 class="text-3xl sm:text-5xl font-display font-bold tracking-tight text-white mb-3">
+          Cases <span class="text-brand-orange">forjados.</span>
+        </h3>
+        <p class="text-zinc-400 text-sm sm:text-base max-w-xl leading-relaxed">
+          Projetos conduzidos pela Palaz com rigor técnico, construção estética e foco em percepção de alto valor.
+        </p>
+      </div>
+    </div>
+
+        <!-- Efeito Cilindro 3D Contínuo com Blur Lateral e Destaque Central -->
+    <div class="cases-cylinder-container gs-reveal">
+      <div class="cylinder-fog-edge left" aria-hidden="true"></div>
+      <div class="cylinder-fog-edge right" aria-hidden="true"></div>
+      <div class="cases-marquee-viewport" aria-label="Galeria contínua de cases">
+      <div class="cases-marquee-track">
+        
+        <!-- Grupo Original -->
+        <div class="cases-marquee-group">
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/acougue-almeida-palaz-strategy-company-0-capa.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/acougue-almeida-palaz-strategy-company-16.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/acougue-almeida-palaz-strategy-company-18.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/acougue-almeida-palaz-strategy-company-13.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/aira-essence-palaz-strategy-company-1-capa.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/aira-essence-palaz-strategy-company-2.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/aira-essence-palaz-strategy-company-21-2.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/aira-essence-palaz-strategy-company-26.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/fatuz-palaz-strategy-company-6.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/fatuz-palaz-strategy-company-10.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/fatuz-palaz-strategy-company-17.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/fatuz-palaz-strategy-company-8.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/ncglass-vidracaria-palaz-strategy-company-1.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/ncglass-vidracaria-palaz-strategy-company-5.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/ncglass-vidracaria-palaz-strategy-company-8.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/ncglass-vidracaria-palaz-strategy-company-9.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/sland-inteligencia-produtiva-palaz-strategy-company-0-capa.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/sland-inteligencia-produtiva-palaz-strategy-company-10.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/sland-inteligencia-produtiva-palaz-strategy-company-14.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/sland-inteligencia-produtiva-palaz-strategy-company-9.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Grupo Duplicado para Loop Perfeito -->
+        <div class="cases-marquee-group" aria-hidden="true">
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/acougue-almeida-palaz-strategy-company-0-capa.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/acougue-almeida-palaz-strategy-company-16.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/acougue-almeida-palaz-strategy-company-18.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/acougue-almeida-palaz-strategy-company-13.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/aira-essence-palaz-strategy-company-1-capa.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/aira-essence-palaz-strategy-company-2.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/aira-essence-palaz-strategy-company-21-2.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/aira-essence-palaz-strategy-company-26.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/fatuz-palaz-strategy-company-6.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/fatuz-palaz-strategy-company-10.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/fatuz-palaz-strategy-company-17.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/fatuz-palaz-strategy-company-8.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/ncglass-vidracaria-palaz-strategy-company-1.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/ncglass-vidracaria-palaz-strategy-company-5.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/ncglass-vidracaria-palaz-strategy-company-8.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/ncglass-vidracaria-palaz-strategy-company-9.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/sland-inteligencia-produtiva-palaz-strategy-company-0-capa.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/sland-inteligencia-produtiva-palaz-strategy-company-10.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/sland-inteligencia-produtiva-palaz-strategy-company-14.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+          <div class="cases-marquee-item">
+            <img src="fotos dos cases/sland-inteligencia-produtiva-palaz-strategy-company-9.avif" alt="Case Palaz Strategy Company" loading="lazy">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 04. ESCOPO, HABILIDADES & MATERIAIS        -->
+  <!-- ========================================== -->
+  <section id="materiais" class="py-24 md:py-32 px-5 md:px-10 bg-[#070708] text-white border-t border-white/[0.08] relative z-20">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Index Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-white/[0.08] mb-16 gs-reveal">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1.5 sm:gap-4">
+          <span class="font-mono text-xs text-brand-orange tracking-widest">04 / 06</span>
+          <h2 class="text-xs font-mono uppercase tracking-[0.22em] text-zinc-400">Capacidades do Estúdio & Entregáveis do Projeto</h2>
+        </div>
+        <span id="scopeBadgeLabel" class="text-xs font-mono text-zinc-400">Full-Service Branding</span>
+      </div>
+
+      <!-- PART A: HABILIDADES (EDITORIAL STREAM - SEM BOXES) -->
+      <div id="habilidades" class="mb-28">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 gs-reveal">
+          <div class="lg:col-span-7">
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-brand-orange block mb-3">Disciplinas Integradas</span>
+            <h3 class="text-3xl sm:text-5xl font-display font-bold tracking-tight text-white leading-[1.06]">
+              Nossas frentes de <span class="text-brand-orange">atuação.</span>
+            </h3>
+          </div>
+          <div class="lg:col-span-5 lg:text-right">
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+              Direção de arte, estratégia e acabamento técnico aplicados em cada ponto de contato da marca.
+            </p>
+          </div>
+        </div>
+
+        <!-- Habilidades Stream (Dynamic via JS) -->
+        <div id="skillsGridContainer" class="divide-y divide-white/[0.08] border-b border-white/[0.08]">
+          <!-- Preenchido dinamicamente pelo JS -->
+        </div>
+      </div>
+
+      <!-- PART B: MATERIAIS DO PROJETO (LEDGER MINIMALISTA INTEGRADO) -->
+      <div class="pt-20 border-t border-white/[0.08]">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 gs-reveal">
+          <div class="lg:col-span-7">
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-brand-orange block mb-3">Ativos Finais</span>
+            <h3 class="text-3xl sm:text-5xl font-display font-bold tracking-tight text-white leading-[1.06]">
+              Entregáveis do <span class="text-brand-orange">projeto.</span>
+            </h3>
+          </div>
+          <div class="lg:col-span-5 lg:text-right">
+            <p id="deliverablesSubtitle" class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+              Todos os arquivos, manuais e sistemas entregues prontos para aplicação imediata.
+            </p>
+          </div>
+        </div>
+
+        <!-- Architectural Ledger Grid (Bordas ultrafinas, sem aspecto de box) -->
+        <div id="deliverablesGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-white/[0.08]">
+          <!-- Preenchido dinamicamente pelo JS -->
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 05. INVESTIMENTO (STUDIO CONVERSION)       -->
+  <!-- ========================================== -->
+  <section id="investimento" class="py-24 md:py-32 px-5 md:px-10 bg-[#070708] text-white border-t border-white/[0.08] relative z-20 overflow-hidden">
+    
+    <!-- Subtle Ambient Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-brand-orange/[0.07] rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      
+      <!-- Section Index Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-white/[0.08] mb-16 gs-reveal">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1.5 sm:gap-4">
+          <span class="font-mono text-xs text-brand-orange tracking-widest">05 / 06</span>
+          <h2 class="text-xs font-mono uppercase tracking-[0.22em] text-zinc-400">Proposta Comercial & Condições de Pagamento</h2>
+        </div>
+        <span class="text-xs font-mono text-zinc-400">PIX | BOLETO | TRANSFERÊNCIA</span>
+      </div>
+
+      <!-- Studio Split Investment Ledger -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 border border-white/[0.12] bg-[#0B0B0F] gs-reveal">
+        
+        <!-- Left Column: Scope Summary & Value Anchor -->
+        <div class="lg:col-span-5 p-6 sm:p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-white/[0.08] flex flex-col justify-between">
+          <div>
+            <span id="investmentScopeTag" class="text-xs font-mono uppercase tracking-[0.2em] text-brand-orange block mb-3">Escopo: Identidade Visual</span>
+            <h3 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight text-white mb-3 sm:mb-4">
+              Investimento
+            </h3>
+            <p id="investmentScopeDesc" class="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-8">
+              Proposta completa contemplando estratégia, direção criativa, sistema de identidade visual, arquivos abertos e suporte executivo.
+            </p>
+
+            <div id="investmentChecklist" class="space-y-3 pt-5 sm:pt-6 border-t border-white/[0.08] text-xs sm:text-sm">
+              <!-- Preenchido dinamicamente pelo JS -->
+            </div>
+          </div>
+
+          <div class="mt-8 sm:mt-10 pt-5 sm:pt-6 border-t border-white/[0.08] flex items-center justify-between text-[11px] sm:text-xs font-mono text-zinc-400">
+            <span id="investmentTimelineText">Prazo Total: 25 Dias Úteis</span>
+            <span class="text-brand-orange">Validade: 5 Dias</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Pricing & Interactive Condition Selector -->
+        <div class="lg:col-span-7 p-6 sm:p-8 md:p-12 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3 sm:mb-4">
+              <span class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-zinc-400">Valor Oficial do Projeto</span>
+              <span class="text-[10px] sm:text-xs font-mono text-zinc-400 px-2.5 py-1 border border-white/[0.08] bg-white/[0.02]">PIX | BOLETO | TRANSFERÊNCIA</span>
+            </div>
+
+            <!-- Main Price Display -->
+            <div class="flex items-baseline gap-1.5 sm:gap-2 my-4 sm:my-6">
+              <span class="text-xl sm:text-2xl md:text-3xl font-display font-medium text-brand-orange">R$</span>
+              <span id="displayPriceValue" class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-white tracking-tightest">5.000</span>
+              <span id="displayPriceCents" class="text-xl sm:text-2xl md:text-3xl font-display text-zinc-500">,00</span>
+            </div>
+
+            <p id="investmentLeadSummary" class="text-zinc-300 text-sm sm:text-base md:text-lg font-medium mb-6 sm:mb-8 leading-relaxed">
+              À vista com R$ 250,00 de desconto, ou 50% de entrada + até 2x sem juros.
+            </p>
+
+            <!-- Interactive Payment Selector -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+              
+              <!-- Option 01 -->
+              <div onclick="selectPaymentOption('À Vista (com R$ 250,00 de desconto)')" id="payCard1" class="cursor-pointer p-4 sm:p-6 border-2 border-brand-orange bg-brand-orange/[0.08] transition-all">
+                <div class="flex items-center justify-between mb-2 sm:mb-3">
+                  <span class="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-brand-orange font-semibold">Opção 01 • À Vista</span>
+                  <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+                </div>
+                <div id="optionDiscountPrice" class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-1">R$ 4.750,00</div>
+                <p id="optionDiscountDetail" class="text-[11px] sm:text-xs text-zinc-300">Com R$ 250,00 de desconto imediato.</p>
+              </div>
+
+              <!-- Option 02 -->
+              <div onclick="selectPaymentOption('Parcelado (50% de entrada + até 2x sem juros)')" id="payCard2" class="cursor-pointer p-4 sm:p-6 border border-white/[0.1] bg-white/[0.02] hover:border-white/25 transition-all">
+                <div class="flex items-center justify-between mb-2 sm:mb-3">
+                  <span class="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-zinc-400">Opção 02 • Parcelado</span>
+                  <span class="w-2 h-2 rounded-full bg-white/20"></span>
+                </div>
+                <div id="optionInstallmentPrice" class="text-lg sm:text-xl md:text-2xl font-display font-bold text-white mb-1">50% + até 2x sem juros</div>
+                <p id="optionInstallmentDetail" class="text-[11px] sm:text-xs text-zinc-400">Entrada de R$ 2.500,00 + 2x de R$ 1.250,00.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="space-y-4 sm:space-y-5 pt-5 sm:pt-6 border-t border-white/[0.08]">
+            <button onclick="approveProjectWhatsapp()" class="w-full btn-studio magnetic-btn text-white font-semibold text-sm sm:text-base py-4 sm:py-5 px-6 sm:px-8 rounded-full flex items-center justify-center gap-2.5 sm:gap-3 group">
+              <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+              <span>Aprovar Proposta no WhatsApp</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+
+            <p class="text-[11px] sm:text-xs text-zinc-500 leading-relaxed text-center">
+              A validade da proposta é de 5 dias úteis. Após esse período, recomendamos consultar nossa equipe novamente, pois valores e disponibilidade de agenda podem sofrer alterações.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 06. GOVERNANÇA, FAQ & PRÓXIMO PASSO        -->
+  <!-- ========================================== -->
+  <section id="prazos" class="py-24 md:py-32 px-5 md:px-10 bg-[#070708] border-t border-white/[0.08] text-white relative z-20">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Index Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-white/[0.08] mb-16 gs-reveal">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-1.5 sm:gap-4">
+          <span class="font-mono text-xs text-brand-orange tracking-widest">06 / 06</span>
+          <h2 class="text-xs font-mono uppercase tracking-[0.22em] text-zinc-400">Governança, Diretrizes & Formalização</h2>
+        </div>
+        <span class="text-xs font-mono text-zinc-400">Segurança Contratual</span>
+      </div>
+
+      <!-- PART A: INFORMAÇÕES IMPORTANTES (DIRETRIZES EM STREAM EDITORIAL) -->
+      <div class="mb-28">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 gs-reveal">
+          <div class="lg:col-span-7">
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-brand-orange block mb-3">Diretrizes Oficiais</span>
+            <h3 class="text-3xl sm:text-5xl font-display font-bold tracking-tight text-white leading-[1.06]">
+              Informações <span class="text-brand-orange">importantes.</span>
+            </h3>
+          </div>
+          <div class="lg:col-span-5 lg:text-right">
+            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+              Diretrizes transparentes sobre prazos de execução, validações e acompanhamento executivo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Directives Stream (Layout Limpo sem Boxes) -->
+        <div class="divide-y divide-white/[0.08] border-b border-white/[0.08]">
+          
+          <!-- 01 Prazo -->
+          <div class="gov-rule-row flex flex-col md:flex-row md:items-start justify-between gap-6 group">
+            <div class="flex items-baseline gap-4 md:w-4/12 shrink-0">
+              <span class="gov-rule-num font-mono text-sm sm:text-base font-bold text-zinc-400 transition-colors">01</span>
+              <h4 class="gov-rule-title text-xl font-display font-bold text-zinc-200 transition-colors">Prazo</h4>
+            </div>
+            <div class="md:w-8/12">
+              <p id="governanceDeadlineText" class="text-sm sm:text-base text-zinc-400 leading-relaxed">
+                O prazo de entrega do projeto é de 25 dias úteis, totalizando 5 semanas. Os prazos podem sofrer alterações caso haja atraso no envio de informações ou aprovações referentes ao projeto, quando solicitadas.
+              </p>
+            </div>
+          </div>
+
+          <!-- 02 Desenvolvimento -->
+          <div class="gov-rule-row flex flex-col md:flex-row md:items-start justify-between gap-6 group">
+            <div class="flex items-baseline gap-4 md:w-4/12 shrink-0">
+              <span class="gov-rule-num font-mono text-sm sm:text-base font-bold text-zinc-400 transition-colors">02</span>
+              <h4 class="gov-rule-title text-xl font-display font-bold text-zinc-200 transition-colors">Desenvolvimento</h4>
+            </div>
+            <div class="md:w-8/12">
+              <p id="governanceDevText" class="text-sm sm:text-base text-zinc-400 leading-relaxed">
+                Todo o projeto é desenvolvido de forma consistente, utilizando as informações coletadas e validadas pelo cliente. Dessa maneira, entregamos uma solução coerente e alinhada com os objetivos estratégicos do negócio.
+              </p>
+            </div>
+          </div>
+
+          <!-- 03 Cancelamento -->
+          <div class="gov-rule-row flex flex-col md:flex-row md:items-start justify-between gap-6 group">
+            <div class="flex items-baseline gap-4 md:w-4/12 shrink-0">
+              <span class="gov-rule-num font-mono text-sm sm:text-base font-bold text-zinc-400 transition-colors">03</span>
+              <h4 class="gov-rule-title text-xl font-display font-bold text-zinc-200 transition-colors">Cancelamento</h4>
+            </div>
+            <div class="md:w-8/12">
+              <p class="text-sm sm:text-base text-zinc-400 leading-relaxed">
+                Caso o cliente opte por cancelar o desenvolvimento do projeto durante sua execução, será aplicada uma taxa proporcional correspondente às etapas e horas de trabalho já realizadas até o momento.
+              </p>
+            </div>
+          </div>
+
+          <!-- 04 Alterações -->
+          <div class="gov-rule-row flex flex-col md:flex-row md:items-start justify-between gap-6 group">
+            <div class="flex items-baseline gap-4 md:w-4/12 shrink-0">
+              <span class="gov-rule-num font-mono text-sm sm:text-base font-bold text-zinc-400 transition-colors">04</span>
+              <h4 class="gov-rule-title text-xl font-display font-bold text-zinc-200 transition-colors">Alterações</h4>
+            </div>
+            <div class="md:w-8/12">
+              <p class="text-sm sm:text-base text-zinc-400 leading-relaxed">
+                Até três rodadas de ajustes de baixo impacto podem ser realizadas sem custo adicional, desde que estejam alinhadas com as decisões aprovadas no briefing e não mudem o escopo estrutural acordado.
+              </p>
+            </div>
+          </div>
+
+          <!-- 05 Contato -->
+          <div class="gov-rule-row flex flex-col md:flex-row md:items-start justify-between gap-6 group">
+            <div class="flex items-baseline gap-4 md:w-4/12 shrink-0">
+              <span class="gov-rule-num font-mono text-sm sm:text-base font-bold text-zinc-400 transition-colors">05</span>
+              <h4 class="gov-rule-title text-xl font-display font-bold text-zinc-200 transition-colors">Contato & Formalização</h4>
+            </div>
+            <div class="md:w-8/12">
+              <p class="text-sm sm:text-base text-zinc-400 leading-relaxed">
+                Após a aprovação da proposta, será elaborado um contrato oficial para formalizar o projeto e reservar a agenda. Durante todo o desenvolvimento, manteremos contato direto via WhatsApp para atualização de cada etapa.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PART B: FAQ E PRÓXIMO PASSO INTEGRADOS EM GRID MODERNO -->
+      <div id="faq" class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-20 border-t border-white/[0.08]">
+        
+        <!-- Left: Smooth FAQ Accordion -->
+        <div class="lg:col-span-6 gs-reveal">
+          <span class="text-xs font-mono uppercase tracking-[0.2em] text-brand-orange block mb-3">Dúvidas Frequentes</span>
+          <h3 class="text-3xl sm:text-4xl font-display font-bold tracking-tight text-white mb-8">
+            Dúvidas comuns antes de iniciar.
+          </h3>
+
+          <div id="faqListContainer" class="divide-y divide-white/[0.08] border-y border-white/[0.08]">
+            <!-- Preenchido dinamicamente pelo JS -->
+          </div>
+        </div>
+
+        <!-- Right: PRÓXIMO PASSO! (Card Moderno de Onboarding) -->
+        <div class="lg:col-span-6 gs-reveal">
+          <div class="p-6 sm:p-8 md:p-12 border border-white/[0.09] bg-white/[0.015] rounded-xl flex flex-col justify-between h-full">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-[0.2em] text-brand-orange block mb-3">Formalização & Início</span>
+              <h3 class="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight text-white mb-3 sm:mb-4">
+                Próximo passo!
+              </h3>
+              <p class="text-zinc-400 text-xs sm:text-sm md:text-base leading-relaxed mb-6 sm:mb-8">
+                Com a proposta aprovada, todas as informações necessárias para a elaboração do contrato estão listadas abaixo.
+              </p>
+
+              <div class="mb-6 sm:mb-8">
+                <span class="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-zinc-400 block mb-3 sm:mb-4">Dados para Emissão de Contrato:</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
+                  <div class="contract-data-pill">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                    <span class="text-xs sm:text-sm text-zinc-200">Nome completo</span>
+                  </div>
+                  <div class="contract-data-pill">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                    <span class="text-xs sm:text-sm text-zinc-200">CPF ou CNPJ</span>
+                  </div>
+                  <div class="contract-data-pill">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                    <span class="text-xs sm:text-sm text-zinc-200">Endereço com CEP</span>
+                  </div>
+                  <div class="contract-data-pill">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                    <span class="text-xs sm:text-sm text-zinc-200">Cidade / Estado</span>
+                  </div>
+                  <div class="contract-data-pill sm:col-span-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                    <span class="text-xs sm:text-sm text-zinc-200">Condição de Pagamento Escolhida</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="approveProjectWhatsapp()" class="w-full btn-studio magnetic-btn text-white font-semibold text-sm sm:text-base py-3.5 sm:py-4 px-6 sm:px-8 rounded-full flex items-center justify-center gap-2.5 sm:gap-3">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>Enviar Dados pelo WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- MINIMAL STUDIO FOOTER                      -->
+  <!-- ========================================== -->
+  <footer class="bg-[#050506] text-white py-14 px-5 md:px-10 border-t border-white/[0.08] relative z-20">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <img src="logo da palaz cabeçalho.svg" alt="Palaz Strategy Company" width="140" height="24" loading="lazy" class="h-6 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
+      </div>
+
+      <p class="text-xs text-zinc-400 font-mono text-center md:text-left">
+        Palaz Strategy Company © All Rights Reserved
+      </p>
+
+      <div class="flex items-center gap-5 text-xs font-mono text-zinc-400">
+        <a href="#hero" class="hover:text-white transition-colors">Topo ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ========================================== -->
+  <!-- DRAWER LATERAL DE PERSONALIZAÇÃO           -->
+  <!-- ========================================== -->
+  <div id="drawerBackdrop" onclick="toggleEditDrawer()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  
+  <aside id="editDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true" class="fixed top-0 right-0 h-full w-full sm:max-w-md bg-[#0E0E12] text-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col border-l border-white/[0.08]">
+    
+    <div class="p-5 sm:p-6 border-b border-white/[0.08] flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <i data-lucide="sliders-horizontal" class="w-4 h-4 text-brand-orange"></i>
+        <h3 class="font-bold text-xs sm:text-sm uppercase tracking-wider font-mono">Configurar Proposta</h3>
+      </div>
+      <button onclick="toggleEditDrawer()" class="p-2 hover:bg-white/10 rounded text-zinc-400 hover:text-white transition-colors" aria-label="Fechar Gaveta">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="p-5 sm:p-6 overflow-y-auto flex-1 space-y-6 text-sm pb-10">
+      
+      <!-- PASSO 1: SELETOR DE TIPO DE PROJETO -->
+      <div class="p-4 bg-white/[0.03] border border-white/[0.08]">
+        <label class="block text-[11px] font-mono text-brand-orange uppercase tracking-wider font-semibold mb-3">
+          1. Escolha o Tipo de Projeto
+        </label>
+        <div class="grid grid-cols-2 gap-2" id="projectTypeButtons">
+          <button type="button" onclick="selectDrawerProjectType('id_visual')" data-type="id_visual" class="proj-type-btn px-3 py-2.5 text-xs font-mono text-left border border-brand-orange bg-brand-orange/15 text-white transition-all">
+            <span class="block text-[10px] text-brand-orange">01</span>
+            Identidade Visual
+          </button>
+          <button type="button" onclick="selectDrawerProjectType('social')" data-type="social" class="proj-type-btn px-3 py-2.5 text-xs font-mono text-left border border-white/10 bg-[#16161C] text-zinc-400 hover:text-white transition-all">
+            <span class="block text-[10px] text-zinc-500">02</span>
+            Social Media
+          </button>
+          <button type="button" onclick="selectDrawerProjectType('site')" data-type="site" class="proj-type-btn px-3 py-2.5 text-xs font-mono text-left border border-white/10 bg-[#16161C] text-zinc-400 hover:text-white transition-all">
+            <span class="block text-[10px] text-zinc-500">03</span>
+            Site / Web
+          </button>
+          <button type="button" onclick="selectDrawerProjectType('completo')" data-type="completo" class="proj-type-btn px-3 py-2.5 text-xs font-mono text-left border border-white/10 bg-[#16161C] text-zinc-400 hover:text-white transition-all">
+            <span class="block text-[10px] text-zinc-500">04</span>
+            Escopo Completo
+          </button>
+        </div>
+        <p class="text-[11px] text-zinc-400 mt-2.5 leading-relaxed">
+          Ao mudar o tipo acima, toda a copy, etapas, entregáveis e FAQ da página se adaptam automaticamente.
+        </p>
+      </div>
+
+      <!-- PASSO 2: DADOS DO CLIENTE E VALORES -->
+      <div class="space-y-4">
+        <span class="block text-[11px] font-mono text-brand-orange uppercase tracking-wider font-semibold">
+          2. Dados do Cliente & Investimento
+        </span>
+
+        <div>
+          <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Nome do Cliente</label>
+          <input type="text" id="inputClient" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Nome da Empresa</label>
+          <input type="text" id="inputCompany" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Data de Emissão</label>
+          <input type="text" id="inputDate" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Valor do Investimento (R$)</label>
+          <input type="text" id="inputPrice" placeholder="Ex: 5.000,00" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Desconto À Vista (R$)</label>
+            <input type="text" id="inputDiscount" placeholder="Ex: 250,00" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+          </div>
+          <div>
+            <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Parcelas (s/ juros)</label>
+            <input type="number" id="inputInstallments" min="1" max="12" placeholder="Ex: 2" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">WhatsApp de Contato</label>
+          <input type="text" id="inputWhatsapp" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-white/[0.08]">
+        <button type="button" onclick="saveAndApplyChanges()" class="w-full btn-studio text-white font-semibold py-3.5 rounded-full transition-all">
+          Aplicar e Copiar Link da Proposta
+        </button>
+      </div>
+
+      <div id="copySuccessBadge" class="hidden p-3.5 bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-mono text-center">
+        Link personalizado copiado para a área de transferência!
+      </div>
+    </div>
+
+  </aside>
+
+
+  <!-- ========================================== -->
+  <!-- SCRIPTS: TEMPLATES DE PROJETO, GSAP & UI   -->
+  <!-- ========================================== -->
+  <script>
+    // =========================================================================
+    // DICIONÁRIO COMPLETO DOS 4 TIPOS DE PROJETO (COPY, CRONOGRAMA, ESCOPO, FAQ)
+    // =========================================================================
+    const PROJECT_TEMPLATES = {
+      id_visual: {
+        heroTarget: "identidade visual",
+        label: "Identidade Visual",
+        heroSubtitle: "Proposta de Investimento para Identidade Visual",
+        heroDesc: "Construção de marca orientada por estratégia, precisão estética e direção criativa para posicionar negócios de alto valor.",
+        introP1: "Nosso propósito é transformar negócios por meio da identidade. Criamos marcas autênticas, que unem estratégia e estética para gerar posicionamento claro e memorável.",
+        introP2: "Somos especialistas em Identidade Visual, Posicionamento de Marca e Direção Criativa. Trabalhamos lado a lado com nossos clientes para construir marcas que comunicam com precisão o valor que entregam.",
+        disciplines: ["Identidade Visual", "Posicionamento", "Direção Criativa"],
+        importanceTitle: 'A importância de investir em uma <span class="text-brand-orange">marca profissional.</span>',
+        importanceLead: "Investir em uma marca profissional é crucial por quatro pilares estratégicos:",
+        importanceSummary: '<strong class="text-brand-orange font-semibold">Em resumo:</strong> investir em uma marca profissional não é apenas uma despesa, mas sim um investimento estratégico que impulsiona o sucesso e o crescimento de uma empresa a longo prazo.',
+        pillars: [
+          { icon: "shield-check", title: "Credibilidade e Confiança", desc: "Uma marca profissional transmite confiança imediata aos consumidores. Ela demonstra que a empresa está comprometida com a qualidade e a excelência." },
+          { icon: "sparkles", title: "Diferenciação", desc: "Em um mercado competitivo, uma identidade sólida se destaca. Ela ajuda a empresa a se diferenciar da concorrência e atrair o público certo." },
+          { icon: "trending-up", title: "Valor Percebido", desc: "Uma marca bem construída eleva o valor percebido do produto ou serviço. Clientes estão dispostos a investir mais em marcas de autoridade." },
+          { icon: "megaphone", title: "Facilidade de Marketing", desc: "Uma identidade visual bem estabelecida simplifica todas as ações futuras de marketing, tornando a comunicação imediata e reconhecível." }
+        ],
+        durationBadge: "5 Semanas • 25 Dias Úteis",
+        processSideDesc: "Um cronograma estruturado de 25 dias úteis com entregas semanais claras, garantindo rigor estratégico do diagnóstico à entrega master.",
+        steps: [
+          {
+            badge: "SEMANA 01", title: "Imersão & Diagnóstico", duration: "5 Dias Úteis",
+            desc: "Começamos com um mergulho profundo no negócio. Coletamos e organizamos todos os insumos, metas e desafios para criar uma base estratégica sólida.",
+            items: ["Coleta de informações detalhadas", "Estudo e análise de Briefing", "Pesquisa aprofundada de mercado", "Entendimento e delimitação do problema", "Alinhamento inicial com a diretoria do projeto"]
+          },
+          {
+            badge: "SEMANA 02", title: "Estratégia & Posicionamento", duration: "5 Dias Úteis",
+            desc: "Construção da espinha dorsal e narrativa da marca. Definimos a essência, concorrência e público para garantir diferenciação real.",
+            items: ["Atributos da Marca", "Círculo de Ouro (Golden Circle)", "Palavras-Chave & Tom de Voz", "Personalidade & DNA", "Missão, Visão & Valores", "Análise de Concorrentes", "Público-Alvo & ICP", "Pontos de Contato", "Mapa Mental"]
+          },
+          {
+            badge: "SEMANA 03", title: "Ideação & Direção Criativa", duration: "5 Dias Úteis",
+            desc: "Onde as ideias tomam forma: pesquisa de referências de alto padrão, painéis semânticos, esboços e testes rigorosos de aplicabilidade.",
+            items: ["Coleta de Referências", "Moodboard Visual", "Validação de Conceitos", "Estilo & Linha Gráfica", "Rascunhos & Construção", "Geração de Alternativas", "Testes & Prototipagem", "Funcionalidade Técnica", "Aplicabilidade Prática"]
+          },
+          {
+            badge: "SEMANA 04", title: "Implementação & Ecossistema", duration: "5 Dias Úteis",
+            desc: "Refino técnico cirúrgico e expansão para o mundo real. O design ganha vida em todas as aplicações, regras de uso e composições oficiais.",
+            items: ["Refinar e aperfeiçoar proposta final", "Elementos de apoio e grafismos", "Definição final de design e geometria", "Mockups e aplicações visuais reais", "Estruturação e consistência do ecossistema da marca"]
+          },
+          {
+            badge: "SEMANA 05", title: "Apresentação & Entrega Master", duration: "Conclusão (25º Dia Útil)",
+            desc: "Apresentação oficial da marca, rodada de alinhamento, fechamento rigoroso de arquivos em todas as extensões e transferência de ativos digitais.",
+            items: ["Apresentação imersiva do projeto", "Alinhamento e coleta de feedbacks", "Fechamento técnico de arquivos", "Entrega completa (AI, PDF, SVG, PNG)", "Alinhamento final & Suporte pós-entrega"]
+          }
+        ],
+        scopeBadge: "Full-Service Branding",
+        skills: [
+          { num: "01", icon: "pen-tool", title: "Identidade Visual", desc: "Desenvolvemos a identidade visual completa da sua empresa, representando a essência da marca através de cores, tipografias, formas e logotipo." },
+          { num: "02", icon: "compass", title: "Estratégia de Marca", desc: "Uma boa identidade visual só funciona com estratégia clara, posicionando a marca da maneira mais competitiva possível no mercado." },
+          { num: "03", icon: "type", title: "Naming", desc: "Desenvolvimento estratégico de nomes para marcas, focando em sonoridade, fácil reconhecimento e significado autêntico." },
+          { num: "04", icon: "play-circle", title: "Motion Design", desc: "Criamos animações dinâmicas e visualmente impactantes que elevam sua marca, transformando símbolos estáticos em movimento." },
+          { num: "05", icon: "box", title: "Desdobramentos & Extras", desc: "Serviços complementares de direção visual, mockups realistas e peças de pontos de contato para manter a marca coesa em qualquer mídia.", tags: ["Direção de Arte", "Aplicações Físicas", "Ativos Digitais", "Padronização Visual"] }
+        ],
+        deliverablesSubtitle: "Todos os arquivos, manuais e registros entregues prontos para uso digital e impresso.",
+        deliverables: [
+          { icon: "palette", title: "Identidade Visual", list: ["Logotipo principal e variações", "Paleta de cores com especificações técnicas", "Sistema tipográfico institucional", "Elementos gráficos e padrões de apoio"] },
+          { icon: "folder-archive", title: "Brand Pack (Arquivos)", list: ["Logotipo RGB (.ai, .eps, .pdf, .jpg, .png, .svg)", "Logotipo CMYK (.ai, .eps, .pdf)", "Elementos de apoio vetorizados", "Tipografia complementar para instalação", "Arquivos organizados em nuvem"] },
+          { icon: "file-check-2", title: "Registro Autoral Online", text: "O projeto de Identidade Visual é registrado online para comprovação de autenticidade e proteção dos direitos autorais do conceito visual desenvolvido." },
+          { icon: "book-open", title: "Brand Book (Manual)", text: "Guia técnico e estratégico completo para reproduzir a marca corretamente, protegendo suas diretrizes e evitando usos incorretos por fornecedores." },
+          { icon: "sparkles", title: "Pontos de Contato", text: "Desmembramentos visuais da identidade em pontos de contato essenciais para a operação, como papelaria, vestuário e ambiente digital." },
+          { icon: "film", title: "Motion Logo & Adicionais", text: "Animação oficial do logotipo para abertura e encerramento de vídeos, acompanhada de Cartão de Visitas, Assinatura de E-mail e Uniforme." }
+        ],
+        investmentScopeTag: "Escopo: Identidade Visual",
+        investmentScopeDesc: "Proposta completa contemplando estratégia, direção criativa, sistema de identidade visual, arquivos abertos e suporte executivo.",
+        investmentChecklist: [
+          "Diagnóstico, Estratégia & Posicionamento",
+          "Identidade Visual Completa & Variações",
+          "Brand Pack (RGB, CMYK, Vetores & Fontes)",
+          "Brand Book Oficial de Diretrizes",
+          "Registro Autoral Online da Identidade",
+          "Motion Logo + Papelaria & Aplicações"
+        ],
+        timelineText: "Prazo Total: 25 Dias Úteis",
+        governanceDeadline: "O prazo de entrega do projeto de identidade visual é de 25 dias úteis, totalizando 5 semanas. Os prazos podem sofrer alterações caso o cliente atrase o envio de informações referentes ao projeto, quando solicitadas.",
+        governanceDev: "Todo o projeto é desenvolvido de forma consistente, utilizando as informações coletadas e validadas pelo cliente. Desta maneira, apresentamos um sistema de identidade visual coerente e alinhado com os objetivos do negócio.",
+        faqs: [
+          { q: "Como funciona a etapa de alinhamento antes da criação visual?", a: "Realizamos uma imersão estratégica completa nas duas primeiras semanas para mapear seu público, concorrentes e diferenciais antes de desenhar qualquer traço." },
+          { q: "Posso solicitar alterações durante a apresentação do projeto?", a: "Sim! Conforme nossa diretriz contratual, você tem direito a até três rodadas de alterações de baixo impacto sem custo adicional, mantendo a coerência com o briefing aprovado." },
+          { q: "Em quais formatos vou receber os arquivos finais?", a: "Você recebe o Brand Pack completo com arquivos editáveis e fechados (.AI, .EPS, .PDF, .JPG, .PNG transparente e .SVG), prontos para gráficas e uso digital, além do Brand Book." },
+          { q: "Como funciona a proteção autoral da nova identidade?", a: "O design da Identidade Visual recebe registro autoral online para assegurar a autenticidade e a comprovação de autoria do conceito visual criado pela Palaz." }
+        ]
+      },
+
+      social: {
+        heroTarget: "social media",
+        label: "Social Media Estratégico",
+        heroSubtitle: "Proposta de Investimento para Social Media Estratégico",
+        heroDesc: "Direção de arte, planejamento editorial e produção de conteúdo estratégico para transformar redes sociais em canais de autoridade e vendas.",
+        introP1: "Nosso propósito é transformar a presença digital de empresas por meio de conteúdo intencional, estética apurada e narrativa de valor.",
+        introP2: "Somos especialistas em Posicionamento Digital, Direção Criativa para Conteúdo e Design para Social Media. Construímos perfis que educam a audiência, elevam o valor percebido e geram demanda qualificada.",
+        disciplines: ["Estratégia de Conteúdo", "Direção Visual de Feed", "Design & Retenção"],
+        importanceTitle: 'A importância de investir em <span class="text-brand-orange">posicionamento digital.</span>',
+        importanceLead: "Uma presença estratégica nas redes sociais impacta diretamente quatro frentes do negócio:",
+        importanceSummary: '<strong class="text-brand-orange font-semibold">Em resumo:</strong> redes sociais gerenciadas com estratégia deixam de ser apenas vitrines estáticas e passam a atuar como um ativo contínuo de construção de autoridade e atração de clientes.',
+        pillars: [
+          { icon: "award", title: "Autoridade Imediata", desc: "Seu perfil funciona como o primeiro ponto de validação do cliente. Um feed coeso e inteligente comprova o nível de entrega da sua empresa." },
+          { icon: "layers", title: "Consistência Visual", desc: "Padronização tipográfica, cromática e estética que cria reconhecimento instantâneo a cada publicação no feed, carrossel ou stories." },
+          { icon: "users", title: "Educação do Público", desc: "Conteúdos estruturados para quebrar objeções, explicar seus diferenciais e preparar o seguidor para a decisão de compra." },
+          { icon: "trending-up", title: "Percepção de Valor", desc: "Empresas que comunicam com clareza e design superior atraem clientes mais qualificados e reduzem a negociação apenas por preço." }
+        ],
+        durationBadge: "Ciclo Mensal • Setup em 10 Dias Úteis",
+        processSideDesc: "Um fluxo contínuo e organizado em 5 etapas para garantir que o seu perfil tenha planejamento, estética de alto nível e constância.",
+        steps: [
+          {
+            badge: "ETAPA 01", title: "Diagnóstico & Linha Editorial", duration: "Dias 01 a 03",
+            desc: "Análise completa do perfil atual, mapeamento de concorrentes, definição de pilares de conteúdo (editorias) e tom de voz da comunicação.",
+            items: ["Auditoria de perfil e bio", "Definição de editorias estratégicas", "Mapeamento de dores e desejos do público", "Alinhamento de objetivos comerciais", "Estruturação do calendário mensal"]
+          },
+          {
+            badge: "ETAPA 02", title: "Direção Visual & Key Visual", duration: "Dias 04 a 06",
+            desc: "Desenvolvimento da linguagem gráfica exclusiva das redes sociais: grids, uso de tipografia, tratamento de imagem e identidade de carrosséis.",
+            items: ["Criação do sistema visual do Feed", "Definição de estilos de capa e títulos", "Padronização de cores e contrastes", "Otimização visual de Destaques e Bio", "Validação estética com o cliente"]
+          },
+          {
+            badge: "ETAPA 03", title: "Roteirização & Copywriting", duration: "Semanal / Quinzenal",
+            desc: "Redação estratégica de todos os títulos, lâminas de carrosséis e legendas com foco em retenção de leitura, clareza e chamada para ação (CTA).",
+            items: ["Criação de ganchos (hooks) de atenção", "Estruturação narrativa de carrosséis", "Redação de legendas persuasivas", "CTAs alinhados ao objetivo de negócio", "Envio de pautas para aprovação prévia"]
+          },
+          {
+            badge: "ETAPA 04", title: "Design & Produção Criativa", duration: "Execução Contínua",
+            desc: "Desenvolvimento visual de alta precisão para cada post estático, carrossel e motion/acabamento, elevando o padrão estético da marca.",
+            items: ["Design de carrosséis editoriais", "Peças estáticas de alto impacto", "Composição tipográfica e direção de arte", "Revisão de qualidade e legibilidade mobile", "Entrega da remessa para validação"]
+          },
+          {
+            badge: "ETAPA 05", title: "Publicação & Análise de Dados", duration: "Fechamento Mensal",
+            desc: "Acompanhamento das publicações, leitura das métricas de alcance, retenção e engajamento para otimizar o planejamento do ciclo seguinte.",
+            items: ["Organização dos criativos aprovados", "Suporte na programação de postagens", "Análise dos conteúdos de maior performance", "Relatório executivo de evolução", "Reunião de alinhamento do próximo ciclo"]
+          }
+        ],
+        scopeBadge: "Social Media & Content Design",
+        skills: [
+          { num: "01", icon: "layout-grid", title: "Direção de Arte para Feed", desc: "Construção de uma estética proprietária e inconfundível para que cada publicação reforce o posicionamento da sua marca." },
+          { num: "02", icon: "book-open", title: "Carrosséis Estratégicos", desc: "Design editorial focado em retenção: transformamos conceitos densos do seu negócio em lâminas visuais claras e envolventes." },
+          { num: "03", icon: "file-text", title: "Planejamento & Copy", desc: "Definição de temas, títulos magnéticos, roteiros de carrossel e legendas orientadas para educar e converter seguidores." },
+          { num: "04", icon: "play-circle", title: "Motion & Reels Cover", desc: "Acabamento visual para vídeos, capas padronizadas e animações curtas que mantêm o dinamismo do perfil." },
+          { num: "05", icon: "bar-chart-3", title: "Gestão de Autoridade", desc: "Otimização completa da vitrine digital (Bio, Destaques, Links e Fixados) para transformar visitantes em oportunidades comerciais.", tags: ["Posts Estáticos", "Carrosséis", "Copywriting", "Direção Visual"] }
+        ],
+        deliverablesSubtitle: "Estrutura completa de conteúdo, direção visual e peças prontas para fortalecer sua marca nas redes.",
+        deliverables: [
+          { icon: "calendar", title: "Planejamento Editorial", list: ["Definição de pilares e temas estratégicos", "Calendário mensal de publicações", "Títulos, subtítulos e ideias visuais", "Legendas completas com CTA"] },
+          { icon: "layers", title: "Pacote de Criativos (Feed)", list: ["Posts estáticos e carrosséis estratégicos", "Direção de arte de alto padrão", "Hierarquia tipográfica otimizada para leitura", "Arquivos entregues em alta resolução"] },
+          { icon: "smartphone", title: "Revitalização de Perfil", text: "Otimização estratégica da Biografia, foto de perfil, capas de Destaques e definição dos 3 posts fixados para conversão de novos visitantes." },
+          { icon: "book-marked", title: "Guia Visual de Social Media", text: "Padronização de fontes, paleta cromática, grids e estilo fotográfico para manter consistência absoluta em todas as postagens." },
+          { icon: "message-square", title: "Design para Stories", text: "Peças e sequências visuais estratégicas para fortalecer a interação diária, apresentar bastidores e direcionar cliques para o WhatsApp." },
+          { icon: "line-chart", title: "Acompanhamento & Relatório", text: "Análise periódica de desempenho dos conteúdos publicados com direcionamentos práticos para evolução contínua do perfil." }
+        ],
+        investmentScopeTag: "Escopo: Social Media Estratégico",
+        investmentScopeDesc: "Proposta contemplando planejamento editorial, redação estratégica, direção de arte para posts/carrosséis e otimização do perfil.",
+        investmentChecklist: [
+          "Diagnóstico de Perfil & Linha Editorial",
+          "Otimização de Bio, Destaques & Fixados",
+          "Planejamento de Pautas, Títulos & Legendas",
+          "Design de Posts Estáticos & Carrosséis",
+          "Direção Visual Padronizada de Alto Valor",
+          "Acompanhamento Estratégico & Ajustes"
+        ],
+        timelineText: "Setup Inicial: 10 Dias Úteis",
+        governanceDeadline: "O setup estratégico inicial leva até 10 dias úteis, seguido pelo cronograma de entregas das remessas de conteúdo. A pontualidade das postagens depende da aprovação prévia das pautas e artes pelo cliente.",
+        governanceDev: "Todos os conteúdos são criados com base na estratégia definida no onboarding. Nenhuma peça é publicada ou finalizada sem a validação prévia do cliente.",
+        faqs: [
+          { q: "Quem cria os temas e textos das publicações?", a: "A Palaz estrutura todo o planejamento de temas, títulos, textos das lâminas e legendas com base no seu conhecimento técnico e nos objetivos comerciais da sua empresa." },
+          { q: "Como funciona a aprovação dos posts antes de irem ao ar?", a: "Você recebe o cronograma de pautas e as artes finalizadas com antecedência para revisar e aprovar via WhatsApp ou link compartilhado." },
+          { q: "Posso pedir ajustes nas artes ou nos textos?", a: "Sim! Você conta com até três rodadas de ajustes de baixo impacto por remessa sem custo adicional, garantindo que cada post saia exatamente alinhado à sua visão." },
+          { q: "E se minha empresa ainda não tiver uma Identidade Visual definida?", a: "Criamos uma direção visual exclusiva para o seu Social Media ou podemos integrar o projeto completo de Identidade Visual antes de iniciar as postagens." }
+        ]
+      },
+
+      site: {
+        heroTarget: "site & web",
+        label: "Site & Experiência Web",
+        heroSubtitle: "Proposta de Investimento para Site Profissional",
+        heroDesc: "Design de interface (UI/UX), arquitetura de conversão e desenvolvimento web de alta performance para posicionar sua marca no digital.",
+        introP1: "Nosso propósito é construir ambientes digitais que unem estética de estúdio, velocidade de carregamento e estrutura focada em conversão.",
+        introP2: "Somos especialistas em UI/UX Design, Direção Criativa Web e Desenvolvimento Front-End. Criamos páginas que transmitem credibilidade imediata e conduzem o visitante à tomada de decisão.",
+        disciplines: ["UI / UX Design", "Performance & SEO", "Arquitetura de Conversão"],
+        importanceTitle: 'A importância de investir em um <span class="text-brand-orange">site de alto padrão.</span>',
+        importanceLead: "Um ecossistema web profissional é a base da sua operação comercial por quatro motivos:",
+        importanceSummary: '<strong class="text-brand-orange font-semibold">Em resumo:</strong> seu site é a sede digital da sua empresa operando 24 horas por dia — uma estrutura bem projetada multiplica o retorno de todas as suas campanhas e prospecções.',
+        pillars: [
+          { icon: "globe", title: "Território Próprio", desc: "Diferente das redes sociais, no seu site você detém controle total sobre a narrativa, a atenção do visitante e a jornada de conversão." },
+          { icon: "zap", title: "Alta Conversão", desc: "Estrutura de informação pensada estrategicamente com gatilhos visuais, provas sociais e botões de ação claros para gerar contatos." },
+          { icon: "smartphone", title: "Experiência Mobile-First", desc: "Mais de 80% dos acessos ocorrem pelo celular. Desenvolvemos layouts fluidos e perfeitamente adaptados para qualquer tamanho de tela." },
+          { icon: "search", title: "Velocidade & Google (SEO)", desc: "Código limpo, carregamento rápido e boas práticas de indexação para que sua empresa seja encontrada por quem já procura sua solução." }
+        ],
+        durationBadge: "4 a 5 Semanas • 20 a 25 Dias Úteis",
+        processSideDesc: "Metodologia de ponta a ponta: da arquitetura da informação e copywriting ao design de interface e publicação no ar.",
+        steps: [
+          {
+            badge: "SEMANA 01", title: "Arquitetura & Wireframe", duration: "5 Dias Úteis",
+            desc: "Mapeamento da jornada do usuário, definição do mapa do site, estruturação das seções e hierarquia de argumentos comerciais.",
+            items: ["Briefing técnico e comercial", "Definição do Mapa de Navegação", "Arquitetura de Conversão (Jornada)", "Estruturação de Wireframes", "Alinhamento da estrutura com o cliente"]
+          },
+          {
+            badge: "SEMANA 02", title: "Copywriting & Direção Visual", duration: "5 Dias Úteis",
+            desc: "Refinamento dos textos estratégicos de cada seção e definição do estilo visual, tipografia, animações e atmosfera da interface.",
+            items: ["Estruturação de Headlines e CTAs", "Organização dos blocos de conteúdo", "Definição de Grid e Sistema de UI", "Seleção e tratamento de ativos visuais", "Aprovação do conceito criativo"]
+          },
+          {
+            badge: "SEMANA 03", title: "UI Design (Desktop & Mobile)", duration: "5 Dias Úteis",
+            desc: "Desenho completo da interface em alta fidelidade para computadores e smartphones, garantindo acabamento premium em cada detalhe.",
+            items: ["Design completo das telas Desktop", "Adaptação nativa para Mobile", "Microinterações e estados de botões", "Apresentação do protótipo navegável", "Rodada de validação visual"]
+          },
+          {
+            badge: "SEMANA 04", title: "Desenvolvimento & Interações", duration: "5 Dias Úteis",
+            desc: "Codificação e implementação da página com animações fluidas, responsividade total, formulários/WhatsApp e otimização de velocidade.",
+            items: ["Desenvolvimento Front-End responsivo", "Implementação de animações suaves", "Integração direta com WhatsApp / Leads", "Otimização de imagens e performance", "Configuração de SEO On-Page básico"]
+          },
+          {
+            badge: "SEMANA 05", title: "Testes, Domínio & Publicação", duration: "Conclusão e Go-Live",
+            desc: "Bateria de testes em múltiplos navegadores e celulares, conexão com o seu domínio oficial, certificado de segurança SSL e lançamento.",
+            items: ["Testes de usabilidade multi-dispositivo", "Apontamento de DNS e Domínio", "Ativação de Certificado SSL (HTTPS)", "Publicação oficial do projeto (Go-Live)", "Suporte técnico pós-lançamento"]
+          }
+        ],
+        scopeBadge: "Web Design & Digital Experience",
+        skills: [
+          { num: "01", icon: "monitor", title: "UI/UX Design Sob Medida", desc: "Nada de templates genéricos: desenhamos interfaces exclusivas que refletem a maturidade e o posicionamento da sua marca." },
+          { num: "02", icon: "mouse-pointer-click", title: "Landing Pages de Conversão", desc: "Páginas focadas em transformar tráfego pago e orgânico em reuniões agendadas e orçamentos no WhatsApp." },
+          { num: "03", icon: "code-2", title: "Desenvolvimento Responsivo", desc: "Implementação técnica moderna com rolagem suave, transições elegantes e adaptação impecável para celulares, tablets e desktops." },
+          { num: "04", icon: "gauge", title: "Performance & SEO Técnico", desc: "Estrutura semântica de títulos (H1, H2, Meta Tags) e compressão de ativos para carregamento veloz." },
+          { num: "05", icon: "shield", title: "Integrações & Segurança", desc: "Conexão direta com WhatsApp, formulários de captura, instalação de pixels de rastreamento (Meta/Google) e protocolo HTTPS.", tags: ["UI/UX Exclusivo", "100% Responsivo", "Alta Velocidade", "Foco em Leads"] }
+        ],
+        deliverablesSubtitle: "Estrutura digital completa, responsiva e publicada no seu domínio oficial.",
+        deliverables: [
+          { icon: "layout", title: "Design UI/UX Exclusivo", list: ["Layout 100% personalizado para sua marca", "Versão Desktop e Mobile dedicadas", "Sistema tipográfico e visual consistente", "Protótipo de alta fidelidade"] },
+          { icon: "cpu", title: "Desenvolvimento & Código", list: ["Implementação limpa e de rápido carregamento", "Animações sutis de rolagem e interação", "Compatibilidade com Chrome, Safari e Edge", "Estrutura pronta para campanhas de tráfego"] },
+          { icon: "message-circle", title: "Fluxo de Conversão", text: "Botões estratégicos de chamada para ação integrados diretamente ao seu WhatsApp comercial ou formulário de contato." },
+          { icon: "search", title: "SEO On-Page & Indexação", text: "Configuração de títulos, meta descrições, tags OpenGraph (miniatura ao compartilhar link no WhatsApp) e estrutura para o Google." },
+          { icon: "globe", title: "Configuração de Domínio", text: "Auxílio completo na vinculação do seu domínio (.com.br ou .com), hospedagem e ativação do certificado de segurança SSL." },
+          { icon: "life-buoy", title: "Garantia & Suporte Técnico", text: "Acompanhamento após a publicação para garantir estabilidade total e orientações para sua equipe." }
+        ],
+        investmentScopeTag: "Escopo: Site Profissional",
+        investmentScopeDesc: "Proposta completa contemplando arquitetura de conversão, UI/UX design exclusivo, desenvolvimento responsivo e publicação no domínio.",
+        investmentChecklist: [
+          "Arquitetura da Informação & Wireframe",
+          "Direção de Arte & UI/UX Design Exclusivo",
+          "Desenvolvimento Web 100% Responsivo",
+          "Otimização de Velocidade & SEO Inicial",
+          "Integração com WhatsApp & Rastreamento",
+          "Publicação no Domínio + Suporte"
+        ],
+        timelineText: "Prazo Total: 20 a 25 Dias Úteis",
+        governanceDeadline: "O prazo de desenvolvimento do site é de 20 a 25 dias úteis. O cronograma depende do envio de informações e validação de cada etapa (Wireframe, Design e Publicação) pelo cliente.",
+        governanceDev: "O site é projetado em etapas validadas junto ao cliente (estrutura, visual e implementação), garantindo fidelidade total ao que foi aprovado no protótipo.",
+        faqs: [
+          { q: "O site vai funcionar perfeitamente no celular?", a: "Sim! Todo o projeto é desenvolvido com metodologia Mobile-First, garantindo leitura confortável, botões acessíveis e carregamento rápido em smartphones." },
+          { q: "Já tenho domínio registrado, vocês fazem a configuração?", a: "Sim. Fazemos todo o apontamento técnico para colocar o site no ar dentro do seu domínio oficial com certificado de segurança (cadeado HTTPS)." },
+          { q: "Posso usar o site para rodar anúncios no Google e Instagram?", a: "Perfeitamente. A página já é entregue estruturada para alta conversão e pronta para receber a instalação do Pixel da Meta e tags do Google Ads/Analytics." },
+          { q: "Tenho direito a ajustes no layout antes de publicar?", a: "Sim! Apresentamos o layout antes da fase final de publicação e você conta com até três rodadas de ajustes de baixo impacto sem custo adicional." }
+        ]
+      },
+
+      completo: {
+        heroTarget: "posicionamento 360°",
+        label: "Ecossistema Completo (Marca + Social + Site)",
+        heroSubtitle: "Proposta de Investimento para Posicionamento Completo",
+        heroDesc: "Transformação 360° do seu negócio: Estratégia e Identidade Visual, Direção de Social Media e Desenvolvimento de Site em um único ecossistema coeso.",
+        introP1: "Nosso propósito é construir marcas líderes em seus segmentos, integrando identidade visual, presença em redes sociais e experiência web sob uma mesma direção criativa.",
+        introP2: "Quando Identidade Visual, Social Media e Site nascem juntos dentro da Palaz, sua empresa elimina ruídos de comunicação e entra no mercado com força máxima em todos os pontos de contato.",
+        disciplines: ["Identidade Visual", "Social Media Estratégico", "Site de Alta Conversão"],
+        importanceTitle: 'A força de um <span class="text-brand-orange">ecossistema integrado.</span>',
+        importanceLead: "Unificar Marca, Social Media e Site em um só projeto gera quatro vantagens competitivas imediatas:",
+        importanceSummary: '<strong class="text-brand-orange font-semibold">Em resumo:</strong> você não contrata peças soltas, mas sim uma infraestrutura completa de posicionamento, autoridade e aquisição comercial pronta para escalar.',
+        pillars: [
+          { icon: "layers", title: "Coesão Absoluta", desc: "Sua marca fala a mesma língua visual e estratégica no logotipo, no feed do Instagram, no Google e na página de vendas." },
+          { icon: "rocket", title: "Velocidade de Lançamento", desc: "Enquanto finalizamos a identidade visual, a estrutura de conteúdo e a arquitetura do site já avançam em paralelo, economizando meses." },
+          { icon: "trending-up", title: "Máximo Valor Percebido", desc: "O cliente que descobre sua empresa no Instagram e clica no seu site encontra uma experiência de altíssimo padrão de ponta a ponta." },
+          { icon: "target", title: "Funil Comercial Completo", desc: "A Identidade gera memória, o Social Media atrai e educa, e o Site converte o visitante em oportunidade real de negócio." }
+        ],
+        durationBadge: "6 a 8 Semanas • Execução Integrada",
+        processSideDesc: "Um plano diretor dividido em 5 fases integradas para criar a marca, estruturar as redes sociais e colocar o novo site no ar.",
+        steps: [
+          {
+            badge: "FASE 01", title: "Imersão & Estratégia Global", duration: "Semana 01",
+            desc: "Diagnóstico 360° do negócio, definição de posicionamento de mercado, público-alvo, tom de voz e diretrizes mestras do ecossistema.",
+            items: ["Briefing estratégico integrado", "Pesquisa de mercado e concorrentes", "Definição de DNA, Posicionamento e Tom de Voz", "Mapeamento da jornada do cliente", "Alinhamento geral do plano diretor"]
+          },
+          {
+            badge: "FASE 02", title: "Criação da Identidade Visual", duration: "Semanas 02 e 03",
+            desc: "Desenvolvimento completo do sistema de identidade visual: logotipo, paleta cromática, tipografia, grafismos, mockups e Brand Book.",
+            items: ["Moodboard e Direção Criativa", "Criação do Logotipo e Símbolos", "Definição de Cores e Tipografia", "Aplicações em pontos de contato", "Aprovação da Identidade Visual"]
+          },
+          {
+            badge: "FASE 03", title: "Estruturação de Social Media", duration: "Semanas 04 e 05",
+            desc: "Desdobramento da nova marca para as redes sociais: otimização de perfil, linha editorial, roteirização e design da remessa de criativos.",
+            items: ["Padronização de Bio, Avatar e Destaques", "Definição das editorias de conteúdo", "Redação de pautas, títulos e legendas", "Design de posts estáticos e carrosséis", "Entrega do kit de lançamento digital"]
+          },
+          {
+            badge: "FASE 04", title: "UI/UX Design & Desenvolvimento Web", duration: "Semanas 05 e 06",
+            desc: "Projeto e codificação do site oficial utilizando toda a nova identidade visual, com foco em performance, mobile e conversão no WhatsApp.",
+            items: ["Arquitetura de informação e Copy do site", "UI Design exclusivo (Desktop e Mobile)", "Desenvolvimento Front-End responsivo", "Animações fluidas e integração WhatsApp", "Otimização de velocidade e SEO inicial"]
+          },
+          {
+            badge: "FASE 05", title: "Entrega Master & Go-Live 360°", duration: "Conclusão do Projeto",
+            desc: "Fechamento de todos os arquivos da marca, publicação do site no domínio oficial, entrega dos conteúdos sociais e suporte executivo.",
+            items: ["Entrega do Brand Pack completo + Brand Book", "Registro Autoral Online da Identidade", "Publicação oficial do Site (Go-Live)", "Liberação dos criativos de Social Media", "Suporte estratégico pós-lançamento"]
+          }
+        ],
+        scopeBadge: "Full-Stack Brand & Digital Studio",
+        skills: [
+          { num: "01", icon: "pen-tool", title: "Identidade Visual & Branding", desc: "Criação completa da marca desde o posicionamento estratégico até logotipo, paleta de cores, tipografia e manual técnico." },
+          { num: "02", icon: "layout-grid", title: "Social Media Estratégico", desc: "Planejamento editorial, copywriting e design de carrosséis e posts estáticos que transformam seguidores em clientes." },
+          { num: "03", icon: "monitor", title: "Site & Landing Page", desc: "Design de interface e desenvolvimento web responsivo de alta conversão para consolidar sua presença digital." },
+          { num: "04", icon: "play-circle", title: "Motion Design", desc: "Logotipo animado e ativos dinâmicos que elevam o acabamento das suas apresentações, vídeos e redes sociais." },
+          { num: "05", icon: "layers", title: "Direção Criativa Unificada", desc: "Um único estúdio cuidando de toda a imagem da sua empresa para garantir coerência estética e estratégica absoluta.", tags: ["Branding Completo", "Social Media", "Site Responsivo", "Motion Design"] }
+        ],
+        deliverablesSubtitle: "A entrega mais completa da Palaz: todos os ativos de Marca, Redes Sociais e Web.",
+        deliverables: [
+          { icon: "palette", title: "Sistema de Identidade Visual", list: ["Logotipo principal, secundário e símbolo", "Paleta de cores RGB/CMYK e tipografia", "Brand Pack completo (.AI, .PDF, .SVG, .PNG)", "Brand Book oficial + Registro Autoral"] },
+          { icon: "layout-grid", title: "Ecossistema Social Media", list: ["Otimização completa de Bio e Destaques", "Linha editorial e calendário estratégico", "Pacote de posts estáticos e carrosséis", "Títulos e legendas prontos para publicação"] },
+          { icon: "globe", title: "Site Oficial de Alta Conversão", list: ["UI/UX Design exclusivo Desktop e Mobile", "Desenvolvimento rápido e responsivo", "Integração direta com WhatsApp e SEO", "Configuração e publicação no seu domínio"] },
+          { icon: "film", title: "Motion Logo Oficial", text: "Animação profissional do logotipo para elevar o impacto visual dos seus vídeos, reels e apresentações comerciais." },
+          { icon: "briefcase", title: "Papelaria & Aplicações", text: "Desdobramento da marca em Cartão de Visitas, Assinatura de E-mail, Uniforme e mockups realistas de apresentação." },
+          { icon: "shield-check", title: "Acompanhamento Executivo", text: "Gestão próxima via WhatsApp durante todas as fases e suporte dedicado após a entrega e lançamento." }
+        ],
+        investmentScopeTag: "Escopo Completo: Marca + Social + Site",
+        investmentScopeDesc: "Solução 360° contemplando Identidade Visual completa, estruturação e criativos de Social Media, e desenvolvimento do Site oficial.",
+        investmentChecklist: [
+          "Estratégia & Identidade Visual Completa",
+          "Brand Pack Aberto + Brand Book + Registro",
+          "Social Media: Perfil, Linha Editorial & Posts",
+          "Site Profissional Exclusivo (Desktop & Mobile)",
+          "Motion Logo + Aplicações Corporativas",
+          "Gestão Integrada & Suporte Pós-Entrega"
+        ],
+        timelineText: "Prazo Total: 6 a 8 Semanas",
+        governanceDeadline: "Por contemplar três frentes integradas (Identidade Visual, Social Media e Site), o cronograma total estimado é de 6 a 8 semanas, com entregas parciais a cada fase aprovada.",
+        governanceDev: "Cada frente avança de maneira coordenada: primeiro consolidamos a estratégia e a Identidade Visual e, a partir dela, desdobramos o Social Media e o Site oficial.",
+        faqs: [
+          { q: "Qual a vantagem de fechar o pacote completo em vez de projetos separados?", a: "Além da economia financeira no investimento unificado, você garante que sua Identidade Visual, seu Instagram e seu Site sejam criados sob a mesma direção criativa, sem perda de tempo entre diferentes fornecedores." },
+          { q: "Preciso esperar tudo ficar pronto para começar a usar a nova marca?", a: "Não! As entregas acontecem em ondas: assim que a Identidade Visual é aprovada na Fase 02, você já recebe os arquivos da marca enquanto avançamos no Social Media e no Site." },
+          { q: "Como funcionam as aprovações em cada etapa?", a: "Nada avança no escuro. Validamos juntos a Estratégia, depois a Identidade Visual, em seguida os conteúdos de Social Media e o layout do Site, com direito a até três rodadas de ajustes por frente." },
+          { q: "As condições de parcelamento também valem para o escopo completo?", a: "Sim! Você pode aproveitar o desconto à vista ou parcelar com entrada de 50% + parcelas sem juros conforme detalhado na seção de investimento." }
+        ]
+      }
+    };
+
+    // Estado Principal da Proposta
+    let proposalData = {
+      type: "id_visual", // 'id_visual' | 'social' | 'site' | 'completo'
+      client: "Humberto",
+      company: "Vittaréa",
+      date: new Date().toLocaleDateString('pt-BR').replace(/\//g, '.'),
+      price: "5.000,00",
+      discount: "250,00",
+      installments: 2,
+      whatsapp: "553196117847",
+      selectedPayment: "À Vista"
+    };
+
+    let currentPinnedIndex = 0;
+    let processScrollTriggers = [];
+
+    // Efeito Cilindro 3D Contínuo no Carrossel de Cases
+    function initCylinderCarousel() {
+      const viewport = document.querySelector('.cases-marquee-viewport');
+      if (!viewport) return;
+      const items = viewport.querySelectorAll('.cases-marquee-item');
+      if (!items.length) return;
+
+      let isPaused = false;
+      const observer = new IntersectionObserver((entries) => {
+        isPaused = !entries[0].isIntersecting;
+      }, { threshold: 0.05 });
+      observer.observe(viewport);
+
+      function updateCylinderCurves() {
+        if (!isPaused) {
+          const vpRect = viewport.getBoundingClientRect();
+          const vpCenter = vpRect.left + vpRect.width / 2;
+          const maxDist = vpRect.width / 2 + 300;
+
+          items.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            // Somente computa se o item estiver nos arredores visíveis da viewport
+            if (rect.right < -100 || rect.left > window.innerWidth + 100) return;
+
+            const itemCenter = rect.left + rect.width / 2;
+            const dist = Math.abs(itemCenter - vpCenter);
+            const normDist = Math.min(1, dist / maxDist); // 0 no centro, 1 nas extremidades
+            
+            // Fórmulas parabólicas cilíndricas suaves
+            const scale = 1.05 - (0.32 * Math.pow(normDist, 1.35)); // 1.05 no centro -> 0.73 nas pontas
+            const blur = Math.max(0, (normDist - 0.28) * 8.5);      // 0 no miolo -> ~6px nas bordas
+            const opacity = 1 - (0.58 * Math.pow(normDist, 1.6));   // 1 no miolo -> 0.42 nas bordas
+            const rotateY = ((itemCenter - vpCenter) / (vpRect.width / 2)) * -14; // Ângulo de curvatura cilíndrica
+
+            item.style.transform = `scale(${scale.toFixed(3)}) rotateY(${rotateY.toFixed(2)}deg)`;
+            item.style.filter = blur > 0.3 ? `blur(${blur.toFixed(1)}px)` : 'none';
+            item.style.opacity = opacity.toFixed(2);
+          });
+        }
+        requestAnimationFrame(updateCylinderCurves);
+      }
+      requestAnimationFrame(updateCylinderCurves);
+    }
+
+    // 1. Lenis Smooth Scroll + GSAP ScrollTrigger Sync
+    const lenis = new Lenis({
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+
+    // 2. Interpolated Studio Cursor & Spotlight Surface Tracking
+    const cursor = document.getElementById('cursor');
+    const cursorDot = document.getElementById('cursorDot');
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (cursorDot) {
+        cursorDot.style.left = `${mouseX}px`;
+        cursorDot.style.top = `${mouseY}px`;
+      }
+
+      document.querySelectorAll('.studio-panel').forEach(panel => {
+        const rect = panel.getBoundingClientRect();
+        panel.style.setProperty('--mouse-x', `${mouseX - rect.left}px`);
+        panel.style.setProperty('--mouse-y', `${mouseY - rect.top}px`);
+      });
+    }, { passive: true });
+
+    function renderCursor() {
+      cursorX += (mouseX - cursorX) * 0.18;
+      cursorY += (mouseY - cursorY) * 0.18;
+      if (cursor) {
+        cursor.style.left = `${cursorX}px`;
+        cursor.style.top = `${cursorY}px`;
+      }
+      requestAnimationFrame(renderCursor);
+    }
+    requestAnimationFrame(renderCursor);
+
+    function bindCursorHoverEvents() {
+      if (!cursor) return;
+      document.querySelectorAll('a, button, [onclick], input').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('is-hovering'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('is-hovering'));
+      });
+    }
+
+    // 3. Subtle Magnetic Effect on Studio CTA Buttons (apenas ponteiros finos como mouse)
+    function initMagneticButtons() {
+      if (window.matchMedia('(pointer: coarse)').matches) return;
+      document.querySelectorAll('.magnetic-btn').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          gsap.to(btn, { x: x * 0.16, y: y * 0.16, duration: 0.35, ease: 'power2.out' });
+        });
+        btn.addEventListener('mouseleave', () => {
+          gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
+        });
+      });
+    }
+
+    // 4. Top Reading Progress Line (Sem barra fixa mobile)
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      const bar = document.getElementById('scrollProgress');
+      if (bar) bar.style.width = `${scrolled}%`;
+    }, { passive: true });
+
+    // 5. Renderizador Dinâmico de Conteúdo & Layout por Tipo de Projeto
+    function renderProjectTypeTemplate(typeKey) {
+      const tpl = PROJECT_TEMPLATES[typeKey] || PROJECT_TEMPLATES.id_visual;
+
+      // Hero
+      const topSub = document.getElementById('heroTopSubtitle');
+      if (topSub) topSub.textContent = tpl.heroSubtitle;
+      const badgeSub = document.getElementById('heroBadgeSubtitle');
+      if (badgeSub) badgeSub.textContent = tpl.heroSubtitle;
+      const descEl = document.getElementById('heroDescription');
+      if (descEl) descEl.textContent = tpl.heroDesc;
+      const targetHighlight = document.getElementById('heroServiceHighlight');
+      if (targetHighlight) {
+        targetHighlight.textContent = tpl.heroTarget || tpl.label.toLowerCase();
+      }
+
+      // 01. Apresentação & Importância
+      document.getElementById('introParagraph1').textContent = tpl.introP1;
+      document.getElementById('introParagraph2').textContent = tpl.introP2;
+      document.getElementById('discipline1').textContent = tpl.disciplines[0];
+      document.getElementById('discipline2').textContent = tpl.disciplines[1];
+      document.getElementById('discipline3').textContent = tpl.disciplines[2];
+
+      document.getElementById('importanceTitle').innerHTML = tpl.importanceTitle;
+      document.getElementById('importanceLead').textContent = tpl.importanceLead;
+      document.getElementById('importanceSummary').innerHTML = tpl.importanceSummary;
+
+      const pillarsGrid = document.getElementById('importancePillarsGrid');
+      pillarsGrid.innerHTML = tpl.pillars.map((p, idx) => `
+        <div class="studio-panel p-6 sm:p-8 md:p-9 border-r border-b border-white/[0.08] flex flex-col justify-between h-full">
+          <div>
+            <div class="flex items-center justify-between mb-5 sm:mb-8">
+              <span class="font-mono text-xs text-brand-orange">0${idx + 1}</span>
+              <i data-lucide="${p.icon}" class="w-4 h-4 text-zinc-500"></i>
+            </div>
+            <h4 class="text-lg sm:text-xl font-display font-bold text-white mb-2 sm:mb-3 tracking-tight">${p.title}</h4>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">${p.desc}</p>
+          </div>
+        </div>
+      `).join('');
+
+      // 02. Processo & Cronograma
+      document.getElementById('processDurationBadge').textContent = tpl.durationBadge;
+      document.getElementById('processSideDesc').textContent = tpl.processSideDesc;
+
+      // Render Minimalist Stepper Navigation (1 a 5 na lateral, apenas barra)
+      const navContainer = document.getElementById('processNavList');
+      if (navContainer) {
+        navContainer.innerHTML = tpl.steps.map((step, sIdx) => `
+          <button type="button" onclick="setPinnedStep(${sIdx}, true)" class="process-nav-item ${sIdx === 0 ? 'is-active' : ''} group focus:outline-none" data-nav-step="${sIdx}">
+            <span class="process-nav-num">0${sIdx + 1}</span>
+            <span class="process-nav-title">${step.title}</span>
+          </button>
+        `).join('');
+      }
+
+      // Render Editorial Clean Rows on the Right (Layout tipográfico limpo, sem cards/boxes repetidos)
+      const processContainer = document.getElementById('processStepsContainer');
+      processContainer.innerHTML = tpl.steps.map((step, sIdx) => {
+        const isLast = sIdx === tpl.steps.length - 1;
+
+        const itemsHtml = step.items.map(itemText => `
+          <li class="flex items-center gap-2.5 text-zinc-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-zinc-500 shrink-0"></span>
+            <span class="text-sm font-medium text-zinc-300">${itemText}</span>
+          </li>
+        `).join('');
+
+        return `
+          <article id="process-step-${sIdx}" data-step="${sIdx}" data-title="${step.title}" class="process-step-row ${sIdx === 0 ? 'is-active' : ''}">
+            <!-- Header da Linha: Badge em cima na esquerda, seguido do número e título -->
+            <div class="mb-4">
+              <span class="font-mono text-xs text-brand-orange uppercase tracking-wider block mb-2">${step.badge}</span>
+              <div class="flex items-baseline gap-3 sm:gap-4">
+                <span class="font-mono text-xl sm:text-2xl md:text-3xl font-bold text-white">0${sIdx + 1}</span>
+                <h4 class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white tracking-tight">${step.title}</h4>
+              </div>
+            </div>
+            
+            <p class="text-zinc-400 text-xs sm:text-sm md:text-base leading-relaxed mb-5 sm:mb-6 max-w-2xl">${step.desc}</p>
+            
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-6 pt-2">
+              ${itemsHtml}
+            </ul>
+          </article>
+        `;
+      }).join('');
+
+      // 04. Habilidades & Entregáveis (Layout Minimalista Editorial Sem Boxes)
+      document.getElementById('scopeBadgeLabel').textContent = tpl.scopeBadge;
+      
+      // Habilidades: Linhas editoriais horizontais com hover interativo
+      const skillsGrid = document.getElementById('skillsGridContainer');
+      skillsGrid.innerHTML = tpl.skills.map((sk) => {
+        const tagsHtml = sk.tags ? `
+          <div class="flex flex-wrap gap-2 mt-4">
+            ${sk.tags.map((t) => `
+              <span class="px-2.5 py-1 text-[11px] font-mono text-zinc-400 bg-white/[0.03] border border-white/[0.06] rounded">${t}</span>
+            `).join('')}
+          </div>
+        ` : '';
+
+        return `
+          <div class="scope-row py-5 sm:py-8 flex flex-col md:flex-row md:items-start justify-between gap-3 sm:gap-6 group">
+            <div class="flex items-start gap-4 sm:gap-6 md:w-5/12">
+              <span class="scope-row-num text-base sm:text-lg">${sk.num}</span>
+              <div>
+                <h4 class="scope-row-title text-lg sm:text-2xl">${sk.title}</h4>
+              </div>
+            </div>
+            <div class="md:w-7/12 md:pl-6 flex flex-col justify-between">
+              <p class="text-zinc-400 text-xs sm:text-base leading-relaxed">${sk.desc}</p>
+              ${tagsHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Entregáveis: Ledger Arquitetural Minimalista (sem boxes, com grid técnico fluido)
+      document.getElementById('deliverablesSubtitle').textContent = tpl.deliverablesSubtitle;
+      const delivGrid = document.getElementById('deliverablesGridContainer');
+      delivGrid.innerHTML = tpl.deliverables.map((d, dIdx) => {
+        const contentHtml = d.list ? `
+          <ul class="space-y-2.5 pt-4">
+            ${d.list.map(item => `
+              <li class="flex items-center gap-2.5 text-zinc-300 text-xs sm:text-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange shrink-0"></span>
+                <span>${item}</span>
+              </li>
+            `).join('')}
+          </ul>
+        ` : `<p class="text-xs sm:text-sm text-zinc-400 leading-relaxed pt-4">${d.text}</p>`;
+
+        return `
+          <div class="deliv-grid-item flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-4">
+                <span class="deliv-card-num">ITEM 0${dIdx + 1}</span>
+                <i data-lucide="${d.icon}" class="w-4 h-4 text-brand-orange"></i>
+              </div>
+              <h4 class="deliv-card-title">${d.title}</h4>
+              ${contentHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // 05. Investimento
+      document.getElementById('investmentScopeTag').textContent = tpl.investmentScopeTag;
+      document.getElementById('investmentScopeDesc').textContent = tpl.investmentScopeDesc;
+      document.getElementById('investmentTimelineText').textContent = tpl.timelineText;
+      document.getElementById('investmentChecklist').innerHTML = tpl.investmentChecklist.map(item => `
+        <div class="flex items-center gap-3 text-zinc-200">
+          <i data-lucide="check" class="w-4 h-4 text-brand-orange shrink-0"></i>
+          <span>${item}</span>
+        </div>
+      `).join('');
+
+      // 06. Governança & FAQ
+      document.getElementById('governanceDeadlineText').textContent = tpl.governanceDeadline;
+      document.getElementById('governanceDevText').textContent = tpl.governanceDev;
+
+      const faqContainer = document.getElementById('faqListContainer');
+      faqContainer.innerHTML = tpl.faqs.map(f => `
+        <div class="py-5">
+          <button type="button" class="w-full flex items-center justify-between text-left font-semibold text-white text-base gap-4 group" onclick="toggleFaq(this)">
+            <span class="group-hover:text-brand-orange transition-colors">${f.q}</span>
+            <i data-lucide="plus" class="faq-icon w-4 h-4 text-brand-orange transition-transform duration-300 shrink-0"></i>
+          </button>
+          <div class="faq-grid-wrapper">
+            <div class="faq-grid-inner">
+              <p class="pt-4 text-sm text-zinc-400 leading-relaxed">${f.a}</p>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Atualiza botões na Gaveta Lateral
+      document.querySelectorAll('.proj-type-btn').forEach(btn => {
+        const bType = btn.getAttribute('data-type');
+        const numSpan = btn.querySelector('span');
+        if (bType === typeKey) {
+          btn.className = "proj-type-btn px-3 py-2.5 text-xs font-mono text-left border border-brand-orange bg-brand-orange/15 text-white transition-all";
+          if (numSpan) numSpan.className = "block text-[10px] text-brand-orange";
+        } else {
+          btn.className = "proj-type-btn px-3 py-2.5 text-xs font-mono text-left border border-white/10 bg-[#16161C] text-zinc-400 hover:text-white transition-all";
+          if (numSpan) numSpan.className = "block text-[10px] text-zinc-500";
+        }
+      });
+
+      // Recria ícones Lucide e religa triggers das etapas
+      lucide.createIcons();
+      bindCursorHoverEvents();
+      setupProcessScrollTriggers();
+      setPinnedStep(0, false);
+      ScrollTrigger.refresh();
+    }
+
+    function selectDrawerProjectType(typeKey) {
+      proposalData.type = typeKey;
+      renderProjectTypeTemplate(typeKey);
+    }
+
+    // 6. GSAP Entrance & Process ScrollTrigger Sync
+    function initGsapAnimations() {
+      gsap.fromTo('.gs-hero-reveal',
+        { y: 32, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.05,
+          stagger: 0.1,
+          ease: 'expo.out'
+        }
+      );
+
+      gsap.utils.toArray('.gs-reveal').forEach((elem) => {
+        gsap.fromTo(elem,
+          { y: 32, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: elem,
+              start: 'top 88%',
+              toggleActions: 'play none none none'
+            }
+          }
+        );
+      });
+
+      setupProcessScrollTriggers();
+    }
+
+    function setupProcessScrollTriggers() {
+      processScrollTriggers.forEach(st => st.kill());
+      processScrollTriggers = [];
+
+      const processCards = document.querySelectorAll('.process-step-row');
+      const timelineFill = document.getElementById('processTimelineFill');
+      const processSection = document.getElementById('processo');
+
+      // 1. ScrollTrigger de progresso contínuo e suave da barra neon durante a rolagem
+      if (timelineFill && processCards.length > 1 && processSection) {
+        const firstCard = processCards[0];
+        const lastCard = processCards[processCards.length - 1];
+
+        const progressST = ScrollTrigger.create({
+          trigger: firstCard,
+          endTrigger: lastCard,
+          start: 'top 55%',
+          end: 'bottom 65%',
+          onUpdate: (self) => {
+            const pct = Math.max(0, Math.min(100, self.progress * 100));
+            timelineFill.style.height = `${pct}%`;
+          }
+        });
+        processScrollTriggers.push(progressST);
+      }
+
+      // 2. ScrollTriggers de ativação pontual para cada etapa (01 a 05)
+      processCards.forEach((card, idx) => {
+        const st = ScrollTrigger.create({
+          trigger: card,
+          start: 'top 55%',
+          end: 'bottom 45%',
+          onEnter: () => setPinnedStep(idx, false, false),
+          onEnterBack: () => setPinnedStep(idx, false, false)
+        });
+        processScrollTriggers.push(st);
+      });
+    }
+
+    // 7. Process Step Controller (Sincroniza os nós de 01 a 05 com os cards na direita)
+    function setPinnedStep(index, shouldScroll = false, updateRailHeight = true) {
+      const cards = document.querySelectorAll('.process-step-row');
+      const navItems = document.querySelectorAll('.process-nav-item');
+      const timelineFill = document.getElementById('processTimelineFill');
+
+      if (!cards.length) return;
+      currentPinnedIndex = Math.max(0, Math.min(index, cards.length - 1));
+
+      // Se acionado por clique, atualiza a barra neon imediatamente
+      if (updateRailHeight && timelineFill && navItems.length > 1) {
+        const progressPercent = (currentPinnedIndex / (navItems.length - 1)) * 100;
+        timelineFill.style.height = `${progressPercent}%`;
+      }
+
+      // Atualiza os nós 01 a 05 na lateral neon
+      navItems.forEach((nav, i) => {
+        if (i === currentPinnedIndex) {
+          nav.classList.add('is-active');
+        } else {
+          nav.classList.remove('is-active');
+        }
+      });
+
+      // Ilumina o card ativo correspondente no lado direito
+      const activeCard = cards[currentPinnedIndex];
+      cards.forEach((card, i) => {
+        if (i === currentPinnedIndex) {
+          card.classList.add('is-active');
+        } else {
+          card.classList.remove('is-active');
+        }
+      });
+
+      if (shouldScroll && activeCard) {
+        lenis.scrollTo(activeCard, { offset: -110, duration: 0.9 });
+      }
+    }
+
+    // 8. Payment Condition Selector
+    function selectPaymentOption(label) {
+      proposalData.selectedPayment = label;
+      const c1 = document.getElementById('payCard1');
+      const c2 = document.getElementById('payCard2');
+      if (label.includes('Vista')) {
+        c1.className = 'cursor-pointer p-6 border-2 border-brand-orange bg-brand-orange/[0.08] transition-all';
+        c2.className = 'cursor-pointer p-6 border border-white/[0.1] bg-white/[0.02] hover:border-white/25 transition-all';
+      } else {
+        c2.className = 'cursor-pointer p-6 border-2 border-brand-orange bg-brand-orange/[0.08] transition-all';
+        c1.className = 'cursor-pointer p-6 border border-white/[0.1] bg-white/[0.02] hover:border-white/25 transition-all';
+      }
+    }
+
+    // 9. Smooth FAQ Accordion
+    function toggleFaq(btn) {
+      const wrapper = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = wrapper.classList.contains('open');
+
+      document.querySelectorAll('.faq-grid-wrapper').forEach(w => w.classList.remove('open'));
+      document.querySelectorAll('.faq-icon').forEach(ic => ic.classList.remove('rotate-45'));
+
+      if (!isOpen) {
+        wrapper.classList.add('open');
+        if (icon) icon.classList.add('rotate-45');
+      }
+    }
+
+    // 10. Conversor Seguro de Moeda (Suporta "5000", "5.000", "5.000,00")
+    function parseCurrencyInput(rawStr) {
+      if (!rawStr) return 5000;
+      const str = String(rawStr).trim();
+      if (str.includes(',')) {
+        const clean = str.replace(/\./g, '').replace(',', '.').replace(/[^\d.]/g, '');
+        return parseFloat(clean) || 5000;
+      }
+      const digits = str.replace(/[^\d]/g, '');
+      return parseFloat(digits) || 5000;
+    }
+
+    // 11. URL Params & Customizer Drawer Logic
+    // Decodifica hash comprimido ou parâmetros padrão
+    function loadUrlParams() {
+      let params = new URLSearchParams(window.location.search);
+      
+      // Suporte a link encurtado via Hash (ex: #/Empresa?t=id_visual&v=9500...)
+      if (window.location.hash && window.location.hash.includes('?')) {
+        const hashQuery = window.location.hash.split('?')[1];
+        params = new URLSearchParams(hashQuery);
+      }
+
+      const tipoParam = params.get('t') || params.get('tipo');
+      if (tipoParam && PROJECT_TEMPLATES[tipoParam]) {
+        proposalData.type = tipoParam;
+      }
+      if (params.get('c') || params.get('cliente')) proposalData.client = params.get('c') || params.get('cliente');
+      if (params.get('e') || params.get('empresa')) proposalData.company = params.get('e') || params.get('empresa');
+      if (params.get('d') || params.get('data')) proposalData.date = params.get('d') || params.get('data');
+      if (params.get('v') || params.get('valor')) proposalData.price = params.get('v') || params.get('valor');
+      if (params.get('desc') || params.get('desconto')) proposalData.discount = params.get('desc') || params.get('desconto');
+      if (params.get('p') || params.get('parcelas')) proposalData.installments = parseInt(params.get('p') || params.get('parcelas'), 10) || 2;
+      if (params.get('w') || params.get('wa')) proposalData.whatsapp = params.get('w') || params.get('wa');
+
+      // Se for link compartilhado para o cliente (ou seja, tem parâmetros e NÃO tem ?edit=1 ou admin=1),
+      // oculta o botão de "Personalizar" para o cliente não ver/mexer!
+      const isClientView = (params.has('c') || params.has('cliente') || params.has('v') || params.has('valor'));
+      if (isClientView) {
+        const btnEdit = document.getElementById('btnPersonalizarNav');
+        if (btnEdit) btnEdit.remove();
+        const drawer = document.getElementById('editDrawer');
+        if (drawer) drawer.remove();
+        const backdrop = document.getElementById('drawerBackdrop');
+        if (backdrop) backdrop.remove();
+      }
+
+      renderProjectTypeTemplate(proposalData.type);
+      updateDOM();
+    }
+
+    function updateDOM() {
+      if (document.getElementById('coverClient')) document.getElementById('coverClient').textContent = proposalData.client;
+      if (document.getElementById('coverCompany')) document.getElementById('coverCompany').textContent = proposalData.company;
+      if (document.getElementById('coverDate')) document.getElementById('coverDate').textContent = proposalData.date;
+      if (document.getElementById('heroDateBadge')) document.getElementById('heroDateBadge').textContent = proposalData.date;
+      if (document.getElementById('introClientName')) document.getElementById('introClientName').textContent = proposalData.client;
+      
+      const realVal = parseCurrencyInput(proposalData.price);
+      const intPart = Math.floor(realVal);
+      const centsPart = Math.round((realVal - intPart) * 100);
+
+      document.getElementById('displayPriceValue').textContent = intPart.toLocaleString('pt-BR');
+      document.getElementById('displayPriceCents').textContent = `,${String(centsPart).padStart(2, '0')}`;
+
+      const discAmount = parseCurrencyInput(proposalData.discount || "250,00");
+      const discountVal = Math.max(0, realVal - discAmount);
+      document.getElementById('optionDiscountPrice').textContent = `R$ ${discountVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+      const discDetailEl = document.getElementById('optionDiscountDetail');
+      if (discDetailEl) {
+        discDetailEl.textContent = `Com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto imediato.`;
+      }
+
+      const numInst = Math.max(1, parseInt(proposalData.installments, 10) || 2);
+      const entryVal = realVal * 0.5;
+      const installmentVal = (realVal * 0.5) / numInst;
+      
+      const instPriceEl = document.getElementById('optionInstallmentPrice');
+      if (instPriceEl) {
+        instPriceEl.textContent = `50% + até ${numInst}x sem juros`;
+      }
+
+      const detailEl = document.getElementById('optionInstallmentDetail');
+      if (detailEl) {
+        detailEl.textContent = `Entrada de R$ ${entryVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} + ${numInst}x de R$ ${installmentVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.`;
+      }
+
+      const leadSummaryEl = document.getElementById('investmentLeadSummary');
+      if (leadSummaryEl) {
+        leadSummaryEl.textContent = `À vista com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto, ou 50% de entrada + até ${numInst}x sem juros.`;
+      }
+
+      // Update card click handlers with dynamic labels
+      const payCard1 = document.getElementById('payCard1');
+      if (payCard1) {
+        payCard1.setAttribute('onclick', `selectPaymentOption('À Vista (com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto)')`);
+      }
+      const payCard2 = document.getElementById('payCard2');
+      if (payCard2) {
+        payCard2.setAttribute('onclick', `selectPaymentOption('Parcelado (50% de entrada + até ${numInst}x sem juros)')`);
+      }
+
+      document.getElementById('inputClient').value = proposalData.client;
+      document.getElementById('inputCompany').value = proposalData.company;
+      document.getElementById('inputDate').value = proposalData.date;
+      document.getElementById('inputPrice').value = realVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      if (document.getElementById('inputDiscount')) {
+        document.getElementById('inputDiscount').value = discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+      if (document.getElementById('inputInstallments')) {
+        document.getElementById('inputInstallments').value = numInst;
+      }
+      document.getElementById('inputWhatsapp').value = proposalData.whatsapp;
+    }
+
+    function toggleEditDrawer() {
+      const drawer = document.getElementById('editDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const isClosed = drawer.classList.contains('translate-x-full');
+      if (isClosed) {
+        drawer.classList.remove('translate-x-full');
+        backdrop.classList.remove('hidden');
+      } else {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+      }
+    }
+
+    function slugify(text) {
+      return text.toString().toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
+    function saveAndApplyChanges() {
+      proposalData.client = document.getElementById('inputClient').value.trim() || "Cliente";
+      proposalData.company = document.getElementById('inputCompany').value.trim() || "Empresa";
+      proposalData.date = document.getElementById('inputDate').value.trim() || proposalData.date;
+      proposalData.price = document.getElementById('inputPrice').value.trim() || "5.000,00";
+      proposalData.discount = document.getElementById('inputDiscount') ? document.getElementById('inputDiscount').value.trim() || "250,00" : "250,00";
+      proposalData.installments = document.getElementById('inputInstallments') ? parseInt(document.getElementById('inputInstallments').value, 10) || 2 : 2;
+      proposalData.whatsapp = document.getElementById('inputWhatsapp').value.replace(/\D/g, '') || "553196117847";
+
+      renderProjectTypeTemplate(proposalData.type);
+      updateDOM();
+
+      // Gerar parâmetros curtos e elegantes
+      const params = new URLSearchParams();
+      params.set('t', proposalData.type);
+      params.set('c', proposalData.client);
+      params.set('e', proposalData.company);
+      params.set('d', proposalData.date);
+      params.set('v', proposalData.price);
+      params.set('desc', proposalData.discount);
+      params.set('p', proposalData.installments);
+      params.set('w', proposalData.whatsapp);
+
+      // Slug personalizado com o nome da empresa ou cliente
+      const companySlug = slugify(proposalData.company || proposalData.client || 'proposta');
+      
+      // Link limpo pronto para enviar ao cliente (SEM opção de editar)
+      const clientShareUrl = `${window.location.origin}${window.location.pathname}#/${companySlug}?${params.toString()}`;
+      window.history.replaceState({}, '', clientShareUrl);
+
+      // Copia para área de transferência
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(clientShareUrl);
+      } else {
+        const tempInput = document.createElement('input');
+        tempInput.value = clientShareUrl;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+      }
+
+      // Fecha o drawer de edição automaticamente após aplicar
+      toggleEditDrawer();
+
+      const badge = document.getElementById('copySuccessBadge');
+      if (badge) {
+        badge.innerHTML = `✓ Link exclusivo para <strong>${proposalData.company}</strong> copiado com sucesso!<br><span class="text-[10px] text-emerald-400">Pronto para enviar ao cliente (sem botão de edição).</span>`;
+        badge.classList.remove('hidden');
+        setTimeout(() => badge.classList.add('hidden'), 5000);
+      }
+    }
+
+    function approveProjectWhatsapp() {
+      const tpl = PROJECT_TEMPLATES[proposalData.type] || PROJECT_TEMPLATES.id_visual;
+      const msg = encodeURIComponent(
+        `Olá John! Sou o ${proposalData.client} da ${proposalData.company}. Aprovei a proposta de investimento de ${tpl.label} (${proposalData.selectedPayment}) e quero dar o próximo passo!`
+      );
+      window.open(`https://wa.me/${proposalData.whatsapp}?text=${msg}`, '_blank');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadUrlParams();
+      initMagneticButtons();
+      initCylinderCarousel();
+      initGsapAnimations();
+    });
+  </script>
+</body>
+</html>
