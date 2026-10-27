@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /editor/
+Disallow: /proposta/
+Disallow: /diagnostico/
 
 Sitemap: https://palazstrategy.vercel.app/sitemap.xml

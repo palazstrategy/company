@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/editor/'],
+      disallow: ['/api/', '/editor/', '/proposta/', '/diagnostico/'],
     },
     sitemap: 'https://palazstrategy.vercel.app/sitemap.xml',
   };
