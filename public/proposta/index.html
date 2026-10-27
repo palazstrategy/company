@@ -2378,10 +2378,13 @@
     function loadUrlParams() {
       let params = new URLSearchParams(window.location.search);
       
-      // Suporte a link encurtado via Hash (ex: #/Empresa?t=id_visual&v=9500...)
-      if (window.location.hash && window.location.hash.includes('?')) {
+      // Fallback para suportar links antigos com hash (#/empresa?...)
+      if ((!params.has('v') && !params.has('valor')) && window.location.hash && window.location.hash.includes('?')) {
         const hashQuery = window.location.hash.split('?')[1];
         params = new URLSearchParams(hashQuery);
+        // Migra automaticamente a URL da barra de endereços para manter os parâmetros sempre preservados
+        const cleanUrl = `${window.location.origin}${window.location.pathname}?${hashQuery}`;
+        window.history.replaceState({}, '', cleanUrl);
       }
 
       const tipoParam = params.get('t') || params.get('tipo');
@@ -2396,10 +2399,10 @@
       if (params.get('p') || params.get('parcelas')) proposalData.installments = parseInt(params.get('p') || params.get('parcelas'), 10) || 2;
       if (params.get('w') || params.get('wa')) proposalData.whatsapp = params.get('w') || params.get('wa');
 
-      // Se for link compartilhado para o cliente (ou seja, tem parâmetros e NÃO tem ?edit=1 ou admin=1),
-      // oculta o botão de "Personalizar" para o cliente não ver/mexer!
-      const isClientView = (params.has('c') || params.has('cliente') || params.has('v') || params.has('valor'));
+      // Se for link compartilhado para o cliente, trava permanentemente a interface
+      const isClientView = (params.has('c') || params.has('cliente') || params.has('v') || params.has('valor') || params.has('c_slug'));
       if (isClientView) {
+        window.__IS_CLIENT_VIEW__ = true;
         const btnEdit = document.getElementById('btnPersonalizarNav');
         if (btnEdit) btnEdit.remove();
         const drawer = document.getElementById('editDrawer');
@@ -2524,7 +2527,7 @@
       const companySlug = slugify(proposalData.company || proposalData.client || 'proposta');
       
       // Link limpo pronto para enviar ao cliente (SEM opção de editar)
-      const clientShareUrl = `${window.location.origin}${window.location.pathname}#/${companySlug}?${params.toString()}`;
+      const clientShareUrl = `${window.location.origin}${window.location.pathname}?c_slug=${companySlug}&${params.toString()}`;
       window.history.replaceState({}, '', clientShareUrl);
 
       // Copia para área de transferência
@@ -2558,6 +2561,20 @@
       window.open(`https://wa.me/${proposalData.whatsapp}?text=${msg}`, '_blank');
     }
 
+    
+    // Navegação interna por âncoras sem resetar a query string da URL
+    document.addEventListener('click', (e) => {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      const targetId = anchor.getAttribute('href');
+      if (targetId === '#') return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  
     window.addEventListener('DOMContentLoaded', () => {
       loadUrlParams();
       initMagneticButtons();
