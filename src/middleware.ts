@@ -21,6 +21,22 @@ export default function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // 301 Permanent Redirects for legacy/duplicate alias routes to canonical routes
+  const redirectsMap: Record<string, string> = {
+    '/about': '/sobre',
+    '/en/about': '/en/sobre',
+    '/contact': '/contato',
+    '/en/contact': '/en/contato',
+    '/privacy': '/politica-de-privacidade',
+    '/en/privacy': '/en/politica-de-privacidade',
+  };
+
+  if (redirectsMap[pathname]) {
+    const url = request.nextUrl.clone();
+    url.pathname = redirectsMap[pathname];
+    return NextResponse.redirect(url, 301);
+  }
+
   const acceptHeader = request.headers.get('accept') || '';
   const wantsMarkdown = acceptHeader.toLowerCase().includes('text/markdown');
 

@@ -6,18 +6,13 @@ const BASE_URL = 'https://palazstrategy.vercel.app';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projects = await getProjects();
   
-  // Rotas estáticas
+  // Rotas estáticas canônicas (exclusivamente páginas HTML indexáveis)
   const staticPaths = [
     '',
     '/cases',
     '/sobre',
-    '/about',
     '/contato',
-    '/contact',
-    '/politica-de-privacidade',
-    '/privacy',
-    '/llms.txt',
-    '/openapi.json'
+    '/politica-de-privacidade'
   ];
   
   const staticRoutes: MetadataRoute.Sitemap = staticPaths.map(route => ({

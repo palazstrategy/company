@@ -6,8 +6,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: "Sobre" })
 
+  const title = locale === 'pt' 
+    ? `${t("hero.subtitle1")} ${t("hero.subtitle2")} | Palaz`
+    : `About Palaz Strategy Company | Palaz Design Studio`;
+
   return {
-    title: `${t("hero.subtitle1")} ${t("hero.subtitle2")} | Palaz`,
+    title,
     description: t("hero.description_main"),
     alternates: {
       canonical: locale === 'pt' ? `/sobre` : `/${locale}/sobre`,

@@ -35,8 +35,6 @@ export function generateSitemapXml() {
     { path: '/sobre', priority: '0.8', changefreq: 'monthly' },
     { path: '/contato', priority: '0.8', changefreq: 'monthly' },
     { path: '/politica-de-privacidade', priority: '0.3', changefreq: 'yearly' },
-    { path: '/llms.txt', priority: '0.5', changefreq: 'monthly' },
-    { path: '/openapi.json', priority: '0.5', changefreq: 'monthly' },
   ];
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>

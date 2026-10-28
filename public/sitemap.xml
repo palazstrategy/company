@@ -4,7 +4,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://palazstrategy.vercel.app</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app" />
@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://palazstrategy.vercel.app/cases</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases" />
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://palazstrategy.vercel.app/sobre</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/sobre" />
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://palazstrategy.vercel.app/contato</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/contato" />
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://palazstrategy.vercel.app/politica-de-privacidade</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/politica-de-privacidade" />
@@ -56,26 +56,8 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/politica-de-privacidade" />
   </url>
   <url>
-    <loc>https://palazstrategy.vercel.app/llms.txt</loc>
-    <lastmod>2026-10-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/llms.txt" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/llms.txt" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/llms.txt" />
-  </url>
-  <url>
-    <loc>https://palazstrategy.vercel.app/openapi.json</loc>
-    <lastmod>2026-10-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/openapi.json" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://palazstrategy.vercel.app/en/openapi.json" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://palazstrategy.vercel.app/openapi.json" />
-  </url>
-  <url>
     <loc>https://palazstrategy.vercel.app/cases/ncglass-vidracaria</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases/ncglass-vidracaria" />
@@ -174,7 +156,7 @@
   </url>
   <url>
     <loc>https://palazstrategy.vercel.app/cases/fatuz</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases/fatuz" />
@@ -298,7 +280,7 @@
   </url>
   <url>
     <loc>https://palazstrategy.vercel.app/cases/sland-inteligencia-produtiva</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases/sland-inteligencia-produtiva" />
@@ -452,7 +434,7 @@
   </url>
   <url>
     <loc>https://palazstrategy.vercel.app/cases/aira-essence</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases/aira-essence" />
@@ -601,7 +583,7 @@
   </url>
   <url>
     <loc>https://palazstrategy.vercel.app/cases/acougue-almeida</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://palazstrategy.vercel.app/cases/acougue-almeida" />
