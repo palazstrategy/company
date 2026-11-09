@@ -1203,30 +1203,30 @@
             </div>
 
             <p id="investmentLeadSummary" class="text-zinc-300 text-sm sm:text-base md:text-lg font-medium mb-6 sm:mb-8 leading-relaxed">
-              À vista com R$ 250,00 de desconto, ou 50% de entrada + até 2x sem juros.
+              À vista com desconto imediato ou sinal obrigatório de 30% + até 3 parcelas sem juros via PIX ou cartão de crédito.
             </p>
 
             <!-- Interactive Payment Selector -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
               
               <!-- Option 01 -->
-              <div onclick="selectPaymentOption('À Vista (com R$ 250,00 de desconto)')" id="payCard1" class="cursor-pointer p-4 sm:p-6 border-2 border-brand-orange bg-brand-orange/[0.08] transition-all">
+              <div onclick="selectPaymentOption('À Vista')" id="payCard1" class="cursor-pointer p-4 sm:p-6 border-2 border-brand-orange bg-brand-orange/[0.08] transition-all">
                 <div class="flex items-center justify-between mb-2 sm:mb-3">
                   <span class="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-brand-orange font-semibold">Opção 01 • À Vista</span>
                   <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
                 </div>
-                <div id="optionDiscountPrice" class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-1">R$ 4.750,00</div>
-                <p id="optionDiscountDetail" class="text-[11px] sm:text-xs text-zinc-300">Com R$ 250,00 de desconto imediato.</p>
+                <div id="optionDiscountPrice" class="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-1">R$ 5.000,00</div>
+                <p id="optionDiscountDetail" class="text-[11px] sm:text-xs text-zinc-300">Pagamento integral à vista no fechamento.</p>
               </div>
 
               <!-- Option 02 -->
-              <div onclick="selectPaymentOption('Parcelado (50% de entrada + até 2x sem juros)')" id="payCard2" class="cursor-pointer p-4 sm:p-6 border border-white/[0.1] bg-white/[0.02] hover:border-white/25 transition-all">
+              <div onclick="selectPaymentOption('Parcelado (Sinal de 30% + 3x sem juros)')" id="payCard2" class="cursor-pointer p-4 sm:p-6 border border-white/[0.1] bg-white/[0.02] hover:border-white/25 transition-all">
                 <div class="flex items-center justify-between mb-2 sm:mb-3">
                   <span class="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-zinc-400">Opção 02 • Parcelado</span>
                   <span class="w-2 h-2 rounded-full bg-white/20"></span>
                 </div>
-                <div id="optionInstallmentPrice" class="text-lg sm:text-xl md:text-2xl font-display font-bold text-white mb-1">50% + até 2x sem juros</div>
-                <p id="optionInstallmentDetail" class="text-[11px] sm:text-xs text-zinc-400">Entrada de R$ 2.500,00 + 2x de R$ 1.250,00.</p>
+                <div id="optionInstallmentPrice" class="text-lg sm:text-xl md:text-2xl font-display font-bold text-white mb-1">Sinal 30% + até 3x sem juros</div>
+                <p id="optionInstallmentDetail" class="text-[11px] sm:text-xs text-zinc-400">Sinal de R$ 1.500,00 + 3x de R$ 1.166,67 via PIX ou cartão de crédito parcelado.</p>
               </div>
 
             </div>
@@ -1518,12 +1518,17 @@
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Desconto À Vista (R$)</label>
-            <input type="text" id="inputDiscount" placeholder="Ex: 250,00" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+            <input type="text" id="inputDiscount" placeholder="Ex: 0,00 ou 250,00" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
           </div>
           <div>
-            <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Parcelas (s/ juros)</label>
-            <input type="number" id="inputInstallments" min="1" max="12" placeholder="Ex: 2" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+            <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Parcelas s/ Juros (além do sinal)</label>
+            <input type="number" id="inputInstallments" min="1" max="12" placeholder="Ex: 3" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
           </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Prazo de Entrega Estimado</label>
+          <input type="text" id="inputTimeline" placeholder="Ex: 25 Dias Úteis, 1 Mês, até 3 Meses..." class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
         </div>
 
         <div>
@@ -1886,7 +1891,7 @@
           { q: "Qual a vantagem de fechar o pacote completo em vez de projetos separados?", a: "Além da economia financeira no investimento unificado, você garante que sua Identidade Visual, seu Instagram e seu Site sejam criados sob a mesma direção criativa, sem perda de tempo entre diferentes fornecedores." },
           { q: "Preciso esperar tudo ficar pronto para começar a usar a nova marca?", a: "Não! As entregas acontecem em ondas: assim que a Identidade Visual é aprovada na Fase 02, você já recebe os arquivos da marca enquanto avançamos no Social Media e no Site." },
           { q: "Como funcionam as aprovações em cada etapa?", a: "Nada avança no escuro. Validamos juntos a Estratégia, depois a Identidade Visual, em seguida os conteúdos de Social Media e o layout do Site, com direito a até três rodadas de ajustes por frente." },
-          { q: "As condições de parcelamento também valem para o escopo completo?", a: "Sim! Você pode aproveitar o desconto à vista ou parcelar com entrada de 50% + parcelas sem juros conforme detalhado na seção de investimento." }
+          { q: "As condições de parcelamento também valem para o escopo completo?", a: "Sim! Você pode aproveitar o desconto à vista ou parcelar com sinal de 30% + até 3 parcelas sem juros via PIX ou cartão de crédito parcelado conforme detalhado na seção de investimento." }
         ]
       }
     };
@@ -1898,8 +1903,9 @@
       company: "Vittaréa",
       date: new Date().toLocaleDateString('pt-BR').replace(/\//g, '.'),
       price: "5.000,00",
-      discount: "250,00",
-      installments: 2,
+      discount: "0,00",
+      installments: 3,
+      timeline: "",
       whatsapp: "553196117847",
       selectedPayment: "À Vista"
     };
@@ -2180,20 +2186,25 @@
         `;
       }).join('');
 
-      // 05. Investimento
-      document.getElementById('investmentScopeTag').textContent = tpl.investmentScopeTag;
-      document.getElementById('investmentScopeDesc').textContent = tpl.investmentScopeDesc;
-      document.getElementById('investmentTimelineText').textContent = tpl.timelineText;
-      document.getElementById('investmentChecklist').innerHTML = tpl.investmentChecklist.map(item => `
-        <div class="flex items-center gap-3 text-zinc-200">
-          <i data-lucide="check" class="w-4 h-4 text-brand-orange shrink-0"></i>
-          <span>${item}</span>
-        </div>
-      `).join('');
+    // 05. Investimento
+    document.getElementById('investmentScopeTag').textContent = tpl.investmentScopeTag;
+    document.getElementById('investmentScopeDesc').textContent = tpl.investmentScopeDesc;
+    const finalTimeline = (proposalData.timeline && proposalData.timeline.trim() !== '') ? proposalData.timeline : tpl.timelineText;
+    document.getElementById('investmentTimelineText').textContent = finalTimeline.toLowerCase().startsWith('prazo') ? finalTimeline : `Prazo Total: ${finalTimeline}`;
+    document.getElementById('investmentChecklist').innerHTML = tpl.investmentChecklist.map(item => `
+      <div class="flex items-center gap-3 text-zinc-200">
+        <i data-lucide="check" class="w-4 h-4 text-brand-orange shrink-0"></i>
+        <span>${item}</span>
+      </div>
+    `).join('');
 
-      // 06. Governança & FAQ
+    // 06. Governança & FAQ
+    if (proposalData.timeline && proposalData.timeline.trim() !== '') {
+      document.getElementById('governanceDeadlineText').textContent = `O prazo de execução acordado para o projeto é de ${proposalData.timeline}. Os prazos podem sofrer alterações caso haja atraso no envio de informações ou aprovações solicitadas durante as fases do projeto.`;
+    } else {
       document.getElementById('governanceDeadlineText').textContent = tpl.governanceDeadline;
-      document.getElementById('governanceDevText').textContent = tpl.governanceDev;
+    }
+    document.getElementById('governanceDevText').textContent = tpl.governanceDev;
 
       const faqContainer = document.getElementById('faqListContainer');
       faqContainer.innerHTML = tpl.faqs.map(f => `
@@ -2376,16 +2387,18 @@
       }
     }
 
-    // 10. Conversor Seguro de Moeda (Suporta "5000", "5.000", "5.000,00")
-    function parseCurrencyInput(rawStr) {
-      if (!rawStr) return 5000;
+    // 10. Conversor Seguro de Moeda (Suporta "0", "0,00", "5000", "5.000", "5.000,00")
+    function parseCurrencyInput(rawStr, defaultValue = 0) {
+      if (rawStr === undefined || rawStr === null || String(rawStr).trim() === '') return defaultValue;
       const str = String(rawStr).trim();
       if (str.includes(',')) {
         const clean = str.replace(/\./g, '').replace(',', '.').replace(/[^\d.]/g, '');
-        return parseFloat(clean) || 5000;
+        const val = parseFloat(clean);
+        return isNaN(val) ? defaultValue : val;
       }
-      const digits = str.replace(/[^\d]/g, '');
-      return parseFloat(digits) || 5000;
+      const digits = str.replace(/[^\d.]/g, '');
+      const val = parseFloat(digits);
+      return isNaN(val) ? defaultValue : val;
     }
 
     // 11. URL Params & Customizer Drawer Logic
@@ -2410,8 +2423,13 @@
       if (params.get('e') || params.get('empresa')) proposalData.company = params.get('e') || params.get('empresa');
       if (params.get('d') || params.get('data')) proposalData.date = params.get('d') || params.get('data');
       if (params.get('v') || params.get('valor')) proposalData.price = params.get('v') || params.get('valor');
-      if (params.get('desc') || params.get('desconto')) proposalData.discount = params.get('desc') || params.get('desconto');
-      if (params.get('p') || params.get('parcelas')) proposalData.installments = parseInt(params.get('p') || params.get('parcelas'), 10) || 2;
+      if (params.get('desc') !== null) {
+        proposalData.discount = params.get('desc');
+      } else if (params.get('desconto') !== null) {
+        proposalData.discount = params.get('desconto');
+      }
+      if (params.get('p') || params.get('parcelas')) proposalData.installments = parseInt(params.get('p') || params.get('parcelas'), 10) || 3;
+      if (params.get('timeline') || params.get('prazo')) proposalData.timeline = params.get('timeline') || params.get('prazo');
       if (params.get('w') || params.get('wa')) proposalData.whatsapp = params.get('w') || params.get('wa');
 
       // Se for link compartilhado para o cliente, trava permanentemente a interface
@@ -2444,42 +2462,51 @@
       document.getElementById('displayPriceValue').textContent = intPart.toLocaleString('pt-BR');
       document.getElementById('displayPriceCents').textContent = `,${String(centsPart).padStart(2, '0')}`;
 
-      const discAmount = parseCurrencyInput(proposalData.discount || "250,00");
+      const discAmount = parseCurrencyInput(proposalData.discount !== undefined ? proposalData.discount : "0,00", 0);
       const discountVal = Math.max(0, realVal - discAmount);
       document.getElementById('optionDiscountPrice').textContent = `R$ ${discountVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
       const discDetailEl = document.getElementById('optionDiscountDetail');
       if (discDetailEl) {
-        discDetailEl.textContent = `Com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto imediato.`;
+        if (discAmount > 0) {
+          discDetailEl.textContent = `Com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto imediato.`;
+        } else {
+          discDetailEl.textContent = `Pagamento integral do valor acordado no fechamento.`;
+        }
       }
 
-      const numInst = Math.max(1, parseInt(proposalData.installments, 10) || 2);
-      const entryVal = realVal * 0.5;
-      const installmentVal = (realVal * 0.5) / numInst;
+      const numInst = Math.max(1, parseInt(proposalData.installments, 10) || 3);
+      const entryVal = realVal * 0.30;
+      const installmentVal = (realVal * 0.70) / numInst;
       
       const instPriceEl = document.getElementById('optionInstallmentPrice');
       if (instPriceEl) {
-        instPriceEl.textContent = `50% + até ${numInst}x sem juros`;
+        instPriceEl.textContent = `Sinal 30% + até ${numInst}x sem juros`;
       }
 
       const detailEl = document.getElementById('optionInstallmentDetail');
       if (detailEl) {
-        detailEl.textContent = `Entrada de R$ ${entryVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} + ${numInst}x de R$ ${installmentVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}.`;
+        detailEl.textContent = `Sinal de R$ ${entryVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} + ${numInst}x de R$ ${installmentVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} via PIX ou cartão de crédito parcelado.`;
       }
 
       const leadSummaryEl = document.getElementById('investmentLeadSummary');
       if (leadSummaryEl) {
-        leadSummaryEl.textContent = `À vista com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto, ou 50% de entrada + até ${numInst}x sem juros.`;
+        if (discAmount > 0) {
+          leadSummaryEl.textContent = `À vista com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto imediato, ou sinal de 30% + até ${numInst}x sem juros via PIX ou cartão de crédito parcelado.`;
+        } else {
+          leadSummaryEl.textContent = `À vista no valor integral, ou sinal obrigatório de 30% + até ${numInst}x sem juros via PIX ou cartão de crédito parcelado.`;
+        }
       }
 
       // Update card click handlers with dynamic labels
       const payCard1 = document.getElementById('payCard1');
       if (payCard1) {
-        payCard1.setAttribute('onclick', `selectPaymentOption('À Vista (com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto)')`);
+        const discText = discAmount > 0 ? ` (com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto)` : ` (Valor Integral R$ ${discountVal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })})`;
+        payCard1.setAttribute('onclick', `selectPaymentOption('À Vista${discText}')`);
       }
       const payCard2 = document.getElementById('payCard2');
       if (payCard2) {
-        payCard2.setAttribute('onclick', `selectPaymentOption('Parcelado (50% de entrada + até ${numInst}x sem juros)')`);
+        payCard2.setAttribute('onclick', `selectPaymentOption('Parcelado (Sinal de 30% + ${numInst}x sem juros)')`);
       }
 
       document.getElementById('inputClient').value = proposalData.client;
@@ -2487,10 +2514,13 @@
       document.getElementById('inputDate').value = proposalData.date;
       document.getElementById('inputPrice').value = realVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       if (document.getElementById('inputDiscount')) {
-        document.getElementById('inputDiscount').value = discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        document.getElementById('inputDiscount').value = discAmount > 0 ? discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "0,00";
       }
       if (document.getElementById('inputInstallments')) {
         document.getElementById('inputInstallments').value = numInst;
+      }
+      if (document.getElementById('inputTimeline')) {
+        document.getElementById('inputTimeline').value = proposalData.timeline || "";
       }
       document.getElementById('inputWhatsapp').value = proposalData.whatsapp;
     }
@@ -2520,8 +2550,10 @@
       proposalData.company = document.getElementById('inputCompany').value.trim() || "Empresa";
       proposalData.date = document.getElementById('inputDate').value.trim() || proposalData.date;
       proposalData.price = document.getElementById('inputPrice').value.trim() || "5.000,00";
-      proposalData.discount = document.getElementById('inputDiscount') ? document.getElementById('inputDiscount').value.trim() || "250,00" : "250,00";
-      proposalData.installments = document.getElementById('inputInstallments') ? parseInt(document.getElementById('inputInstallments').value, 10) || 2 : 2;
+      proposalData.discount = document.getElementById('inputDiscount') ? document.getElementById('inputDiscount').value.trim() : "0,00";
+      if (proposalData.discount === "") proposalData.discount = "0,00";
+      proposalData.installments = document.getElementById('inputInstallments') ? parseInt(document.getElementById('inputInstallments').value, 10) || 3 : 3;
+      proposalData.timeline = document.getElementById('inputTimeline') ? document.getElementById('inputTimeline').value.trim() : "";
       proposalData.whatsapp = document.getElementById('inputWhatsapp').value.replace(/\D/g, '') || "553196117847";
 
       renderProjectTypeTemplate(proposalData.type);
@@ -2536,6 +2568,9 @@
       params.set('v', proposalData.price);
       params.set('desc', proposalData.discount);
       params.set('p', proposalData.installments);
+      if (proposalData.timeline) {
+        params.set('prazo', proposalData.timeline);
+      }
       params.set('w', proposalData.whatsapp);
 
       // Slug personalizado com o nome da empresa ou cliente
