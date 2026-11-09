@@ -2081,8 +2081,13 @@
       `).join('');
 
       // 02. Processo & Cronograma
-      document.getElementById('processDurationBadge').textContent = tpl.durationBadge;
-      document.getElementById('processSideDesc').textContent = tpl.processSideDesc;
+      const customTimelineFormatted = (proposalData.timeline && proposalData.timeline.trim() !== '') ? formatTimelineText(proposalData.timeline) : null;
+      document.getElementById('processDurationBadge').textContent = customTimelineFormatted || tpl.durationBadge;
+      if (customTimelineFormatted) {
+        document.getElementById('processSideDesc').textContent = `Um cronograma estruturado de ${customTimelineFormatted} com entregas semanais claras, garantindo rigor estratégico do diagnóstico à entrega master.`;
+      } else {
+        document.getElementById('processSideDesc').textContent = tpl.processSideDesc;
+      }
 
       // Render Minimalist Stepper Navigation (1 a 5 na lateral, apenas barra)
       const navContainer = document.getElementById('processNavList');
@@ -2189,7 +2194,7 @@
     // 05. Investimento
     document.getElementById('investmentScopeTag').textContent = tpl.investmentScopeTag;
     document.getElementById('investmentScopeDesc').textContent = tpl.investmentScopeDesc;
-    const finalTimeline = (proposalData.timeline && proposalData.timeline.trim() !== '') ? proposalData.timeline : tpl.timelineText;
+    const finalTimeline = customTimelineFormatted || tpl.timelineText;
     document.getElementById('investmentTimelineText').textContent = finalTimeline.toLowerCase().startsWith('prazo') ? finalTimeline : `Prazo Total: ${finalTimeline}`;
     document.getElementById('investmentChecklist').innerHTML = tpl.investmentChecklist.map(item => `
       <div class="flex items-center gap-3 text-zinc-200">
@@ -2199,8 +2204,8 @@
     `).join('');
 
     // 06. Governança & FAQ
-    if (proposalData.timeline && proposalData.timeline.trim() !== '') {
-      document.getElementById('governanceDeadlineText').textContent = `O prazo de execução acordado para o projeto é de ${proposalData.timeline}. Os prazos podem sofrer alterações caso haja atraso no envio de informações ou aprovações solicitadas durante as fases do projeto.`;
+    if (customTimelineFormatted) {
+      document.getElementById('governanceDeadlineText').textContent = `O prazo de entrega acordado para o projeto é de ${customTimelineFormatted}. Os prazos podem sofrer alterações caso haja atraso no envio de informações ou aprovações solicitadas durante as fases do projeto.`;
     } else {
       document.getElementById('governanceDeadlineText').textContent = tpl.governanceDeadline;
     }
@@ -2387,7 +2392,40 @@
       }
     }
 
-    // 10. Conversor Seguro de Moeda (Suporta "0", "0,00", "5000", "5.000", "5.000,00")
+    // 10. Formatador Inteligente de Prazo (Menos de 30 dias = Dias Úteis | 30 dias ou mais = Mês/Meses)
+    function formatTimelineText(rawInput, fallbackText = "25 Dias Úteis") {
+      if (!rawInput || !String(rawInput).trim()) return fallbackText;
+      const str = String(rawInput).trim();
+      const lower = str.toLowerCase();
+      
+      const numMatch = lower.match(/\d+/);
+      if (!numMatch) {
+        return str;
+      }
+      const n = parseInt(numMatch[0], 10);
+      
+      if (lower.includes('mês') || lower.includes('mes')) {
+        return n <= 1 ? "1 Mês" : `${n} Meses`;
+      }
+      
+      if (lower.includes('semana')) {
+        const approxDays = n * 5;
+        if (approxDays >= 30) {
+          const months = Math.max(1, Math.round(approxDays / 30));
+          return months <= 1 ? "1 Mês" : `${months} Meses`;
+        }
+        return n <= 1 ? "1 Semana" : `${n} Semanas`;
+      }
+      
+      // Se informou dias (ou apenas número)
+      if (n >= 30) {
+        const months = Math.max(1, Math.round(n / 30));
+        return months <= 1 ? "1 Mês" : `${months} Meses`;
+      }
+      return n === 1 ? "1 Dia Útil" : `${n} Dias Úteis`;
+    }
+
+    // 11. Conversor Seguro de Moeda (Suporta "0", "0,00", "5000", "5.000", "5.000,00")
     function parseCurrencyInput(rawStr, defaultValue = 0) {
       if (rawStr === undefined || rawStr === null || String(rawStr).trim() === '') return defaultValue;
       const str = String(rawStr).trim();
