@@ -1515,14 +1515,18 @@
           <input type="text" id="inputPrice" placeholder="Ex: 5.000,00" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
         </div>
 
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-3 gap-2 sm:gap-3">
           <div>
-            <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Desconto À Vista (R$)</label>
-            <input type="text" id="inputDiscount" placeholder="Ex: 0,00 ou 250,00" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+            <label class="block text-[10px] sm:text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5 truncate" title="Entrada / Sinal (%)">Sinal (%)</label>
+            <input type="number" id="inputEntryPercent" min="0" max="100" placeholder="Ex: 30" class="w-full bg-[#16161C] border border-white/10 px-3 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
           </div>
           <div>
-            <label class="block text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">Parcelas s/ Juros (além do sinal)</label>
-            <input type="number" id="inputInstallments" min="1" max="12" placeholder="Ex: 3" class="w-full bg-[#16161C] border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+            <label class="block text-[10px] sm:text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5 truncate" title="Parcelas sem juros">Parcelas</label>
+            <input type="number" id="inputInstallments" min="1" max="12" placeholder="Ex: 3" class="w-full bg-[#16161C] border border-white/10 px-3 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
+          </div>
+          <div>
+            <label class="block text-[10px] sm:text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5 truncate" title="Desconto à vista (R$)">Desconto (R$)</label>
+            <input type="text" id="inputDiscount" placeholder="Ex: 0,00" class="w-full bg-[#16161C] border border-white/10 px-3 py-3 text-white focus:outline-none focus:border-brand-orange text-sm">
           </div>
         </div>
 
@@ -1904,6 +1908,7 @@
       date: new Date().toLocaleDateString('pt-BR').replace(/\//g, '.'),
       price: "5.000,00",
       discount: "0,00",
+      entryPercent: 30,
       installments: 3,
       timeline: "",
       whatsapp: "553196117847",
@@ -2466,6 +2471,11 @@
       } else if (params.get('desconto') !== null) {
         proposalData.discount = params.get('desconto');
       }
+      if (params.get('sinal') !== null) {
+        proposalData.entryPercent = parseFloat(params.get('sinal')) || 30;
+      } else if (params.get('entrada') !== null) {
+        proposalData.entryPercent = parseFloat(params.get('entrada')) || 30;
+      }
       if (params.get('p') || params.get('parcelas')) proposalData.installments = parseInt(params.get('p') || params.get('parcelas'), 10) || 3;
       if (params.get('timeline') || params.get('prazo')) proposalData.timeline = params.get('timeline') || params.get('prazo');
       if (params.get('w') || params.get('wa')) proposalData.whatsapp = params.get('w') || params.get('wa');
@@ -2514,25 +2524,39 @@
       }
 
       const numInst = Math.max(1, parseInt(proposalData.installments, 10) || 3);
-      const entryVal = realVal * 0.30;
-      const installmentVal = (realVal * 0.70) / numInst;
+      const rawPct = (proposalData.entryPercent !== undefined && proposalData.entryPercent !== null && proposalData.entryPercent !== "") ? parseFloat(proposalData.entryPercent) : 30;
+      const entryPct = isNaN(rawPct) ? 30 : Math.max(0, Math.min(100, rawPct));
       
+      const entryVal = realVal * (entryPct / 100);
+      const remainingVal = Math.max(0, realVal - entryVal);
+      const installmentVal = remainingVal / numInst;
+      
+      const entryLabel = entryPct > 0 ? `Sinal ${entryPct}%` : `Sem Sinal`;
       const instPriceEl = document.getElementById('optionInstallmentPrice');
       if (instPriceEl) {
-        instPriceEl.textContent = `Sinal 30% + até ${numInst}x sem juros`;
+        if (entryPct > 0) {
+          instPriceEl.textContent = `${entryLabel} + até ${numInst}x sem juros`;
+        } else {
+          instPriceEl.textContent = `Até ${numInst}x sem juros (sem entrada)`;
+        }
       }
 
       const detailEl = document.getElementById('optionInstallmentDetail');
       if (detailEl) {
-        detailEl.textContent = `Sinal de R$ ${entryVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} + ${numInst}x de R$ ${installmentVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} via PIX ou cartão de crédito parcelado.`;
+        if (entryPct > 0) {
+          detailEl.textContent = `Sinal de R$ ${entryVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} + ${numInst}x de R$ ${installmentVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} via PIX ou cartão de crédito parcelado.`;
+        } else {
+          detailEl.textContent = `${numInst}x de R$ ${installmentVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} sem entrada via PIX ou cartão de crédito parcelado.`;
+        }
       }
 
       const leadSummaryEl = document.getElementById('investmentLeadSummary');
       if (leadSummaryEl) {
+        const entryConditionText = entryPct > 0 ? `sinal de ${entryPct}% + até ${numInst}x sem juros` : `em até ${numInst}x sem juros (sem entrada)`;
         if (discAmount > 0) {
-          leadSummaryEl.textContent = `À vista com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto imediato, ou sinal de 30% + até ${numInst}x sem juros via PIX ou cartão de crédito parcelado.`;
+          leadSummaryEl.textContent = `À vista com R$ ${discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} de desconto imediato, ou ${entryConditionText} via PIX ou cartão de crédito parcelado.`;
         } else {
-          leadSummaryEl.textContent = `À vista no valor integral, ou sinal obrigatório de 30% + até ${numInst}x sem juros via PIX ou cartão de crédito parcelado.`;
+          leadSummaryEl.textContent = `À vista no valor integral, ou ${entryConditionText} via PIX ou cartão de crédito parcelado.`;
         }
       }
 
@@ -2544,13 +2568,17 @@
       }
       const payCard2 = document.getElementById('payCard2');
       if (payCard2) {
-        payCard2.setAttribute('onclick', `selectPaymentOption('Parcelado (Sinal de 30% + ${numInst}x sem juros)')`);
+        const option2Label = entryPct > 0 ? `Parcelado (Sinal de ${entryPct}% + ${numInst}x sem juros)` : `Parcelado (${numInst}x sem juros sem entrada)`;
+        payCard2.setAttribute('onclick', `selectPaymentOption('${option2Label}')`);
       }
 
       document.getElementById('inputClient').value = proposalData.client;
       document.getElementById('inputCompany').value = proposalData.company;
       document.getElementById('inputDate').value = proposalData.date;
       document.getElementById('inputPrice').value = realVal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      if (document.getElementById('inputEntryPercent')) {
+        document.getElementById('inputEntryPercent').value = entryPct;
+      }
       if (document.getElementById('inputDiscount')) {
         document.getElementById('inputDiscount').value = discAmount > 0 ? discAmount.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "0,00";
       }
@@ -2590,6 +2618,8 @@
       proposalData.price = document.getElementById('inputPrice').value.trim() || "5.000,00";
       proposalData.discount = document.getElementById('inputDiscount') ? document.getElementById('inputDiscount').value.trim() : "0,00";
       if (proposalData.discount === "") proposalData.discount = "0,00";
+      const parsedEntry = document.getElementById('inputEntryPercent') ? parseFloat(document.getElementById('inputEntryPercent').value) : 30;
+      proposalData.entryPercent = isNaN(parsedEntry) ? 30 : Math.max(0, Math.min(100, parsedEntry));
       proposalData.installments = document.getElementById('inputInstallments') ? parseInt(document.getElementById('inputInstallments').value, 10) || 3 : 3;
       proposalData.timeline = document.getElementById('inputTimeline') ? document.getElementById('inputTimeline').value.trim() : "";
       proposalData.whatsapp = document.getElementById('inputWhatsapp').value.replace(/\D/g, '') || "553196117847";
@@ -2605,6 +2635,7 @@
       params.set('d', proposalData.date);
       params.set('v', proposalData.price);
       params.set('desc', proposalData.discount);
+      params.set('sinal', proposalData.entryPercent);
       params.set('p', proposalData.installments);
       if (proposalData.timeline) {
         params.set('prazo', proposalData.timeline);
