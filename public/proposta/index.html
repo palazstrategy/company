@@ -1233,11 +1233,10 @@
           </div>
 
           <div class="space-y-4 sm:space-y-5 pt-5 sm:pt-6 border-t border-white/[0.08]">
-            <button onclick="approveProjectWhatsapp()" class="w-full btn-studio magnetic-btn text-white font-semibold text-sm sm:text-base py-4 sm:py-5 px-6 sm:px-8 rounded-full flex items-center justify-center gap-2.5 sm:gap-3 group">
-              <i data-lucide="message-circle" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+            <a id="btnAprovarWhatsapp" href="https://wa.me/553196117847" target="_blank" rel="noopener noreferrer" onclick="approveProjectWhatsapp(event)" class="w-full btn-studio magnetic-btn text-white font-semibold text-sm sm:text-base py-4 sm:py-5 px-6 sm:px-8 rounded-full flex items-center justify-center gap-2.5 sm:gap-3 group cursor-pointer">
               <span>Aprovar Proposta no WhatsApp</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform"></i>
-            </button>
+            </a>
 
             <p class="text-[11px] sm:text-xs text-zinc-500 leading-relaxed text-center">
               A validade da proposta é de 5 dias úteis. Após esse período, recomendamos consultar nossa equipe novamente, pois valores e disponibilidade de agenda podem sofrer alterações.
@@ -1407,10 +1406,9 @@
               </div>
             </div>
 
-            <button onclick="approveProjectWhatsapp()" class="w-full btn-studio magnetic-btn text-white font-semibold text-sm sm:text-base py-3.5 sm:py-4 px-6 sm:px-8 rounded-full flex items-center justify-center gap-2.5 sm:gap-3">
-              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <a id="btnEnviarDadosWhatsapp" href="https://wa.me/553196117847" target="_blank" rel="noopener noreferrer" onclick="approveProjectWhatsapp(event)" class="w-full btn-studio magnetic-btn text-white font-semibold text-sm sm:text-base py-3.5 sm:py-4 px-6 sm:px-8 rounded-full flex items-center justify-center gap-2.5 sm:gap-3 cursor-pointer">
               <span>Enviar Dados pelo WhatsApp</span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -2380,6 +2378,7 @@
         c2.className = 'cursor-pointer p-6 border-2 border-brand-orange bg-brand-orange/[0.08] transition-all';
         c1.className = 'cursor-pointer p-6 border border-white/[0.1] bg-white/[0.02] hover:border-white/25 transition-all';
       }
+      updateWhatsappButtonsHref();
     }
 
     // 9. Smooth FAQ Accordion
@@ -2589,6 +2588,7 @@
         document.getElementById('inputTimeline').value = proposalData.timeline || "";
       }
       document.getElementById('inputWhatsapp').value = proposalData.whatsapp;
+      updateWhatsappButtonsHref();
     }
 
     function toggleEditDrawer() {
@@ -2672,12 +2672,34 @@
       }
     }
 
-    function approveProjectWhatsapp() {
+    function getWhatsappApprovalUrl() {
       const tpl = PROJECT_TEMPLATES[proposalData.type] || PROJECT_TEMPLATES.id_visual;
+      const num = (proposalData.whatsapp || "553196117847").replace(/\D/g, '') || "553196117847";
       const msg = encodeURIComponent(
         `Olá John! Sou o ${proposalData.client} da ${proposalData.company}. Aprovei a proposta de investimento de ${tpl.label} (${proposalData.selectedPayment}) e quero dar o próximo passo!`
       );
-      window.open(`https://wa.me/${proposalData.whatsapp}?text=${msg}`, '_blank');
+      return `https://wa.me/${num}?text=${msg}`;
+    }
+
+    function updateWhatsappButtonsHref() {
+      const url = getWhatsappApprovalUrl();
+      const btn1 = document.getElementById('btnAprovarWhatsapp');
+      if (btn1) btn1.setAttribute('href', url);
+      const btn2 = document.getElementById('btnEnviarDadosWhatsapp');
+      if (btn2) btn2.setAttribute('href', url);
+    }
+
+    function approveProjectWhatsapp(e) {
+      const url = getWhatsappApprovalUrl();
+      if (e) {
+        // Deixa a navegação nativa do link <a> com target="_blank" ocorrer de forma garantida
+        const anchor = e.currentTarget || (e.target ? e.target.closest('a') : null);
+        if (anchor) {
+          anchor.href = url;
+          return true;
+        }
+      }
+      window.open(url, '_blank');
     }
 
     
