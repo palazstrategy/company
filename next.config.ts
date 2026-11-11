@@ -16,6 +16,25 @@ const nextConfig: NextConfig = {
         { source: '/en/contact', destination: '/en/contato', permanent: true },
         { source: '/privacy', destination: '/politica-de-privacidade', permanent: true },
         { source: '/en/privacy', destination: '/en/politica-de-privacidade', permanent: true },
+        // Redirecionamento de resíduos da antiga página de produto do Fatuz para o case oficial
+        { source: '/produtos/fatuz', destination: '/cases/fatuz', permanent: true },
+        { source: '/en/produtos/fatuz', destination: '/en/cases/fatuz', permanent: true },
+        { source: '/fatuz', destination: '/cases/fatuz', permanent: true },
+        { source: '/en/fatuz', destination: '/en/cases/fatuz', permanent: true },
+      ];
+    },
+    async headers() {
+      return [
+        {
+          // Impede o Googlebot de tentar indexar imagens e fontes como se fossem páginas HTML
+          source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico|woff|woff2|ttf|otf|mp4|webm)',
+          headers: [
+            {
+              key: 'X-Robots-Tag',
+              value: 'noindex',
+            },
+          ],
+        },
       ];
     },
   }),

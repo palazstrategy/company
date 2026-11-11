@@ -29,6 +29,10 @@ export default function middleware(request: NextRequest) {
     '/en/contact': '/en/contato',
     '/privacy': '/politica-de-privacidade',
     '/en/privacy': '/en/politica-de-privacidade',
+    '/produtos/fatuz': '/cases/fatuz',
+    '/en/produtos/fatuz': '/en/cases/fatuz',
+    '/fatuz': '/cases/fatuz',
+    '/en/fatuz': '/en/cases/fatuz',
   };
 
   if (redirectsMap[pathname]) {
